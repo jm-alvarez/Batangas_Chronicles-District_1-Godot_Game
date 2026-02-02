@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://fd50rgqqqlvl"]
+
+[ext_resource type="Texture2D" uid="uid://c0f1n67vn4d0" path="res://Levels/Taal/Taal_Basilica-With_Side-Building.png" id="1_8xt06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inetl"]
+size = Vector2(114, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xt06"]
+size = Vector2(57, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a216k"]
+size = Vector2(76, 20)
+
+[node name="OldTaalChurch" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_8xt06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-10, -11)
+shape = SubResource("RectangleShape2D_inetl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-99.5, 26.5)
+shape = SubResource("RectangleShape2D_8xt06")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(86, 27)
+shape = SubResource("RectangleShape2D_a216k")

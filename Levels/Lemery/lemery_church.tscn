@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp7x3tyr5e682"]
+
+[ext_resource type="Texture2D" uid="uid://bixo8pf464gfu" path="res://Levels/Lemery/Sprites/LemChurch1.png" id="2_hnavi"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bubnc"]
+
+[node name="Lemery_Church" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(571, 105)
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 16
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
+self_modulate = Color(0, 0, 0, 0.74509805)
+position = Vector2(0, 36)
+scale = Vector2(81, 36)
+texture = SubResource("CanvasTexture_bubnc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(22, 39, 22, 39, 22, 41, 40, 41, 40, 21, 40, 11, 30.5, 11, 30.5, -10.5, -30.5, -10.5, -30.5, 11, -40, 11, -40, 21, -40, 41, -23, 41, -23, 39, -7, 39, -7, 38, 7, 38, 7, 39)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("2_hnavi")

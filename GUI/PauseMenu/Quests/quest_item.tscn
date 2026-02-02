@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dimnprx15bko4"]
+
+[ext_resource type="Script" uid="uid://dmxmu1m5h26vv" path="res://GUI/PauseMenu/Quests/quest_item.gd" id="1_btgur"]
+
+[node name="QuestItem" type="Button"]
+custom_minimum_size = Vector2(500, 100)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+script = ExtResource("1_btgur")
+
+[node name="TitleLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_right = -8.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 48
+text = "Quest title"
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="StepLabel" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0.705882)
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -56.0
+offset_right = -12.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "Quest Step : 1 / 5"
+autowrap_mode = 2
+text_overrun_behavior = 3

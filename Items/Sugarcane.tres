@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://c1mrgbyd3jyj1"]
+
+[ext_resource type="Script" uid="uid://cuq2wxcdr3ol6" path="res://Items/ItemEffects/item_effect_heal.gd" id="1_66ri3"]
+[ext_resource type="Script" uid="uid://bo1cubssakxcg" path="res://Items/Script/item_data.gd" id="1_fv2yl"]
+[ext_resource type="Script" uid="uid://cfkjdu5qrigpx" path="res://Items/ItemEffects/item_effect.gd" id="1_i0ksr"]
+[ext_resource type="Texture2D" uid="uid://cn4tefsonx6b3" path="res://Items/Sprite/sugarcane.png" id="2_walcu"]
+
+[sub_resource type="Resource" id="Resource_p3r0a"]
+script = ExtResource("1_66ri3")
+
+[resource]
+script = ExtResource("1_fv2yl")
+name = "Sugarcane"
+description = "Ito ay galing mula sa bayan ng Calatagan"
+texture = ExtResource("2_walcu")
+effects = Array[ExtResource("1_i0ksr")]([SubResource("Resource_p3r0a")])

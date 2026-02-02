@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0g4j7ohjpt61"
+path="res://.godot/imported/Bahay ni aki modern or credits ewan_93050b9e-b34a-4b79-92fd-b0341cef0da7.mp3-7adf9dbbdf28ab24791be75b9808d199.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/BGM/Bahay ni aki modern or credits ewan_93050b9e-b34a-4b79-92fd-b0341cef0da7.mp3"
+dest_files=["res://.godot/imported/Bahay ni aki modern or credits ewan_93050b9e-b34a-4b79-92fd-b0341cef0da7.mp3-7adf9dbbdf28ab24791be75b9808d199.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

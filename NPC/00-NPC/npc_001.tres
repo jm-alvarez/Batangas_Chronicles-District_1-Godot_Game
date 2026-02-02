@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://bm5kxl4uu4v23"]
+
+[ext_resource type="Script" path="res://NPC/Scripts/npc_resource.gd" id="1_bmesn"]
+[ext_resource type="Texture2D" uid="uid://brq5r2qdq5h6s" path="res://NPC/Sprites/Portraits/AkiDialogProfile.png" id="1_tea8t"]
+[ext_resource type="Texture2D" uid="uid://c563h62owpyj8" path="res://NPC/Sprites/walk.png" id="3_tfgeb"]
+
+[resource]
+script = ExtResource("1_bmesn")
+npc_name = "Aki"
+sprite = ExtResource("3_tfgeb")
+portrait = ExtResource("1_tea8t")
+dialog_audio_pitch = 0.96

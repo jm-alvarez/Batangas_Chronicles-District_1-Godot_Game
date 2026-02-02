@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwuc78atqamb5"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_5yfv3"]
+[ext_resource type="Texture2D" uid="uid://c76m7l1cdakjf" path="res://Items/Sprite/Fish.png" id="2_qphy7"]
+[ext_resource type="FontFile" uid="uid://bqa2mf60v3s6x" path="res://Assets/Fonts/m5x7.ttf" id="3_u3oa4"]
+
+[node name="Item" type="Node2D"]
+z_index = 1
+script = ExtResource("1_5yfv3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(80, 80)
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 93.0
+offset_bottom = 92.0
+mouse_filter = 2
+texture = ExtResource("2_qphy7")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 13.0
+offset_top = 60.0
+offset_right = 53.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("3_u3oa4")
+theme_override_font_sizes/font_size = 32
+text = "99"

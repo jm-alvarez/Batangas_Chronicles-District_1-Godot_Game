@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://ik8fjl3euj15"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_44qmp"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="1_r0lki"]
+
+[resource]
+script = ExtResource("1_r0lki")
+title = "Key to Devotion"
+description = "Help the priest find the key to the church."
+steps = Array[String](["Find and Destroy the bushes.", "Find the Key.", "Return the key to Father."])
+reward_exp = 20

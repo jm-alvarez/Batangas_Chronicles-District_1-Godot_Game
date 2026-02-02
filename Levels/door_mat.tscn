@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvogquhoqcsmh"]
+
+[ext_resource type="Texture2D" uid="uid://bvbr725bi0gbj" path="res://Levels/sample/Scene1/Sprites/aki_room_doormat.png" id="1_rovlv"]
+[ext_resource type="PackedScene" uid="uid://kbou30pi4scj" path="res://Levels/LevelTransition.tscn" id="2_gifdl"]
+
+[node name="Door_mat" type="Node2D"]
+
+[node name="AkiRoomDoormat" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(88, 123)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_rovlv")
+
+[node name="LevelTransition" parent="." instance=ExtResource("2_gifdl")]
+position = Vector2(96, 128)
+scale = Vector2(1, 0.240005)
+level = "res://Levels/Scene1/AkiHouse.tscn"
+size = 1
+side = 3

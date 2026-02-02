@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://olxulnvfro0q"]
+
+[ext_resource type="Texture2D" uid="uid://c3g62flse5mw5" path="res://Levels/Houses/18th_cent_wooden_house.png" id="1_odt7v"]
+[ext_resource type="Texture2D" uid="uid://b4201jy0g4tb7" path="res://Levels/sqaure_shadow.png" id="2_7sp4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sb15"]
+size = Vector2(62, 50)
+
+[node name="House1" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(495, 258)
+scale = Vector2(1.5, 1.5)
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_odt7v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_8sb15")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
+z_index = -1
+position = Vector2(0, 22)
+scale = Vector2(1, 0.65625)
+texture = ExtResource("2_7sp4y")

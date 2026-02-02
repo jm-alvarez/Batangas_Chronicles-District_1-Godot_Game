@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://co4h25mdm1uc6"]
+
+[ext_resource type="Texture2D" uid="uid://c58cyqyqq25t4" path="res://Levels/sample/18th_cent_wooden_house.png" id="1_wpqof"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogq5f"]
+size = Vector2(52, 44)
+
+[node name="House" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wpqof")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_ogq5f")

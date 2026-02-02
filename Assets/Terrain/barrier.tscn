@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhum4p6sfou1f"]
+
+[ext_resource type="Texture2D" uid="uid://cf530o2o2xxyi" path="res://Assets/Terrain/Barrier.png" id="1_pwsqt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70a0n"]
+texture = ExtResource("1_pwsqt")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_uh6mw"]
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 16
+sources/0 = SubResource("TileSetAtlasSource_70a0n")
+
+[node name="barrier" type="TileMapLayer"]
+tile_set = SubResource("TileSet_uh6mw")

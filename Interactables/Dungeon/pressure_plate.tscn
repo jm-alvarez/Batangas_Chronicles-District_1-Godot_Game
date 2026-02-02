@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dolt6fgj212so"]
+
+[ext_resource type="Script" uid="uid://db2yavlnesfcx" path="res://Interactables/Dungeon/pressure_plate.gd" id="1_v6rvf"]
+[ext_resource type="Texture2D" uid="uid://damu4hk447oij" path="res://Interactables/Dungeon/Statue_Quest.png" id="2_5lcqy"]
+[ext_resource type="AudioStream" uid="uid://dwm0r471xr3ve" path="res://Interactables/Dungeon/push_stone.wav" id="3_yilsy"]
+[ext_resource type="PackedScene" uid="uid://crnk5hqebaqnu" path="res://GeneralNodes/PersistentDataHelper/persistent_data_handler.tscn" id="4_1qp12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fsor"]
+size = Vector2(16, 16)
+
+[node name="PressurePlate" type="Node2D"]
+script = ExtResource("1_v6rvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.464682, 0.464682)
+texture = ExtResource("2_5lcqy")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 32)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 273
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.51073e-08, -0.833721)
+rotation = -3.14159
+scale = Vector2(0.233655, 0.233655)
+shape = SubResource("RectangleShape2D_5fsor")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yilsy")
+
+[node name="isActive" parent="." instance=ExtResource("4_1qp12")]

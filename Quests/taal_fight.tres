@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://b40l8c846h1mb"]
+
+[ext_resource type="Script" path="res://Quests/Scripts/quest_resource.gd" id="1_mfswp"]
+
+[resource]
+script = ExtResource("1_mfswp")
+title = "Defend the people of taal"
+description = "Fend off the Spaniards"
+steps = Array[String](["Fight all the Spaniards", "Talk to the local"])
+reward_exp = 0
+reward_items = Array[Resource("res://Quests/Scripts/quest_reward_item.gd")]([])

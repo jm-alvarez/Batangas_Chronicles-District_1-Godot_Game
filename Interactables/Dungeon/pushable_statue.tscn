@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3twvsx4dy8bs"]
+
+[ext_resource type="Script" uid="uid://8smdn6r6l8vv" path="res://Interactables/Dungeon/pushable_statue.gd" id="1_bxr7q"]
+[ext_resource type="Texture2D" uid="uid://gyhd4wugyqch" path="res://Interactables/Dungeon/Statue_Horse.png" id="2_ve2hy"]
+[ext_resource type="PackedScene" uid="uid://crnk5hqebaqnu" path="res://GeneralNodes/PersistentDataHelper/persistent_data_handler.tscn" id="3_e6m4u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii5d4"]
+size = Vector2(18, 8)
+
+[node name="pushable_statue" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 273
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_bxr7q")
+persistent = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 16)
+scale = Vector2(1.8594, 2.48878)
+shape = SubResource("RectangleShape2D_ii5d4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ve2hy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="persistent_data_handler" parent="." instance=ExtResource("3_e6m4u")]

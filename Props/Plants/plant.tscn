@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv5c0318h312h"]
+
+[ext_resource type="Script" uid="uid://h6dqh72bdrt1" path="res://Props/Plants/plant.gd" id="1_jb52b"]
+[ext_resource type="Texture2D" uid="uid://bdi8faa5o8ahj" path="res://Props/Sprite/Bushes5.png" id="1_pj1kv"]
+[ext_resource type="PackedScene" uid="uid://b0qj7uk087no6" path="res://GeneralNodes/HitBox/hit_box.tscn" id="2_iboqx"]
+[ext_resource type="PackedScene" uid="uid://crnk5hqebaqnu" path="res://GeneralNodes/PersistentDataHelper/persistent_data_handler.tscn" id="4_0y2q1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5har1"]
+size = Vector2(20, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqvco"]
+size = Vector2(25.3333, 19.6667)
+
+[node name="plant" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_jb52b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -7)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_5har1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -7)
+texture = ExtResource("1_pj1kv")
+
+[node name="hit_box" parent="." instance=ExtResource("2_iboqx")]
+position = Vector2(0, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(0, 4.33333)
+shape = SubResource("RectangleShape2D_mqvco")
+debug_color = Color(0.584314, 0.545098, 0.172549, 0.603922)
+
+[node name="isDestroyed" parent="." instance=ExtResource("4_0y2q1")]

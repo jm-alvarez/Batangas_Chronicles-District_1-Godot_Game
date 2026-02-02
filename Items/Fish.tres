@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dswwab4dd483j"]
+
+[ext_resource type="Script" uid="uid://cfkjdu5qrigpx" path="res://Items/ItemEffects/item_effect.gd" id="1_iky8l"]
+[ext_resource type="Script" uid="uid://bo1cubssakxcg" path="res://Items/Script/item_data.gd" id="1_q5e1l"]
+[ext_resource type="Texture2D" uid="uid://ww7wyb0xwljo" path="res://Items/Sprite/Raw_Fish.png" id="3_iky8l"]
+
+[resource]
+script = ExtResource("1_q5e1l")
+name = "Fish"
+description = "Ito ay nahuhuli sa karagatan"
+texture = ExtResource("3_iky8l")
+effects = Array[ExtResource("1_iky8l")]([])

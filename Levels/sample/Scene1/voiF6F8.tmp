@@ -1,0 +1,274 @@
+[gd_scene load_steps=26 format=3 uid="uid://d2q3oa8rkteby"]
+
+[ext_resource type="Script" path="res://Levels/Scene1/void.gd" id="1_d6kcp"]
+[ext_resource type="PackedScene" uid="uid://pb152kmqfih2" path="res://Levels/PlayerSpawn.tscn" id="1_y0d2w"]
+[ext_resource type="Texture2D" uid="uid://vjtp5f7opf4t" path="res://Levels/Scene1/Sprites/Aki_Sleeping-Sheet-export.png" id="3_co406"]
+[ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="4_yjrj4"]
+[ext_resource type="Resource" uid="uid://bkrrofc1685d2" path="res://NPC/00-NPC/aki_mother.tres" id="5_oh0x5"]
+[ext_resource type="PackedScene" uid="uid://cnqkqeyxokar0" path="res://GeneralNodes/AreaTrigger/area_trigger.tscn" id="6_jo53q"]
+[ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="8_luqos"]
+[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="9_34lii"]
+[ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="10_oul2n"]
+[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/cutscene_action_move.gd" id="10_y10rl"]
+[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="13_f3ert"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tifj5"]
+size = Vector2(28, 40)
+
+[sub_resource type="Animation" id="Animation_y5si0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qtpts"]
+resource_name = "aki_sleep"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_no7xn"]
+resource_name = "aki_wakeup"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_r8q3p"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pm6cj"]
+_data = {
+"RESET": SubResource("Animation_y5si0"),
+"aki_sleep": SubResource("Animation_qtpts"),
+"aki_wakeup": SubResource("Animation_no7xn"),
+"default": SubResource("Animation_r8q3p")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guc7x"]
+
+[sub_resource type="Animation" id="Animation_472rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pcr5w"]
+resource_name = "black"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_6a0ax"]
+resource_name = "black_2s"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_c1odp"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_d36yp"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqmxs"]
+_data = {
+"RESET": SubResource("Animation_472rl"),
+"black": SubResource("Animation_pcr5w"),
+"black_2s": SubResource("Animation_6a0ax"),
+"fade_to_black": SubResource("Animation_c1odp"),
+"fade_to_normal": SubResource("Animation_d36yp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnq2c"]
+
+[node name="void" type="Node2D"]
+script = ExtResource("1_d6kcp")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("1_y0d2w")]
+position = Vector2(45, 60)
+
+[node name="Bed" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(22, 59)
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="Bed"]
+texture = ExtResource("3_co406")
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_tifj5")
+debug_color = Color(1, 0, 0, 0.498039)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bed"]
+libraries = {
+"": SubResource("AnimationLibrary_pm6cj")
+}
+
+[node name="area_trigger" parent="." instance=ExtResource("6_jo53q")]
+position = Vector2(47, 69)
+
+[node name="area_col" type="CollisionShape2D" parent="area_trigger"]
+shape = SubResource("RectangleShape2D_guc7x")
+
+[node name="dialog_interaction" parent="area_trigger" instance=ExtResource("8_luqos")]
+
+[node name="Sprite2D" parent="area_trigger/dialog_interaction" index="1"]
+visible = false
+
+[node name="DialogText" type="Node" parent="area_trigger/dialog_interaction"]
+script = ExtResource("9_34lii")
+text = "Where I am?"
+npc_info = ExtResource("10_oul2n")
+
+[node name="DialogText2" type="Node" parent="area_trigger/dialog_interaction"]
+script = ExtResource("9_34lii")
+text = "Why it is so darK?"
+npc_info = ExtResource("10_oul2n")
+
+[node name="DialogText3" type="Node" parent="area_trigger/dialog_interaction"]
+script = ExtResource("9_34lii")
+text = "Mom???"
+npc_info = ExtResource("10_oul2n")
+
+[node name="DialogText4" type="Node" parent="area_trigger/dialog_interaction"]
+script = ExtResource("9_34lii")
+text = "....."
+npc_info = ExtResource("5_oh0x5")
+
+[node name="DialogCutscene" type="Node" parent="area_trigger/dialog_interaction"]
+script = ExtResource("13_f3ert")
+
+[node name="CutsceneActionMove" type="Node2D" parent="area_trigger/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(57, 202)
+script = ExtResource("10_y10rl")
+timing_method = 1
+object_to_move = NodePath("../../../../npc")
+move_speed = 70.0
+
+[node name="CutsceneActionMove2" type="Node2D" parent="area_trigger/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(55, 271)
+script = ExtResource("10_y10rl")
+timing_method = 1
+object_to_move = NodePath("../../../../npc")
+move_speed = 70.0
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qqmxs")
+}
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Fade"]
+energy = 0.0
+blend_mode = 1
+
+[node name="queue_npc" type="Area2D" parent="."]
+position = Vector2(55, 271)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="queue_npc"]
+shape = SubResource("RectangleShape2D_lnq2c")
+
+[node name="npc" parent="." instance=ExtResource("4_yjrj4")]
+position = Vector2(57, 109)
+npc_resource = ExtResource("5_oh0x5")
+
+[connection signal="body_entered" from="queue_npc" to="." method="_on_queue_npc_body_entered"]
+
+[editable path="area_trigger/dialog_interaction"]

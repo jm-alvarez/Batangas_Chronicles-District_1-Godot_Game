@@ -1,0 +1,2015 @@
+[gd_scene load_steps=66 format=3 uid="uid://bfidx3e57tx2l"]
+
+[ext_resource type="Script" uid="uid://d2jee6tylaacq" path="res://Levels/sample/Scene1/scene_1_2.gd" id="1_chnol"]
+[ext_resource type="PackedScene" uid="uid://cma2td3lvgelc" path="res://Quests/UtilityNode/quest_activated_switch.tscn" id="2_lgj3g"]
+[ext_resource type="Resource" uid="uid://b0ayxhcvxqy6y" path="res://Quests/Scene1_2.tres" id="3_jsoou"]
+[ext_resource type="PackedScene" uid="uid://cnqkqeyxokar0" path="res://GeneralNodes/AreaTrigger/area_trigger.tscn" id="4_2e3df"]
+[ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="5_blp0t"]
+[ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="6_1qn83"]
+[ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="7_behe3"]
+[ext_resource type="PackedScene" uid="uid://bqu1q2bhv0qmb" path="res://Tilemaps/house_tilemap.tscn" id="8_pscb5"]
+[ext_resource type="Texture2D" uid="uid://dswcki5ogh0x0" path="res://Levels/sample/Scene1/Sprites/window.png" id="9_hgv8q"]
+[ext_resource type="Resource" uid="uid://dy84nv4pyrq67" path="res://Quests/Scene1.tres" id="10_8t8fs"]
+[ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="11_oc6oo"]
+[ext_resource type="Script" uid="uid://dlcfo6j0qip1p" path="res://Levels/sample/Scene1/Bookshelf.gd" id="12_2itjo"]
+[ext_resource type="Texture2D" uid="uid://dotsn6l7v42di" path="res://Levels/sample/Scene1/Sprites/bookshelf-Sheet.png" id="13_kp0ae"]
+[ext_resource type="Resource" uid="uid://c3vtgyep8ipyt" path="res://NPC/00-NPC/00_Narrator.tres" id="14_4a4gc"]
+[ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="15_hsh50"]
+[ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="16_lxh3x"]
+[ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="17_lr6cn"]
+[ext_resource type="Script" uid="uid://d1mgcxi62fxvx" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="18_yau4s"]
+[ext_resource type="Texture2D" uid="uid://vjtp5f7opf4t" path="res://Levels/sample/Scene1/Sprites/Aki_Sleeping-Sheet-export.png" id="19_w0ri7"]
+[ext_resource type="Texture2D" uid="uid://rm7hnpvnr7a3" path="res://Levels/sample/Scene1/Sprites/small_drawer.png" id="20_q5s5c"]
+[ext_resource type="Texture2D" uid="uid://bvbr725bi0gbj" path="res://Levels/sample/Scene1/Sprites/aki_room_doormat.png" id="21_50s5i"]
+[ext_resource type="PackedScene" uid="uid://kbou30pi4scj" path="res://Levels/LevelTransition.tscn" id="22_8q4k5"]
+[ext_resource type="Texture2D" uid="uid://dxfwxxg7yqe1w" path="res://Assets/UI/Controls/A button_pressed.png" id="23_unci1"]
+[ext_resource type="Texture2D" uid="uid://d2gcw1x3xt5vg" path="res://Assets/UI/Controls/B button_pressedt.png" id="24_wmpae"]
+[ext_resource type="Texture2D" uid="uid://bsxl55nkrts2h" path="res://Assets/UI/Controls/dpad.png" id="25_jw6q4"]
+[ext_resource type="PackedScene" uid="uid://pb152kmqfih2" path="res://Levels/PlayerSpawn.tscn" id="26_np3km"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6rs1"]
+size = Vector2(78, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no8fg"]
+size = Vector2(14, 7)
+
+[sub_resource type="Animation" id="Animation_lotpu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bookshelf/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_r6yoe"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bookshelf/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p8abc"]
+resource_name = "triggered"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bookshelf/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nv78n"]
+_data = {
+&"RESET": SubResource("Animation_lotpu"),
+&"default": SubResource("Animation_r6yoe"),
+&"triggered": SubResource("Animation_p8abc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etekp"]
+size = Vector2(42, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1bey"]
+size = Vector2(28, 35)
+
+[sub_resource type="Animation" id="Animation_y5si0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qtpts"]
+resource_name = "aki_sleep"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_no7xn"]
+resource_name = "aki_wakeup"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_r8q3p"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pm6cj"]
+_data = {
+&"RESET": SubResource("Animation_y5si0"),
+&"aki_sleep": SubResource("Animation_qtpts"),
+&"aki_wakeup": SubResource("Animation_no7xn"),
+&"default": SubResource("Animation_r8q3p")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tku2l"]
+size = Vector2(10, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kk1u"]
+size = Vector2(8, 3)
+
+[sub_resource type="Animation" id="Animation_472rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pcr5w"]
+resource_name = "black"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_6a0ax"]
+resource_name = "black_2s"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_c1odp"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_d36yp"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqmxs"]
+_data = {
+&"RESET": SubResource("Animation_472rl"),
+&"black": SubResource("Animation_pcr5w"),
+&"black_2s": SubResource("Animation_6a0ax"),
+&"fade_to_black": SubResource("Animation_c1odp"),
+&"fade_to_normal": SubResource("Animation_d36yp")
+}
+
+[sub_resource type="Animation" id="Animation_tfy10"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/Dpad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/Dpad:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-41, 120)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Node2D/Dpad:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Node2D/Dpad/Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/Node2D/Dpad/Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Node2D/Dpad/Sprite2D2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Node2D/Dpad/Sprite2D2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/Node2D/Dpad/Sprite2D4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Control/Node2D/Dpad/Sprite2D4:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Control/Node2D/Dpad/Sprite2D3:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Control/Node2D/Dpad/Sprite2D3:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Control/Node2D/A_Button:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(213, 139)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Control/Node2D/A_Button:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Control/Node2D/A_Button:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Control/Node2D/B_Button:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(254, 99)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Control/Node2D/B_Button:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Control/Node2D/B_Button:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s3hs7"]
+resource_name = "hidden"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/Dpad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_po4cx"]
+resource_name = "hide_a"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(99, 65.3333), Vector2(213, 139)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/A_Button:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(0.9, 0.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/A_Button:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kt3vl"]
+resource_name = "hide_b"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/B_Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(99, 65.3333), Vector2(254, 99)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(0.9, 0.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/B_Button:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5esjg"]
+resource_name = "hide_dpad"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/Dpad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/Dpad:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(85.6667, 75), Vector2(-41, 120)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Node2D/Dpad:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Node2D/Dpad/Sprite2D4:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/Node2D/Dpad/Sprite2D4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Node2D/Dpad/Sprite2D3:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Node2D/Dpad/Sprite2D3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aj36w"]
+resource_name = "show_a"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(213, 139), Vector2(99, 65.3333)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/A_Button:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.5, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/A_Button:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w8tgg"]
+resource_name = "show_b"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/B_Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(254, 99), Vector2(99, 65.3333)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.5, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/B_Button:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u6s0p"]
+resource_name = "show_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/Dpad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/Dpad:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(85.6667, 75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Node2D/Dpad:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Node2D/Dpad/Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/Node2D/Dpad/Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Node2D/Dpad/Sprite2D2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Node2D/Dpad/Sprite2D2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/Node2D/Dpad/Sprite2D4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 18)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Control/Node2D/Dpad/Sprite2D4:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Control/Node2D/Dpad/Sprite2D3:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Control/Node2D/Dpad/Sprite2D3:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dvlu1"]
+resource_name = "show_dpad"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/Dpad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/Dpad:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-41, 120), Vector2(85.6667, 75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Node2D/Dpad:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Node2D/Dpad/Sprite2D4:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/Node2D/Dpad/Sprite2D4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Node2D/Dpad/Sprite2D3:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Node2D/Dpad/Sprite2D3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dtf7a"]
+resource_name = "show_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/Dpad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/Dpad:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(85.6667, 75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Node2D/Dpad:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Node2D/Dpad/Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/Node2D/Dpad/Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Node2D/Dpad/Sprite2D2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Node2D/Dpad/Sprite2D2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/Node2D/Dpad/Sprite2D4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Control/Node2D/Dpad/Sprite2D4:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Control/Node2D/Dpad/Sprite2D3:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, 0), Vector2(-20, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Control/Node2D/Dpad/Sprite2D3:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_4s0ip"]
+resource_name = "show_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/Dpad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/Dpad:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(85.6667, 75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Node2D/Dpad:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Node2D/Dpad/Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/Node2D/Dpad/Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Node2D/Dpad/Sprite2D2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(12, 0), Vector2(20, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Node2D/Dpad/Sprite2D2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/Node2D/Dpad/Sprite2D4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Control/Node2D/Dpad/Sprite2D4:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Control/Node2D/Dpad/Sprite2D3:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Control/Node2D/Dpad/Sprite2D3:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v2c3d"]
+resource_name = "show_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Node2D/A_Button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Node2D/B_Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Node2D/Dpad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Node2D/Dpad:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(85.6667, 75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Node2D/Dpad:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Node2D/Dpad/Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, -18)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/Node2D/Dpad/Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Node2D/Dpad/Sprite2D2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/Node2D/Dpad/Sprite2D2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/Node2D/Dpad/Sprite2D4:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Control/Node2D/Dpad/Sprite2D4:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Control/Node2D/Dpad/Sprite2D3:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Control/Node2D/Dpad/Sprite2D3:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_88gat"]
+_data = {
+&"RESET": SubResource("Animation_tfy10"),
+&"hidden": SubResource("Animation_s3hs7"),
+&"hide_a": SubResource("Animation_po4cx"),
+&"hide_b": SubResource("Animation_kt3vl"),
+&"hide_dpad": SubResource("Animation_5esjg"),
+&"show_a": SubResource("Animation_aj36w"),
+&"show_b": SubResource("Animation_w8tgg"),
+&"show_down": SubResource("Animation_u6s0p"),
+&"show_dpad": SubResource("Animation_dvlu1"),
+&"show_left": SubResource("Animation_dtf7a"),
+&"show_right": SubResource("Animation_4s0ip"),
+&"show_up": SubResource("Animation_v2c3d")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdbe4"]
+atlas = ExtResource("25_jw6q4")
+region = Rect2(42, 26, 17, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvwsp"]
+atlas = ExtResource("25_jw6q4")
+region = Rect2(27, 7, 13, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hmks"]
+atlas = ExtResource("25_jw6q4")
+region = Rect2(27, 41, 13, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jya17"]
+atlas = ExtResource("25_jw6q4")
+region = Rect2(8, 26, 17, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnk27"]
+
+[node name="Aki_Room" type="Node2D"]
+script = ExtResource("1_chnol")
+
+[node name="quest_activated_switch2" parent="." instance=ExtResource("2_lgj3g")]
+check_type = 1
+linked_quest = ExtResource("3_jsoou")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Sleep...Sleep...sleep
+Checking if player has completed step: go back to room "
+
+[node name="last_scene" parent="quest_activated_switch2" instance=ExtResource("4_2e3df")]
+position = Vector2(86, 101)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="quest_activated_switch2/last_scene"]
+shape = SubResource("RectangleShape2D_e6rs1")
+
+[node name="dialog_interaction" parent="quest_activated_switch2/last_scene" instance=ExtResource("5_blp0t")]
+
+[node name="Sprite2D" parent="quest_activated_switch2/last_scene/dialog_interaction" index="1"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+
+[node name="DialogText" type="Node" parent="quest_activated_switch2/last_scene/dialog_interaction"]
+script = ExtResource("6_1qn83")
+text = "I'm booreeeddd....."
+npc_info = ExtResource("7_behe3")
+
+[node name="DialogText2" type="Node" parent="quest_activated_switch2/last_scene/dialog_interaction"]
+script = ExtResource("6_1qn83")
+text = "I don't have anything to do."
+npc_info = ExtResource("7_behe3")
+
+[node name="DialogText3" type="Node" parent="quest_activated_switch2/last_scene/dialog_interaction"]
+script = ExtResource("6_1qn83")
+text = "It's better to sleep..."
+npc_info = ExtResource("7_behe3")
+
+[node name="aki_house" parent="." instance=ExtResource("8_pscb5")]
+layer_0/tile_data = PackedInt32Array(0, 196611, 0, 65536, 393219, 1, 131072, 393219, 2, 196608, 2, 1, 262144, 196610, 1, 327680, 196610, 1, 393216, 196610, 1, 458752, 196611, 2, 1, 262147, 0, 65537, 458755, 1, 131073, 458755, 2, 196609, 65539, 1, 262145, 458754, 1, 327681, 458754, 1, 393217, 458754, 1, 458753, 262147, 2, 2, 262147, 0, 65538, 458755, 1, 131074, 458755, 2, 196610, 65539, 1, 262146, 458754, 1, 327682, 458754, 1, 393218, 458754, 1, 458754, 262147, 2, 3, 262147, 0, 65539, 458755, 1, 131075, 458755, 2, 196611, 65539, 1, 262147, 458754, 1, 327683, 458754, 1, 393219, 458754, 1, 458755, 262147, 2, 4, 262147, 0, 65540, 458755, 1, 131076, 458755, 2, 196612, 65539, 1, 262148, 458754, 1, 327684, 458754, 1, 393220, 458754, 1, 458756, 393219, 0, 5, 262147, 0, 65541, 458755, 1, 131077, 458755, 2, 196613, 65539, 1, 262149, 458754, 1, 327685, 458754, 1, 393221, 458754, 1, 458757, 458755, 0, 6, 262147, 0, 65542, 458755, 1, 131078, 458755, 2, 196614, 65539, 1, 262150, 458754, 1, 327686, 458754, 1, 393222, 458754, 1, 458758, 524291, 0, 7, 262147, 0, 65543, 458755, 1, 131079, 458755, 2, 196615, 65539, 1, 262151, 458754, 1, 327687, 458754, 1, 393223, 458754, 1, 458759, 262147, 2, 8, 262147, 0, 65544, 458755, 1, 131080, 458755, 2, 196616, 65539, 1, 262152, 458754, 1, 327688, 458754, 1, 393224, 458754, 1, 458760, 262147, 2, 9, 262147, 0, 65545, 458755, 1, 131081, 458755, 2, 196617, 65539, 1, 262153, 458754, 1, 327689, 458754, 1, 393225, 458754, 1, 458761, 262147, 2, 10, 327683, 0, 65546, 524291, 1, 131082, 524291, 2, 196618, 131075, 1, 262154, 327683, 1, 327690, 327683, 1, 393226, 327683, 1, 458762, 327683, 2)
+
+[node name="Window" type="Sprite2D" parent="aki_house"]
+position = Vector2(81, 27)
+scale = Vector2(2, 2)
+texture = ExtResource("9_hgv8q")
+
+[node name="Bookshelf" type="Node2D" parent="."]
+position = Vector2(130, 42)
+script = ExtResource("12_2itjo")
+
+[node name="Bookshelf" type="StaticBody2D" parent="Bookshelf"]
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Bookshelf/Bookshelf"]
+texture = ExtResource("13_kp0ae")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf/Bookshelf"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_no8fg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bookshelf"]
+libraries = {
+&"": SubResource("AnimationLibrary_nv78n")
+}
+
+[node name="area_trigger" parent="Bookshelf" instance=ExtResource("4_2e3df")]
+position = Vector2(1, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf/area_trigger"]
+position = Vector2(0, 17.5)
+shape = SubResource("RectangleShape2D_etekp")
+
+[node name="dialog_interaction2" parent="Bookshelf/area_trigger" instance=ExtResource("5_blp0t")]
+position = Vector2(-1, 15)
+
+[node name="Sprite2D" parent="Bookshelf/area_trigger/dialog_interaction2" index="1"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+
+[node name="DialogText8" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2"]
+script = ExtResource("6_1qn83")
+text = "Do you want to learn the basic controls?"
+npc_info = ExtResource("14_4a4gc")
+
+[node name="DialogChoice" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2"]
+script = ExtResource("15_hsh50")
+npc_info = ExtResource("14_4a4gc")
+
+[node name="DialogBranch" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice"]
+script = ExtResource("16_lxh3x")
+text = "Yes"
+npc_info = ExtResource("14_4a4gc")
+
+[node name="DialogCutscene" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("17_lr6cn")
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+position = Vector2(90, 94)
+script = ExtResource("18_yau4s")
+animation_player = NodePath("../../../../../../../Fade")
+animation_name = "black"
+
+[node name="DialogText2" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("6_1qn83")
+text = "I will teach the basic controls"
+npc_info = ExtResource("7_behe3")
+
+[node name="DialogCutscene3" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("17_lr6cn")
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch/DialogCutscene3" node_paths=PackedStringArray("animation_player")]
+position = Vector2(90, 94)
+script = ExtResource("18_yau4s")
+animation_player = NodePath("../../../../../../../controls")
+animation_name = "show_dpad"
+
+[node name="DialogText3" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("6_1qn83")
+text = "This is the D-Pad"
+npc_info = ExtResource("7_behe3")
+
+[node name="DialogCutscene4" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("17_lr6cn")
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch/DialogCutscene4" node_paths=PackedStringArray("animation_player")]
+position = Vector2(90, 94)
+script = ExtResource("18_yau4s")
+animation_player = NodePath("../../../../../../../controls")
+animation_name = "show_up"
+
+[node name="DialogText4" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("6_1qn83")
+text = "This is D-Pad Up to move the character forward"
+npc_info = ExtResource("7_behe3")
+
+[node name="DialogCutscene5" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("17_lr6cn")
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch/DialogCutscene5" node_paths=PackedStringArray("animation_player")]
+position = Vector2(90, 94)
+script = ExtResource("18_yau4s")
+animation_player = NodePath("../../../../../../../controls")
+animation_name = "show_down"
+
+[node name="DialogText5" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("6_1qn83")
+text = "This is D-Pad Down to move the character downrward"
+npc_info = ExtResource("7_behe3")
+
+[node name="DialogCutscene6" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("17_lr6cn")
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch/DialogCutscene6" node_paths=PackedStringArray("animation_player")]
+position = Vector2(90, 94)
+script = ExtResource("18_yau4s")
+animation_player = NodePath("../../../../../../../controls")
+animation_name = "show_right"
+
+[node name="DialogText6" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("6_1qn83")
+text = "This is D-Pad Right to move the character to Right"
+npc_info = ExtResource("7_behe3")
+
+[node name="DialogCutscene7" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("17_lr6cn")
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch/DialogCutscene7" node_paths=PackedStringArray("animation_player")]
+position = Vector2(90, 94)
+script = ExtResource("18_yau4s")
+animation_player = NodePath("../../../../../../../controls")
+animation_name = "show_left"
+
+[node name="DialogText7" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("6_1qn83")
+text = "This is D-Pad Left to move the character to Left"
+npc_info = ExtResource("7_behe3")
+
+[node name="DialogCutscene8" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("17_lr6cn")
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch/DialogCutscene8" node_paths=PackedStringArray("animation_player")]
+position = Vector2(90, 94)
+script = ExtResource("18_yau4s")
+animation_player = NodePath("../../../../../../../controls")
+animation_name = "hide_dpad"
+
+[node name="DialogCutscene2" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch"]
+script = ExtResource("17_lr6cn")
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch/DialogCutscene2" node_paths=PackedStringArray("animation_player")]
+position = Vector2(90, 94)
+script = ExtResource("18_yau4s")
+animation_player = NodePath("../../../../../../../Fade")
+animation_name = "fade_to_normal"
+
+[node name="DialogBranch2" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice"]
+script = ExtResource("16_lxh3x")
+text = "No"
+npc_info = ExtResource("14_4a4gc")
+
+[node name="DialogText" type="Node" parent="Bookshelf/area_trigger/dialog_interaction2/DialogChoice/DialogBranch2"]
+script = ExtResource("6_1qn83")
+text = "Ok.... Just Comback here in the bookshelf if you to learn more about controls."
+npc_info = ExtResource("14_4a4gc")
+
+[node name="Bed" type="StaticBody2D" parent="."]
+position = Vector2(22, 59)
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Bed"]
+texture = ExtResource("19_w0ri7")
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_u1bey")
+debug_color = Color(1, 0, 0, 0.498039)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bed"]
+libraries = {
+&"": SubResource("AnimationLibrary_pm6cj")
+}
+
+[node name="Drawer" type="StaticBody2D" parent="."]
+position = Vector2(46, 46)
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Drawer"]
+texture = ExtResource("20_q5s5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drawer"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_tku2l")
+
+[node name="Door_mat" type="Node2D" parent="."]
+
+[node name="AkiRoomDoormat" type="Sprite2D" parent="Door_mat"]
+light_mask = 0
+z_index = -1
+position = Vector2(88, 123)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("21_50s5i")
+
+[node name="quest_activated_switch2" parent="Door_mat" instance=ExtResource("2_lgj3g")]
+check_type = 1
+react_to_global_signal = true
+linked_quest = ExtResource("10_8t8fs")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Introduction
+Checking if player has completed step: go to bookshelf"
+
+[node name="LevelTransition" parent="Door_mat/quest_activated_switch2" instance=ExtResource("22_8q4k5")]
+position = Vector2(88, 125)
+scale = Vector2(1, 0.28)
+level = "uid://oqkqf8k3tlc5"
+size = 1
+side = 3
+
+[node name="quest_activated_switch" parent="Door_mat" instance=ExtResource("2_lgj3g")]
+check_type = 3
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("10_8t8fs")
+quest_step = 3
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+ Quest: Introduction
+Checking if quest if complete"
+
+[node name="Sprite2D" parent="Door_mat/quest_activated_switch" index="0"]
+visible = false
+
+[node name="area_trigger" parent="Door_mat/quest_activated_switch" instance=ExtResource("4_2e3df")]
+position = Vector2(88, 126)
+
+[node name="quest_advance_trigger" parent="Door_mat/quest_activated_switch/area_trigger" instance=ExtResource("11_oc6oo")]
+signal_name = "player_entered"
+linked_quest = ExtResource("10_8t8fs")
+quest_step = 2
+settings_summary = "UPDATE QUEST:
+ Quest: Introduction
+Step: 2 - go outside the room
+Complete: false"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_mat/quest_activated_switch/area_trigger"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_0kk1u")
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qqmxs")
+}
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Fade"]
+energy = 0.0
+blend_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(95, 64)
+zoom = Vector2(3, 3)
+
+[node name="controls" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_88gat")
+}
+autoplay = "RESET"
+
+[node name="Control" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Node2D" type="Node2D" parent="Control"]
+position = Vector2(279, 124)
+scale = Vector2(3, 3)
+
+[node name="A_Button" type="Sprite2D" parent="Control/Node2D"]
+visible = false
+light_mask = 0
+visibility_layer = 524288
+z_index = 20
+position = Vector2(213, 139)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("23_unci1")
+
+[node name="B_Button" type="Sprite2D" parent="Control/Node2D"]
+visible = false
+light_mask = 524288
+visibility_layer = 524288
+z_index = 20
+position = Vector2(254, 99)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("24_wmpae")
+
+[node name="Dpad" type="Node2D" parent="Control/Node2D"]
+visible = false
+light_mask = 524288
+visibility_layer = 524288
+z_index = 20
+position = Vector2(-41, 120)
+scale = Vector2(1.3, 1.3)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/Node2D/Dpad"]
+light_mask = 0
+visibility_layer = 524288
+z_index = 20
+position = Vector2(12, 0)
+texture = SubResource("AtlasTexture_wdbe4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Node2D/Dpad"]
+light_mask = 0
+visibility_layer = 524288
+z_index = 20
+position = Vector2(0, -10)
+texture = SubResource("AtlasTexture_qvwsp")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Control/Node2D/Dpad"]
+light_mask = 0
+visibility_layer = 524288
+z_index = 20
+position = Vector2(0, 10)
+texture = SubResource("AtlasTexture_2hmks")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control/Node2D/Dpad"]
+light_mask = 0
+visibility_layer = 524288
+z_index = 20
+position = Vector2(-12, 0)
+texture = SubResource("AtlasTexture_jya17")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(88, 138)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_pnk27")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("26_np3km")]
+position = Vector2(93, 68)
+
+[connection signal="body_entered" from="Bookshelf/area_trigger" to="Bookshelf" method="_on_area_trigger_body_entered"]
+[connection signal="body_exited" from="Bookshelf/area_trigger" to="Bookshelf" method="_on_area_trigger_body_exited"]
+[connection signal="animation_finished" from="Bed/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="Bed/AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+[connection signal="body_entered" from="Door_mat/quest_activated_switch2/LevelTransition" to="." method="_on_level_transition_body_entered"]
+[connection signal="animation_finished" from="Fade" to="." method="_on_fade_animation_finished"]
+
+[editable path="quest_activated_switch2/last_scene/dialog_interaction"]
+[editable path="Bookshelf/area_trigger/dialog_interaction2"]
+[editable path="Door_mat/quest_activated_switch"]

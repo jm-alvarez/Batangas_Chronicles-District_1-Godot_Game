@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmubgdex00k3i"]
+
+[ext_resource type="Texture2D" uid="uid://cuw20dyhhmo5f" path="res://Levels/Houses/OldHouse1.png" id="1_l1t3k"]
+[ext_resource type="Texture2D" uid="uid://b4201jy0g4tb7" path="res://Levels/sqaure_shadow.png" id="2_1rn1q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2vox"]
+size = Vector2(72, 65)
+
+[node name="House2" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(526, 286)
+scale = Vector2(1.5, 1.5)
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l1t3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 14)
+shape = SubResource("RectangleShape2D_b2vox")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
+z_index = -1
+position = Vector2(4, 38)
+scale = Vector2(1.3125, 0.679865)
+texture = ExtResource("2_1rn1q")

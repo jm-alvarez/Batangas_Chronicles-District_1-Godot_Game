@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://cr5l60jvfobgk"]
+
+[ext_resource type="Texture2D" uid="uid://btq4gtk1mi1jj" path="res://Assets/UI/Controls/A button.png" id="1_55yhx"]
+[ext_resource type="Texture2D" uid="uid://dxfwxxg7yqe1w" path="res://Assets/UI/Controls/A button_pressed.png" id="2_7rypk"]
+[ext_resource type="Texture2D" uid="uid://bkcep5xwqmlvh" path="res://Assets/UI/Controls/B button.png" id="2_paoiu"]
+[ext_resource type="Texture2D" uid="uid://d2gcw1x3xt5vg" path="res://Assets/UI/Controls/B button_pressedt.png" id="4_4cn2f"]
+[ext_resource type="Texture2D" uid="uid://c5u65eiu0nbdf" path="res://Assets/UI/Controls/pause_0001.png" id="5_dp7pa"]
+[ext_resource type="Texture2D" uid="uid://dmoki7vxppyit" path="res://Assets/UI/Controls/pause_0002.png" id="6_3pbex"]
+[ext_resource type="Texture2D" uid="uid://bsxl55nkrts2h" path="res://Assets/UI/Controls/dpad.png" id="8_op58x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdwnh"]
+atlas = ExtResource("8_op58x")
+region = Rect2(27, 7, 13, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaxf5"]
+atlas = ExtResource("8_op58x")
+region = Rect2(27, 41, 13, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxbww"]
+atlas = ExtResource("8_op58x")
+region = Rect2(8, 26, 17, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wba74"]
+atlas = ExtResource("8_op58x")
+region = Rect2(42, 26, 17, 14)
+
+[node name="TouchControl" type="CanvasLayer"]
+
+[node name="r_btn" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -378.0
+offset_top = -256.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Attack" type="TouchScreenButton" parent="r_btn"]
+position = Vector2(135, 102)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_55yhx")
+texture_pressed = ExtResource("2_7rypk")
+action = "attack"
+
+[node name="Interact" type="TouchScreenButton" parent="r_btn"]
+position = Vector2(235, 1.52588e-05)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("2_paoiu")
+texture_pressed = ExtResource("4_4cn2f")
+action = "interact"
+
+[node name="pause_node" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 70.0
+
+[node name="Pause" type="TouchScreenButton" parent="pause_node"]
+position = Vector2(20, 9)
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("5_dp7pa")
+texture_pressed = ExtResource("6_3pbex")
+action = "pause"
+
+[node name="d-pad_node" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = -274.0
+offset_right = 203.0
+offset_bottom = -118.0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+
+[node name="DPad" type="Node2D" parent="d-pad_node"]
+
+[node name="up" type="TouchScreenButton" parent="d-pad_node/DPad"]
+position = Vector2(58, 0)
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_vdwnh")
+action = "up"
+
+[node name="down" type="TouchScreenButton" parent="d-pad_node/DPad"]
+position = Vector2(59, 84)
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_uaxf5")
+action = "down"
+
+[node name="left" type="TouchScreenButton" parent="d-pad_node/DPad"]
+position = Vector2(0, 50)
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_yxbww")
+action = "left"
+
+[node name="right" type="TouchScreenButton" parent="d-pad_node/DPad"]
+position = Vector2(102, 50)
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_wba74")
+action = "right"

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6y0wsiva3uut"]
+
+[ext_resource type="PackedScene" uid="uid://kbou30pi4scj" path="res://Levels/LevelTransition.tscn" id="1_op2c5"]
+[ext_resource type="Texture2D" uid="uid://b0c41s0ghc8or" path="res://Levels/sample/Scene1/Sprites/Aki_Room_Door16x32-Sheet-export.png" id="2_80n5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6jre"]
+size = Vector2(16, 30)
+
+[node name="Door" type="StaticBody2D"]
+position = Vector2(200, 168)
+collision_layer = 16
+collision_mask = 0
+
+[node name="LevelTransition" parent="." instance=ExtResource("1_op2c5")]
+position = Vector2(0, 16)
+scale = Vector2(0.82603, 0.455603)
+level = "res://Levels/Scene1/scene_1.tscn"
+size = 1
+side = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("2_80n5h")
+hframes = 4
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_s6jre")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://mohogwbpwh0r"]
+
+[ext_resource type="Script" path="res://GUI/Player_HUD/heart_gui.gd" id="1_0ltbn"]
+[ext_resource type="Texture2D" uid="uid://o16k002gq01t" path="res://GUI/Player_HUD/hpp_gui.png" id="1_jynby"]
+
+[node name="Heart" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0ltbn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jynby")
+centered = false
+hframes = 3

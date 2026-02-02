@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=7 format=3 uid="uid://cor8hvhsq6e0b"]
+
+[ext_resource type="Resource" uid="uid://du5n3wjbwcbay" path="res://Items/Atchara.tres" id="1_2jai1"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="1_hhi5u"]
+[ext_resource type="Resource" uid="uid://c1mrgbyd3jyj1" path="res://Items/Sugarcane.tres" id="1_l0ehk"]
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="2_0wtod"]
+
+[sub_resource type="Resource" id="Resource_n2e4e"]
+script = ExtResource("2_0wtod")
+item = ExtResource("1_2jai1")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_gxqv2"]
+script = ExtResource("2_0wtod")
+item = ExtResource("1_l0ehk")
+quantity = 9
+
+[resource]
+script = ExtResource("1_hhi5u")
+title = "Give Food"
+description = "Humihiling sya na bigyan ng pagkain bigyan ng pagkain"
+steps = Array[String](["Find Food", "Give him food"])
+reward_exp = 69
+reward_items = Array[ExtResource("2_0wtod")]([SubResource("Resource_n2e4e"), SubResource("Resource_gxqv2")])

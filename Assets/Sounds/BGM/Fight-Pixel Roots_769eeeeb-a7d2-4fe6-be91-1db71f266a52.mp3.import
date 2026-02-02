@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbf0ui48yoylw"
+path="res://.godot/imported/Fight-Pixel Roots_769eeeeb-a7d2-4fe6-be91-1db71f266a52.mp3-05e093f31b211950b9586de41d1789ff.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/BGM/Fight-Pixel Roots_769eeeeb-a7d2-4fe6-be91-1db71f266a52.mp3"
+dest_files=["res://.godot/imported/Fight-Pixel Roots_769eeeeb-a7d2-4fe6-be91-1db71f266a52.mp3-05e093f31b211950b9586de41d1789ff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

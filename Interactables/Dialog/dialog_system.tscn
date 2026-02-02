@@ -1,0 +1,447 @@
+[gd_scene load_steps=22 format=3 uid="uid://baws4piov511v"]
+
+[ext_resource type="Script" uid="uid://dwesmiqckmdie" path="res://Interactables/Dialog/Scripts/dialog_system.gd" id="1_opxly"]
+[ext_resource type="Texture2D" uid="uid://b4yby7gcp7mjg" path="res://GUI/DialogSystem/UI9.png" id="2_r5odw"]
+[ext_resource type="Texture2D" uid="uid://cayihvunq426t" path="res://GUI/DialogSystem/UI10.png" id="3_ndbdh"]
+[ext_resource type="Texture2D" uid="uid://cie2wvp31egoe" path="res://Assets/PorttraitSprites/DefaultSpeakerPicture.png" id="5_5wbpi"]
+[ext_resource type="Script" uid="uid://bvfm5xnwvcm7v" path="res://Interactables/Dialog/Scripts/dialog_portrait.gd" id="6_go102"]
+[ext_resource type="AudioStream" uid="uid://c25otjpyg3g3" path="res://Interactables/Dialog/8-Bit Text Blip - Low Pitch.wav" id="6_soewt"]
+[ext_resource type="Theme" uid="uid://be8glp4n7hvfa" path="res://GUI/DialogSystem/dialog_choice_theme.tres" id="7_6kenu"]
+
+[sub_resource type="Animation" id="Animation_84n8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 650)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dpf7l"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 650)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_16sah"]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 550), Vector2(0, 650)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_p64q1"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -100), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 650), Vector2(0, 550)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2tua"]
+_data = {
+&"RESET": SubResource("Animation_84n8s"),
+&"default": SubResource("Animation_dpf7l"),
+&"end": SubResource("Animation_16sah"),
+&"start": SubResource("Animation_p64q1")
+}
+
+[sub_resource type="Gradient" id="Gradient_0uw12"]
+offsets = PackedFloat32Array(0, 0.994186, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0.101961, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qjj1v"]
+gradient = SubResource("Gradient_0uw12")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnk1u"]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 20.0
+content_margin_bottom = 15.0
+texture = ExtResource("2_r5odw")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty7ip"]
+content_margin_left = 6.0
+content_margin_top = 0.0
+content_margin_right = 6.0
+content_margin_bottom = 1.0
+bg_color = Color(0.0901961, 0.603922, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id="Animation_gjojd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v3qio"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.337255, 0.337255, 0.337255, 1), Color(1, 1, 1, 1), Color(0.337255, 0.337255, 0.337255, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecekk"]
+_data = {
+&"RESET": SubResource("Animation_gjojd"),
+&"default": SubResource("Animation_v3qio")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tvoob"]
+texture = ExtResource("3_ndbdh")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gb1s6"]
+
+[node name="DialogSystem" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_opxly")
+
+[node name="CutsceneUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -100.0
+offset_right = 19584.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CutsceneUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_right = 19584.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CutsceneUI"]
+libraries = {
+&"": SubResource("AnimationLibrary_a2tua")
+}
+
+[node name="DialogUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="DialogUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = 98.0
+offset_right = 1.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 58
+text = "Name"
+
+[node name="TextureRect" type="TextureRect" parent="DialogUI"]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -238.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_qjj1v")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogUI"]
+visibility_layer = 16
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -169.0
+offset_right = 478.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xnk1u")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogUI/PanelContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Dialogue goes here..."
+
+[node name="DialogProgressIndicator" type="PanelContainer" parent="DialogUI/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_ty7ip")
+
+[node name="Label" type="Label" parent="DialogUI/PanelContainer/DialogProgressIndicator"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Next"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogUI/PanelContainer/DialogProgressIndicator"]
+libraries = {
+&"": SubResource("AnimationLibrary_ecekk")
+}
+
+[node name="PortraitBG" type="Panel" parent="DialogUI"]
+visibility_layer = 16
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -437.0
+offset_top = -169.0
+offset_right = -287.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tvoob")
+
+[node name="PortraitSprite" type="Sprite2D" parent="DialogUI/PortraitBG"]
+position = Vector2(75, 77)
+scale = Vector2(2.28125, 2.28125)
+texture = ExtResource("5_5wbpi")
+script = ExtResource("6_go102")
+
+[node name="Timer" type="Timer" parent="DialogUI"]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DialogUI"]
+position = Vector2(0, 50)
+stream = ExtResource("6_soewt")
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogUI"]
+visibility_layer = 16
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -274.0
+offset_right = 424.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_6kenu")
+alignment = 1
+
+[node name="Button" type="Button" parent="DialogUI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Choice 1..."
+
+[node name="Button2" type="Button" parent="DialogUI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Choice 1..."
+
+[node name="Button3" type="Button" parent="DialogUI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Choice 1..."
+
+[node name="Button4" type="Button" parent="DialogUI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Choice 1..."
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="DialogUI"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(1152, 648)
+texture_normal = SubResource("CanvasTexture_gb1s6")
+action = "ui_accept"

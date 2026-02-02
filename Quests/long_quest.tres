@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=7 format=3 uid="uid://c4g0t7bnjdic4"]
+
+[ext_resource type="Resource" uid="uid://c1mrgbyd3jyj1" path="res://Items/Sugarcane.tres" id="1_8jeoh"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="1_nfdn1"]
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="2_cl4j6"]
+[ext_resource type="Resource" uid="uid://du5n3wjbwcbay" path="res://Items/Atchara.tres" id="3_uhfs8"]
+
+[sub_resource type="Resource" id="Resource_20rvb"]
+script = ExtResource("2_cl4j6")
+item = ExtResource("1_8jeoh")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_shvpe"]
+script = ExtResource("2_cl4j6")
+item = ExtResource("3_uhfs8")
+quantity = 3
+
+[resource]
+script = ExtResource("1_nfdn1")
+title = "Long Quest"
+description = "A long quest"
+steps = Array[String](["Step 1", "Step 2", "Step 3", "Step 4", "Step 5"])
+reward_exp = 25
+reward_items = Array[ExtResource("2_cl4j6")]([SubResource("Resource_20rvb"), SubResource("Resource_shvpe")])

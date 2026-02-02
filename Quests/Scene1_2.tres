@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://b0ayxhcvxqy6y"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_p211m"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="1_wmdge"]
+
+[resource]
+script = ExtResource("1_wmdge")
+title = "Sleep...Sleep...sleep"
+description = "Staying back in the room again..."
+steps = Array[String](["Inspect the wardrobe", "Chase to unknown person"])
+reward_exp = 10

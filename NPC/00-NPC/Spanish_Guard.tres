@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://c1spdc48twm0m"]
+
+[ext_resource type="Texture2D" uid="uid://djnorsxqurl0f" path="res://NPC/Sprites/Spanish_Guard/Spanish_Soldier_Portrait.png" id="1_fkccq"]
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="1_ng547"]
+[ext_resource type="Texture2D" uid="uid://4taje474lx4e" path="res://NPC/Sprites/Spanish_Guard/Spanish_SoldierWalk_Tilesheet.png" id="2_lg7gd"]
+
+[resource]
+script = ExtResource("1_ng547")
+npc_name = "Spanish Guard"
+sprite = ExtResource("2_lg7gd")
+portrait = ExtResource("1_fkccq")

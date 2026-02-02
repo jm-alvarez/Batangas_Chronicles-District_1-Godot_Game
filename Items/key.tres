@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cm45o3mfwg134"]
+
+[ext_resource type="Script" uid="uid://bo1cubssakxcg" path="res://Items/Script/item_data.gd" id="1_p1x3v"]
+[ext_resource type="Script" uid="uid://cfkjdu5qrigpx" path="res://Items/ItemEffects/item_effect.gd" id="1_sl8vj"]
+[ext_resource type="Texture2D" uid="uid://ygdrburpeib6" path="res://Items/Sprite/Key_sheet.png" id="2_72d0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo35h"]
+atlas = ExtResource("2_72d0t")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_p1x3v")
+name = "Key"
+description = "A rusty looking key.. might belong to the priest."
+texture = SubResource("AtlasTexture_qo35h")
+effects = Array[ExtResource("1_sl8vj")]([])

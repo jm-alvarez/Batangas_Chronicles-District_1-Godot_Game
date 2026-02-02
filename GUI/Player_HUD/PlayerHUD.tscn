@@ -1,0 +1,193 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbv733wvnh1l5"]
+
+[ext_resource type="PackedScene" uid="uid://mohogwbpwh0r" path="res://GUI/Player_HUD/heart_gui.tscn" id="1_2q4n5"]
+[ext_resource type="Script" uid="uid://dkq36u0wd4a5s" path="res://GUI/Player_HUD/player_hud.gd" id="1_4n3ot"]
+[ext_resource type="Texture2D" uid="uid://dg0ulqkh8mtax" path="res://GUI/Player_HUD/UI6.png" id="2_5b6ap"]
+[ext_resource type="Script" uid="uid://uyf1h0ouymfm" path="res://GUI/Player_HUD/notifications.gd" id="2_gt1e8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixufh"]
+content_margin_left = 14.0
+content_margin_top = 16.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+texture = ExtResource("2_5b6ap")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="Animation" id="Animation_lulyg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tjnss"]
+resource_name = "show_notification"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(12, 0), Vector2(12, 12), Vector2(12, 12), Vector2(12, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cj56w"]
+_data = {
+&"RESET": SubResource("Animation_lulyg"),
+&"show_notification": SubResource("Animation_tjnss")
+}
+
+[node name="PlayerHUD" type="CanvasLayer"]
+process_mode = 4
+layer = 5
+script = ExtResource("1_4n3ot")
+metadata/_edit_vertical_guides_ = []
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -203.0
+offset_top = 24.0
+offset_right = -154.0
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(3.5, 3.5)
+theme_override_constants/h_separation = 17
+
+[node name="Heart" parent="Control/HFlowContainer" instance=ExtResource("1_2q4n5")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Heart2" parent="Control/HFlowContainer" instance=ExtResource("1_2q4n5")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Heart3" parent="Control/HFlowContainer" instance=ExtResource("1_2q4n5")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Notification" type="Control" parent="Control"]
+process_mode = 3
+z_index = 5
+anchors_preset = 0
+offset_left = 79.0
+offset_right = 119.0
+offset_bottom = 40.0
+script = ExtResource("2_gt1e8")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Notification"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 320.0
+offset_bottom = 92.0
+scale = Vector2(1.7, 1.7)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ixufh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Notification/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/Notification/PanelContainer/VBoxContainer"]
+self_modulate = Color(0, 0.635294, 0.909804, 1)
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Quest Name"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Control/Notification/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 16
+text = "Notification message..."
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Notification"]
+libraries = {
+&"": SubResource("AnimationLibrary_cj56w")
+}

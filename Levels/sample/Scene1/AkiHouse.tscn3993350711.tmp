@@ -1,0 +1,334 @@
+[gd_scene load_steps=34 format=3 uid="uid://oqkqf8k3tlc5"]
+
+[ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ikgjj"]
+[ext_resource type="PackedScene" uid="uid://bqu1q2bhv0qmb" path="res://Tilemaps/house_tilemap.tscn" id="2_vhdkk"]
+[ext_resource type="Texture2D" uid="uid://b0c41s0ghc8or" path="res://Levels/sample/Scene1/Sprites/Aki_Room_Door16x32-Sheet-export.png" id="3_6mnu1"]
+[ext_resource type="PackedScene" uid="uid://pb152kmqfih2" path="res://Levels/PlayerSpawn.tscn" id="3_52m6w"]
+[ext_resource type="PackedScene" uid="uid://kbou30pi4scj" path="res://Levels/LevelTransition.tscn" id="4_7pxkj"]
+[ext_resource type="Script" uid="uid://6im7on6coqur" path="res://Quests/UtilityNode/quest_activated_switch.gd" id="4_luu2m"]
+[ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="6_vp7pf"]
+[ext_resource type="Resource" uid="uid://bkrrofc1685d2" path="res://NPC/00-NPC/aki_mother.tres" id="7_01i43"]
+[ext_resource type="PackedScene" uid="uid://5dgm3qr306fi" path="res://NPC/npc_behaviour_wander.tscn" id="8_dvvws"]
+[ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="9_1y4i0"]
+[ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="10_pdlx8"]
+[ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="11_1lqsw"]
+[ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="12_3ftmm"]
+[ext_resource type="Texture2D" uid="uid://bvbr725bi0gbj" path="res://Levels/sample/Scene1/Sprites/aki_room_doormat.png" id="12_hyqyo"]
+[ext_resource type="Resource" uid="uid://dy84nv4pyrq67" path="res://Quests/Scene1.tres" id="13_6afno"]
+[ext_resource type="Script" uid="uid://ck4rgwvkxniu8" path="res://Interactables/Dialog/Scripts/cutscene_action_move.gd" id="13_do00k"]
+[ext_resource type="Texture2D" uid="uid://b7ojit7gre1tk" path="res://Levels/sample/Scene1/Sprites/tv.png" id="13_j2u6c"]
+[ext_resource type="Texture2D" uid="uid://dh3541dut0sdn" path="res://Levels/sample/Scene1/Sprites/speaker.png" id="14_2w8cq"]
+[ext_resource type="Texture2D" uid="uid://c5ruoouq0bhb5" path="res://Levels/sample/Scene1/Sprites/sofa.png" id="15_nkfx6"]
+[ext_resource type="Resource" uid="uid://b0ayxhcvxqy6y" path="res://Quests/Scene1_2.tres" id="15_sr8ie"]
+[ext_resource type="Texture2D" uid="uid://cx8tg2lpjaffu" path="res://Levels/sample/Scene1/Sprites/painting.png" id="16_x0hls"]
+[ext_resource type="Script" uid="uid://bandeup0apojs" path="res://Levels/sample/Scene1/door_mat.gd" id="17_ikgjj"]
+[ext_resource type="PackedScene" uid="uid://cma2td3lvgelc" path="res://Quests/UtilityNode/quest_activated_switch.tscn" id="20_rhxw5"]
+[ext_resource type="PackedScene" uid="uid://cnqkqeyxokar0" path="res://GeneralNodes/AreaTrigger/area_trigger.tscn" id="21_t8h0g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6jre"]
+size = Vector2(16, 30)
+
+[sub_resource type="Animation" id="Animation_472rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pcr5w"]
+resource_name = "black"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_c1odp"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_d36yp"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqmxs"]
+_data = {
+&"RESET": SubResource("Animation_472rl"),
+&"black": SubResource("Animation_pcr5w"),
+&"fade_to_black": SubResource("Animation_c1odp"),
+&"fade_to_normal": SubResource("Animation_d36yp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl6r7"]
+size = Vector2(16, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5wu5"]
+size = Vector2(56, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vewac"]
+size = Vector2(16, 5)
+
+[node name="AkiHouse" type="Node2D"]
+script = ExtResource("1_ikgjj")
+
+[node name="aki_house" parent="." instance=ExtResource("2_vhdkk")]
+position = Vector2(0, -13)
+layer_0/tile_data = PackedInt32Array(720902, 262146, 5, 720905, 262146, 5, 655366, 262146, 4, 655369, 262146, 4, 589833, 262146, 0, 589830, 262146, 0, 589834, 262146, 0, 589835, 262146, 0, 589836, 262146, 0, 589837, 262146, 0, 589838, 262146, 0, 589839, 262146, 0, 589829, 262146, 0, 589828, 262146, 0, 589827, 196610, 0, 720899, 196610, 5, 720900, 262146, 5, 720901, 262146, 5, 655363, 196610, 4, 655364, 262146, 4, 655365, 262146, 4, 655370, 262146, 4, 655371, 262146, 4, 655373, 262146, 4, 655374, 262146, 4, 655375, 262146, 4, 720906, 262146, 5, 720907, 262146, 5, 720909, 262146, 5, 720910, 262146, 5, 720911, 262146, 5, 589840, 327682, 0, 655376, 327682, 4, 720912, 327682, 5, 720903, 262146, 5, 720904, 262146, 5, 786435, 2, 1, 786436, 65538, 1, 786437, 65538, 1, 786438, 65538, 1, 786439, 65538, 1, 786440, 65538, 1, 786441, 65538, 1, 786442, 65538, 1, 786443, 65538, 1, 786444, 262146, 1, 786445, 65538, 1, 786446, 65538, 1, 786447, 65538, 1, 786448, 327682, 1, 851984, 327682, 1, 917520, 327682, 1, 983056, 327682, 1, 1048592, 327682, 1, 1114128, 327682, 1, 1179664, 327682, 1, 1245200, 327682, 2, 851971, 196610, 1, 917507, 196610, 1, 983043, 196610, 1, 1048579, 196610, 1, 1114115, 196610, 1, 1179651, 196610, 1, 1245187, 2, 2, 851972, 262146, 1, 917508, 262146, 1, 983044, 262146, 1, 1048580, 262146, 1, 1114116, 262146, 1, 1179652, 262146, 1, 1245188, 262146, 2, 851973, 262146, 1, 917509, 262146, 1, 983045, 262146, 1, 1048581, 262146, 1, 1114117, 262146, 1, 1179653, 262146, 1, 1245189, 262146, 2, 851974, 262146, 1, 917510, 262146, 1, 983046, 262146, 1, 1048582, 262146, 1, 1114118, 262146, 1, 1179654, 262146, 1, 1245190, 262146, 2, 851975, 262146, 1, 917511, 262146, 1, 983047, 262146, 1, 1048583, 262146, 1, 1114119, 262146, 1, 1179655, 262146, 1, 1245191, 262146, 2, 851976, 262146, 1, 917512, 262146, 1, 983048, 262146, 1, 1048584, 262146, 1, 1114120, 262146, 1, 1179656, 262146, 1, 1245192, 262146, 2, 851977, 262146, 1, 917513, 262146, 1, 983049, 262146, 1, 1048585, 262146, 1, 1114121, 262146, 1, 1179657, 262146, 1, 1245193, 393218, 0, 851978, 262146, 1, 917514, 262146, 1, 983050, 262146, 1, 1048586, 262146, 1, 1114122, 262146, 1, 1179658, 262146, 1, 1245194, 262146, 1, 851979, 262146, 1, 917515, 262146, 1, 983051, 262146, 1, 1048587, 262146, 1, 1114123, 262146, 1, 1179659, 262146, 1, 1245195, 524290, 0, 851980, 262146, 1, 917516, 262146, 1, 983052, 262146, 1, 1048588, 262146, 1, 1114124, 262146, 1, 1179660, 262146, 1, 1245196, 262146, 2, 851981, 262146, 1, 917517, 262146, 1, 983053, 262146, 1, 1048589, 262146, 1, 1114125, 262146, 1, 1179661, 262146, 1, 1245197, 262146, 2, 851982, 262146, 1, 917518, 262146, 1, 983054, 262146, 1, 1048590, 262146, 1, 1114126, 262146, 1, 1179662, 262146, 1, 1245198, 262146, 2, 851983, 262146, 1, 917519, 262146, 1, 983055, 262146, 1, 1048591, 262146, 1, 1114127, 262146, 1, 1179663, 262146, 1, 1245199, 262146, 2, 655368, 262146, 4, 589832, 262146, 0, 589831, 262146, 0, 655367, 262146, 4, 1310723, 1, 0, 1310724, 1, 0, 1310725, 1, 0, 1310726, 1, 0, 1310727, 1, 0, 1310728, 1, 0, 1310729, 1, 0, 1310730, 1, 0, 1310731, 1, 0, 1310732, 1, 0, 1310733, 1, 0, 1310734, 1, 0, 1310735, 1, 0, 1310736, 1, 0, 1376259, 1, 0, 1376260, 1, 0, 1376261, 1, 0, 1376262, 1, 0, 1376263, 1, 0, 1376264, 1, 0, 1376265, 1, 0, 1376266, 1, 0, 1376267, 1, 0, 1376268, 1, 0, 1376269, 1, 0, 1376270, 1, 0, 1376271, 1, 0, 1376272, 1, 0)
+
+[node name="Door" type="StaticBody2D" parent="."]
+position = Vector2(200, 168)
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Door"]
+position = Vector2(0, -2)
+texture = ExtResource("3_6mnu1")
+hframes = 4
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_s6jre")
+
+[node name="QuestActivatedSwitch" type="Node2D" parent="Door"]
+script = ExtResource("4_luu2m")
+check_type = 1
+free_on_remove = null
+react_to_global_signal = true
+linked_quest = ExtResource("13_6afno")
+quest_step = 3
+settings_summary = "UPDATE QUEST:
+ Quest: Introduction
+Checking if player has completed step: talk to aki's mother"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="LevelTransition" parent="Door/QuestActivatedSwitch" instance=ExtResource("4_7pxkj")]
+position = Vector2(0, 12)
+scale = Vector2(1, 0.36)
+level = "uid://bfqqhq3bxuh0l"
+size = 1
+side = 2
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_52m6w")]
+position = Vector2(202, 194)
+
+[node name="npc" parent="." instance=ExtResource("6_vp7pf")]
+position = Vector2(226, 219)
+npc_resource = ExtResource("7_01i43")
+
+[node name="NPCWanderBehaviour" parent="npc" instance=ExtResource("8_dvvws")]
+wander_range = 1
+wander_speed = 20.0
+
+[node name="dialog_interaction" parent="npc" instance=ExtResource("9_1y4i0")]
+
+[node name="DialogText" type="Node" parent="npc/dialog_interaction"]
+script = ExtResource("10_pdlx8")
+text = "Are you planning to be in your room the whole day again?"
+npc_info = ExtResource("7_01i43")
+
+[node name="DialogText2" type="Node" parent="npc/dialog_interaction"]
+script = ExtResource("10_pdlx8")
+text = "Why don't you help around the house?"
+npc_info = ExtResource("7_01i43")
+
+[node name="DialogText3" type="Node" parent="npc/dialog_interaction"]
+script = ExtResource("10_pdlx8")
+text = "Kids these days......"
+npc_info = ExtResource("7_01i43")
+
+[node name="DialogText4" type="Node" parent="npc/dialog_interaction"]
+script = ExtResource("10_pdlx8")
+text = "So lazyyy......."
+npc_info = ExtResource("7_01i43")
+
+[node name="DialogText5" type="Node" parent="npc/dialog_interaction"]
+script = ExtResource("10_pdlx8")
+text = "I'm going to gossip. Don't disturb Me!"
+npc_info = ExtResource("7_01i43")
+
+[node name="DialogCutscene" type="Node" parent="npc/dialog_interaction"]
+script = ExtResource("11_1lqsw")
+
+[node name="CutsceneActionMove" type="Node2D" parent="npc/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(168, 219)
+script = ExtResource("13_do00k")
+object_to_move = NodePath("../../..")
+move_duration = 1.0
+
+[node name="CutsceneActionMove2" type="Node2D" parent="npc/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(168, 303)
+script = ExtResource("13_do00k")
+object_to_move = NodePath("../../..")
+move_duration = 2.5
+
+[node name="quest_advance_trigger" parent="npc/dialog_interaction/DialogCutscene" instance=ExtResource("12_3ftmm")]
+signal_name = "finished"
+linked_quest = ExtResource("13_6afno")
+quest_step = 3
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+ Quest: Introduction
+Step: 3 - talk to aki's mother
+Complete: true"
+
+[node name="quest_advance_trigger2" parent="npc/dialog_interaction/DialogCutscene" instance=ExtResource("12_3ftmm")]
+signal_name = "finished"
+linked_quest = ExtResource("15_sr8ie")
+settings_summary = "UPDATE QUEST:
+ Quest: Sleep...Sleep...sleep
+Step: 0 - N/A
+Complete: false"
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qqmxs")
+}
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Fade"]
+energy = 0.0
+blend_mode = 1
+
+[node name="Door_mat" type="Node2D" parent="."]
+position = Vector2(168, 303)
+script = ExtResource("17_ikgjj")
+
+[node name="AkiRoomDoormat" type="Sprite2D" parent="Door_mat"]
+light_mask = 0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_hyqyo")
+
+[node name="StaticBody2D" type="Area2D" parent="Door_mat"]
+position = Vector2(0, -4)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_mat/StaticBody2D"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hl6r7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 10
+offset_left = -91.0
+offset_top = 355.0
+offset_right = 348.0
+offset_bottom = 498.0
+color = Color(0, 0, 0, 1)
+
+[node name="Tv" type="Sprite2D" parent="."]
+position = Vector2(128, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("13_j2u6c")
+
+[node name="Speaker" type="Sprite2D" parent="."]
+position = Vector2(88, 163)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_2w8cq")
+
+[node name="Speaker2" type="Sprite2D" parent="."]
+position = Vector2(168, 163)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_2w8cq")
+
+[node name="Sofa" type="StaticBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(130, 216)
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sofa" type="Sprite2D" parent="Sofa"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_nkfx6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sofa"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_u5wu5")
+
+[node name="Painting" type="Sprite2D" parent="."]
+position = Vector2(240, 152)
+scale = Vector2(2, 2)
+texture = ExtResource("16_x0hls")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(168, 222)
+zoom = Vector2(3, 3)
+
+[node name="quest_activated_switch2" parent="." instance=ExtResource("20_rhxw5")]
+check_type = 1
+free_on_remove = null
+react_to_global_signal = true
+linked_quest = ExtResource("13_6afno")
+quest_step = 3
+settings_summary = "UPDATE QUEST:
+ Quest: Introduction
+Checking if player has completed step: talk to aki's mother"
+
+[node name="quest_activated_switch" parent="quest_activated_switch2" instance=ExtResource("20_rhxw5")]
+check_type = 1
+remove_when_activated = true
+free_on_remove = null
+react_to_global_signal = true
+linked_quest = ExtResource("15_sr8ie")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Sleep...Sleep...sleep
+Checking if player has completed step: inspect the wardrobe"
+
+[node name="area_trigger" parent="quest_activated_switch2/quest_activated_switch" instance=ExtResource("21_t8h0g")]
+position = Vector2(200, 176)
+
+[node name="quest_advance_trigger" parent="quest_activated_switch2/quest_activated_switch/area_trigger" instance=ExtResource("12_3ftmm")]
+signal_name = "player_entered"
+linked_quest = ExtResource("15_sr8ie")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Sleep...Sleep...sleep
+Step: 1 - go back to room 
+Complete: false"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="quest_activated_switch2/quest_activated_switch/area_trigger"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_vewac")
+
+[connection signal="body_entered" from="Door/QuestActivatedSwitch/LevelTransition" to="." method="_on_level_transition_body_entered"]
+[connection signal="body_entered" from="Door_mat/StaticBody2D" to="Door_mat" method="_on_static_body_2d_body_entered"]

@@ -1,0 +1,101 @@
+extends CanvasLayer
+
+signal shown
+signal hidden
+
+@onready var tab_container = $Control/TabContainer
+
+@onready var audio_stream_player = $AudioStreamPlayer
+@onready var button_save = $Control/TabContainer/System/VBoxContainer/Button_Save
+@onready var button_load = $Control/TabContainer/System/VBoxContainer/Button_Load
+@onready var button_resume = $Control/TabContainer/System/VBoxContainer/Button_Resume
+@onready var button_quit = $Control/TabContainer/System/VBoxContainer/Button_Quit
+@onready var item_description = $Control/TabContainer/Inventory/ItemDescription
+
+var is_paused : bool = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	hide_pause_menu()
+	button_save.pressed.connect( _on_save_pressed )
+	button_load.pressed.connect( _on_load_pressed )
+	pass # Replace with function body.
+
+
+func _unhandled_input(event : InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if is_paused == false:
+			if Dialog_System.is_active:
+				return
+			show_pause_menu()
+		
+		else:
+			hide_pause_menu()
+		
+		get_viewport().set_input_as_handled()
+	if is_paused:
+		if event.is_action_pressed("right_bumper"):
+			#change tab
+			change_tab( 1 )
+		elif event.is_action_pressed("left_bumper"):
+			change_tab( -1 )
+
+
+func show_pause_menu() -> void:
+	get_tree().paused = true
+	visible = true
+	is_paused = true
+	tab_container.current_tab = 0
+	shown.emit()
+	
+
+func hide_pause_menu() -> void:
+	get_tree().paused = false
+	visible = false
+	is_paused = false
+	hidden.emit()
+
+
+func _on_button_resume_pressed():
+	hide_pause_menu()
+
+
+func _on_button_quit_pressed():
+	get_tree().quit()
+
+
+func _on_save_pressed() -> void:
+	if is_paused == false:
+		return
+	SaveManager.save_game()
+	hide_pause_menu()
+	
+	pass
+
+
+
+func _on_load_pressed() -> void:
+	if is_paused == false:
+		return
+	SaveManager.load_game()
+	await LevelManager.level_load_started
+	hide_pause_menu()
+	
+	pass
+
+func update_item_description( new_text : String) -> void:
+	item_description.text = new_text
+
+
+func play_audio( audio : AudioStream ) -> void:
+	audio_stream_player.stream = audio
+	audio_stream_player.play()
+
+func change_tab( _i : int = 1) -> void:
+	tab_container.current_tab = wrapi(
+		tab_container.current_tab + _i, 
+		0, 
+		tab_container.get_tab_count()
+		
+	)
+	tab_container.get_tab_bar().grab_focus()

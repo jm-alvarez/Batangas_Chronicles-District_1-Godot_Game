@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://dy84nv4pyrq67"]
+
+[ext_resource type="Script" path="res://Quests/Scripts/quest_resource.gd" id="1_0ncp7"]
+
+[resource]
+script = ExtResource("1_0ncp7")
+title = "Introduction"
+description = "Leaving the room after a moment"
+steps = Array[String](["Go to bookshelf", "Go outside the room", "Talk to Aki's Mother"])
+reward_exp = 10
+reward_items = Array[Resource("res://Quests/Scripts/quest_reward_item.gd")]([])

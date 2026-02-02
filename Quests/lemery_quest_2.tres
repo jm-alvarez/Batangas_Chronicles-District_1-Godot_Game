@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=4 format=3 uid="uid://bgfomnvmbl6iq"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_tmt6c"]
+[ext_resource type="Resource" uid="uid://bi5yxn8v1chaa" path="res://Quests/Reward_Items/Dried_Fish.tres" id="2_0p3ky"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="2_2nyac"]
+
+[resource]
+script = ExtResource("2_2nyac")
+title = "Fresh from the Celador"
+description = "Help gather the ingredients for captain lemery. It can be acquired through fighting the Spanish guards"
+steps = Array[String](["Kill Spaniards.", "Collect atleast 5 fishes", "Put into grill", "Dry Fishes", "Go, talk to Capt. Lemery"])
+reward_exp = 50
+reward_items = Array[ExtResource("1_tmt6c")]([ExtResource("2_0p3ky")])
+metadata/_custom_type_script = "uid://cbl1ai8wnqqui"

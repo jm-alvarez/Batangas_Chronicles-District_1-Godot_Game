@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt8el8mxdl5la"]
+
+[ext_resource type="Texture2D" uid="uid://c76m7l1cdakjf" path="res://Items/Sprite/Fish.png" id="1_0omb5"]
+[ext_resource type="Script" uid="uid://c6jnfd78wr1dv" path="res://GUI/PauseMenu/Inventory/Script/inventory_slot_ui.gd" id="1_f77hs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwmw4"]
+atlas = ExtResource("1_0omb5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xds50"]
+content_margin_right = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+anti_aliasing = false
+
+[node name="inventory_slot" type="Button"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 33.0
+offset_bottom = 32.0
+action_mode = 0
+script = ExtResource("1_f77hs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = SubResource("AtlasTexture_gwmw4")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -33.0
+offset_bottom = 16.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_xds50")
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1

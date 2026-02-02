@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://cffhwfsy447pq"]
+
+[ext_resource type="Texture2D" uid="uid://dv7kqo6ly58ah" path="res://NPC/Sprites/Local_Priest/LocalPriest_Portrait.png" id="1_qr5db"]
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="2_qfch6"]
+[ext_resource type="Texture2D" uid="uid://bpg7ysg56itit" path="res://NPC/Sprites/Local_Priest/LocalPriest_Frontview1-Sheet.png" id="3_4f74g"]
+
+[resource]
+script = ExtResource("2_qfch6")
+npc_name = "Father Sancho Geronimo "
+sprite = ExtResource("3_4f74g")
+portrait = ExtResource("1_qr5db")
+dialog_audio_pitch = 0.8200000000000001

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cma2td3lvgelc"]
+
+[ext_resource type="Script" path="res://Quests/UtilityNode/quest_activated_switch.gd" id="1_g2adt"]
+
+[node name="quest_activated_switch" type="Node2D"]
+z_index = 5
+script = ExtResource("1_g2adt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-28, -26)
+scale = Vector2(0.328125, 0.5)
