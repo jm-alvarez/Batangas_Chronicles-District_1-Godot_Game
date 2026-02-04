@@ -1,13 +1,8 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://x4vrgf2lry1t"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://x4vrgf2lry1t"]
 
 [ext_resource type="Script" uid="uid://cfkjdu5qrigpx" path="res://Items/ItemEffects/item_effect.gd" id="1_p30br"]
 [ext_resource type="Script" uid="uid://bo1cubssakxcg" path="res://Items/Script/item_data.gd" id="2_d6hjs"]
-[ext_resource type="Script" uid="uid://cuq2wxcdr3ol6" path="res://Items/ItemEffects/item_effect_heal.gd" id="2_x3rnf"]
 [ext_resource type="Texture2D" uid="uid://c76m7l1cdakjf" path="res://Items/Sprite/Fish.png" id="3_x3rnf"]
-
-[sub_resource type="Resource" id="Resource_mebi4"]
-script = ExtResource("2_x3rnf")
-metadata/_custom_type_script = "uid://cuq2wxcdr3ol6"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w05ol"]
 atlas = ExtResource("3_x3rnf")
@@ -16,6 +11,6 @@ region = Rect2(0, 0, 32, 32)
 [resource]
 script = ExtResource("2_d6hjs")
 name = "Dried_Fish"
-description = "Ito ay nahuhuli sa karagatan"
+description = "Dried FIsh
+"
 texture = SubResource("AtlasTexture_w05ol")
-effects = Array[ExtResource("1_p30br")]([SubResource("Resource_mebi4")])

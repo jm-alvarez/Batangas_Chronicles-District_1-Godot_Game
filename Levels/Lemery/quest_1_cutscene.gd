@@ -36,12 +36,13 @@ func _on_fade_to_normal_finished() -> void:
 
 func _on_fade_to_black_finished() -> void:
 	PlayerManager.set_player_position( %PlayerSpawn.global_position )
-	%EndActionMove.reparent(PlayerManager.player)
-	%EndActionMove.object_to_move = %CaptainLemery
+	%"lemery_quest2-show_quest".advance_quest()
+	#%EndActionMove.reparent(PlayerManager.player)
+	#%EndActionMove.object_to_move = %CaptainLemery
 	pass # Replace with function body.
 
 func _on_yes_selected() -> void:
-	$CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice/Yes/quest_advance_trigger.advance_quest()
+	$CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes/quest_advance_trigger.advance_quest()
 	pass # Replace with function body.
 
 
