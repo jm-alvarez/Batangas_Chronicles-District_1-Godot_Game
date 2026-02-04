@@ -7,6 +7,5 @@
 [resource]
 script = ExtResource("1_q5e1l")
 name = "Fish"
-description = "Ito ay nahuhuli sa karagatan"
+description = "Droped by Defeated Spaniards"
 texture = ExtResource("3_iky8l")
-effects = Array[ExtResource("1_iky8l")]([])

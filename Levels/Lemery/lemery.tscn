@@ -46,7 +46,6 @@
 [ext_resource type="Script" uid="uid://b8jwwfuf3fg3s" path="res://Levels/Lemery/quest_1_cutscene.gd" id="44_vi6hw"]
 [ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="45_lkjpg"]
 [ext_resource type="Script" uid="uid://d1mgcxi62fxvx" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="46_ca1wh"]
-[ext_resource type="Script" uid="uid://ck4rgwvkxniu8" path="res://Interactables/Dialog/Scripts/cutscene_action_move.gd" id="47_ca1wh"]
 [ext_resource type="Resource" uid="uid://guucy4xyq4o6" path="res://NPC/00-NPC/captain_lemery.tres" id="47_lkjpg"]
 [ext_resource type="Resource" uid="uid://bgfomnvmbl6iq" path="res://Quests/lemery_quest_2.tres" id="49_x3ndx"]
 [ext_resource type="Script" uid="uid://bw3vaurybtw6v" path="res://Levels/Lemery/show_first_text.gd" id="50_qc5rq"]
@@ -656,6 +655,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86yos"]
 size = Vector2(220, 152)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4e6h7"]
+radius = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5jsvx"]
 size = Vector2(42, 42)
@@ -1328,10 +1330,10 @@ script = ExtResource("27_fgswx")
 [node name="quest_advance_trigger" parent="Spaniards_Quest" instance=ExtResource("24_yxncn")]
 signal_name = "defeated_spaniards"
 linked_quest = ExtResource("49_x3ndx")
-quest_step = 1
+quest_step = 2
 settings_summary = "UPDATE QUEST:
  Quest: Fresh from the Celador
-Step: 1 - kill spaniards.
+Step: 2 - kill spaniards.
 Complete: false"
 
 [node name="Enemy_Activated_Switch" type="Node2D" parent="Spaniards_Quest"]
@@ -1607,6 +1609,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Lemery_Cutscene_Canvas/Control"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1717,180 +1720,173 @@ animation_player = NodePath("../../../../../Lemery_Cutscene_Canvas/Fade")
 animation_name = "fade_to_normal"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="CutsceneActionMove" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("object_to_move")]
-position = Vector2(56, 345)
-script = ExtResource("47_ca1wh")
-timing_method = 1
-object_to_move = NodePath("../../../CaptainLemery")
-move_speed = 40.0
-metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
-
-[node name="CutsceneActionMove3" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("object_to_move")]
-position = Vector2(56, 460)
-script = ExtResource("47_ca1wh")
-timing_method = 1
-object_to_move = NodePath("../../../CaptainLemery")
-move_speed = 40.0
-metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
-
-[node name="EndActionMove" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("object_to_move")]
+[node name="lemery_quest2-show_quest" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" instance=ExtResource("24_yxncn")]
 unique_name_in_owner = true
-position = Vector2(92, 460)
-script = ExtResource("47_ca1wh")
-timing_method = 1
-object_to_move = NodePath("../../../CaptainLemery")
-move_speed = 40.0
-metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
-
-[node name="CaptainLemery" parent="QuestActivatedSwitch/Quest1_Cutscene" instance=ExtResource("8_gnnf6")]
-unique_name_in_owner = true
-position = Vector2(18, 313)
-npc_resource = ExtResource("47_lkjpg")
-
-[node name="NPCWanderBehaviour" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery" instance=ExtResource("10_ja4en")]
-
-[node name="CL_Dialog_1" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery"]
-script = ExtResource("20_nqhjt")
-remove_when_activated = true
-react_to_global_signal = true
-linked_quest = ExtResource("49_x3ndx")
-quest_step = 1
-settings_summary = "UPDATE QUEST:
- Quest: Fresh from the Celador
-Checking if player has quest"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="CaptainLemeryDialog" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1" instance=ExtResource("11_c6aga")]
-
-[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "Hello [color=blue]AKi[/color]!"
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "Did you find your mother?"
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "Not yet Captain Roberto"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "Do not worry, I am still getting in touch with the other barrios if they find something. "
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "I also have some terrible news."
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="Aki2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "Thank you, captain, I really do need to find mother soon. What is that news Captain?"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL5" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "Father Geronimo has passed away and we were thinking …"
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL6" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "We should change the barrio’s name on his honor."
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="Aki3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "Father would have loved that."
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="Aki4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "I can’t believe he’s gone."
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL7" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "I can’t believe it either."
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL8" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("12_purwf")
-text = "May I ask you for something?"
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="DialogChoice" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog"]
-script = ExtResource("14_u7lnm")
-metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
-
-[node name="Yes" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice"]
-script = ExtResource("15_7gwaw")
-text = "Sure"
-metadata/_custom_type_script = "uid://bkqy61h7wypgw"
-
-[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice/Yes"]
-script = ExtResource("12_purwf")
-text = "You see, I need to prepare a fiesta for some guests and I lack the ingredients needed for the dish. "
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice/Yes"]
-script = ExtResource("12_purwf")
-text = "You see, I need to prepare a fiesta for some guests and I lack the ingredients needed for the dish. "
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice/Yes"]
-script = ExtResource("12_purwf")
-text = "Please help me gather some fishes and put it on the grill that I will set up somewhere outside."
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice/Yes"]
-script = ExtResource("12_purwf")
-text = " When the fish dries, come and talk to me."
-npc_info = ExtResource("47_lkjpg")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice/Yes"]
-script = ExtResource("12_purwf")
-text = "Will do."
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="quest_advance_trigger" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice/Yes" instance=ExtResource("24_yxncn")]
-signal_name = "yes_selected"
 linked_quest = ExtResource("49_x3ndx")
 settings_summary = "UPDATE QUEST:
  Quest: Fresh from the Celador
 Step: 0 - N/A
 Complete: false"
 
-[node name="No" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice"]
+[node name="CaptainLemery" parent="QuestActivatedSwitch/Quest1_Cutscene" instance=ExtResource("8_gnnf6")]
+unique_name_in_owner = true
+position = Vector2(-20, 364)
+npc_resource = ExtResource("47_lkjpg")
+
+[node name="CL_Dialog_1" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery"]
+script = ExtResource("20_nqhjt")
+check_type = 1
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("49_x3ndx")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Fresh from the Celador
+Checking if player has completed step: find captain lemery"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="area_trigger" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1" instance=ExtResource("20_lw8gp")]
+
+[node name="CaptainLemeryDialog" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger" instance=ExtResource("11_c6aga")]
+monitoring = false
+enabled = false
+
+[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "Hello [color=blue]AKi[/color]!"
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "Did you find your mother?"
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "Not yet Captain Roberto"
+npc_info = ExtResource("13_lvoha")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "Do not worry, I am still getting in touch with the other barrios if they find something. "
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "I also have some terrible news."
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Aki2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "Thank you, captain, I really do need to find mother soon. What is that news Captain?"
+npc_info = ExtResource("13_lvoha")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL5" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "Father Geronimo has passed away and we were thinking …"
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL6" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "We should change the barrio’s name on his honor."
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Aki3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "Father would have loved that."
+npc_info = ExtResource("13_lvoha")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Aki4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "I can’t believe he’s gone."
+npc_info = ExtResource("13_lvoha")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL7" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "I can’t believe it either."
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL8" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("12_purwf")
+text = "May I ask you for something?"
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogChoice" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+script = ExtResource("14_u7lnm")
+metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
+
+[node name="Yes" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice"]
+script = ExtResource("15_7gwaw")
+text = "Sure"
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+script = ExtResource("12_purwf")
+text = "You see, I need to prepare a fiesta for some guests and I lack the ingredients needed for the dish. "
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+script = ExtResource("12_purwf")
+text = "You see, I need to prepare a fiesta for some guests and I lack the ingredients needed for the dish. "
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+script = ExtResource("12_purwf")
+text = "Please help me gather some fishes and put it on the grill that I will set up somewhere outside."
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+script = ExtResource("12_purwf")
+text = " When the fish dries, come and talk to me."
+npc_info = ExtResource("47_lkjpg")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+script = ExtResource("12_purwf")
+text = "Will do."
+npc_info = ExtResource("13_lvoha")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="quest_advance_trigger" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes" instance=ExtResource("24_yxncn")]
+signal_name = "yes_selected"
+linked_quest = ExtResource("49_x3ndx")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Fresh from the Celador
+Step: 1 - find captain lemery
+Complete: false"
+
+[node name="No" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice"]
 script = ExtResource("15_7gwaw")
 text = "I still have things to do, sorry."
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice/No"]
+[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/No"]
 script = ExtResource("12_purwf")
 text = "That’s all good, take care."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger"]
+shape = SubResource("CircleShape2D_4e6h7")
+debug_color = Color(0, 0, 0.6745098, 0.4862745)
+
+[node name="NPCWanderBehaviour" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery" instance=ExtResource("10_ja4en")]
 
 [node name="Quest_1_Cutscene_Finished" parent="QuestActivatedSwitch/Quest1_Cutscene" instance=ExtResource("51_86yos")]
 
@@ -1927,7 +1923,7 @@ check_type = 1
 remove_when_activated = true
 react_to_global_signal = true
 linked_quest = ExtResource("49_x3ndx")
-quest_step = 3
+quest_step = 4
 settings_summary = "UPDATE QUEST:
  Quest: Fresh from the Celador
 Checking if player has completed step: dry fishes"
@@ -1938,10 +1934,10 @@ script = ExtResource("20_nqhjt")
 check_type = 1
 react_to_global_signal = true
 linked_quest = ExtResource("49_x3ndx")
-quest_step = 1
+quest_step = 2
 settings_summary = "UPDATE QUEST:
  Quest: Fresh from the Celador
-Checking if player has completed step: kill spaniards."
+Checking if player has completed step: defeat spaniards in the bay."
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="Fish_Grill" type="StaticBody2D" parent="QuestActivatedSwitch3/QuestActivatedSwitch2"]
@@ -2023,10 +2019,10 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 [node name="put_fishes_advance" type="Node2D" parent="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/DryFishDialog/put_fishes_switch"]
 script = ExtResource("16_0xvix")
 linked_quest = ExtResource("49_x3ndx")
-quest_step = 2
+quest_step = 3
 settings_summary = "UPDATE QUEST:
  Quest: Fresh from the Celador
-Step: 2 - put fishes into grill
+Step: 3 - collect atleast 5 fishes then put it in grill
 Complete: false"
 metadata/_custom_type_script = "uid://gwjswj6shnoe"
 
@@ -2099,10 +2095,10 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 [node name="collect_fish_advance" type="Node2D" parent="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/CollectDriedFishDialog/collect_fish_switch"]
 script = ExtResource("16_0xvix")
 linked_quest = ExtResource("49_x3ndx")
-quest_step = 3
+quest_step = 4
 settings_summary = "UPDATE QUEST:
  Quest: Fresh from the Celador
-Step: 3 - dry fishes
+Step: 4 - dry fishes
 Complete: false"
 metadata/_custom_type_script = "uid://gwjswj6shnoe"
 
@@ -2151,8 +2147,7 @@ level = "uid://b42q3fyiity6c"
 [connection signal="player_entered" from="QuestActivatedSwitch/Quest1_Cutscene/area_trigger" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_area_trigger_player_entered"]
 [connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_black" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_black_finished"]
 [connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_normal" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_normal_finished"]
-[connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene/EndActionMove" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_end_action_move_finished"]
-[connection signal="selected" from="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/CaptainLemeryDialog/DialogChoice/Yes" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_yes_selected"]
+[connection signal="selected" from="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_yes_selected"]
 [connection signal="finished" from="ShowFirstText/DialogCutscene/CutsceneActionAnimation3" to="ShowFirstText" method="_on_cutscene_action_animation_3_finished"]
 [connection signal="body_entered" from="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/DryFishDialog" to="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill" method="_on_dry_fish_dialog_body_entered"]
 [connection signal="selected" from="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/DryFishDialog/1Choice/Yes" to="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill" method="_on_yes_selected"]

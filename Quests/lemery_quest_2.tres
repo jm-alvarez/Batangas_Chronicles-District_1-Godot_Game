@@ -8,7 +8,7 @@
 script = ExtResource("2_2nyac")
 title = "Fresh from the Celador"
 description = "Help gather the ingredients for captain lemery. It can be acquired through fighting the Spanish guards"
-steps = Array[String](["Kill Spaniards.", "Collect atleast 5 fishes", "Put into grill", "Dry Fishes", "Go, talk to Capt. Lemery"])
+steps = Array[String](["Find Captain Lemery", "Defeat Spaniards in the Bay.", "Collect atleast 5 fishes then put it in grill", "Dry Fishes", "Go, talk to Capt. Lemery"])
 reward_exp = 50
 reward_items = Array[ExtResource("1_tmt6c")]([ExtResource("2_0p3ky")])
 metadata/_custom_type_script = "uid://cbl1ai8wnqqui"
