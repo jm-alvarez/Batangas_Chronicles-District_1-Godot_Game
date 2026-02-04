@@ -7,5 +7,5 @@
 script = ExtResource("1_wmdge")
 title = "Sleep...Sleep...sleep"
 description = "Staying back in the room again..."
-steps = Array[String](["Inspect the wardrobe", "Chase to unknown person"])
+steps = Array[String](["Go back to bedroom", "Chase to unknown person"])
 reward_exp = 10
