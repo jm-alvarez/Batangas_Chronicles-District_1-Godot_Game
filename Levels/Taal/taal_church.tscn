@@ -11,7 +11,7 @@ size = Vector2(57, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a216k"]
 size = Vector2(76, 20)
 
-[node name="OldTaalChurch" type="Node2D"]
+[node name="TaalChurch" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 16
