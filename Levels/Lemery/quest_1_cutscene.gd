@@ -9,7 +9,7 @@ func _ready() -> void:
 	set_state()
 	
 	if isQuest1CutsceneFinished == true:
-		$area_trigger.queue_free()
+		$Hide_Quest1_Cutscene/area_trigger.queue_free()
 		%LocalPriest.queue_free()
 	
 	pass # Replace with function body.
@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_trigger_player_entered() -> void:
-	$area_trigger/DialogCutscene.play()
+	$Hide_Quest1_Cutscene/area_trigger/DialogCutscene.play()
 	%LocalPriest.scale = Vector2(0, 0)
 	#PlayerManager.player.process_mode = Node.PROCESS_MODE_DISABLED
 	pass # Replace with function body.
@@ -37,6 +37,8 @@ func _on_fade_to_normal_finished() -> void:
 func _on_fade_to_black_finished() -> void:
 	PlayerManager.set_player_position( %PlayerSpawn.global_position )
 	%"lemery_quest2-show_quest".advance_quest()
+	isQuest1CutsceneFinished = true
+	quest_1_cutscene_finished.set_value()
 	#%EndActionMove.reparent(PlayerManager.player)
 	#%EndActionMove.object_to_move = %CaptainLemery
 	pass # Replace with function body.
@@ -47,10 +49,9 @@ func _on_yes_selected() -> void:
 
 
 func _on_end_action_move_finished() -> void:
-	$CaptainLemery/CL_Dialog_1/CaptainLemeryDialog.player_interact()
-	$area_trigger.queue_free()
-	isQuest1CutsceneFinished = true
-	quest_1_cutscene_finished.set_value()
+	#$CaptainLemery/CL_Dialog_1/CaptainLemeryDialog.player_interact()
+	#$Hide_Quest1_Cutscene/area_trigger.queue_free()
+	
 	pass # Replace with function body.
 
 func set_state():

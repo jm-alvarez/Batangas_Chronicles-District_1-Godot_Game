@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://dn35yenqj3vot"]
+
+[ext_resource type="Script" uid="uid://cfkjdu5qrigpx" path="res://Items/ItemEffects/item_effect.gd" id="1_64p7u"]
+[ext_resource type="Script" uid="uid://cuq2wxcdr3ol6" path="res://Items/ItemEffects/item_effect_heal.gd" id="2_bqeid"]
+[ext_resource type="Script" uid="uid://bo1cubssakxcg" path="res://Items/Script/item_data.gd" id="2_iyrh3"]
+[ext_resource type="Texture2D" uid="uid://dhvayc65ohl47" path="res://Items/Sprite/Health_Potion.png" id="4_n3ssw"]
+
+[sub_resource type="Resource" id="Resource_tsx7q"]
+script = ExtResource("2_bqeid")
+heal_amount = 2
+metadata/_custom_type_script = "uid://cuq2wxcdr3ol6"
+
+[resource]
+script = ExtResource("2_iyrh3")
+name = "Health Potion"
+description = "Can be used to restore health."
+texture = ExtResource("4_n3ssw")
+effects = Array[ExtResource("1_64p7u")]([SubResource("Resource_tsx7q")])
+metadata/_custom_type_script = "uid://bo1cubssakxcg"

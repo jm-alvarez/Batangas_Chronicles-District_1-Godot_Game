@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://dafnhgj0rysap"]
+[gd_scene load_steps=111 format=4 uid="uid://dafnhgj0rysap"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ssi34"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_c7r6x"]
@@ -55,7 +55,9 @@
 [ext_resource type="Script" uid="uid://bo8y4n00rglpj" path="res://Levels/Lemery/fish_grill.gd" id="52_yvwjy"]
 [ext_resource type="Resource" uid="uid://dswwab4dd483j" path="res://Items/Fish.tres" id="53_cvuho"]
 [ext_resource type="Resource" uid="uid://x4vrgf2lry1t" path="res://Items/Dried_Fish.tres" id="54_4e6h7"]
+[ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="57_id2cg"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="57_t8c6j"]
+[ext_resource type="Resource" uid="uid://dn35yenqj3vot" path="res://Items/Health_Potion.tres" id="58_id2cg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gka3v"]
 texture = ExtResource("3_lprjf")
@@ -1519,6 +1521,33 @@ position = Vector2(283, -74)
 [node name="plant18" parent="Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1025, 318)
 
+[node name="plant19" parent="Plants" instance=ExtResource("18_qakm2")]
+position = Vector2(1000, -369)
+
+[node name="plant20" parent="Plants" instance=ExtResource("18_qakm2")]
+position = Vector2(1024, -369)
+
+[node name="plant21" parent="Plants" instance=ExtResource("18_qakm2")]
+position = Vector2(1046, -370)
+
+[node name="plant22" parent="Plants" instance=ExtResource("18_qakm2")]
+position = Vector2(1000, -353)
+
+[node name="plant23" parent="Plants" instance=ExtResource("18_qakm2")]
+position = Vector2(1025, -354)
+
+[node name="plant24" parent="Plants" instance=ExtResource("18_qakm2")]
+position = Vector2(1048, -351)
+
+[node name="plant25" parent="Plants" instance=ExtResource("18_qakm2")]
+position = Vector2(1000, -336)
+
+[node name="plant26" parent="Plants" instance=ExtResource("18_qakm2")]
+position = Vector2(1025, -337)
+
+[node name="plant27" parent="Plants" instance=ExtResource("18_qakm2")]
+position = Vector2(1049, -335)
+
 [node name="Bridge" type="Node2D" parent="."]
 
 [node name="bridge" parent="Bridge" instance=ExtResource("21_ar8tl")]
@@ -1673,54 +1702,65 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 [node name="Quest1_Cutscene" type="Node2D" parent="QuestActivatedSwitch"]
 script = ExtResource("44_vi6hw")
 
-[node name="area_trigger" parent="QuestActivatedSwitch/Quest1_Cutscene" instance=ExtResource("20_lw8gp")]
+[node name="Hide_Quest1_Cutscene" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene"]
+script = ExtResource("20_nqhjt")
+remove_when_activated = true
+free_on_remove = true
+react_to_global_signal = true
+linked_quest = ExtResource("49_x3ndx")
+settings_summary = "UPDATE QUEST:
+ Quest: Fresh from the Celador
+Checking if player has quest"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="area_trigger" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene" instance=ExtResource("20_lw8gp")]
 position = Vector2(607, 797)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger"]
 shape = SubResource("RectangleShape2D_86yos")
 debug_color = Color(0.360455, 0.611291, 0.261382, 0.419608)
 
-[node name="DialogCutscene" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger"]
+[node name="DialogCutscene" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger"]
 script = ExtResource("45_lkjpg")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="fade_to_black" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+[node name="fade_to_black" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("46_ca1wh")
-animation_player = NodePath("../../../../../Lemery_Cutscene_Canvas/Fade")
+animation_player = NodePath("../../../../../../Lemery_Cutscene_Canvas/Fade")
 animation_name = "fade_to_black"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="black" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+[node name="black" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("46_ca1wh")
-animation_player = NodePath("../../../../../Lemery_Cutscene_Canvas/Fade")
+animation_player = NodePath("../../../../../../Lemery_Cutscene_Canvas/Fade")
 animation_name = "black"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="Show_text1" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+[node name="Show_text1" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("46_ca1wh")
-animation_player = NodePath("../../../../../Lemery_Cutscene_Canvas/Control/Show_text")
+animation_player = NodePath("../../../../../../Lemery_Cutscene_Canvas/Control/Show_text")
 animation_name = "show_text_1"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="Show_text2" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+[node name="Show_text2" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("46_ca1wh")
-animation_player = NodePath("../../../../../Lemery_Cutscene_Canvas/Control/Show_text")
+animation_player = NodePath("../../../../../../Lemery_Cutscene_Canvas/Control/Show_text")
 animation_name = "show_text_2"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="Show_text3" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+[node name="Show_text3" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("46_ca1wh")
-animation_player = NodePath("../../../../../Lemery_Cutscene_Canvas/Control/Show_text")
+animation_player = NodePath("../../../../../../Lemery_Cutscene_Canvas/Control/Show_text")
 animation_name = "RESET"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="fade_to_normal" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+[node name="fade_to_normal" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("46_ca1wh")
-animation_player = NodePath("../../../../../Lemery_Cutscene_Canvas/Fade")
+animation_player = NodePath("../../../../../../Lemery_Cutscene_Canvas/Fade")
 animation_name = "fade_to_normal"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="lemery_quest2-show_quest" parent="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene" instance=ExtResource("24_yxncn")]
+[node name="lemery_quest2-show_quest" parent="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene" instance=ExtResource("24_yxncn")]
 unique_name_in_owner = true
 linked_quest = ExtResource("49_x3ndx")
 settings_summary = "UPDATE QUEST:
@@ -2183,6 +2223,24 @@ position = Vector2(-397, 496)
 scale = Vector2(0.11999, 1)
 level = "uid://b42q3fyiity6c"
 
+[node name="HPTreasureChest" parent="." instance=ExtResource("57_id2cg")]
+position = Vector2(663, 720)
+scale = Vector2(0.5, 0.5)
+item_data = ExtResource("58_id2cg")
+quantity = 1
+
+[node name="HPTreasureChest2" parent="." instance=ExtResource("57_id2cg")]
+position = Vector2(1024, 203)
+scale = Vector2(0.5, 0.5)
+item_data = ExtResource("58_id2cg")
+quantity = 1
+
+[node name="HPTreasureChest3" parent="." instance=ExtResource("57_id2cg")]
+position = Vector2(-220, 986)
+scale = Vector2(0.5, 0.5)
+item_data = ExtResource("58_id2cg")
+quantity = 1
+
 [connection signal="selected" from="LocalPriest/QuestActivatedSwitch2/quest_activated_switch/dialog_interaction/DialogChoice/Yes" to="LocalPriest/QuestActivatedSwitch2/quest_activated_switch/dialog_interaction/DialogChoice/Yes/QuestAdvanceTrigger" method="advance_quest"]
 [connection signal="enemy_destroyed" from="Spaniards_Quest/Enemy_Activated_Switch/SpanishSoldier" to="Spaniards_Quest" method="_on_spanish_soldier_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="Spaniards_Quest/Enemy_Activated_Switch/SpanishSoldier2" to="Spaniards_Quest" method="_on_spanish_soldier_enemy_destroyed"]
@@ -2196,9 +2254,9 @@ level = "uid://b42q3fyiity6c"
 [connection signal="deactivated" from="Bridge/QuestActivatedSwitch/PressurePlate" to="Bridge/bridge" method="_on_pressure_plate_deactivated"]
 [connection signal="activated" from="Bridge/QuestActivatedSwitch/PressurePlate2" to="Bridge/bridge2" method="_on_pressure_plate_2_activated"]
 [connection signal="deactivated" from="Bridge/QuestActivatedSwitch/PressurePlate2" to="Bridge/bridge2" method="_on_pressure_plate_2_deactivated"]
-[connection signal="player_entered" from="QuestActivatedSwitch/Quest1_Cutscene/area_trigger" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_area_trigger_player_entered"]
-[connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_black" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_black_finished"]
-[connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_normal" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_normal_finished"]
+[connection signal="player_entered" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_area_trigger_player_entered"]
+[connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_black" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_black_finished"]
+[connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_normal" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_normal_finished"]
 [connection signal="selected" from="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_yes_selected"]
 [connection signal="finished" from="ShowFirstText/DialogCutscene/CutsceneActionAnimation3" to="ShowFirstText" method="_on_cutscene_action_animation_3_finished"]
 [connection signal="body_entered" from="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/DryFishDialog" to="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill" method="_on_dry_fish_dialog_body_entered"]
