@@ -57,7 +57,7 @@
 [ext_resource type="Resource" uid="uid://x4vrgf2lry1t" path="res://Items/Dried_Fish.tres" id="54_4e6h7"]
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="57_id2cg"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="57_t8c6j"]
-[ext_resource type="Resource" uid="uid://dn35yenqj3vot" path="res://Items/Health_Potion.tres" id="58_id2cg"]
+[ext_resource type="Resource" path="res://Items/Health_Potion.tres" id="58_id2cg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gka3v"]
 texture = ExtResource("3_lprjf")
