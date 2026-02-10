@@ -1,0 +1,107 @@
+[33mcommit 12fabc07e1fb03debc13c685af8b99eecf7da8c9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmap/calaca[m[33m, [m[1;31morigin/map/calaca[m[33m)[m
+Author: AJ-Libs <ashleyjuddlibao4schoolandwork@gmail.com>
+Date:   Tue Feb 10 15:04:28 2026 +0800
+
+    calacantunan ni chan
+
+[33mcommit 4b136ab17704075693fe2f9372649e3b8a5a3393[m[33m ([m[1;31morigin/maps[m[33m, [m[1;32mmaps[m[33m)[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Sat Feb 7 21:24:00 2026 +0800
+
+    Update Lemery.tscn
+
+[33mcommit 75eb07e1144d095b810b4f1e1572e16d7ac24e43[m[33m ([m[1;31morigin/map/nasugbu[m[33m, [m[1;31morigin/map/lemery[m[33m, [m[1;32mmap/nasugbu[m[33m)[m
+Merge: 0b4f24d e54cf62
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Sat Feb 7 21:19:30 2026 +0800
+
+    Merge branch 'map/lemery' into maps
+
+[33mcommit 0b4f24d91f459de2f79753c24e8e3b53e9dccc32[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Sat Feb 7 21:17:43 2026 +0800
+
+    Nasugbu Layout
+
+[33mcommit e54cf62c30b22377ba0aec1206226b6e6c8b05ff[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Sat Feb 7 21:14:00 2026 +0800
+
+    Added Health Potions, and minor bug fixes
+
+[33mcommit 944ba0b119612f394d477d059c86b0e4015e1f5f[m
+Author: generalibao <ashleyjuddlibao4schoolandwork@gmail.com>
+Date:   Sat Feb 7 21:09:10 2026 +0800
+
+    nasugbu layout
+
+[33mcommit c81465bf7f2ebe118c0b6b1385235f3fb86beff1[m
+Merge: 618a48c 3a35244
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Fri Feb 6 10:48:16 2026 +0800
+
+    Merge branch 'map/taal' into maps, Old Map Polish
+
+[33mcommit 3a35244e0f119d7c1a7de8e5227177ca8923304b[m[33m ([m[1;31morigin/map/taal[m[33m, [m[1;32mmap/taal[m[33m)[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Fri Feb 6 10:47:50 2026 +0800
+
+    Old Taal Map Polish, Added Cliff to New Taal Map
+
+[33mcommit 618a48c648d96ccdb29020b15926a7e50e5d5211[m
+Merge: f1ed676 c249a16
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Thu Feb 5 20:11:31 2026 +0800
+
+    Merge branch 'map/lemery' into maps
+
+[33mcommit c249a168ca882b69be034cd17bf80f8da9e21db5[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Thu Feb 5 20:09:34 2026 +0800
+
+    Lemery Quest 2 Finished
+
+[33mcommit f1ed67632fb772bae6eb81ea2d13bb60eac5fe06[m
+Merge: a607109 8a740be
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Wed Feb 4 19:09:45 2026 +0800
+
+    Merge branch 'map/lemery' into maps
+
+[33mcommit 8a740be26bef92934122ed0a0790261753ee7235[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Wed Feb 4 18:59:45 2026 +0800
+
+    Minor fix on Lemery Map
+
+[33mcommit a607109c35d5386806a7dbfaa228d789beaa0e8a[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Wed Feb 4 09:51:04 2026 +0800
+
+    Reconfigure Export Preset
+
+[33mcommit fb1f7ec4738698b6a6fdff07af9b33f1a90365bc[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Tue Feb 3 10:25:49 2026 +0800
+
+    Added Large Files
+
+[33mcommit 6d367b752f7d5f490387acfb19c14551b99ef7a4[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Tue Feb 3 10:11:41 2026 +0800
+
+    Update .gitattributes
+
+[33mcommit 223dbf01a161326385fde1f36fdc6bb7fe4e443b[m
+Author: jm-alvarez <alvarezjohnmark118@gmail.com>
+Date:   Mon Feb 2 09:41:16 2026 +0800
+
+    Add Local FIles
+    
+    Upload Local Files
+
+[33mcommit bf09027859509f77b3440ba5bc3652d83cb9d6e5[m
+Author: John Mark Alvarez <alvarezjohnmark118@gmail.com>
+Date:   Sun Feb 1 17:52:29 2026 +0800
+
+    Initial commit
