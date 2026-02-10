@@ -1,5 +1,2 @@
-A simple customizable joystick node plugin for Godot. Just drag any node into the Joystick node's 'Joystick Target' variable.
-
-Don't worry if the node doesn't show in the editor. It's just like that
-
-Unfortunately you cannot edit the visuals of the node. But you can open the scene of the joystick and tweak it... I think (if not just copy the scene)
+The proposed game entitled “Batangas Chronicles: A Mobile E-Adventure Godot Game of the History of the First District Towns of Batangas Province” is a game where the main goal of the player is to discover all the places in the game, each of which is similar to Towns in Batangas. 
+The game has a map similar to the geographical features of the First District of Batangas, including its Origin. 
