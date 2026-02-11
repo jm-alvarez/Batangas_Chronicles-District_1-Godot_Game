@@ -8,7 +8,6 @@
 [sub_resource type="Resource" id="Resource_tsx7q"]
 script = ExtResource("2_bqeid")
 heal_amount = 2
-use_description = ""
 metadata/_custom_type_script = "uid://cuq2wxcdr3ol6"
 
 [resource]
