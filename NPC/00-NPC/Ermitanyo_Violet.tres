@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://bxfwu33vn1x66"]
+
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="1_bstc2"]
+[ext_resource type="Texture2D" uid="uid://cg275d3fu6jy0" path="res://NPC/Sprites/Ermitanyo/Ermitanyo_Violet-Portrait.png" id="1_c0847"]
+[ext_resource type="Texture2D" uid="uid://34ayiardtagc" path="res://NPC/Sprites/Ermitanyo/Ermitanyo_Violet-Sheet.png" id="3_1e72b"]
+
+[resource]
+script = ExtResource("1_bstc2")
+sprite = ExtResource("3_1e72b")
+portrait = ExtResource("1_c0847")
+metadata/_custom_type_script = "uid://c5ouqrd8mm7fj"
