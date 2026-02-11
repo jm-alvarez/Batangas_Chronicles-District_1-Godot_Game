@@ -57,7 +57,7 @@
 [ext_resource type="Resource" uid="uid://x4vrgf2lry1t" path="res://Items/Dried_Fish.tres" id="54_4e6h7"]
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="57_id2cg"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="57_t8c6j"]
-[ext_resource type="Resource" path="res://Items/Health_Potion.tres" id="58_id2cg"]
+[ext_resource type="Resource" uid="uid://dn35yenqj3vot" path="res://Items/Health_Potion.tres" id="58_id2cg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gka3v"]
 texture = ExtResource("3_lprjf")
@@ -1570,7 +1570,7 @@ tile_set = SubResource("TileSet_2fd2o")
 format = 2
 layer_0/tile_data = PackedInt32Array(2097244, 524288, 1, 2162780, 524288, 2, 2228316, 524288, 3, 2293852, 524288, 4, 2359388, 524288, 5, 2424924, 524288, 6, 2490460, 524288, 7, 2555996, 524288, 8, 2097245, 524288, 1, 2162781, 524288, 2, 2228317, 524288, 3, 2293853, 524288, 4, 2359389, 524288, 5, 2424925, 524288, 6, 2490461, 524288, 7, 2555997, 524288, 8, 2097246, 524288, 1, 2162782, 524288, 2, 2228318, 524288, 3, 2293854, 524288, 4, 2293855, 131073, 0, 2097247, 131073, 0, 2293833, 1, 0, 2097225, 1, 0, 2359390, 393219, 1, 2424926, 393219, 1, 2490462, 393219, 1, 2555998, 393219, 1, 2031710, 458755, 1)
 
-[node name="LevelTransition2" parent="Bridge" instance=ExtResource("7_fks5h")]
+[node name="To_New_Taal" parent="Bridge" instance=ExtResource("7_fks5h")]
 position = Vector2(1328, 546)
 scale = Vector2(0.12, 1)
 level = "uid://c0m8kk7se0tuh"
@@ -1581,12 +1581,12 @@ side = 1
 script = ExtResource("20_nqhjt")
 check_type = 1
 react_to_global_signal = true
-linked_quest = ExtResource("17_uw18i")
-quest_step = 3
+linked_quest = ExtResource("49_x3ndx")
+quest_step = 5
 quest_complete = true
 settings_summary = "UPDATE QUEST:
- Quest: Key to Devotion
-Checking if player has completed step: return the key to father."
+ Quest: Fresh from the Celador
+Checking if player has completed step: go, talk to capt. lemery"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="pushable_statue" parent="Bridge/QuestActivatedSwitch" instance=ExtResource("22_qwgos")]
@@ -2209,7 +2209,7 @@ settings_summary = "UPDATE QUEST:
 Checking if quest is complete"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="To_Old_Taal" parent="." instance=ExtResource("7_fks5h")]
+[node name="To_Old_Taal" parent="Old_taal_switch" instance=ExtResource("7_fks5h")]
 position = Vector2(320, -27)
 scale = Vector2(1, 0.28)
 level = "uid://5l6jcbgahjac"
