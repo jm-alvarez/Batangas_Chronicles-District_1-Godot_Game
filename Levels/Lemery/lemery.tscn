@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://5dgm3qr306fi" path="res://NPC/npc_behaviour_wander.tscn" id="10_ja4en"]
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="11_c6aga"]
 [ext_resource type="PackedScene" uid="uid://cma2td3lvgelc" path="res://Quests/UtilityNode/quest_activated_switch.tscn" id="11_mrchx"]
-[ext_resource type="Resource" uid="uid://c1spdc48twm0m" path="res://NPC/00-NPC/Spanish_Guard.tres" id="11_nm750"]
 [ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="12_img18"]
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="12_purwf"]
 [ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="13_lvoha"]
@@ -37,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://dolt6fgj212so" path="res://Interactables/Dungeon/pressure_plate.tscn" id="23_y0wsc"]
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="24_yxncn"]
 [ext_resource type="Script" uid="uid://sxl1ls4sbmjw" path="res://GeneralNodes/AreaTrigger/area_trigger.gd" id="25_ut4jf"]
+[ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="26_tjb2u"]
 [ext_resource type="Script" uid="uid://b4kpico5bhvbj" path="res://Levels/Lemery/spaniards_quest.gd" id="27_fgswx"]
 [ext_resource type="Texture2D" uid="uid://c888q2smdbv2c" path="res://Interactables/Dungeon/Old_bridge.png" id="31_uffix"]
 [ext_resource type="Texture2D" uid="uid://cppm6ptkd0tom" path="res://Interactables/Dungeon/Old_bridge_wall.png" id="32_2337n"]
@@ -1314,7 +1314,7 @@ npc_info = ExtResource("23_x3ndx")
 
 [node name="npc" parent="." instance=ExtResource("8_gnnf6")]
 position = Vector2(268, 616)
-npc_resource = ExtResource("11_nm750")
+npc_resource = ExtResource("26_tjb2u")
 
 [node name="NPCWanderBehaviour" parent="npc" instance=ExtResource("10_ja4en")]
 
@@ -1323,7 +1323,7 @@ npc_resource = ExtResource("11_nm750")
 [node name="DialogText" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_purwf")
 text = "Hi"
-npc_info = ExtResource("11_nm750")
+npc_info = ExtResource("26_tjb2u")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="Spaniards_Quest" type="Node2D" parent="."]

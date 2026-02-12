@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8h8nte5bwequ"]
+[gd_scene load_steps=8 format=3 uid="uid://dmrefkb47r1hm"]
 
 [ext_resource type="Texture2D" uid="uid://c5if7yan8lsh1" path="res://Levels/Taal/Taal_Basilica-New.png" id="1_2470q"]
 
@@ -94,7 +94,7 @@ libraries = {
 }
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.0
+energy = 0.5
 blend_mode = 1
 
 [node name="TaalBasilicaNew" type="Sprite2D" parent="."]
