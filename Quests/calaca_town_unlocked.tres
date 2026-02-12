@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://dyh10307ejwhr"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_oisnh"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="2_qtpwf"]
+
+[resource]
+script = ExtResource("2_qtpwf")
+title = "Calaca Unlocked"
+description = "By Completing all quests in Lemery you unlock the next town."
+steps = Array[String](["You unlocked Calaca, you can now discover how good this town was."])
+metadata/_custom_type_script = "uid://cbl1ai8wnqqui"

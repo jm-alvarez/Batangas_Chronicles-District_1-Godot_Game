@@ -45,7 +45,7 @@ func _on_fade_to_black_finished() -> void:
 	pass # Replace with function body.
 
 func _on_yes_selected() -> void:
-	$CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes/quest_advance_trigger.advance_quest()
+	%LQ2_Quest1_Advance.advance_quest()
 	pass # Replace with function body.
 
 
@@ -60,5 +60,4 @@ func set_state():
 
 
 func _on_lemery_quest_2_show_quest_advanced() -> void:
-	lemery.FirstTextString = "Barrio San Geronimo"
 	pass # Replace with function body.
