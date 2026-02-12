@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://ch6na1auu2tfb"]
+[gd_scene load_steps=49 format=3 uid="uid://ch6na1auu2tfb"]
 
 [ext_resource type="Texture2D" uid="uid://dab312cn5r8br" path="res://Tilemaps/Sprite/Tileset2(Soil).png" id="1_1osn5"]
+[ext_resource type="Texture2D" uid="uid://bmhp63jpkvg6f" path="res://Tilemaps/Sprite/WhiteSand_Tile(Down)-Sheet.png" id="2_fgd87"]
 [ext_resource type="Script" uid="uid://bnv4xhgxs1lwy" path="res://Tilemaps/level_tilemap.gd" id="2_mvjs6"]
 [ext_resource type="Texture2D" uid="uid://qbtafgujkdfw" path="res://Tilemaps/Sprite/green_grass_seashore/Green_Grass(Seashore)-Sheet8.png" id="2_ph5sl"]
 [ext_resource type="Texture2D" uid="uid://dxtj50c602m1q" path="res://Tilemaps/Sprite/green_grass_seashore/Green_Grass(Seashore)-Sheet9.png" id="3_1xo6n"]
@@ -18,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://bl28qeybf0bym" path="res://Tilemaps/Sprite/green_grass_seashore/Green_Grass(Seashore)-Sheet5.png" id="8_lskxl"]
 [ext_resource type="Texture2D" uid="uid://crjujbmcbudte" path="res://Tilemaps/Sprite/green_grass_seashore/Green_Grass(Seashore)-Sheet6.png" id="9_dqm0v"]
 [ext_resource type="Texture2D" uid="uid://cb6gue55l1dd1" path="res://Tilemaps/Sprite/green_grass_seashore/Green_Grass(Seashore)-Sheet7.png" id="10_6mfxe"]
+[ext_resource type="Texture2D" uid="uid://bb63i36q4thso" path="res://Tilemaps/Sprite/WhiteSand_Tile(LeftSide)-Sheet.png" id="11_qe6s2"]
+[ext_resource type="Texture2D" uid="uid://dawbkgna3oilj" path="res://Tilemaps/Sprite/WhiteSand_Tile(Up)-Sheet.png" id="14_78o15"]
+[ext_resource type="Texture2D" uid="uid://d1m5oqm0ycxqk" path="res://Tilemaps/Sprite/WhiteSand_Tile(Sides)-Sheet.png" id="14_c3qod"]
+[ext_resource type="Texture2D" uid="uid://dc1qbo7otyop2" path="res://Tilemaps/Sprite/Side-Sheet.png" id="15_c3qod"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_804gw"]
 texture = ExtResource("1_1osn5")
@@ -544,6 +549,72 @@ texture = ExtResource("7_21s3l")
 texture = ExtResource("4_840fb")
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4t4a"]
+texture = ExtResource("11_qe6s2")
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qe6s2"]
+texture = ExtResource("2_fgd87")
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_78o15"]
+texture = ExtResource("14_78o15")
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ghb7"]
+texture = ExtResource("14_c3qod")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3qod"]
+texture = ExtResource("2_fgd87")
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7jhj"]
+texture = ExtResource("11_qe6s2")
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1m7ib"]
+texture = ExtResource("15_c3qod")
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tv7f"]
 texture = ExtResource("4_x4ldi")
 0:0/animation_frame_0/duration = 1.0
@@ -626,7 +697,7 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 16
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain1 0"
-terrain_set_0/terrain_0/color = Color(0, 0.69803923, 0.28627452, 1)
+terrain_set_0/terrain_0/color = Color(0, 0.698039, 0.286275, 1)
 sources/0 = SubResource("TileSetAtlasSource_804gw")
 sources/3 = SubResource("TileSetAtlasSource_8tv7f")
 sources/4 = SubResource("TileSetAtlasSource_bn2t1")
@@ -644,6 +715,13 @@ sources/17 = SubResource("TileSetAtlasSource_21s3l")
 sources/19 = SubResource("TileSetAtlasSource_wvtjj")
 sources/14 = SubResource("TileSetAtlasSource_8ip3i")
 sources/15 = SubResource("TileSetAtlasSource_fgd87")
+sources/21 = SubResource("TileSetAtlasSource_f4t4a")
+sources/22 = SubResource("TileSetAtlasSource_qe6s2")
+sources/23 = SubResource("TileSetAtlasSource_78o15")
+sources/24 = SubResource("TileSetAtlasSource_6ghb7")
+sources/26 = SubResource("TileSetAtlasSource_c3qod")
+sources/27 = SubResource("TileSetAtlasSource_o7jhj")
+sources/29 = SubResource("TileSetAtlasSource_1m7ib")
 
 [node name="grass_1" type="TileMap"]
 z_index = -1
