@@ -669,10 +669,10 @@ tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0]
+"values": [1.0, 1.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -681,10 +681,10 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_cujgu"]
@@ -1376,28 +1376,15 @@ script = ExtResource("12_purwf")
 text = "That's the item I was looking for."
 npc_info = ExtResource("23_x3ndx")
 
-[node name="QuestActivatedSwitch2" type="Node2D" parent="."]
-position = Vector2(-415, -147)
-script = ExtResource("20_nqhjt")
-check_type = 3
-react_to_global_signal = true
-linked_quest = ExtResource("49_x3ndx")
-quest_step = 5
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Fresh from the Celador
-Checking if quest is complete"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="Ermitanyo" parent="QuestActivatedSwitch2" instance=ExtResource("8_gnnf6")]
+[node name="npc" parent="." instance=ExtResource("8_gnnf6")]
 position = Vector2(268, 616)
 npc_resource = ExtResource("26_tjb2u")
 
-[node name="NPCWanderBehaviour" parent="QuestActivatedSwitch2/Ermitanyo" instance=ExtResource("10_ja4en")]
+[node name="NPCWanderBehaviour" parent="npc" instance=ExtResource("10_ja4en")]
 
-[node name="dialog_interaction" parent="QuestActivatedSwitch2/Ermitanyo" instance=ExtResource("11_c6aga")]
+[node name="dialog_interaction" parent="npc" instance=ExtResource("11_c6aga")]
 
-[node name="DialogText" type="Node" parent="QuestActivatedSwitch2/Ermitanyo/dialog_interaction"]
+[node name="DialogText" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_purwf")
 text = "Hi"
 npc_info = ExtResource("26_tjb2u")
@@ -2092,7 +2079,6 @@ libraries = {
 autoplay = "anim1"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstText/ShowFirstTextAnim"]
-energy = 0.0
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowFirstTextAnim"]
@@ -2108,7 +2094,6 @@ grow_vertical = 2
 
 [node name="FirstTextLabel" type="Label" parent="ShowFirstText/ShowFirstTextAnim/CanvasLayer/Control"]
 unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0)
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -2125,6 +2110,90 @@ grow_vertical = 2
 theme_override_fonts/font = SubResource("FontVariation_t8c6j")
 theme_override_font_sizes/font_size = 64
 text = "Barrio Punta, Year 1817"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowSanGeronimoTextAnim" type="AnimationPlayer" parent="ShowFirstText"]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstText/ShowSanGeronimoTextAnim"]
+energy = 0.0
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowSanGeronimoTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstText/ShowSanGeronimoTextAnim/CanvasLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ShowFirstText/ShowSanGeronimoTextAnim/CanvasLayer/Control"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_t8c6j")
+theme_override_font_sizes/font_size = 64
+text = "San Geronimo, Year 1818"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowLemeryTextAnim" type="AnimationPlayer" parent="ShowFirstText"]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstText/ShowLemeryTextAnim"]
+energy = 0.0
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowLemeryTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstText/ShowLemeryTextAnim/CanvasLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ShowFirstText/ShowLemeryTextAnim/CanvasLayer/Control"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_t8c6j")
+theme_override_font_sizes/font_size = 64
+text = "Town of Lemery"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2344,16 +2413,19 @@ level = "uid://b42q3fyiity6c"
 
 [node name="HPTreasureChest" parent="." instance=ExtResource("57_id2cg")]
 position = Vector2(663, 720)
+scale = Vector2(0.5, 0.5)
 item_data = ExtResource("58_id2cg")
 quantity = 1
 
 [node name="HPTreasureChest2" parent="." instance=ExtResource("57_id2cg")]
 position = Vector2(1024, 203)
+scale = Vector2(0.5, 0.5)
 item_data = ExtResource("58_id2cg")
 quantity = 1
 
 [node name="HPTreasureChest3" parent="." instance=ExtResource("57_id2cg")]
 position = Vector2(-220, 986)
+scale = Vector2(0.5, 0.5)
 item_data = ExtResource("58_id2cg")
 quantity = 1
 

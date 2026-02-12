@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c26lvbtv0b86b"]
+[gd_scene load_steps=14 format=4 uid="uid://c26lvbtv0b86b"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ai7r3"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_uc1vf"]
@@ -8,9 +8,75 @@
 [ext_resource type="PackedScene" uid="uid://dox5s5vhjvbqw" path="res://Tilemaps/house_tm.tscn" id="6_mjott"]
 [ext_resource type="PackedScene" uid="uid://olxulnvfro0q" path="res://Levels/Houses/house_1.tscn" id="7_nwh20"]
 [ext_resource type="PackedScene" uid="uid://8e1y45h1x22j" path="res://Tilemaps/tree.tscn" id="8_78ubu"]
+[ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="9_nwh20"]
 
-[node name="Nasugbu" type="Node2D"]
+[sub_resource type="Animation" id="Animation_rorml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cujgu"]
+resource_name = "anim1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4901161e-08, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77srf"]
+_data = {
+&"RESET": SubResource("Animation_rorml"),
+&"anim1": SubResource("Animation_cujgu")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_78ubu"]
+base_font = ExtResource("9_nwh20")
+
+[node name="Nasugbu" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_ai7r3")
+FirstTextString = "Nasugbu"
+FirstTextAnim = NodePath("ShowFirstTextAnim")
 
 [node name="grass_1" parent="." instance=ExtResource("2_uc1vf")]
 position = Vector2(0, -1)
@@ -42,3 +108,44 @@ tile_map_data = PackedByteArray("AABm//D/BQACAAcAAABq//7/BQAIAAAAAABb/wIABQAJAAg
 
 [node name="House1" parent="House" instance=ExtResource("7_nwh20")]
 position = Vector2(-2744, -246)
+
+[node name="ShowFirstTextAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstTextAnim"]
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstTextAnim/CanvasLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstTextLabel" type="Label" parent="ShowFirstTextAnim/CanvasLayer/Control"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_78ubu")
+theme_override_font_sizes/font_size = 64
+text = "Nasugbu"
+horizontal_alignment = 1
+vertical_alignment = 1

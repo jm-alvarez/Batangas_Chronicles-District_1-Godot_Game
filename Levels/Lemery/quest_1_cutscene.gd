@@ -3,6 +3,7 @@ extends Node2D
 var isQuest1CutsceneFinished : bool = false
 
 @onready var quest_1_cutscene_finished: PersistentDataHandler = $Quest_1_Cutscene_Finished
+@onready var lemery: Level = $"../.."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -56,3 +57,8 @@ func _on_end_action_move_finished() -> void:
 
 func set_state():
 	isQuest1CutsceneFinished = quest_1_cutscene_finished.value
+
+
+func _on_lemery_quest_2_show_quest_advanced() -> void:
+	lemery.FirstTextString = "Barrio San Geronimo"
+	pass # Replace with function body.
