@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bfqqhq3bxuh0l"]
+[gd_scene load_steps=90 format=3 uid="uid://bfqqhq3bxuh0l"]
 
 [ext_resource type="PackedScene" uid="uid://bqu1q2bhv0qmb" path="res://Tilemaps/house_tilemap.tscn" id="1_rdc6o"]
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_skfnf"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://b813olwkbql2w" path="res://Levels/sample/Scene1/cabinet.gd" id="29_c4jtm"]
 [ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="29_vohmb"]
 [ext_resource type="Resource" uid="uid://bkrrofc1685d2" path="res://NPC/00-NPC/aki_mother.tres" id="30_sysf1"]
+[ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="35_rr66o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6rs1"]
 size = Vector2(78, 44)
@@ -1834,8 +1835,12 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq764"]
 
-[node name="Aki_Room" type="Node2D"]
+[sub_resource type="FontVariation" id="FontVariation_p06ko"]
+base_font = ExtResource("35_rr66o")
+
+[node name="Aki_Room" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_skfnf")
+FirstTextAnim = NodePath("FirstTextAnim")
 
 [node name="quest_activated_switch3" parent="." instance=ExtResource("5_23vf8")]
 position = Vector2(71, 58)
@@ -2598,6 +2603,40 @@ settings_summary = "UPDATE QUEST:
  Quest: Sleep...Sleep...sleep
 Step: 1 - inspect the wardrobe
 Complete: false"
+
+[node name="FirstTextAnim" type="AnimationPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="FirstTextAnim"]
+
+[node name="Control" type="Control" parent="FirstTextAnim/CanvasLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstTextLabel" type="Label" parent="FirstTextAnim/CanvasLayer/Control"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_p06ko")
+theme_override_font_sizes/font_size = 64
+text = "Lian"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Bookshelf/area_trigger" to="Bookshelf" method="_on_area_trigger_body_entered"]
 [connection signal="body_exited" from="Bookshelf/area_trigger" to="Bookshelf" method="_on_area_trigger_body_exited"]
