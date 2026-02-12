@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=4 uid="uid://dafnhgj0rysap"]
+[gd_scene load_steps=114 format=4 uid="uid://dafnhgj0rysap"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ssi34"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_c7r6x"]
@@ -48,7 +48,6 @@
 [ext_resource type="Script" uid="uid://d1mgcxi62fxvx" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="46_ca1wh"]
 [ext_resource type="Resource" uid="uid://guucy4xyq4o6" path="res://NPC/00-NPC/captain_lemery.tres" id="47_lkjpg"]
 [ext_resource type="Resource" uid="uid://bgfomnvmbl6iq" path="res://Quests/lemery_quest_2.tres" id="49_x3ndx"]
-[ext_resource type="Script" uid="uid://bw3vaurybtw6v" path="res://Levels/Lemery/show_first_text.gd" id="50_qc5rq"]
 [ext_resource type="Texture2D" uid="uid://dyu27728oc8mx" path="res://Levels/Lemery/Sprites/Fish_drying_on_Grill-Sheet.png" id="51_5jsvx"]
 [ext_resource type="PackedScene" uid="uid://crnk5hqebaqnu" path="res://GeneralNodes/PersistentDataHelper/persistent_data_handler.tscn" id="51_86yos"]
 [ext_resource type="Script" uid="uid://bgcssfjp3klb5" path="res://Levels/Lemery/quest_2.gd" id="52_5jsvx"]
@@ -661,6 +660,69 @@ size = Vector2(220, 152)
 [sub_resource type="CircleShape2D" id="CircleShape2D_4e6h7"]
 radius = 15.1327
 
+[sub_resource type="Animation" id="Animation_cujgu"]
+resource_name = "anim1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rorml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77srf"]
+_data = {
+&"RESET": SubResource("Animation_rorml"),
+&"anim1": SubResource("Animation_cujgu")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_t8c6j"]
+base_font = ExtResource("43_onhyf")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5jsvx"]
 size = Vector2(42, 42)
 
@@ -1062,8 +1124,10 @@ _data = {
 &"show": SubResource("Animation_rxcv5")
 }
 
-[node name="lemery" type="Node2D"]
+[node name="lemery" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_ssi34")
+FirstTextString = "Barrio Punta"
+FirstTextAnim = NodePath("ShowFirstText/ShowFirstTextAnim")
 
 [node name="tree" parent="." instance=ExtResource("2_lprjf")]
 tile_map_data = PackedByteArray("AAD4/xIACgAAAAQAAAD//xAACgAAAAQAAAADABYACgAAAAQAAAAGAAUACgAAAAQAAAAJAA4ACgAAAAQAAAAKAAwACgAAAAQAAAALAAIACgAAAAQAAAAUABcACgAAAAQAAAAWABUACgAAAAQAAAAbAA8ACgAAAAQAAAD2/woACgACAAIAAAD9/wAACgACAAIAAAD+/wMACgACAAIAAAADAAoACgACAAIAAAAIABcACgACAAIAAAANAAMACgACAAIAAAATAAEACgACAAIAAAAYAA8ACgACAAIAAAASAAcACgAGAAIAAAAPABgACgAGAAIAAAD7/w0ACgAGAAIAAAD9/wUACgAGAAIAAAAGAAgACgAGAAIAAAAJAAQACgAGAAIAAAAQAAkACgAGAAIAAAASAAoACgAGAAIAAAAVAAkACgAGAAIAAAD6/xcACgAGAAIAAAADAA8ACgAGAAIAAAA=")
@@ -1570,7 +1634,7 @@ tile_set = SubResource("TileSet_2fd2o")
 format = 2
 layer_0/tile_data = PackedInt32Array(2097244, 524288, 1, 2162780, 524288, 2, 2228316, 524288, 3, 2293852, 524288, 4, 2359388, 524288, 5, 2424924, 524288, 6, 2490460, 524288, 7, 2555996, 524288, 8, 2097245, 524288, 1, 2162781, 524288, 2, 2228317, 524288, 3, 2293853, 524288, 4, 2359389, 524288, 5, 2424925, 524288, 6, 2490461, 524288, 7, 2555997, 524288, 8, 2097246, 524288, 1, 2162782, 524288, 2, 2228318, 524288, 3, 2293854, 524288, 4, 2293855, 131073, 0, 2097247, 131073, 0, 2293833, 1, 0, 2097225, 1, 0, 2359390, 393219, 1, 2424926, 393219, 1, 2490462, 393219, 1, 2555998, 393219, 1, 2031710, 458755, 1)
 
-[node name="LevelTransition2" parent="Bridge" instance=ExtResource("7_fks5h")]
+[node name="To_New_Taal" parent="Bridge" instance=ExtResource("7_fks5h")]
 position = Vector2(1328, 546)
 scale = Vector2(0.12, 1)
 level = "uid://c0m8kk7se0tuh"
@@ -1581,12 +1645,12 @@ side = 1
 script = ExtResource("20_nqhjt")
 check_type = 1
 react_to_global_signal = true
-linked_quest = ExtResource("17_uw18i")
-quest_step = 3
+linked_quest = ExtResource("49_x3ndx")
+quest_step = 5
 quest_complete = true
 settings_summary = "UPDATE QUEST:
- Quest: Key to Devotion
-Checking if player has completed step: return the key to father."
+ Quest: Fresh from the Celador
+Checking if player has completed step: go, talk to capt. lemery"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="pushable_statue" parent="Bridge/QuestActivatedSwitch" instance=ExtResource("22_qwgos")]
@@ -1983,7 +2047,6 @@ Complete: true"
 [node name="Quest_1_Cutscene_Finished" parent="QuestActivatedSwitch/Quest1_Cutscene" instance=ExtResource("51_86yos")]
 
 [node name="ShowFirstText" type="Node2D" parent="."]
-script = ExtResource("50_qc5rq")
 
 [node name="DialogCutscene" type="Node" parent="ShowFirstText"]
 script = ExtResource("45_lkjpg")
@@ -2008,6 +2071,133 @@ animation_name = "fade_to_normal"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
 [node name="isFinished" parent="ShowFirstText" instance=ExtResource("51_86yos")]
+
+[node name="ShowFirstTextAnim" type="AnimationPlayer" parent="ShowFirstText"]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstText/ShowFirstTextAnim"]
+energy = 0.0
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowFirstTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstText/ShowFirstTextAnim/CanvasLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstTextLabel" type="Label" parent="ShowFirstText/ShowFirstTextAnim/CanvasLayer/Control"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_t8c6j")
+theme_override_font_sizes/font_size = 64
+text = "Barrio Punta, Year 1817"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowSanGeronimoTextAnim" type="AnimationPlayer" parent="ShowFirstText"]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstText/ShowSanGeronimoTextAnim"]
+energy = 0.0
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowSanGeronimoTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstText/ShowSanGeronimoTextAnim/CanvasLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ShowFirstText/ShowSanGeronimoTextAnim/CanvasLayer/Control"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_t8c6j")
+theme_override_font_sizes/font_size = 64
+text = "San Geronimo, Year 1818"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowLemeryTextAnim" type="AnimationPlayer" parent="ShowFirstText"]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstText/ShowLemeryTextAnim"]
+energy = 0.0
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowLemeryTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstText/ShowLemeryTextAnim/CanvasLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ShowFirstText/ShowLemeryTextAnim/CanvasLayer/Control"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_t8c6j")
+theme_override_font_sizes/font_size = 64
+text = "Town of Lemery"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuestActivatedSwitch3" type="Node2D" parent="."]
 script = ExtResource("20_nqhjt")
@@ -2209,7 +2399,7 @@ settings_summary = "UPDATE QUEST:
 Checking if quest is complete"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="To_Old_Taal" parent="." instance=ExtResource("7_fks5h")]
+[node name="To_Old_Taal" parent="Old_taal_switch" instance=ExtResource("7_fks5h")]
 position = Vector2(320, -27)
 scale = Vector2(1, 0.28)
 level = "uid://5l6jcbgahjac"
