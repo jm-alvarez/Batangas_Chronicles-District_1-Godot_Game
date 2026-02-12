@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://5dgm3qr306fi" path="res://NPC/npc_behaviour_wander.tscn" id="11_c74rc"]
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="12_x7iw4"]
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="13_u3uel"]
-[ext_resource type="PackedScene" uid="uid://dmrefkb47r1hm" path="res://Levels/night.tscn" id="15_o5dep"]
+[ext_resource type="PackedScene" path="res://Levels/night.tscn" id="15_o5dep"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_usta1"]
 texture = ExtResource("6_1eoai")
