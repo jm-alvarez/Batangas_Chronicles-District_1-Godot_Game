@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=4 format=3 uid="uid://xd4f3ioi20kv"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_6o7eg"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="2_05vc4"]
+[ext_resource type="Resource" uid="uid://cqrseg7kmu2ua" path="res://Quests/Reward_Items/Health_Potion.tres" id="2_gdyun"]
+
+[resource]
+script = ExtResource("2_05vc4")
+title = "Heritage Town Awaits..."
+description = "By Completing all quests in Lemery you unlock the next town."
+steps = Array[String](["You can now go to the heritage town"])
+reward_exp = 10
+reward_items = Array[ExtResource("1_6o7eg")]([ExtResource("2_gdyun")])
+metadata/_custom_type_script = "uid://cbl1ai8wnqqui"

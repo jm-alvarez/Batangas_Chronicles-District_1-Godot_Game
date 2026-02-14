@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://oqkqf8k3tlc5"]
+[gd_scene load_steps=39 format=3 uid="uid://oqkqf8k3tlc5"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ikgjj"]
 [ext_resource type="PackedScene" uid="uid://bqu1q2bhv0qmb" path="res://Tilemaps/house_tilemap.tscn" id="2_vhdkk"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://bandeup0apojs" path="res://Levels/sample/Scene1/door_mat.gd" id="17_ikgjj"]
 [ext_resource type="PackedScene" uid="uid://cma2td3lvgelc" path="res://Quests/UtilityNode/quest_activated_switch.tscn" id="20_rhxw5"]
 [ext_resource type="PackedScene" uid="uid://cnqkqeyxokar0" path="res://GeneralNodes/AreaTrigger/area_trigger.tscn" id="21_t8h0g"]
+[ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="25_th03b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6jre"]
 size = Vector2(16, 30)
@@ -106,8 +107,73 @@ size = Vector2(56, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vewac"]
 size = Vector2(16, 5)
 
-[node name="AkiHouse" type="Node2D"]
+[sub_resource type="Animation" id="Animation_rorml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cujgu"]
+resource_name = "anim1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4901161e-08, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77srf"]
+_data = {
+&"RESET": SubResource("Animation_rorml"),
+&"anim1": SubResource("Animation_cujgu")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_pevmy"]
+base_font = ExtResource("25_th03b")
+
+[node name="AkiHouse" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_ikgjj")
+FirstTextString = "Living Room"
+FirstTextAnim = NodePath("ShowFirstTextAnim")
 
 [node name="aki_house" parent="." instance=ExtResource("2_vhdkk")]
 position = Vector2(0, -13)
@@ -131,7 +197,6 @@ shape = SubResource("RectangleShape2D_s6jre")
 [node name="QuestActivatedSwitch" type="Node2D" parent="Door"]
 script = ExtResource("4_luu2m")
 check_type = 1
-free_on_remove = null
 react_to_global_signal = true
 linked_quest = ExtResource("13_6afno")
 quest_step = 3
@@ -295,7 +360,6 @@ zoom = Vector2(3, 3)
 
 [node name="quest_activated_switch2" parent="." instance=ExtResource("20_rhxw5")]
 check_type = 1
-free_on_remove = null
 react_to_global_signal = true
 linked_quest = ExtResource("13_6afno")
 quest_step = 3
@@ -306,7 +370,6 @@ Checking if player has completed step: talk to aki's mother"
 [node name="quest_activated_switch" parent="quest_activated_switch2" instance=ExtResource("20_rhxw5")]
 check_type = 1
 remove_when_activated = true
-free_on_remove = null
 react_to_global_signal = true
 linked_quest = ExtResource("15_sr8ie")
 quest_step = 1
@@ -329,6 +392,47 @@ Complete: false"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="quest_activated_switch2/quest_activated_switch/area_trigger"]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_vewac")
+
+[node name="ShowFirstTextAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstTextAnim"]
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstTextAnim/CanvasLayer"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstTextLabel" type="Label" parent="ShowFirstTextAnim/CanvasLayer/Control"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_pevmy")
+theme_override_font_sizes/font_size = 64
+text = "Living Room"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Door/QuestActivatedSwitch/LevelTransition" to="." method="_on_level_transition_body_entered"]
 [connection signal="body_entered" from="Door_mat/StaticBody2D" to="Door_mat" method="_on_static_body_2d_body_entered"]

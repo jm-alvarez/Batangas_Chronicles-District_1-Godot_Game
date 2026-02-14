@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blmcgso2435fr"]
+[gd_scene load_steps=8 format=3 uid="uid://cmb442hs3lql6"]
 
 [ext_resource type="Texture2D" uid="uid://vjtp5f7opf4t" path="res://Levels/sample/Scene1/Sprites/Aki_Sleeping-Sheet-export.png" id="1_i26ni"]
 
@@ -69,10 +69,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pm6cj"]
 _data = {
-"RESET": SubResource("Animation_y5si0"),
-"aki_sleep": SubResource("Animation_qtpts"),
-"aki_wakeup": SubResource("Animation_no7xn"),
-"default": SubResource("Animation_r8q3p")
+&"RESET": SubResource("Animation_y5si0"),
+&"aki_sleep": SubResource("Animation_qtpts"),
+&"aki_wakeup": SubResource("Animation_no7xn"),
+&"default": SubResource("Animation_r8q3p")
 }
 
 [node name="void1" type="Node2D"]
@@ -95,5 +95,5 @@ debug_color = Color(1, 0, 0, 0.498039)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bed"]
 libraries = {
-"": SubResource("AnimationLibrary_pm6cj")
+&"": SubResource("AnimationLibrary_pm6cj")
 }

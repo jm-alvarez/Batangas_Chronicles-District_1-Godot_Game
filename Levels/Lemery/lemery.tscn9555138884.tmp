@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=4 uid="uid://dafnhgj0rysap"]
+[gd_scene load_steps=114 format=4 uid="uid://dafnhgj0rysap"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ssi34"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_c7r6x"]
@@ -36,11 +36,8 @@
 [ext_resource type="PackedScene" uid="uid://dolt6fgj212so" path="res://Interactables/Dungeon/pressure_plate.tscn" id="23_y0wsc"]
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="24_yxncn"]
 [ext_resource type="Script" uid="uid://sxl1ls4sbmjw" path="res://GeneralNodes/AreaTrigger/area_trigger.gd" id="25_ut4jf"]
-[ext_resource type="Resource" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="26_tjb2u"]
+[ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="26_tjb2u"]
 [ext_resource type="Script" uid="uid://b4kpico5bhvbj" path="res://Levels/Lemery/spaniards_quest.gd" id="27_fgswx"]
-[ext_resource type="Resource" uid="uid://xd4f3ioi20kv" path="res://Quests/Heritage Town Awaits.tres" id="28_dea30"]
-[ext_resource type="Resource" uid="uid://dyh10307ejwhr" path="res://Quests/calaca_town_unlocked.tres" id="29_tjb2u"]
-[ext_resource type="Script" path="res://Levels/Lemery/lemery_new_town_trigger.gd" id="30_0tbao"]
 [ext_resource type="Texture2D" uid="uid://c888q2smdbv2c" path="res://Interactables/Dungeon/Old_bridge.png" id="31_uffix"]
 [ext_resource type="Texture2D" uid="uid://cppm6ptkd0tom" path="res://Interactables/Dungeon/Old_bridge_wall.png" id="32_2337n"]
 [ext_resource type="Texture2D" uid="uid://ddiktqekfjek8" path="res://Assets/Terrain/grass_soil_tileset.png" id="33_s5wxx"]
@@ -57,11 +54,9 @@
 [ext_resource type="Script" uid="uid://bo8y4n00rglpj" path="res://Levels/Lemery/fish_grill.gd" id="52_yvwjy"]
 [ext_resource type="Resource" uid="uid://dswwab4dd483j" path="res://Items/Fish.tres" id="53_cvuho"]
 [ext_resource type="Resource" uid="uid://x4vrgf2lry1t" path="res://Items/Dried_Fish.tres" id="54_4e6h7"]
-[ext_resource type="PackedScene" uid="uid://4tajkbc314hl" path="res://Levels/boulder.tscn" id="55_id2cg"]
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="57_id2cg"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="57_t8c6j"]
-[ext_resource type="Resource" uid="uid://d2k7wbl61xxre" path="res://Items/Health_Potion.tres" id="58_id2cg"]
-[ext_resource type="Script" path="res://Levels/Lemery/node_final_cs.gd" id="61_e8jnt"]
+[ext_resource type="Resource" uid="uid://dn35yenqj3vot" path="res://Items/Health_Potion.tres" id="58_id2cg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gka3v"]
 texture = ExtResource("3_lprjf")
@@ -674,10 +669,10 @@ tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0]
+"values": [1.0, 1.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -686,10 +681,10 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_cujgu"]
@@ -1129,310 +1124,6 @@ _data = {
 &"show": SubResource("Animation_rxcv5")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8jnt"]
-size = Vector2(197, 180)
-
-[sub_resource type="Animation" id="Animation_yth75"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/1FCS_Text:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/1FCS_Text:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/2FCS_Text:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/2FCS_Text:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/3FCS_Text:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Control/3FCS_Text:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Control/4FCS_Text:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Control/4FCS_Text:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Control/5FCS_Text:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Control/5FCS_Text:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Control/6FCS_Text:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Control/6FCS_Text:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_77srf"]
-resource_name = "show_final_texts"
-length = 7.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/1FCS_Text:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/1FCS_Text:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/2FCS_Text:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/2FCS_Text:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1, 1.2, 1.8, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/3FCS_Text:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(2, 2.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Control/3FCS_Text:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(2, 2.2, 2.6, 2.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Control/4FCS_Text:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(2.8, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Control/4FCS_Text:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(2.8, 3, 3.8, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Control/5FCS_Text:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(4, 6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Control/5FCS_Text:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(4, 4.2, 5.8, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Control/6FCS_Text:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(6, 7.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Control/6FCS_Text:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(6, 6.2, 7, 7.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gh4vd"]
-_data = {
-&"RESET": SubResource("Animation_yth75"),
-&"show_final_texts": SubResource("Animation_77srf")
-}
-
 [node name="lemery" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_ssi34")
 FirstTextString = "Lemery"
@@ -1685,197 +1376,17 @@ script = ExtResource("12_purwf")
 text = "That's the item I was looking for."
 npc_info = ExtResource("23_x3ndx")
 
-[node name="ErmitanyoShow" type="Node2D" parent="."]
-position = Vector2(-415, -147)
-script = ExtResource("20_nqhjt")
-check_type = 3
-react_to_global_signal = true
-linked_quest = ExtResource("49_x3ndx")
-quest_step = 5
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Fresh from the Celador
-Checking if quest is complete"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="ErmitanyoHide" type="Node2D" parent="ErmitanyoShow"]
-position = Vector2(415, 147)
-script = ExtResource("20_nqhjt")
-check_type = 3
-remove_when_activated = true
-react_to_global_signal = true
-linked_quest = ExtResource("28_dea30")
-quest_step = 1
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Heritage Town Awaits...
-Checking if quest is complete"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="Ermitanyo" parent="ErmitanyoShow/ErmitanyoHide" instance=ExtResource("8_gnnf6")]
-unique_name_in_owner = true
-position = Vector2(-147, 469)
+[node name="npc" parent="." instance=ExtResource("8_gnnf6")]
+position = Vector2(268, 616)
 npc_resource = ExtResource("26_tjb2u")
 
-[node name="NPCWanderBehaviour" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo" instance=ExtResource("10_ja4en")]
+[node name="NPCWanderBehaviour" parent="npc" instance=ExtResource("10_ja4en")]
 
-[node name="dialog_interaction" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo" instance=ExtResource("11_c6aga")]
+[node name="dialog_interaction" parent="npc" instance=ExtResource("11_c6aga")]
 
-[node name="1AkiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction"]
+[node name="DialogText" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_purwf")
-text = "Excuse me sir."
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="2AkiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction"]
-script = ExtResource("12_purwf")
-text = "Do you know how to get to the next town?"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="3ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction"]
-script = ExtResource("12_purwf")
-text = "Ah yes young boy but first..."
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="4ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction"]
-script = ExtResource("12_purwf")
-text = "Did  you figure out where you are?"
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="1DialogChoice" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction"]
-script = ExtResource("14_u7lnm")
-metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
-
-[node name="Yes" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice"]
-script = ExtResource("15_7gwaw")
-text = "Yes"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://bkqy61h7wypgw"
-
-[node name="1ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes"]
-script = ExtResource("12_purwf")
-text = "What is the first barrio name of this town before?"
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="1DialogChoice" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes"]
-script = ExtResource("14_u7lnm")
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
-
-[node name="San Geronimo" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice"]
-script = ExtResource("15_7gwaw")
-text = "San Geronimo"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://bkqy61h7wypgw"
-
-[node name="1ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/San Geronimo"]
-script = ExtResource("12_purwf")
-text = "Ohhhh!"
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="2ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/San Geronimo"]
-script = ExtResource("12_purwf")
-text = "You're wrong, do you even know how to read?"
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="Punta" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice"]
-script = ExtResource("15_7gwaw")
-text = "Punta"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://bkqy61h7wypgw"
-
-[node name="1ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-script = ExtResource("12_purwf")
-text = "[wave][color=green]You're correct!![/color][/wave]"
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="2ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-script = ExtResource("12_purwf")
-text = "You can now PUNTA to next town!!!"
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="3ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-script = ExtResource("12_purwf")
-text = "The next town awaits you..."
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="4ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-script = ExtResource("12_purwf")
-text = "Your mom might be there."
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="5AkiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-script = ExtResource("12_purwf")
-text = "How did you know...
-"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="6AkiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-script = ExtResource("12_purwf")
-text = "...
-"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="TaalAdvanceTrigger" type="Node2D" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-unique_name_in_owner = true
-script = ExtResource("16_0xvix")
-linked_quest = ExtResource("28_dea30")
-quest_step = 1
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Heritage Town Awaits...
-Step: 1 - you can now go to the heritage town
-Complete: true"
-metadata/_custom_type_script = "uid://gwjswj6shnoe"
-
-[node name="CalacaAdvanceTrigger2" type="Node2D" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-unique_name_in_owner = true
-script = ExtResource("16_0xvix")
-linked_quest = ExtResource("29_tjb2u")
-quest_step = 1
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Calaca Unlocked
-Step: 1 - you unlocked calaca, you can now discover how good this town was.
-Complete: true"
-metadata/_custom_type_script = "uid://gwjswj6shnoe"
-
-[node name="Lemery_New_Town_Trigger" type="Node2D" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-script = ExtResource("30_0tbao")
-
-[node name="Lem" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice"]
-script = ExtResource("15_7gwaw")
-text = "Lem"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://bkqy61h7wypgw"
-
-[node name="1ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Lem"]
-script = ExtResource("12_purwf")
-text = "[wave]Ohh, where did you get that name from??? You wrong![/wave]"
-npc_info = ExtResource("26_tjb2u")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
-[node name="No" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice"]
-script = ExtResource("15_7gwaw")
-text = "No"
-npc_info = ExtResource("13_lvoha")
-metadata/_custom_type_script = "uid://bkqy61h7wypgw"
-
-[node name="1ErmiText" type="Node" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/No"]
-script = ExtResource("12_purwf")
-text = "Aww, that unfortunate."
+text = "Hi"
 npc_info = ExtResource("26_tjb2u")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
@@ -2321,25 +1832,12 @@ settings_summary = "UPDATE QUEST:
 Step: 0 - N/A
 Complete: false"
 
-[node name="CL_Hide" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene"]
-script = ExtResource("20_nqhjt")
-check_type = 3
-remove_when_activated = true
-react_to_global_signal = true
-linked_quest = ExtResource("49_x3ndx")
-quest_step = 5
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Fresh from the Celador
-Checking if quest is complete"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="CaptainLemery" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide" instance=ExtResource("8_gnnf6")]
+[node name="CaptainLemery" parent="QuestActivatedSwitch/Quest1_Cutscene" instance=ExtResource("8_gnnf6")]
 unique_name_in_owner = true
 position = Vector2(-20, 364)
 npc_resource = ExtResource("47_lkjpg")
 
-[node name="CL_Dialog_1" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery"]
+[node name="CL_Dialog_1" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery"]
 script = ExtResource("20_nqhjt")
 check_type = 1
 remove_when_activated = true
@@ -2351,125 +1849,124 @@ settings_summary = "UPDATE QUEST:
 Checking if player has completed step: find captain lemery"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="area_trigger" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1" instance=ExtResource("20_lw8gp")]
+[node name="area_trigger" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1" instance=ExtResource("20_lw8gp")]
 
-[node name="CaptainLemeryDialog" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger" instance=ExtResource("11_c6aga")]
+[node name="CaptainLemeryDialog" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger" instance=ExtResource("11_c6aga")]
 monitoring = false
 enabled = false
 
-[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Hello [color=blue]AKi[/color]!"
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Did you find your mother?"
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Not yet Captain Roberto"
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Do not worry, I am still getting in touch with the other barrios if they find something. "
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "I also have some terrible news."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="Aki2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Thank you, captain, I really do need to find mother soon. What is that news Captain?"
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL5" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL5" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Father Geronimo has passed away and we were thinking …"
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL6" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL6" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "We should change the barrio’s name on his honor."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="Aki3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Father would have loved that."
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="Aki4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "I can’t believe he’s gone."
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL7" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL7" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "I can’t believe it either."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL8" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL8" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "May I ask you for something?"
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="DialogChoice" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="DialogChoice" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
 script = ExtResource("14_u7lnm")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Yes" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice"]
+[node name="Yes" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice"]
 script = ExtResource("15_7gwaw")
 text = "Sure"
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = "You see, I need to prepare a fiesta for some guests and I lack the ingredients needed for the dish. "
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = "You see, I need to prepare a fiesta for some guests and I lack the ingredients needed for the dish. "
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = "Please help me gather some fishes and put it on the grill that I will set up somewhere outside."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = " When the fish dries, come and talk to me."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = "Will do."
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="LQ2_Quest1_Advance" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes" instance=ExtResource("24_yxncn")]
-unique_name_in_owner = true
+[node name="quest_advance_trigger" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes" instance=ExtResource("24_yxncn")]
 signal_name = "yes_selected"
 linked_quest = ExtResource("49_x3ndx")
 quest_step = 1
@@ -2478,25 +1975,25 @@ settings_summary = "UPDATE QUEST:
 Step: 1 - find captain lemery
 Complete: false"
 
-[node name="No" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice"]
+[node name="No" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice"]
 script = ExtResource("15_7gwaw")
 text = "I still have things to do, sorry."
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/No"]
+[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/No"]
 script = ExtResource("12_purwf")
 text = "That’s all good, take care."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger"]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_4e6h7")
 debug_color = Color(0, 0, 0.67451, 0.486275)
 
-[node name="NPCWanderBehaviour" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery" instance=ExtResource("10_ja4en")]
+[node name="NPCWanderBehaviour" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery" instance=ExtResource("10_ja4en")]
 
-[node name="CL_Dialog_2" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery" instance=ExtResource("11_mrchx")]
+[node name="CL_Dialog_2" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery" instance=ExtResource("11_mrchx")]
 check_type = 1
 react_to_global_signal = true
 linked_quest = ExtResource("49_x3ndx")
@@ -2505,39 +2002,39 @@ settings_summary = "UPDATE QUEST:
  Quest: Fresh from the Celador
 Checking if player has completed step: dry fishes"
 
-[node name="CL_Dialog_2_Interact" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_2" instance=ExtResource("11_c6aga")]
+[node name="CL_Dialog_2_Interact" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_2" instance=ExtResource("11_c6aga")]
 
-[node name="1_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
+[node name="1_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
 script = ExtResource("12_purwf")
 text = "Thank you for acquiring the fishes young lad."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="2_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
+[node name="2_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
 script = ExtResource("12_purwf")
 text = "I hope you can find your mother soon! "
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="3_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
+[node name="3_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
 script = ExtResource("12_purwf")
 text = "And oh, the Spanish are getting more aggressive."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="4_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
+[node name="4_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
 script = ExtResource("12_purwf")
 text = "So be careful."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="5_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
+[node name="5_Dialog_2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact"]
 script = ExtResource("12_purwf")
 text = "The new priest wants to declare martial law but I talked him out it, thankfully."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="LQ2_Step5_Advance" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact" instance=ExtResource("24_yxncn")]
+[node name="LQ2_Step5_Advance" parent="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_2/CL_Dialog_2_Interact" instance=ExtResource("24_yxncn")]
 signal_name = "finished"
 linked_quest = ExtResource("49_x3ndx")
 quest_step = 5
@@ -2582,13 +2079,12 @@ libraries = {
 autoplay = "anim1"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstText/ShowFirstTextAnim"]
-energy = 0.0
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowFirstTextAnim"]
 
 [node name="Control" type="Control" parent="ShowFirstText/ShowFirstTextAnim/CanvasLayer"]
-z_index = 1
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2598,7 +2094,6 @@ grow_vertical = 2
 
 [node name="FirstTextLabel" type="Label" parent="ShowFirstText/ShowFirstTextAnim/CanvasLayer/Control"]
 unique_name_in_owner = true
-self_modulate = Color(1, 1, 1, 0)
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -2615,6 +2110,90 @@ grow_vertical = 2
 theme_override_fonts/font = SubResource("FontVariation_t8c6j")
 theme_override_font_sizes/font_size = 64
 text = "Barrio Punta, Year 1817"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowSanGeronimoTextAnim" type="AnimationPlayer" parent="ShowFirstText"]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstText/ShowSanGeronimoTextAnim"]
+energy = 0.0
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowSanGeronimoTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstText/ShowSanGeronimoTextAnim/CanvasLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ShowFirstText/ShowSanGeronimoTextAnim/CanvasLayer/Control"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_t8c6j")
+theme_override_font_sizes/font_size = 64
+text = "San Geronimo, Year 1818"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowLemeryTextAnim" type="AnimationPlayer" parent="ShowFirstText"]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstText/ShowLemeryTextAnim"]
+energy = 0.0
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowLemeryTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstText/ShowLemeryTextAnim/CanvasLayer"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ShowFirstText/ShowLemeryTextAnim/CanvasLayer/Control"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_t8c6j")
+theme_override_font_sizes/font_size = 64
+text = "Town of Lemery"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2643,8 +2222,8 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="Fish_Grill" type="StaticBody2D" parent="QuestActivatedSwitch3/QuestActivatedSwitch2"]
 position = Vector2(98, 305)
-collision_layer = 16
-collision_mask = 16
+collision_layer = 17
+collision_mask = 17
 script = ExtResource("52_yvwjy")
 raw_fish_item_data = ExtResource("53_cvuho")
 dried_fish_item_data = ExtResource("54_4e6h7")
@@ -2806,46 +2385,6 @@ metadata/_custom_type_script = "uid://gwjswj6shnoe"
 [node name="Quest2" type="Node2D" parent="."]
 script = ExtResource("52_5jsvx")
 
-[node name="ToTaalBoulderSwitch" type="Node2D" parent="."]
-y_sort_enabled = true
-script = ExtResource("20_nqhjt")
-check_type = 1
-remove_when_activated = true
-react_to_global_signal = true
-linked_quest = ExtResource("49_x3ndx")
-quest_step = 5
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Fresh from the Celador
-Checking if player has completed step: go, talk to capt. lemery"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="Boulder" parent="ToTaalBoulderSwitch" instance=ExtResource("55_id2cg")]
-position = Vector2(309, -24)
-
-[node name="Boulder2" parent="ToTaalBoulderSwitch" instance=ExtResource("55_id2cg")]
-position = Vector2(330, -24)
-
-[node name="ToCalacaBoulderSwitch2" type="Node2D" parent="."]
-y_sort_enabled = true
-script = ExtResource("20_nqhjt")
-check_type = 1
-remove_when_activated = true
-react_to_global_signal = true
-linked_quest = ExtResource("49_x3ndx")
-quest_step = 5
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Fresh from the Celador
-Checking if player has completed step: go, talk to capt. lemery"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="Boulder" parent="ToCalacaBoulderSwitch2" instance=ExtResource("55_id2cg")]
-position = Vector2(-393, 484)
-
-[node name="Boulder2" parent="ToCalacaBoulderSwitch2" instance=ExtResource("55_id2cg")]
-position = Vector2(-393, 502)
-
 [node name="Old_taal_switch" type="Node2D" parent="."]
 script = ExtResource("20_nqhjt")
 check_type = 3
@@ -2874,245 +2413,23 @@ level = "uid://b42q3fyiity6c"
 
 [node name="HPTreasureChest" parent="." instance=ExtResource("57_id2cg")]
 position = Vector2(663, 720)
+scale = Vector2(0.5, 0.5)
 item_data = ExtResource("58_id2cg")
 quantity = 1
 
 [node name="HPTreasureChest2" parent="." instance=ExtResource("57_id2cg")]
 position = Vector2(1024, 203)
+scale = Vector2(0.5, 0.5)
 item_data = ExtResource("58_id2cg")
 quantity = 1
 
 [node name="HPTreasureChest3" parent="." instance=ExtResource("57_id2cg")]
 position = Vector2(-220, 986)
+scale = Vector2(0.5, 0.5)
 item_data = ExtResource("58_id2cg")
 quantity = 1
 
-[node name="NodeFinalCS" type="Node2D" parent="."]
-position = Vector2(26, 364)
-script = ExtResource("61_e8jnt")
-
-[node name="FinalCS_Show" type="Node2D" parent="NodeFinalCS"]
-script = ExtResource("20_nqhjt")
-check_type = 3
-react_to_global_signal = true
-linked_quest = ExtResource("49_x3ndx")
-quest_step = 5
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Fresh from the Celador
-Checking if quest is complete"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="FinalCS_Hide" type="Node2D" parent="NodeFinalCS/FinalCS_Show"]
-script = ExtResource("20_nqhjt")
-check_type = 3
-remove_when_activated = true
-react_to_global_signal = true
-linked_quest = ExtResource("28_dea30")
-quest_step = 1
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Heritage Town Awaits...
-Checking if quest is complete"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="FinalCSTrigger" type="Area2D" parent="NodeFinalCS/FinalCS_Show/FinalCS_Hide"]
-script = ExtResource("25_ut4jf")
-metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NodeFinalCS/FinalCS_Show/FinalCS_Hide/FinalCSTrigger"]
-position = Vector2(-17.5, 0)
-shape = SubResource("RectangleShape2D_e8jnt")
-
-[node name="FinalCSCutscene" type="Node" parent="NodeFinalCS/FinalCS_Show/FinalCS_Hide/FinalCSTrigger"]
-unique_name_in_owner = true
-script = ExtResource("45_lkjpg")
-metadata/_custom_type_script = "uid://g5ppu787f5fj"
-
-[node name="1CutsceneActionAnimation" type="Node2D" parent="NodeFinalCS/FinalCS_Show/FinalCS_Hide/FinalCSTrigger/FinalCSCutscene" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("46_ca1wh")
-animation_player = NodePath("../../../../../../Lemery_Cutscene_Canvas/Fade")
-animation_name = "fade_to_black"
-metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
-
-[node name="2CutsceneActionAnimation" type="Node2D" parent="NodeFinalCS/FinalCS_Show/FinalCS_Hide/FinalCSTrigger/FinalCSCutscene" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("46_ca1wh")
-animation_player = NodePath("../../../../FinalCS_Canvas/FinalCS_Anim")
-animation_name = "show_final_texts"
-metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
-
-[node name="3CutsceneActionAnimation" type="Node2D" parent="NodeFinalCS/FinalCS_Show/FinalCS_Hide/FinalCSTrigger/FinalCSCutscene" node_paths=PackedStringArray("animation_player")]
-unique_name_in_owner = true
-script = ExtResource("46_ca1wh")
-animation_player = NodePath("../../../../../../Lemery_Cutscene_Canvas/Fade")
-animation_name = "fade_to_normal"
-metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
-
-[node name="FinalCS_Canvas" type="CanvasLayer" parent="NodeFinalCS/FinalCS_Show"]
-
-[node name="Control" type="Control" parent="NodeFinalCS/FinalCS_Show/FinalCS_Canvas"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="1FCS_Text" type="RichTextLabel" parent="NodeFinalCS/FinalCS_Show/FinalCS_Canvas/Control"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.5
-offset_top = -55.0
-offset_right = 109.5
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("43_onhyf")
-theme_override_font_sizes/normal_font_size = 48
-text = "In the year 1856"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="2FCS_Text" type="RichTextLabel" parent="NodeFinalCS/FinalCS_Show/FinalCS_Canvas/Control"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.5
-offset_top = -55.0
-offset_right = 109.5
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("43_onhyf")
-theme_override_font_sizes/normal_font_size = 48
-text = "Captain Roberto Lemery, died."
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="3FCS_Text" type="RichTextLabel" parent="NodeFinalCS/FinalCS_Show/FinalCS_Canvas/Control"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.5
-offset_top = -55.0
-offset_right = 109.5
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("43_onhyf")
-theme_override_font_sizes/normal_font_size = 48
-text = "1856"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="4FCS_Text" type="RichTextLabel" parent="NodeFinalCS/FinalCS_Show/FinalCS_Canvas/Control"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.5
-offset_top = -55.0
-offset_right = 109.5
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("43_onhyf")
-theme_override_font_sizes/normal_font_size = 48
-text = "The people of San Geronimo requested"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="5FCS_Text" type="RichTextLabel" parent="NodeFinalCS/FinalCS_Show/FinalCS_Canvas/Control"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.5
-offset_top = -55.0
-offset_right = 109.5
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("43_onhyf")
-theme_override_font_sizes/normal_font_size = 48
-text = "To their priest to change 
-the name of the barrio to Lemery."
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="6FCS_Text" type="RichTextLabel" parent="NodeFinalCS/FinalCS_Show/FinalCS_Canvas/Control"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.5
-offset_top = -55.0
-offset_right = 109.5
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("43_onhyf")
-theme_override_font_sizes/normal_font_size = 48
-text = "Until now, we call it the town of Lemery"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-tab_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FinalCS_Anim" type="AnimationPlayer" parent="NodeFinalCS/FinalCS_Show/FinalCS_Canvas"]
-libraries = {
-&"": SubResource("AnimationLibrary_gh4vd")
-}
-speed_scale = 0.6
-
 [connection signal="selected" from="LocalPriest/QuestActivatedSwitch2/quest_activated_switch/dialog_interaction/DialogChoice/Yes" to="LocalPriest/QuestActivatedSwitch2/quest_activated_switch/dialog_interaction/DialogChoice/Yes/QuestAdvanceTrigger" method="advance_quest"]
-[connection signal="finished" from="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction" to="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta/Lemery_New_Town_Trigger" method="_on_dialog_interaction_finished"]
-[connection signal="selected" from="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta" to="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta/Lemery_New_Town_Trigger" method="_on_punta_selected"]
 [connection signal="enemy_destroyed" from="Spaniards_Quest/Enemy_Activated_Switch/SpanishSoldier" to="Spaniards_Quest" method="_on_spanish_soldier_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="Spaniards_Quest/Enemy_Activated_Switch/SpanishSoldier2" to="Spaniards_Quest" method="_on_spanish_soldier_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="Spaniards_Quest/Enemy_Activated_Switch/SpanishSoldier3" to="Spaniards_Quest" method="_on_spanish_soldier_enemy_destroyed"]
@@ -3129,14 +2446,12 @@ speed_scale = 0.6
 [connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_black" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_black_finished"]
 [connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_normal" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_normal_finished"]
 [connection signal="advanced" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene/lemery_quest2-show_quest" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_lemery_quest_2_show_quest_advanced"]
-[connection signal="selected" from="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_yes_selected"]
+[connection signal="selected" from="QuestActivatedSwitch/Quest1_Cutscene/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_yes_selected"]
 [connection signal="finished" from="ShowFirstText/DialogCutscene/CutsceneActionAnimation3" to="ShowFirstText" method="_on_cutscene_action_animation_3_finished"]
 [connection signal="body_entered" from="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/DryFishDialog" to="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill" method="_on_dry_fish_dialog_body_entered"]
 [connection signal="selected" from="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/DryFishDialog/1Choice/Yes" to="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill" method="_on_yes_selected"]
 [connection signal="timeout" from="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/DryFishTimer" to="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill" method="_on_dry_fish_timer_timeout"]
 [connection signal="selected" from="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/CollectDriedFishDialog/1Choice/Yes_Collect" to="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill" method="_on_yes_collect_selected"]
-[connection signal="player_entered" from="NodeFinalCS/FinalCS_Show/FinalCS_Hide/FinalCSTrigger" to="NodeFinalCS" method="_on_final_cs_trigger_player_entered"]
-[connection signal="finished" from="NodeFinalCS/FinalCS_Show/FinalCS_Hide/FinalCSTrigger/FinalCSCutscene/3CutsceneActionAnimation" to="NodeFinalCS" method="_on_cutscene_action_animation_finished"]
 
 [editable path="Bridge/bridge"]
 [editable path="Bridge/bridge2"]

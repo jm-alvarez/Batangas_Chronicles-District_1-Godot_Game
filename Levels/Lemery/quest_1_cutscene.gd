@@ -3,6 +3,7 @@ extends Node2D
 var isQuest1CutsceneFinished : bool = false
 
 @onready var quest_1_cutscene_finished: PersistentDataHandler = $Quest_1_Cutscene_Finished
+@onready var lemery: Level = $"../.."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,7 +45,7 @@ func _on_fade_to_black_finished() -> void:
 	pass # Replace with function body.
 
 func _on_yes_selected() -> void:
-	$CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes/quest_advance_trigger.advance_quest()
+	%LQ2_Quest1_Advance.advance_quest()
 	pass # Replace with function body.
 
 
@@ -56,3 +57,7 @@ func _on_end_action_move_finished() -> void:
 
 func set_state():
 	isQuest1CutsceneFinished = quest_1_cutscene_finished.value
+
+
+func _on_lemery_quest_2_show_quest_advanced() -> void:
+	pass # Replace with function body.

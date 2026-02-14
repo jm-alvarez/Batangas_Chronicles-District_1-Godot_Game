@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://boqbu3by2h6ni"]
+[gd_scene load_steps=35 format=3 uid="uid://boqbu3by2h6ni"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_qmm4v"]
 [ext_resource type="PackedScene" uid="uid://bqu1q2bhv0qmb" path="res://Tilemaps/house_tilemap.tscn" id="2_8ebq8"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="10_g5da4"]
 [ext_resource type="PackedScene" uid="uid://kbou30pi4scj" path="res://Levels/LevelTransition.tscn" id="11_r1kyu"]
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="13_g5da4"]
+[ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="15_r7qpt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5da4"]
 resource_local_to_scene = true
@@ -156,8 +157,73 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1kyu"]
 size = Vector2(20, 4)
 
-[node name="lemery_house_1" type="Node2D"]
+[sub_resource type="Animation" id="Animation_rorml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cujgu"]
+resource_name = "anim1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4901161e-08, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77srf"]
+_data = {
+&"RESET": SubResource("Animation_rorml"),
+&"anim1": SubResource("Animation_cujgu")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_02vr8"]
+base_font = ExtResource("15_r7qpt")
+
+[node name="lemery_house_1" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_qmm4v")
+FirstTextString = "After....."
+FirstTextAnim = NodePath("ShowFirstTextAnim")
 
 [node name="QuestActivatedSwitch2" type="Node2D" parent="."]
 position = Vector2(8, -2)
@@ -340,5 +406,46 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_r1kyu")
+
+[node name="ShowFirstTextAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_77srf")
+}
+autoplay = "anim1"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstTextAnim"]
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstTextAnim"]
+
+[node name="Control" type="Control" parent="ShowFirstTextAnim/CanvasLayer"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstTextLabel" type="Label" parent="ShowFirstTextAnim/CanvasLayer/Control"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_02vr8")
+theme_override_font_sizes/font_size = 64
+text = "After....."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="QuestActivatedSwitch2/LevelTransition"]
