@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dfcqbl8g1moby"]
+[gd_scene load_steps=24 format=4 uid="uid://dfcqbl8g1moby"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_k4c1w"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_bcebc"]
@@ -15,7 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="12_d12pr"]
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="12_npxw3"]
 [ext_resource type="Resource" uid="uid://c3vtgyep8ipyt" path="res://NPC/00-NPC/00_Narrator.tres" id="14_am32s"]
-[ext_resource type="Resource" uid="uid://da2ki73ifabid" path="res://NPC/00-NPC/unknown_npc.tres" id="16_36boi"]
+[ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/local1.tres" id="16_h48ys"]
+[ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="17_lepok"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36boi"]
 texture = ExtResource("3_3agq8")
@@ -219,4 +220,81 @@ metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 position = Vector2(-2113, -397)
 
 [node name="npc" parent="Local" instance=ExtResource("9_dtwso")]
-npc_resource = ExtResource("16_36boi")
+npc_resource = ExtResource("16_h48ys")
+
+[node name="dialog_interaction" parent="Local/npc" instance=ExtResource("12_d12pr")]
+
+[node name="1loctxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "This tree looks ancient. Has it always been here?"
+npc_info = ExtResource("16_h48ys")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="2akitxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "Ah… not this exact one. 
+But trees like this once filled this land long ago."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3loctxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "Really? 
+What kind of trees?"
+npc_info = ExtResource("16_h48ys")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4akitxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "They were called [color=red]tuy[/color]. 
+A white, light wood tree. Strong, but easy to carve. People used it to make wooden shoes."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="5loctxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "So… is that how this town got its name?"
+npc_info = ExtResource("16_h48ys")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6akitxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "[wave]Haha[/wave]That’s what many believe. When the Spaniards first came here, they asked a native man the name of this place."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="7loctxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = " And?"
+npc_info = ExtResource("16_h48ys")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="8akitxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "The Spaniard asked in Spanish. The native didn’t understand. He thought the foreigner was asking about the tree he was resting under."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="9loctxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "Let me guess… he answered “tuy”?"
+npc_info = ExtResource("16_h48ys")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="10akitxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "Exactly. The Spaniard believed that was the name of the place. From then on, they began calling it [shake]Tuy[/shake]."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="11loctxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "So the town was named because of a misunderstanding?"
+npc_info = ExtResource("16_h48ys")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="12akitxt" type="Node" parent="Local/npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "Sometimes history is written by confusion, not intention."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
