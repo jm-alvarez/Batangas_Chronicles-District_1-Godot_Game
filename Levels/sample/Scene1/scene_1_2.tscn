@@ -1626,7 +1626,7 @@ base_font = ExtResource("27_s63l3")
 [node name="Aki_Room" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_chnol")
 FirstTextString = "Aki's Room"
-FirstTextAnim = NodePath("")
+FirstTextAnim = NodePath("FirstTextAnim")
 
 [node name="quest_activated_switch2" parent="." instance=ExtResource("2_lgj3g")]
 check_type = 1
@@ -2014,7 +2014,7 @@ position = Vector2(93, 68)
 [node name="CanvasLayer" type="CanvasLayer" parent="FirstTextAnim"]
 
 [node name="Control" type="Control" parent="FirstTextAnim/CanvasLayer"]
-z_index = 10
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
