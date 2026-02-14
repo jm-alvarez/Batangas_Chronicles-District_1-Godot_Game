@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dfcqbl8g1moby"]
+[gd_scene load_steps=13 format=4 uid="uid://dfcqbl8g1moby"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_k4c1w"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_bcebc"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dox5s5vhjvbqw" path="res://Tilemaps/house_tm.tscn" id="6_87iqk"]
 [ext_resource type="PackedScene" uid="uid://olxulnvfro0q" path="res://Levels/Houses/house_1.tscn" id="7_87iqk"]
 [ext_resource type="PackedScene" uid="uid://8e1y45h1x22j" path="res://Tilemaps/tree.tscn" id="7_t5ltn"]
+[ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="9_dtwso"]
+[ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/local1.tres" id="10_npxw3"]
+[ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="12_d12pr"]
+[ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="12_npxw3"]
 
 [node name="Tuy" type="Node2D"]
 script = ExtResource("1_k4c1w")
@@ -39,3 +43,15 @@ tile_map_data = PackedByteArray("AABy/+D/BQAAAA0AAAB2/+z/BQAJAAgAAACF/+j/BQACAAc
 position = Vector2(-2024, -170)
 
 [node name="tree" parent="." instance=ExtResource("7_t5ltn")]
+
+[node name="npc" parent="." instance=ExtResource("9_dtwso")]
+position = Vector2(-2113, -397)
+npc_resource = ExtResource("10_npxw3")
+
+[node name="dialog_interaction" parent="npc" instance=ExtResource("12_d12pr")]
+
+[node name="DialogText" type="Node" parent="npc/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "nag-chanan na"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"

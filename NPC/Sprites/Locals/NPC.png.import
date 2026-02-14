@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y1v3f7g1grcd"
-path="res://.godot/imported/Aki_MotherDialogProfile.png-fc3b042d22360f54ab6b971fa92d0a05.ctex"
+uid="uid://8v3bh6phracf"
+path="res://.godot/imported/NPC.png-18fa056562e76b7e60c27b90821b1cf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Sprites/Portraits/Aki_MotherDialogProfile.png"
-dest_files=["res://.godot/imported/Aki_MotherDialogProfile.png-fc3b042d22360f54ab6b971fa92d0a05.ctex"]
+source_file="res://NPC/Sprites/Locals/NPC.png"
+dest_files=["res://.godot/imported/NPC.png-18fa056562e76b7e60c27b90821b1cf0.ctex"]
 
 [params]
 
