@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dfcqbl8g1moby"]
+[gd_scene load_steps=25 format=4 uid="uid://dfcqbl8g1moby"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_k4c1w"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_bcebc"]
@@ -14,8 +14,9 @@
 [ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="10_npxw3"]
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="12_d12pr"]
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="12_npxw3"]
-[ext_resource type="Resource" uid="uid://c3vtgyep8ipyt" path="res://NPC/00-NPC/00_Narrator.tres" id="14_am32s"]
+[ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="15_lepok"]
 [ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/local1.tres" id="16_h48ys"]
+[ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="17_dquh3"]
 [ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="17_lepok"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36boi"]
@@ -201,19 +202,191 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Ermitanyo" type="Node2D" parent="."]
-visible = false
 
 [node name="ermitanyo" parent="Ermitanyo" instance=ExtResource("9_dtwso")]
-visible = false
 position = Vector2(-2096, -259)
 npc_resource = ExtResource("10_npxw3")
 
 [node name="dialog_interaction" parent="Ermitanyo/ermitanyo" instance=ExtResource("12_d12pr")]
 
-[node name="1ErmText1" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction"]
+[node name="1ErmText" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction"]
 script = ExtResource("12_npxw3")
-text = "Hellooo"
-npc_info = ExtResource("14_am32s")
+text = "Young man I have wonderfull news!"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="2ErmText" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "It seems like some locals have seen a pass by here."
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3ErmText" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "I see you talking to a local earlier. 
+Have you leaned anything about this town? "
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4ErmText" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction"]
+script = ExtResource("12_npxw3")
+text = "I see you talking to a local earlier. 
+Have you leaned anything about this town? "
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="5AkiChoice" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction"]
+script = ExtResource("17_dquh3")
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
+
+[node name="Yes" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice"]
+script = ExtResource("15_lepok")
+text = "Yes"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="DialogText" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes"]
+script = ExtResource("12_npxw3")
+text = "Great so you don't mind me quizzing you then?"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6Q1" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes"]
+script = ExtResource("12_npxw3")
+text = "Why did the native man answer Tuy when the Spaniard asked for the name of the place?"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6Q1choice" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes"]
+script = ExtResource("17_dquh3")
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
+
+[node name="Q1A" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
+script = ExtResource("15_lepok")
+text = "He wanted to trick the Spaniard."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="6Q1wrong1" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1A"]
+script = ExtResource("12_npxw3")
+text = "Nope. Good guess though."
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q1B" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
+script = ExtResource("15_lepok")
+text = "He misunderstood and thought the Spaniard was asking about the tree."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="6Q1correct" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B"]
+script = ExtResource("12_npxw3")
+text = "Nice one isekai victim!"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="7Q02" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B"]
+script = ExtResource("12_npxw3")
+text = "Onto the next question now."
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="7Q2" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B"]
+script = ExtResource("12_npxw3")
+text = "What was the tuy tree commonly used for?"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="7Q2choice" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B"]
+script = ExtResource("17_dquh3")
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
+
+[node name="Q2A" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice"]
+script = ExtResource("15_lepok")
+text = "Building houses"
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="7Q2wrong1" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice/Q2A"]
+script = ExtResource("12_npxw3")
+text = "Valid but no. wah wah"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2B" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice"]
+script = ExtResource("15_lepok")
+text = "Making boats"
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="7Q2wrong2" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice/Q2B"]
+script = ExtResource("12_npxw3")
+text = "Can you point to any boat nearby?"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2C" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice"]
+script = ExtResource("15_lepok")
+text = "Making wooden shoes"
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="7Q2correct" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice/Q2C"]
+script = ExtResource("12_npxw3")
+text = "Nice! You are now ready to proceed to the next town.
+"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2D" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice"]
+script = ExtResource("15_lepok")
+text = "Producing fruit"
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="7Q2wrong3" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice/Q2D"]
+script = ExtResource("12_npxw3")
+text = "Do you see any fruit on that tree?"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q1C" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
+script = ExtResource("15_lepok")
+text = "Tuy was already the official name of the town."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="6Q1wrong2" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1C"]
+script = ExtResource("12_npxw3")
+text = "Did you even listen to Juan tsk tsk"
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q1D" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
+script = ExtResource("15_lepok")
+text = "The Spaniard pointed at the mountains."
+npc_info = ExtResource("17_lepok")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="6Q1wrong3" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1D"]
+script = ExtResource("12_npxw3")
+text = "How does that even relate to the tree? "
+npc_info = ExtResource("10_npxw3")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="No" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice"]
+script = ExtResource("15_lepok")
+text = "No"
+npc_info = ExtResource("16_h48ys")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="DialogText" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/No"]
+script = ExtResource("12_npxw3")
+text = "That's what you get for skipping my dialoge."
+npc_info = ExtResource("16_h48ys")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="Local" type="Node2D" parent="."]
