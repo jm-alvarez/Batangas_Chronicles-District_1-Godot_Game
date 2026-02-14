@@ -36,7 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://dolt6fgj212so" path="res://Interactables/Dungeon/pressure_plate.tscn" id="23_y0wsc"]
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="24_yxncn"]
 [ext_resource type="Script" uid="uid://sxl1ls4sbmjw" path="res://GeneralNodes/AreaTrigger/area_trigger.gd" id="25_ut4jf"]
-[ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="26_tjb2u"]
+[ext_resource type="Resource" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="26_tjb2u"]
 [ext_resource type="Script" uid="uid://b4kpico5bhvbj" path="res://Levels/Lemery/spaniards_quest.gd" id="27_fgswx"]
 [ext_resource type="Resource" uid="uid://xd4f3ioi20kv" path="res://Quests/Heritage Town Awaits.tres" id="28_dea30"]
 [ext_resource type="Resource" uid="uid://dyh10307ejwhr" path="res://Quests/calaca_town_unlocked.tres" id="29_tjb2u"]
@@ -60,7 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://4tajkbc314hl" path="res://Levels/boulder.tscn" id="55_id2cg"]
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="57_id2cg"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="57_t8c6j"]
-[ext_resource type="Resource" uid="uid://dn35yenqj3vot" path="res://Items/Health_Potion.tres" id="58_id2cg"]
+[ext_resource type="Resource" uid="uid://d2k7wbl61xxre" path="res://Items/Health_Potion.tres" id="58_id2cg"]
 [ext_resource type="Script" path="res://Levels/Lemery/node_final_cs.gd" id="61_e8jnt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gka3v"]
@@ -2588,7 +2588,7 @@ blend_mode = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstText/ShowFirstTextAnim"]
 
 [node name="Control" type="Control" parent="ShowFirstText/ShowFirstTextAnim/CanvasLayer"]
-z_index = 10
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
