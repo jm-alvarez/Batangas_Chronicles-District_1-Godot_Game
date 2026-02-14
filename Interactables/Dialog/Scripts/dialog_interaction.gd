@@ -60,3 +60,7 @@ func _check_for_dialog_items() -> bool:
 		if c is DialogItem:
 			return true
 	return false
+
+
+func _on_player_interacted() -> void:
+	pass # Replace with function body.
