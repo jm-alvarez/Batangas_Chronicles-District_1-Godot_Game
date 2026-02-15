@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://d2k7wbl61xxre"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://ictqp1efrk8p"]
 
 [ext_resource type="Script" uid="uid://cfkjdu5qrigpx" path="res://Items/ItemEffects/item_effect.gd" id="1_64p7u"]
 [ext_resource type="Script" uid="uid://cuq2wxcdr3ol6" path="res://Items/ItemEffects/item_effect_heal.gd" id="2_bqeid"]
@@ -8,7 +8,6 @@
 [sub_resource type="Resource" id="Resource_tsx7q"]
 script = ExtResource("2_bqeid")
 heal_amount = 2
-use_description = ""
 metadata/_custom_type_script = "uid://cuq2wxcdr3ol6"
 
 [resource]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://cljs0jnmtecnh"]
+
+[ext_resource type="Texture2D" uid="uid://cqfq7hajbews3" path="res://NPC/Sprites/Local_Priest_2/Priest1_Sprite_Portrait.png" id="1_g1356"]
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="2_64358"]
+[ext_resource type="Texture2D" uid="uid://dmwmrkf5npk2t" path="res://NPC/Sprites/Local_Priest_2/Priest1_Sprite_Sheet.png" id="3_64358"]
+
+[resource]
+script = ExtResource("2_64358")
+npc_name = "Fr. Agustin de Albaquerque"
+sprite = ExtResource("3_64358")
+portrait = ExtResource("1_g1356")
+dialog_audio_pitch = 0.92

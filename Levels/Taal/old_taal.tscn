@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://5l6jcbgahjac"]
+[gd_scene load_steps=31 format=4 uid="uid://5l6jcbgahjac"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_a4a4w"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="1_xhrx5"]
@@ -14,7 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://5dgm3qr306fi" path="res://NPC/npc_behaviour_wander.tscn" id="11_c74rc"]
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="12_x7iw4"]
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="13_u3uel"]
+[ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="15_vncit"]
+[ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="16_0lfsm"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="16_3tq5r"]
+[ext_resource type="PackedScene" path="res://Levels/boulder.tscn" id="16_vncit"]
+[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="17_jttn0"]
+[ext_resource type="Script" uid="uid://ck4rgwvkxniu8" path="res://Interactables/Dialog/Scripts/cutscene_action_move.gd" id="18_ovovr"]
+[ext_resource type="Resource" uid="uid://c1spdc48twm0m" path="res://NPC/00-NPC/Spanish_Guard.tres" id="21_0sqdf"]
+[ext_resource type="Script" uid="uid://1o176nkw2ujr" path="res://Levels/Taal/remove_moving_spaniards.gd" id="22_5g75g"]
+[ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/NPC_Man1.tres" id="23_7tu5y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_usta1"]
 texture = ExtResource("6_1eoai")
@@ -142,7 +150,7 @@ tile_map_data = PackedByteArray("AADx//P/BQACAAcAAAA1APj/BQAJAAgAAAAmAN7/BQAIAAA
 
 [node name="tree" parent="." instance=ExtResource("5_1eoai")]
 position = Vector2(1, 9)
-tile_map_data = PackedByteArray("AAD1//7/CgAAAAAAAAAYAPz/CgACAAAAAAAZAO//CgAGAAIAAAD4//H/CgAAAAAAAAADAPH/CgAAAAIAAAD9//n/CgACAAAAAAAJAO//CgAAAAQAAAAZAPP/CgACAAAAAAAJAPz/CgAGAAIAAAAsAPD/CgAGAAIAAAAsAPj/CgAAAAQAAAATAPH/CgAAAAQAAAAmAPT/CgACAAAAAAASAPv/CgAAAAIAAAATAPb/CgAAAAAAAAD7//X/CgAGAAIAAAD1/+//CgACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1//7/CgAAAAAAAAAYAPz/CgACAAAAAAAZAO//CgAGAAIAAAD4//H/CgAAAAAAAAADAPH/CgAAAAIAAAD9//n/CgACAAAAAAAJAO//CgAAAAQAAAAZAPP/CgACAAAAAAAJAPz/CgAGAAIAAAAsAPD/CgAGAAIAAAAsAPj/CgAAAAQAAAATAPH/CgAAAAQAAAASAPv/CgAAAAIAAAATAPb/CgAAAAAAAAD7//X/CgAGAAIAAAD1/+//CgACAAAAAAAnAPT/CgACAAAAAAAjAPb/CgAAAAAAAAA=")
 
 [node name="grass_1" parent="." instance=ExtResource("1_xhrx5")]
 position = Vector2(1, 9)
@@ -206,11 +214,213 @@ npc_resource = ExtResource("10_uh6mw")
 
 [node name="dialog_interaction" parent="Ermitanyo" instance=ExtResource("12_x7iw4")]
 
-[node name="1Text" type="Node" parent="Ermitanyo/dialog_interaction"]
+[node name="1ErmText" type="Node" parent="Ermitanyo/dialog_interaction"]
 script = ExtResource("13_u3uel")
 text = "Welcome to Heritage Town of Taal
 "
 npc_info = ExtResource("10_uh6mw")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="2AkiText" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("13_u3uel")
+text = "What seems the problem?
+"
+npc_info = ExtResource("15_vncit")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3ErmText" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("13_u3uel")
+text = "There are some [color=red][wave]Spaniards[/wave][/color] our town through the Pansipit River."
+npc_info = ExtResource("10_uh6mw")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4Cutscene_Move_Camera" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("16_0lfsm")
+metadata/_custom_type_script = "uid://g5ppu787f5fj"
+
+[node name="1ActionCamera" type="Node2D" parent="Ermitanyo/dialog_interaction/4Cutscene_Move_Camera"]
+position = Vector2(1449, -602)
+script = ExtResource("17_jttn0")
+easing_method = 0
+move_duration = 6.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="5Cutscene_Move_Spaniard" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("16_0lfsm")
+playback_mode = 0
+metadata/_custom_type_script = "uid://g5ppu787f5fj"
+
+[node name="2MoveSpaniard1" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1505, -597)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard1")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="3MoveSpaniard2" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1505, -573)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard2")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="4MoveSpaniard3" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1480, -573)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard3")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="5MoveSpaniard4" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1528, -573)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard4")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="6MoveSpaniard5" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1505, -547)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard5")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="7MoveSpaniard1" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1422, -597)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard1")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="8MoveSpaniard2" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1505, -597)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard2")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="9MoveSpaniard2" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1449, -597)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard2")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="10MoveSpaniard3" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1473, -597)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard3")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="11MoveSpaniard4" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1528, -597)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard4")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="12MoveSpaniard5" type="Node2D" parent="Ermitanyo/dialog_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1501, -597)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard5")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="6Cutscene_Move_Spaniard" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("16_0lfsm")
+playback_mode = 0
+metadata/_custom_type_script = "uid://g5ppu787f5fj"
+
+[node name="1MoveSpaniard1" type="Node2D" parent="Ermitanyo/dialog_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(981, -599)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard1")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="2MoveSpaniard2" type="Node2D" parent="Ermitanyo/dialog_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1008, -599)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard2")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="3MoveSpaniard3" type="Node2D" parent="Ermitanyo/dialog_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1035, -599)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard3")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="4MoveSpaniard4" type="Node2D" parent="Ermitanyo/dialog_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1087, -599)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard4")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="5MoveSpaniard5" type="Node2D" parent="Ermitanyo/dialog_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(1060, -599)
+script = ExtResource("18_ovovr")
+object_to_move = NodePath("../../../../Spaniard_Move/Spaniard5")
+move_duration = 5.0
+move_speed = 25.0
+metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
+
+[node name="7Cutscene_Move_Camera" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("16_0lfsm")
+metadata/_custom_type_script = "uid://g5ppu787f5fj"
+
+[node name="1ActionCamera" type="Node2D" parent="Ermitanyo/dialog_interaction/7Cutscene_Move_Camera"]
+position = Vector2(1500, -271)
+script = ExtResource("17_jttn0")
+easing_method = 0
+move_duration = 6.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="2ActionCamera" type="Node2D" parent="Ermitanyo/dialog_interaction/7Cutscene_Move_Camera"]
+position = Vector2(276, -69)
+script = ExtResource("17_jttn0")
+easing_method = 0
+move_duration = 6.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="8ErmText" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("13_u3uel")
+text = "There are no such thing as a friendly [color=red]Spaniard[/color]."
+npc_info = ExtResource("10_uh6mw")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="9ErmText" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("13_u3uel")
+text = "[wave][color=gray]Balangon[/color][/wave] is for our people only."
+npc_info = ExtResource("10_uh6mw")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="10AkiText" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("13_u3uel")
+text = "The [color=red]Spaniards[/color] are getting more relentless these days.
+"
+npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="ShowFirstTextAnim" type="AnimationPlayer" parent="."]
@@ -255,3 +465,87 @@ theme_override_font_sizes/font_size = 64
 text = "Old Taal"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Boulder" parent="." instance=ExtResource("16_vncit")]
+position = Vector2(1496, -183)
+
+[node name="Boulder2" parent="." instance=ExtResource("16_vncit")]
+position = Vector2(1515, -183)
+
+[node name="Spaniard_Move" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Spaniard1" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+position = Vector2(1505, -386)
+npc_resource = ExtResource("21_0sqdf")
+
+[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard1" instance=ExtResource("11_c74rc")]
+wander_range = 1
+wander_duration = 2.0
+
+[node name="Spaniard2" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+position = Vector2(1505, -359)
+npc_resource = ExtResource("21_0sqdf")
+
+[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard2" instance=ExtResource("11_c74rc")]
+wander_range = 1
+wander_duration = 2.0
+
+[node name="Spaniard3" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+position = Vector2(1484, -361)
+npc_resource = ExtResource("21_0sqdf")
+
+[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard3" instance=ExtResource("11_c74rc")]
+wander_range = 1
+wander_duration = 2.0
+
+[node name="Spaniard4" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+position = Vector2(1525, -361)
+npc_resource = ExtResource("21_0sqdf")
+
+[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard4" instance=ExtResource("11_c74rc")]
+wander_range = 1
+wander_duration = 2.0
+
+[node name="Spaniard5" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+position = Vector2(1506, -332)
+npc_resource = ExtResource("21_0sqdf")
+
+[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard5" instance=ExtResource("11_c74rc")]
+wander_range = 1
+wander_duration = 2.0
+
+[node name="Spaniard_Camp" type="Node2D" parent="."]
+
+[node name="Spaniard" parent="Spaniard_Camp" instance=ExtResource("9_usta1")]
+position = Vector2(1506, -292)
+npc_resource = ExtResource("21_0sqdf")
+
+[node name="NPCWanderBehaviour" parent="Spaniard_Camp/Spaniard" instance=ExtResource("11_c74rc")]
+wander_range = 1
+wander_duration = 2.0
+
+[node name="Spaniard2" parent="Spaniard_Camp" instance=ExtResource("9_usta1")]
+position = Vector2(1558, -253)
+npc_resource = ExtResource("21_0sqdf")
+
+[node name="NPCWanderBehaviour" parent="Spaniard_Camp/Spaniard2" instance=ExtResource("11_c74rc")]
+wander_range = 1
+wander_duration = 2.0
+
+[node name="Spaniard3" parent="Spaniard_Camp" instance=ExtResource("9_usta1")]
+position = Vector2(1479, -246)
+npc_resource = ExtResource("21_0sqdf")
+
+[node name="NPCWanderBehaviour" parent="Spaniard_Camp/Spaniard3" instance=ExtResource("11_c74rc")]
+wander_range = 1
+wander_duration = 2.0
+
+[node name="Taal_Quest_1" type="Node2D" parent="."]
+script = ExtResource("22_5g75g")
+
+[node name="npc_man1" parent="." instance=ExtResource("9_usta1")]
+position = Vector2(975, -557)
+npc_resource = ExtResource("23_7tu5y")
+
+[connection signal="finished" from="Ermitanyo/dialog_interaction/6Cutscene_Move_Spaniard" to="Taal_Quest_1" method="_on_cutscene_move_spaniard_finished"]
