@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=2 format=3 uid="uid://c50n43dv4iu4g"]
+
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="1_j03n3"]
+
+[resource]
+script = ExtResource("1_j03n3")
+npc_name = ""
+dialog_audio_pitch = 1.0
+metadata/_custom_type_script = "uid://c5ouqrd8mm7fj"

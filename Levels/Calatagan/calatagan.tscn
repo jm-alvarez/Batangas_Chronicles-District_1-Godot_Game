@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cv5ohib7susts"]
+[gd_scene load_steps=16 format=4 uid="uid://cv5ohib7susts"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_yfxrw"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="2_xu56y"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://olxulnvfro0q" path="res://Levels/Houses/house_1.tscn" id="7_cw46m"]
 [ext_resource type="PackedScene" uid="uid://8e1y45h1x22j" path="res://Tilemaps/tree.tscn" id="8_cw46m"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="9_jfakv"]
+[ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="10_8yxd2"]
+[ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="11_st20l"]
 
 [sub_resource type="Animation" id="Animation_rorml"]
 length = 0.001
@@ -111,6 +113,7 @@ libraries = {
 autoplay = "anim1"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstTextAnim"]
+visible = false
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstTextAnim"]
@@ -144,3 +147,8 @@ theme_override_font_sizes/font_size = 64
 text = "Calatagan"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="npc" parent="." instance=ExtResource("10_8yxd2")]
+
+[node name="Ermitanyo" parent="." instance=ExtResource("10_8yxd2")]
+npc_resource = ExtResource("11_st20l")
