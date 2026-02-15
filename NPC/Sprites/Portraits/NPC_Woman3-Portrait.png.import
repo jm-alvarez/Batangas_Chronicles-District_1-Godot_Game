@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gf8x8lnji3h0"
-path="res://.godot/imported/NPC_Woman3-Portrait.png-81b0630457d0abaea77e561ebf50e29d.ctex"
+path="res://.godot/imported/NPC_Woman3-Portrait.png-c268bb7194f12cdf1f585872cc44567a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/Sprites/Locals/NPC_Woman3-Portrait.png"
-dest_files=["res://.godot/imported/NPC_Woman3-Portrait.png-81b0630457d0abaea77e561ebf50e29d.ctex"]
+source_file="res://NPC/Sprites/Portraits/NPC_Woman3-Portrait.png"
+dest_files=["res://.godot/imported/NPC_Woman3-Portrait.png-c268bb7194f12cdf1f585872cc44567a.ctex"]
 
 [params]
 
