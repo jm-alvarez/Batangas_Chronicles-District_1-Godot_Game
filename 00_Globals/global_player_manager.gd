@@ -46,3 +46,13 @@ func set_as_parent(_p : Node2D) -> void:
 
 func unparent_player(_p : Node2D) -> void:
 	_p.remove_child(player)
+
+func reset_camera_on_player() -> void:
+	var camera : Camera2D = get_viewport().get_camera_2d()
+	if camera:
+		if camera.get_parent() == player:
+			print("Camera already in Player")
+			return
+		camera.reparent(player)
+		camera.position = Vector2.ZERO
+	pass
