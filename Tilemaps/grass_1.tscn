@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://ch6na1auu2tfb"]
+[gd_scene load_steps=39 format=3 uid="uid://ch6na1auu2tfb"]
 
 [ext_resource type="Texture2D" uid="uid://dab312cn5r8br" path="res://Tilemaps/Sprite/Tileset2(Soil).png" id="1_1osn5"]
+[ext_resource type="Texture2D" uid="uid://btcqfvh8ew04k" path="res://Tilemaps/Sprite/wooden_fence.png" id="2_fgd87"]
 [ext_resource type="Script" uid="uid://bnv4xhgxs1lwy" path="res://Tilemaps/level_tilemap.gd" id="2_mvjs6"]
 [ext_resource type="Texture2D" uid="uid://qbtafgujkdfw" path="res://Tilemaps/Sprite/green_grass_seashore/Green_Grass(Seashore)-Sheet8.png" id="2_ph5sl"]
 [ext_resource type="Texture2D" uid="uid://dxtj50c602m1q" path="res://Tilemaps/Sprite/green_grass_seashore/Green_Grass(Seashore)-Sheet9.png" id="3_1xo6n"]
@@ -65,6 +66,41 @@ texture = ExtResource("1_1osn5")
 6:5/0 = 0
 7:5/0 = 0
 8:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4t4a"]
+texture = ExtResource("2_fgd87")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+4:0/size_in_atlas = Vector2i(2, 2)
+4:0/0 = 0
+4:2/size_in_atlas = Vector2i(2, 2)
+4:2/0 = 0
+4:4/size_in_atlas = Vector2i(2, 2)
+4:4/0 = 0
+2:4/size_in_atlas = Vector2i(2, 2)
+2:4/0 = 0
+0:4/size_in_atlas = Vector2i(2, 2)
+0:4/0 = 0
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+6:2/size_in_atlas = Vector2i(2, 2)
+6:2/0 = 0
+6:4/size_in_atlas = Vector2i(2, 2)
+6:4/0 = 0
+8:0/size_in_atlas = Vector2i(2, 2)
+8:0/0 = 0
+8:2/size_in_atlas = Vector2i(2, 2)
+8:2/0 = 0
+8:4/size_in_atlas = Vector2i(2, 2)
+8:4/0 = 0
+10:2/size_in_atlas = Vector2i(2, 2)
+10:2/0 = 0
+10:4/size_in_atlas = Vector2i(2, 2)
+10:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_by80x"]
 texture = ExtResource("2_ph5sl")
@@ -626,7 +662,7 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 16
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain1 0"
-terrain_set_0/terrain_0/color = Color(0, 0.69803923, 0.28627452, 1)
+terrain_set_0/terrain_0/color = Color(0, 0.698039, 0.286275, 1)
 sources/0 = SubResource("TileSetAtlasSource_804gw")
 sources/3 = SubResource("TileSetAtlasSource_8tv7f")
 sources/4 = SubResource("TileSetAtlasSource_bn2t1")
@@ -644,6 +680,7 @@ sources/17 = SubResource("TileSetAtlasSource_21s3l")
 sources/19 = SubResource("TileSetAtlasSource_wvtjj")
 sources/14 = SubResource("TileSetAtlasSource_8ip3i")
 sources/15 = SubResource("TileSetAtlasSource_fgd87")
+sources/1 = SubResource("TileSetAtlasSource_f4t4a")
 
 [node name="grass_1" type="TileMap"]
 z_index = -1
