@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=4 format=3 uid="uid://d03nq2i3e6q7n"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_11dwi"]
+[ext_resource type="Resource" uid="uid://cwm64dqbmrc4x" path="res://Quests/Reward_Items/Health_Potion.tres" id="2_d2fym"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="2_uybes"]
+
+[resource]
+script = ExtResource("2_uybes")
+title = "No Way Through"
+description = "The locals doesn’t trust the Spaniards entering the barrio, help the locals defend.
+"
+steps = Array[String](["Approach the civillians at the Pansipit Bridge", "Fight the Spaniards", "Talk to Fr. Agustin de Albuquerque"])
+reward_exp = 20
+reward_items = Array[ExtResource("1_11dwi")]([ExtResource("2_d2fym")])
+metadata/_custom_type_script = "uid://cbl1ai8wnqqui"
