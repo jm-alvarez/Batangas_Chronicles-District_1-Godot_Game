@@ -249,7 +249,7 @@ text = "Yes"
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="DialogText" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes"]
+[node name="6" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes"]
 script = ExtResource("12_npxw3")
 text = "Great so you don't mind me quizzing you then?"
 npc_info = ExtResource("10_npxw3")
@@ -280,7 +280,7 @@ metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="Q1B" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
 script = ExtResource("15_lepok")
-text = "He misunderstood and thought the Spaniard was asking about the tree."
+text = "He thought the Spaniard was asking about the tree."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
