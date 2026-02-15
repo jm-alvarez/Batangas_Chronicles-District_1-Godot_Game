@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="QuestRewardItem" load_steps=3 format=3 uid="uid://cqrseg7kmu2ua"]
+[gd_resource type="Resource" script_class="QuestRewardItem" load_steps=3 format=3 uid="uid://cwm64dqbmrc4x"]
 
-[ext_resource type="Resource" uid="uid://dn35yenqj3vot" path="res://Items/Health_Potion.tres" id="1_n2avt"]
+[ext_resource type="Resource" uid="uid://ictqp1efrk8p" path="res://Items/Health_Potion.tres" id="1_n2avt"]
 [ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_udcng"]
 
 [resource]
 script = ExtResource("1_udcng")
 item = ExtResource("1_n2avt")
+quantity = 2
 metadata/_custom_type_script = "uid://d0a1840lgbblo"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cv5ohib7susts"]
+[gd_scene load_steps=23 format=4 uid="uid://cv5ohib7susts"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_yfxrw"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="2_xu56y"]
@@ -9,6 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://olxulnvfro0q" path="res://Levels/Houses/house_1.tscn" id="7_cw46m"]
 [ext_resource type="PackedScene" uid="uid://8e1y45h1x22j" path="res://Tilemaps/tree.tscn" id="8_cw46m"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="9_jfakv"]
+[ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="10_8yxd2"]
+[ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="11_st20l"]
+[ext_resource type="Resource" uid="uid://cpi7hf3s5drr1" path="res://NPC/00-NPC/local3.tres" id="11_ycljk"]
+[ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="12_ajdfj"]
+[ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="12_ycljk"]
+[ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="13_5c56w"]
+[ext_resource type="Resource" uid="uid://bkrrofc1685d2" path="res://NPC/00-NPC/aki_mother.tres" id="16_7e8wd"]
+[ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="16_gy7yk"]
+[ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="17_igrld"]
 
 [sub_resource type="Animation" id="Animation_rorml"]
 length = 0.001
@@ -19,10 +28,10 @@ tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0, 1.0, 0.0]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -31,10 +40,10 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_cujgu"]
@@ -46,7 +55,7 @@ tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.4901161e-08, 0.8, 1),
+"times": PackedFloat32Array(1.49012e-08, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.0]
@@ -58,7 +67,7 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -111,6 +120,8 @@ libraries = {
 autoplay = "anim1"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstTextAnim"]
+visible = false
+energy = 0.0
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstTextAnim"]
@@ -126,6 +137,7 @@ grow_vertical = 2
 
 [node name="FirstTextLabel" type="Label" parent="ShowFirstTextAnim/CanvasLayer/Control"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -144,3 +156,319 @@ theme_override_font_sizes/font_size = 64
 text = "Calatagan"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Local" parent="." instance=ExtResource("10_8yxd2")]
+position = Vector2(-2864, 643)
+collision_layer = 16
+npc_resource = ExtResource("11_ycljk")
+
+[node name="dialog_interaction" parent="Local" instance=ExtResource("12_ajdfj")]
+
+[node name="1akitxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Pardon me. Have you seen a lady passed by?"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="2loctxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Accually yes but I do not know where she went."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3akitxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Thank you good sir but this place feels old…"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3akitxt2" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "like it is hiding something. What is the story behind this town?"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4loctxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Ah, you have got sharp instincts. This land carries history deeper than the soil beneath your feet."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="5akitxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Then tell me. How did this place begin?"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6loctxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Long ago, this area was known for its wide, open lands."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6loctxt2" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "The name comes from the Tagalog word latag, meaning to lay flat or spread out."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6loctxt3" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = " It is connected to kapatagan, which means a vast plain."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="7akitxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "So the land itself gave the town its name?"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="8loctxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Exactly. The wide stretch of plains between hills and mountains defined it."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="8loctxt2" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "That is why it became known as Calatagan, a large expanse of flat land."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="9akitxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "But how did it become an official town?"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="10loctxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "In 1829, a wealthy man named [color=red]Don Domingo Roxas[/color] acquired the land from the Spanish Crown."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="10loctxt2" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = " It was then called Hacienda de Calatagan."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="11akitxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "So it started as a private estate?"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="12loctxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Yes. But over time, it grew into the municipality we know today. From wide plains… to a thriving community."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="13akitxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Amazing. The land really shaped its identity."
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="14loctxt" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Remember this, young man. Names are never random."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="14loctxt2" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "They tell you what mattered most."
+npc_info = ExtResource("11_ycljk")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Ermitanyo" parent="." instance=ExtResource("10_8yxd2")]
+position = Vector2(-2806, 868)
+npc_resource = ExtResource("11_st20l")
+
+[node name="dialog_interaction" parent="Ermitanyo" instance=ExtResource("12_ajdfj")]
+
+[node name="1ermtxt" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "We have reached the end of District 1, Aki."
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="2akitxt" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Already? But I still have not found my mother."
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3ermtxt" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "Do not worry my boy. I will share some good news if you answer my questions."
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4ermtxt" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "You know the drill."
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="5akitxt" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "I am listening."
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6Q1" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_ycljk")
+text = "First question. The name Calatagan is derived from which Tagalog word?"
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6choice" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("16_gy7yk")
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
+
+[node name="Q1A" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
+script = ExtResource("17_igrld")
+text = "Latag"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q1correct" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A"]
+script = ExtResource("12_ycljk")
+text = "As expected, a sharp listener onto the next question shall we?"
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="7Q2" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A"]
+script = ExtResource("12_ycljk")
+text = "Who acquired the land known as Hacienda de Calatagan in 1829?"
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="7choice" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A"]
+script = ExtResource("16_gy7yk")
+metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
+
+[node name="Q2A" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice"]
+script = ExtResource("17_igrld")
+text = "José Rizal"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q2wrong1" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2A"]
+script = ExtResource("12_ycljk")
+text = "Is he the only historical figure you know?"
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2B" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice"]
+script = ExtResource("17_igrld")
+text = "Miguel López de Legazpi"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q2wrong2" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2B"]
+script = ExtResource("12_ycljk")
+text = "Who even is that?"
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2wrong21" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2B"]
+script = ExtResource("12_ycljk")
+text = "He is the first governor-general of the Spanish East Indies."
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2wrong22" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2B"]
+script = ExtResource("12_ycljk")
+text = "You managed to remember that but not your recent lesson?"
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2C" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice"]
+script = ExtResource("17_igrld")
+text = "Don Domingo Roxas"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2C"]
+script = ExtResource("12_ycljk")
+text = "Nicely done! As a reward I am happy to share that..."
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="8ermtxt" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2C"]
+script = ExtResource("12_ycljk")
+text = "You can find your mom just near the shoreline."
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="9akitxt" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2C"]
+script = ExtResource("12_ycljk")
+text = "Finally, I can see her again!"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2D" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice"]
+script = ExtResource("17_igrld")
+text = "Emilio Aguinaldo"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q2wrong3" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2D"]
+script = ExtResource("12_ycljk")
+text = "I cannot fathom how disappointed I am of you Aki. "
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2wrong4" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2D"]
+script = ExtResource("12_ycljk")
+text = "Heh."
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q1B" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
+script = ExtResource("17_igrld")
+text = "Bundok"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B"]
+script = ExtResource("12_ycljk")
+text = "Did you see any mountains here, Aki?"
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q1C" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
+script = ExtResource("17_igrld")
+text = "Tubig"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q1wrong2" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1C"]
+script = ExtResource("12_ycljk")
+text = "Close but this is not named from water."
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q1D" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
+script = ExtResource("17_igrld")
+text = "Baybay"
+npc_info = ExtResource("13_5c56w")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q1wrong3" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1D"]
+script = ExtResource("12_ycljk")
+text = "You can say baybay to your mother for not listening."
+npc_info = ExtResource("11_st20l")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="AkiMother" parent="." instance=ExtResource("10_8yxd2")]
+position = Vector2(-3282, 984)
+npc_resource = ExtResource("16_7e8wd")
+
+[node name="dialog_interaction" parent="AkiMother" instance=ExtResource("12_ajdfj")]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://c50n43dv4iu4g"]
+
+[ext_resource type="Texture2D" uid="uid://dll62bl3boy0j" path="res://NPC/Sprites/Portraits/NPC_Man1-Portrait.png" id="1_hwi70"]
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="1_j03n3"]
+[ext_resource type="Texture2D" uid="uid://iiaabu5bkdbo" path="res://NPC/Sprites/Locals/NPC_Man1-Sheet.png" id="3_hgm83"]
+
+[resource]
+script = ExtResource("1_j03n3")
+npc_name = "Pedro"
+sprite = ExtResource("3_hgm83")
+portrait = ExtResource("1_hwi70")
+dialog_audio_pitch = 1.0
+metadata/_custom_type_script = "uid://c5ouqrd8mm7fj"
