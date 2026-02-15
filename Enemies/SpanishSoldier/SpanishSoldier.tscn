@@ -855,7 +855,8 @@ _data = {
 }
 
 [node name="SpanishSoldier" type="CharacterBody2D"]
-collision_layer = 257
+collision_layer = 273
+collision_mask = 17
 script = ExtResource("1_a6oqs")
 
 [node name="hurt_box" parent="." instance=ExtResource("7_nohag")]
