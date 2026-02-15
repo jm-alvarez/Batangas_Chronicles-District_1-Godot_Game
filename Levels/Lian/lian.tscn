@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cw2qviq5f1tie"]
+[gd_scene load_steps=21 format=4 uid="uid://cw2qviq5f1tie"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_r43up"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_2jh0s"]
@@ -8,6 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://olxulnvfro0q" path="res://Levels/Houses/house_1.tscn" id="6_g6ynl"]
 [ext_resource type="PackedScene" uid="uid://8e1y45h1x22j" path="res://Tilemaps/tree.tscn" id="7_k3t6l"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="8_g6ynl"]
+[ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="9_k3t6l"]
+[ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="10_e3d10"]
+[ext_resource type="Resource" uid="uid://k21nd1xdmprx" path="res://NPC/00-NPC/lian.tres" id="10_kdgqb"]
+[ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="10_w3ml1"]
+[ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="11_kdgqb"]
+[ext_resource type="Resource" uid="uid://c1spdc48twm0m" path="res://NPC/00-NPC/Spanish_Guard.tres" id="12_atmgo"]
+[ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="13_atmgo"]
+[ext_resource type="Resource" uid="uid://c3vtgyep8ipyt" path="res://NPC/00-NPC/00_Narrator.tres" id="15_mta8j"]
 
 [sub_resource type="Animation" id="Animation_rorml"]
 length = 0.001
@@ -30,7 +38,7 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -45,7 +53,7 @@ tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.4901161e-08, 0.8, 1),
+"times": PackedFloat32Array(1.49012e-08, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.0]
@@ -57,7 +65,7 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -99,7 +107,7 @@ level = "uid://cv5ohib7susts"
 side = 3
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_fch8g")]
-position = Vector2(-2533.79, 323.412)
+position = Vector2(-2543, 323.412)
 
 [node name="House" parent="." instance=ExtResource("5_4fg6j")]
 tile_map_data = PackedByteArray("AAA4/xYABQACAAcAAAAw/woABQAIAAAAAABa/xcABQAAAA0AAAA=")
@@ -117,6 +125,7 @@ libraries = {
 autoplay = "anim1"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstTextAnim"]
+visible = false
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstTextAnim"]
@@ -150,3 +159,84 @@ theme_override_font_sizes/font_size = 64
 text = "Lian"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Chinese" parent="." instance=ExtResource("9_k3t6l")]
+position = Vector2(-2812, 328)
+npc_resource = ExtResource("10_kdgqb")
+
+[node name="dialog_interaction" parent="Chinese" instance=ExtResource("10_w3ml1")]
+
+[node name="1aki" type="Node" parent="Chinese/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+text = "Good day sir have you seen a wo-"
+npc_info = ExtResource("13_atmgo")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="2spa" type="Node" parent="Chinese/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+text = "Que es el nombre este lugar? 
+(What is the name of this place?)"
+npc_info = ExtResource("12_atmgo")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3nar" type="Node" parent="Chinese/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+text = "The chinese trader not knowing spanish thought that they were asking for his name."
+npc_info = ExtResource("15_mta8j")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4L" type="Node" parent="Chinese/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+text = "我的名字
+(LI-AN my name.)"
+npc_info = ExtResource("10_kdgqb")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="5spa" type="Node" parent="Chinese/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+text = "Si, si, el pueblo de LI-AN.
+(Yes, yes, the town of Lian)"
+npc_info = ExtResource("12_atmgo")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6aki" type="Node" parent="Chinese/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+text = "Pfft"
+npc_info = ExtResource("13_atmgo")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="7nar" type="Node" parent="Chinese/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+text = "After a few months Aki was able to attend the festival of Lian where multiple rafts made from bamboo were floating along the shoreline."
+npc_info = ExtResource("15_mta8j")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="12" type="Node" parent="Chinese/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+text = "luh"
+npc_info = ExtResource("10_kdgqb")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="13" type="Node" parent="Chinese/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+text = "luh"
+npc_info = ExtResource("10_kdgqb")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Spanish" parent="." instance=ExtResource("9_k3t6l")]
+position = Vector2(-2842, 327)
+npc_resource = ExtResource("12_atmgo")
+
+[node name="Ermitanyo" parent="." instance=ExtResource("9_k3t6l")]
+visible = false
+position = Vector2(-2831, 324)
+npc_resource = ExtResource("10_e3d10")
+
+[node name="dialog_interaction" parent="Ermitanyo" instance=ExtResource("10_w3ml1")]
+
+[node name="DialogText" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("11_kdgqb")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Local" parent="." instance=ExtResource("9_k3t6l")]
+position = Vector2(-2892, 269)
