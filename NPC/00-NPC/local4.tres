@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="NPCResource" load_steps=2 format=3 uid="uid://trvk1yvoe4gx"]
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://b3a1n0sitapdp"]
 
+[ext_resource type="Texture2D" uid="uid://gf8x8lnji3h0" path="res://NPC/Sprites/Portraits/NPC_Woman3-Portrait.png" id="1_l6r1r"]
 [ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="1_p1li2"]
+[ext_resource type="Texture2D" uid="uid://bteidyf7pkp75" path="res://NPC/Sprites/Locals/NPC_Woman3-Sheet.png" id="3_wef2d"]
 
 [resource]
 script = ExtResource("1_p1li2")
 npc_name = "Ash"
+sprite = ExtResource("3_wef2d")
+portrait = ExtResource("1_l6r1r")
 dialog_audio_pitch = 1.0
 metadata/_custom_type_script = "uid://c5ouqrd8mm7fj"
