@@ -57,3 +57,14 @@ func count_spaniards() :
 func _on_spanish_soldier_enemy_destroyed(hurt_box: HurtBox) -> void:
 	count_spaniards()
 	pass # Replace with function body.
+
+
+func _on_earthquake_1_player_entered() -> void:
+	PlayerManager.shake_camera()
+	pass # Replace with function body.
+
+
+func _on_yes_selected() -> void:
+	%taal_q1_qs3_advance.advance_quest()
+	%taal_q2_show_advance2.advance_quest()
+	pass # Replace with function body.

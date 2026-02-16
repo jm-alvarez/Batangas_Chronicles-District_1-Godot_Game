@@ -65,6 +65,10 @@ func SetDirection() -> bool:
 	return true
 	
 
+func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("test"):
+		#PlayerManager.shake_camera()
+	pass
 
 func UpdateAnimation(state : String) -> void:
 	animation_player.play( state + "_" + AnimDirection() )
