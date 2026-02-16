@@ -1,6 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://8e1y45h1x22j"]
+[gd_scene load_steps=6 format=3 uid="uid://8e1y45h1x22j"]
 
 [ext_resource type="Texture2D" uid="uid://2cinec48yr5a" path="res://Tilemaps/Sprite/Trees/Trees_Merged.png" id="1_a7n4p"]
+[ext_resource type="Texture2D" uid="uid://bas2adl72km6o" path="res://Tilemaps/Sprite/Grayscale/Trees_Merged-Grayscale.png" id="1_f6i8x"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmvgs"]
+texture = ExtResource("1_f6i8x")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8.5, 16, -7.5, 16)
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8.5, 16, -7.5, 16)
+0:4/size_in_atlas = Vector2i(2, 2)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8.5, 16, -7.5, 16)
+2:2/size_in_atlas = Vector2i(2, 2)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8.5, 16, -7.5, 16)
+4:2/size_in_atlas = Vector2i(2, 2)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8.5, 16, -7.5, 16)
+6:2/size_in_atlas = Vector2i(2, 2)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8.5, 16, -7.5, 16)
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8.5, 16, -7.5, 16)
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_onhyf"]
 texture = ExtResource("1_a7n4p")
@@ -33,6 +61,7 @@ texture = ExtResource("1_a7n4p")
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 16
 sources/10 = SubResource("TileSetAtlasSource_onhyf")
+sources/0 = SubResource("TileSetAtlasSource_gmvgs")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [10, Vector2i(0, 0)], [0, Vector2i(0, 1)], [10, Vector2i(0, 1)], [0, Vector2i(1, 0)], [10, Vector2i(1, 0)], [0, Vector2i(1, 1)], [10, Vector2i(1, 1)], [1, Vector2i(0, 0)], [10, Vector2i(2, 0)], [1, Vector2i(0, 1)], [10, Vector2i(2, 1)], [1, Vector2i(1, 0)], [10, Vector2i(3, 0)], [1, Vector2i(1, 1)], [10, Vector2i(3, 1)], [2, Vector2i(0, 0)], [10, Vector2i(4, 0)], [3, Vector2i(0, 0)], [10, Vector2i(5, 0)], [4, Vector2i(0, 0)], [10, Vector2i(6, 0)], [5, Vector2i(0, 0)], [10, Vector2i(0, 2)], [5, Vector2i(0, 1)], [10, Vector2i(0, 3)], [5, Vector2i(1, 0)], [10, Vector2i(1, 2)], [5, Vector2i(1, 1)], [10, Vector2i(1, 3)], [6, Vector2i(0, 0)], [10, Vector2i(2, 2)], [6, Vector2i(0, 1)], [10, Vector2i(2, 3)], [6, Vector2i(1, 0)], [10, Vector2i(3, 2)], [6, Vector2i(1, 1)], [10, Vector2i(3, 3)], [7, Vector2i(0, 0)], [10, Vector2i(4, 2)], [7, Vector2i(0, 1)], [10, Vector2i(4, 3)], [7, Vector2i(1, 0)], [10, Vector2i(5, 2)], [7, Vector2i(1, 1)], [10, Vector2i(5, 3)], [8, Vector2i(0, 0)], [10, Vector2i(6, 2)], [8, Vector2i(0, 1)], [10, Vector2i(6, 3)], [8, Vector2i(1, 0)], [10, Vector2i(7, 2)], [8, Vector2i(1, 1)], [10, Vector2i(7, 3)], [9, Vector2i(0, 0)], [10, Vector2i(0, 4)], [9, Vector2i(0, 1)], [10, Vector2i(0, 5)], [9, Vector2i(1, 0)], [10, Vector2i(1, 4)], [9, Vector2i(1, 1)], [10, Vector2i(1, 5)]]
 
 [node name="tree" type="TileMapLayer"]
