@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://5l6jcbgahjac"]
+[gd_scene load_steps=52 format=4 uid="uid://5l6jcbgahjac"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_a4a4w"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="1_xhrx5"]
@@ -40,6 +40,7 @@
 [ext_resource type="Resource" uid="uid://ch765k2xs4m31" path="res://Quests/Taal_Quest2.tres" id="38_1s36y"]
 [ext_resource type="PackedScene" uid="uid://crnk5hqebaqnu" path="res://GeneralNodes/PersistentDataHelper/persistent_data_handler.tscn" id="38_cvk2j"]
 [ext_resource type="PackedScene" uid="uid://ndua5p2o8wgx" path="res://NPC/PatrolLocation.tscn" id="38_lqjim"]
+[ext_resource type="Script" uid="uid://dpmu0ihaasw4l" path="res://Levels/Taal/earthquake_node_2.gd" id="41_76eg8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_usta1"]
 texture = ExtResource("6_1eoai")
@@ -260,239 +261,251 @@ z_index = 1
 position = Vector2(-1.14287, 0)
 shape = SubResource("RectangleShape2D_usta1")
 
-[node name="Ermitanyo1" parent="." instance=ExtResource("9_usta1")]
+[node name="Hide_Ermitanyo" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("27_qr25l")
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("20_qr25l")
+settings_summary = "UPDATE QUEST:
+ Quest: No Way Through
+Checking if player has quest"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Ermitanyo1" parent="Hide_Ermitanyo" instance=ExtResource("9_usta1")]
 unique_name_in_owner = true
 position = Vector2(279, -102)
 npc_resource = ExtResource("10_uh6mw")
 
-[node name="NPCWanderBehaviour" parent="Ermitanyo1" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Hide_Ermitanyo/Ermitanyo1" instance=ExtResource("11_c74rc")]
 
-[node name="ermitanyo1_interaction" parent="Ermitanyo1" instance=ExtResource("12_x7iw4")]
+[node name="ermitanyo1_interaction" parent="Hide_Ermitanyo/Ermitanyo1" instance=ExtResource("12_x7iw4")]
+unique_name_in_owner = true
 
-[node name="1ErmText" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="1ErmText" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("13_u3uel")
 text = "Welcome to Heritage Town of Taal
 "
 npc_info = ExtResource("10_uh6mw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="2AkiText" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="2AkiText" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("13_u3uel")
 text = "What seems the problem?
 "
 npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="3ErmText" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="3ErmText" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("13_u3uel")
 text = "There are some [color=red][wave]Spaniards[/wave][/color] our town through the Pansipit River."
 npc_info = ExtResource("10_uh6mw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="4Cutscene_Move_Camera" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="4Cutscene_Move_Camera" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("16_0lfsm")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="1ActionCamera" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/4Cutscene_Move_Camera"]
+[node name="1ActionCamera" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/4Cutscene_Move_Camera"]
 position = Vector2(1449, -602)
 script = ExtResource("17_jttn0")
 easing_method = 0
 move_duration = 6.0
 move_speed = 10.0
 
-[node name="5Cutscene_Move_Spaniard" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="5Cutscene_Move_Spaniard" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("16_0lfsm")
 playback_mode = 0
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="2MoveSpaniard1" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="2MoveSpaniard1" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1505, -597)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard1")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard1")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="3MoveSpaniard2" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="3MoveSpaniard2" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1505, -573)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard2")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard2")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="4MoveSpaniard3" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="4MoveSpaniard3" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1480, -573)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard3")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard3")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="5MoveSpaniard4" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="5MoveSpaniard4" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1528, -573)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard4")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard4")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="6MoveSpaniard5" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="6MoveSpaniard5" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1505, -547)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard5")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard5")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="7MoveSpaniard1" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="7MoveSpaniard1" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1422, -597)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard1")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard1")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="8MoveSpaniard2" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="8MoveSpaniard2" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1505, -597)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard2")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard2")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="9MoveSpaniard2" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="9MoveSpaniard2" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1449, -597)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard2")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard2")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="10MoveSpaniard3" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="10MoveSpaniard3" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1473, -597)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard3")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard3")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="11MoveSpaniard4" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="11MoveSpaniard4" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1528, -597)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard4")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard4")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="12MoveSpaniard5" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="12MoveSpaniard5" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1501, -597)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard5")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard5")
 move_duration = 5.0
 move_speed = 25.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="6Cutscene_Move_Spaniard" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="6Cutscene_Move_Spaniard" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("16_0lfsm")
 playback_mode = 0
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="1MoveSpaniard1" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="1MoveSpaniard1" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(981, -599)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard1")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard1")
 move_duration = 8.0
 move_speed = 10.0
 animation_speed_factor = 15.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="2MoveSpaniard2" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="2MoveSpaniard2" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1008, -599)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard2")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard2")
 move_duration = 8.0
 move_speed = 10.0
 animation_speed_factor = 15.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="3MoveSpaniard3" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="3MoveSpaniard3" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1035, -599)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard3")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard3")
 move_duration = 8.0
 move_speed = 10.0
 animation_speed_factor = 15.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="4MoveSpaniard4" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="4MoveSpaniard4" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1087, -599)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard4")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard4")
 move_duration = 8.0
 move_speed = 10.0
 animation_speed_factor = 15.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="5MoveSpaniard5" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
+[node name="5MoveSpaniard5" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1060, -599)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Spaniard_Move/Spaniard5")
+object_to_move = NodePath("../../../../../Hide_Spaniard_move/Spaniard_Move/Spaniard5")
 move_duration = 8.0
 move_speed = 10.0
 animation_speed_factor = 15.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="7Cutscene_Move_Camera" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="7Cutscene_Move_Camera" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("16_0lfsm")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="1ActionCamera" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/7Cutscene_Move_Camera"]
+[node name="1ActionCamera" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/7Cutscene_Move_Camera"]
 position = Vector2(1500, -271)
 script = ExtResource("17_jttn0")
 easing_method = 0
 move_duration = 6.0
 move_speed = 10.0
 
-[node name="2ActionCamera" type="Node2D" parent="Ermitanyo1/ermitanyo1_interaction/7Cutscene_Move_Camera"]
+[node name="2ActionCamera" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/7Cutscene_Move_Camera"]
 position = Vector2(276, -69)
 script = ExtResource("17_jttn0")
 easing_method = 0
 move_duration = 6.0
 move_speed = 10.0
 
-[node name="8ErmText" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="8ErmText" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("13_u3uel")
 text = "There are no such thing as a friendly [color=red]Spaniard[/color]."
 npc_info = ExtResource("10_uh6mw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="9ErmText" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="9ErmText" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("13_u3uel")
 text = "[wave][color=gray]Balangon[/color][/wave] is for our people only."
 npc_info = ExtResource("10_uh6mw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="10AkiText" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="10AkiText" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("13_u3uel")
 text = "The [color=red]Spaniards[/color] are getting more relentless these days.
 "
 npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="11ErmText" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="11ErmText" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("13_u3uel")
 text = "[wave][color=gray]Balangon[/color][/wave] is for our people only."
 npc_info = ExtResource("10_uh6mw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="12ErmText" type="Node" parent="Ermitanyo1/ermitanyo1_interaction"]
+[node name="12ErmText" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("13_u3uel")
 text = "Go to Pansipit Bridge and help the people of [color=gray]Balangon[/color]"
 npc_info = ExtResource("10_uh6mw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="taal_quest_Show" parent="Ermitanyo1/ermitanyo1_interaction" instance=ExtResource("19_6w16s")]
+[node name="taal_quest_Show" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction" instance=ExtResource("19_6w16s")]
 unique_name_in_owner = true
 linked_quest = ExtResource("20_qr25l")
 settings_summary = "UPDATE QUEST:
@@ -549,87 +562,132 @@ position = Vector2(1495, 0)
 [node name="Boulder2" parent="." instance=ExtResource("16_vncit")]
 position = Vector2(1514, 0)
 
-[node name="Spaniard_Move" type="Node2D" parent="."]
+[node name="Hide_Spaniard_move" type="Node2D" parent="."]
+script = ExtResource("27_qr25l")
+remove_when_activated = true
+linked_quest = ExtResource("20_qr25l")
+settings_summary = "UPDATE QUEST:
+ Quest: No Way Through
+Checking if player has quest"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Spaniard_Move" type="Node2D" parent="Hide_Spaniard_move"]
 unique_name_in_owner = true
 
-[node name="Spaniard1" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+[node name="Spaniard1" parent="Hide_Spaniard_move/Spaniard_Move" instance=ExtResource("9_usta1")]
 position = Vector2(1505, -386)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard1" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Hide_Spaniard_move/Spaniard_Move/Spaniard1" instance=ExtResource("11_c74rc")]
 wander_range = 1
 wander_duration = 2.0
 
-[node name="Spaniard2" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+[node name="Spaniard2" parent="Hide_Spaniard_move/Spaniard_Move" instance=ExtResource("9_usta1")]
 position = Vector2(1505, -359)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard2" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Hide_Spaniard_move/Spaniard_Move/Spaniard2" instance=ExtResource("11_c74rc")]
 wander_range = 1
 wander_duration = 2.0
 
-[node name="Spaniard3" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+[node name="Spaniard3" parent="Hide_Spaniard_move/Spaniard_Move" instance=ExtResource("9_usta1")]
 position = Vector2(1484, -361)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard3" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Hide_Spaniard_move/Spaniard_Move/Spaniard3" instance=ExtResource("11_c74rc")]
 wander_range = 1
 wander_duration = 2.0
 
-[node name="Spaniard4" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+[node name="Spaniard4" parent="Hide_Spaniard_move/Spaniard_Move" instance=ExtResource("9_usta1")]
 position = Vector2(1525, -361)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard4" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Hide_Spaniard_move/Spaniard_Move/Spaniard4" instance=ExtResource("11_c74rc")]
 wander_range = 1
 wander_duration = 2.0
 
-[node name="Spaniard5" parent="Spaniard_Move" instance=ExtResource("9_usta1")]
+[node name="Spaniard5" parent="Hide_Spaniard_move/Spaniard_Move" instance=ExtResource("9_usta1")]
 position = Vector2(1506, -332)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="NPCWanderBehaviour" parent="Spaniard_Move/Spaniard5" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Hide_Spaniard_move/Spaniard_Move/Spaniard5" instance=ExtResource("11_c74rc")]
 wander_range = 1
 wander_duration = 2.0
 
-[node name="Spaniard_Camp" type="Node2D" parent="."]
-unique_name_in_owner = true
+[node name="Hide_Spaniard_Camp" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("27_qr25l")
+check_type = 1
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("20_qr25l")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: No Way Through
+Checking if player has completed step: approach the civillians at the pansipit bridge"
+metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="Spaniard" parent="Spaniard_Camp" instance=ExtResource("9_usta1")]
+[node name="Spaniard_Camp" type="Node2D" parent="Hide_Spaniard_Camp"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Spaniard" parent="Hide_Spaniard_Camp/Spaniard_Camp" instance=ExtResource("9_usta1")]
 position = Vector2(1506, -292)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="NPCWanderBehaviour" parent="Spaniard_Camp/Spaniard" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Hide_Spaniard_Camp/Spaniard_Camp/Spaniard" instance=ExtResource("11_c74rc")]
 wander_range = 1
 wander_duration = 2.0
 
-[node name="Spaniard2" parent="Spaniard_Camp" instance=ExtResource("9_usta1")]
+[node name="Spaniard2" parent="Hide_Spaniard_Camp/Spaniard_Camp" instance=ExtResource("9_usta1")]
 position = Vector2(1558, -253)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="NPCWanderBehaviour" parent="Spaniard_Camp/Spaniard2" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Hide_Spaniard_Camp/Spaniard_Camp/Spaniard2" instance=ExtResource("11_c74rc")]
 wander_range = 1
 wander_duration = 2.0
 
-[node name="Spaniard3" parent="Spaniard_Camp" instance=ExtResource("9_usta1")]
+[node name="Spaniard3" parent="Hide_Spaniard_Camp/Spaniard_Camp" instance=ExtResource("9_usta1")]
 position = Vector2(1479, -246)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="NPCWanderBehaviour" parent="Spaniard_Camp/Spaniard3" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Hide_Spaniard_Camp/Spaniard_Camp/Spaniard3" instance=ExtResource("11_c74rc")]
 wander_range = 1
 wander_duration = 2.0
 
-[node name="npc_man1" parent="." instance=ExtResource("9_usta1")]
+[node name="Hide_NPC_Man1" type="Node2D" parent="."]
+script = ExtResource("27_qr25l")
+check_type = 1
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("20_qr25l")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: No Way Through
+Checking if player has completed step: approach the civillians at the pansipit bridge"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Show_NPC_Man1" type="Node2D" parent="Hide_NPC_Man1"]
+script = ExtResource("27_qr25l")
+react_to_global_signal = true
+linked_quest = ExtResource("20_qr25l")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: No Way Through
+Checking if player has quest"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="npc_man1" parent="Hide_NPC_Man1/Show_NPC_Man1" instance=ExtResource("9_usta1")]
 unique_name_in_owner = true
 position = Vector2(1096, -593)
 npc_resource = ExtResource("23_7tu5y")
 
-[node name="npc_man1_trigger" type="Area2D" parent="npc_man1"]
+[node name="npc_man1_trigger" type="Area2D" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1"]
 unique_name_in_owner = true
 script = ExtResource("24_am0y2")
 metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 
-[node name="taal_quest1_advance" parent="npc_man1/npc_man1_trigger" instance=ExtResource("19_6w16s")]
+[node name="taal_quest1_advance" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger" instance=ExtResource("19_6w16s")]
 unique_name_in_owner = true
 linked_quest = ExtResource("20_qr25l")
 quest_step = 1
@@ -638,48 +696,48 @@ settings_summary = "UPDATE QUEST:
 Step: 1 - approach the civillians at the pansipit bridge
 Complete: false"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="npc_man1/npc_man1_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger"]
 shape = SubResource("CircleShape2D_gorfp")
 debug_color = Color(0.9857132, 0, 0.3356775, 0.41960785)
 
-[node name="npc_man1_interaction" parent="npc_man1/npc_man1_trigger" instance=ExtResource("12_x7iw4")]
+[node name="npc_man1_interaction" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger" instance=ExtResource("12_x7iw4")]
 unique_name_in_owner = true
-scale = Vector2(1e-05, 1)
+scale = Vector2(1e-05, 1e-05)
 
-[node name="DialogCutscene1" type="Node" parent="npc_man1/npc_man1_trigger/npc_man1_interaction"]
+[node name="DialogCutscene1" type="Node" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction"]
 script = ExtResource("16_0lfsm")
 playback_mode = 0
 npc_info = ExtResource("21_0sqdf")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="1EnemyActionMove" type="Node2D" parent="npc_man1/npc_man1_trigger/npc_man1_interaction/DialogCutscene1" node_paths=PackedStringArray("object_to_move")]
+[node name="1EnemyActionMove" type="Node2D" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction/DialogCutscene1" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1168, -599)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../../Spaniard_NPC1/Spaniard")
+object_to_move = NodePath("../../../../../../../Hide_Spaniard_NPC1/Spaniard_NPC1/Spaniard")
 move_duration = 5.0
 move_speed = 50.0
 animation_speed_factor = 20.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="2EnemyActionMove" type="Node2D" parent="npc_man1/npc_man1_trigger/npc_man1_interaction/DialogCutscene1" node_paths=PackedStringArray("object_to_move")]
+[node name="2EnemyActionMove" type="Node2D" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction/DialogCutscene1" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1195, -599)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../../Spaniard_NPC1/Spaniard2")
+object_to_move = NodePath("../../../../../../../Hide_Spaniard_NPC1/Spaniard_NPC1/Spaniard2")
 move_duration = 5.0
 move_speed = 50.0
 animation_speed_factor = 20.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="3EnemyActionMove" type="Node2D" parent="npc_man1/npc_man1_trigger/npc_man1_interaction/DialogCutscene1" node_paths=PackedStringArray("object_to_move")]
+[node name="3EnemyActionMove" type="Node2D" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction/DialogCutscene1" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1220, -599)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../../Spaniard_NPC1/Spaniard3")
+object_to_move = NodePath("../../../../../../../Hide_Spaniard_NPC1/Spaniard_NPC1/Spaniard3")
 move_duration = 5.0
 move_speed = 50.0
 animation_speed_factor = 20.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="4NPCActionMove" type="Node2D" parent="npc_man1/npc_man1_trigger/npc_man1_interaction/DialogCutscene1" node_paths=PackedStringArray("object_to_move")]
+[node name="4NPCActionMove" type="Node2D" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction/DialogCutscene1" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1136, -599)
 script = ExtResource("18_ovovr")
 object_to_move = NodePath("../../../..")
@@ -688,43 +746,77 @@ move_speed = 50.0
 animation_speed_factor = 20.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="1Enemy_Text" type="Node" parent="npc_man1/npc_man1_trigger/npc_man1_interaction"]
+[node name="1Enemy_Text" type="Node" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction"]
 script = ExtResource("13_u3uel")
 text = "We have come in peace and to spread the word of God."
 npc_info = ExtResource("21_0sqdf")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="2NPC_Text" type="Node" parent="npc_man1/npc_man1_trigger/npc_man1_interaction"]
+[node name="2NPC_Text" type="Node" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction"]
 script = ExtResource("13_u3uel")
 text = "Enough with the pretense"
 npc_info = ExtResource("23_7tu5y")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="3NPC_Text" type="Node" parent="npc_man1/npc_man1_trigger/npc_man1_interaction"]
+[node name="3NPC_Text" type="Node" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction"]
 script = ExtResource("13_u3uel")
 text = "We know why you’re here"
 npc_info = ExtResource("23_7tu5y")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="4NPC_Text" type="Node" parent="npc_man1/npc_man1_trigger/npc_man1_interaction"]
+[node name="4NPC_Text" type="Node" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction"]
 script = ExtResource("13_u3uel")
 text = "This barrio is ours only."
 npc_info = ExtResource("23_7tu5y")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="5NPC_Text" type="Node" parent="npc_man1/npc_man1_trigger/npc_man1_interaction"]
+[node name="5NPC_Text" type="Node" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction"]
 script = ExtResource("13_u3uel")
 text = " You have to fight me to death before you can enter this barrio."
 npc_info = ExtResource("23_7tu5y")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="6Enemy_Text" type="Node" parent="npc_man1/npc_man1_trigger/npc_man1_interaction"]
+[node name="6Enemy_Text" type="Node" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction"]
 script = ExtResource("13_u3uel")
 text = "..."
 npc_info = ExtResource("21_0sqdf")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Spaniard_NPC1" type="Node2D" parent="."]
+[node name="npc_man2" parent="Hide_NPC_Man1/Show_NPC_Man1" instance=ExtResource("9_usta1")]
+position = Vector2(1044, -578)
+npc_resource = ExtResource("28_6mh7h")
+
+[node name="NPCWanderBehaviour" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man2" instance=ExtResource("11_c74rc")]
+wander_range = 1
+
+[node name="npc_man3" parent="Hide_NPC_Man1/Show_NPC_Man1" instance=ExtResource("9_usta1")]
+position = Vector2(1110, -558)
+npc_resource = ExtResource("28_6mh7h")
+
+[node name="NPCWanderBehaviour" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man3" instance=ExtResource("11_c74rc")]
+wander_range = 1
+
+[node name="npc_man4" parent="Hide_NPC_Man1/Show_NPC_Man1" instance=ExtResource("9_usta1")]
+position = Vector2(1102, -642)
+npc_resource = ExtResource("28_6mh7h")
+
+[node name="NPCWanderBehaviour" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man4" instance=ExtResource("11_c74rc")]
+wander_range = 1
+
+[node name="Hide_Spaniard_NPC1" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("27_qr25l")
+check_type = 1
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("20_qr25l")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: No Way Through
+Checking if player has completed step: approach the civillians at the pansipit bridge"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Spaniard_NPC1" type="Node2D" parent="Hide_Spaniard_NPC1"]
 unique_name_in_owner = true
 script = ExtResource("27_qr25l")
 react_to_global_signal = true
@@ -734,19 +826,31 @@ settings_summary = "UPDATE QUEST:
 Checking if player has quest"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="Spaniard" parent="Spaniard_NPC1" instance=ExtResource("9_usta1")]
+[node name="Spaniard" parent="Hide_Spaniard_NPC1/Spaniard_NPC1" instance=ExtResource("9_usta1")]
 position = Vector2(1318, -594)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="Spaniard2" parent="Spaniard_NPC1" instance=ExtResource("9_usta1")]
+[node name="Spaniard2" parent="Hide_Spaniard_NPC1/Spaniard_NPC1" instance=ExtResource("9_usta1")]
 position = Vector2(1344, -594)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="Spaniard3" parent="Spaniard_NPC1" instance=ExtResource("9_usta1")]
+[node name="Spaniard3" parent="Hide_Spaniard_NPC1/Spaniard_NPC1" instance=ExtResource("9_usta1")]
 position = Vector2(1369, -594)
 npc_resource = ExtResource("21_0sqdf")
 
-[node name="Spaniard_enemy_Q2" type="Node2D" parent="."]
+[node name="Hide_SE_QS2" type="Node2D" parent="."]
+script = ExtResource("27_qr25l")
+check_type = 1
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("20_qr25l")
+quest_step = 2
+settings_summary = "UPDATE QUEST:
+ Quest: No Way Through
+Checking if player has completed step: fight the spaniards"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Spaniard_enemy_Q2" type="Node2D" parent="Hide_SE_QS2"]
 unique_name_in_owner = true
 process_mode = 4
 visible = false
@@ -760,37 +864,38 @@ settings_summary = "UPDATE QUEST:
 Checking if player has completed step: approach the civillians at the pansipit bridge"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="SpanishSoldier1" parent="Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
+[node name="SpanishSoldier1" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1168, -599)
 
-[node name="SpanishSoldier2" parent="Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
+[node name="SpanishSoldier2" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1195, -599)
 
-[node name="SpanishSoldier3" parent="Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
+[node name="SpanishSoldier3" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1220, -598)
 
-[node name="SpanishSoldier4" parent="Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
+[node name="SpanishSoldier4" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1455, -639)
 
-[node name="SpanishSoldier5" parent="Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
+[node name="SpanishSoldier5" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1452, -513)
 
-[node name="SpanishSoldier6" parent="Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
+[node name="SpanishSoldier6" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1579, -592)
 
-[node name="SpanishSoldier7" parent="Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
+[node name="SpanishSoldier7" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1594, -483)
 
-[node name="SpanishSoldier8" parent="Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
+[node name="SpanishSoldier8" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1559, -705)
 
-[node name="SpanishSoldier9" parent="Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
+[node name="SpanishSoldier9" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1458, -415)
 
 [node name="Taal_Quest_1" type="Node2D" parent="."]
 script = ExtResource("22_5g75g")
 
-[node name="taal_Q2_advance" parent="Taal_Quest_1" instance=ExtResource("19_6w16s")]
+[node name="taal_Q1_QS2_advance" parent="Taal_Quest_1" instance=ExtResource("19_6w16s")]
+unique_name_in_owner = true
 linked_quest = ExtResource("20_qr25l")
 quest_step = 2
 settings_summary = "UPDATE QUEST:
@@ -995,65 +1100,65 @@ modulate = Color(0, 1, 1, 1)
 position = Vector2(-125, 0)
 wait_time = 2.0
 
-[node name="Earthquake_Node" type="Node2D" parent="."]
+[node name="Earthquake_Node1" type="Node2D" parent="."]
 
-[node name="Earthquake1" type="Area2D" parent="Earthquake_Node"]
+[node name="Earthquake1" type="Area2D" parent="Earthquake_Node1"]
 unique_name_in_owner = true
 position = Vector2(736, -453)
 script = ExtResource("24_am0y2")
 metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node/Earthquake1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node1/Earthquake1"]
 shape = SubResource("WorldBoundaryShape2D_i2wv7")
 
-[node name="Earthquake2" type="Area2D" parent="Earthquake_Node"]
+[node name="Earthquake2" type="Area2D" parent="Earthquake_Node1"]
 unique_name_in_owner = true
 position = Vector2(595, -207)
 rotation = 3.1415882
 script = ExtResource("24_am0y2")
 metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node/Earthquake2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node1/Earthquake2"]
 shape = SubResource("WorldBoundaryShape2D_lkt2a")
 
-[node name="Earthquake3" type="Area2D" parent="Earthquake_Node"]
+[node name="Earthquake3" type="Area2D" parent="Earthquake_Node1"]
 unique_name_in_owner = true
 position = Vector2(320, -40)
 rotation = 3.1415882
 script = ExtResource("24_am0y2")
 metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node/Earthquake3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node1/Earthquake3"]
 shape = SubResource("WorldBoundaryShape2D_lkt2a")
 
-[node name="Earthquake4" type="Area2D" parent="Earthquake_Node"]
+[node name="Earthquake4" type="Area2D" parent="Earthquake_Node1"]
 unique_name_in_owner = true
 position = Vector2(86, -260)
 rotation = 1.5707941
 script = ExtResource("24_am0y2")
 metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node/Earthquake4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node1/Earthquake4"]
 shape = SubResource("WorldBoundaryShape2D_lkt2a")
 
-[node name="Earthquake5" type="Area2D" parent="Earthquake_Node"]
+[node name="Earthquake5" type="Area2D" parent="Earthquake_Node1"]
 unique_name_in_owner = true
 position = Vector2(-139, -151)
 rotation = -1.5707941
 script = ExtResource("24_am0y2")
 metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node/Earthquake5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node1/Earthquake5"]
 shape = SubResource("WorldBoundaryShape2D_lkt2a")
 
-[node name="Earthquake6" type="Area2D" parent="Earthquake_Node"]
+[node name="Earthquake6" type="Area2D" parent="Earthquake_Node1"]
 unique_name_in_owner = true
 position = Vector2(687, -137)
 rotation = -1.5707941
 script = ExtResource("24_am0y2")
 metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node/Earthquake6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earthquake_Node1/Earthquake6"]
 shape = SubResource("WorldBoundaryShape2D_lkt2a")
 
 [node name="LocalCitizens_Node" type="Node2D" parent="."]
@@ -1106,16 +1211,16 @@ text = "Hello, I'am [color=blue]Aki[/color]"
 npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="3LCText" type="Node" parent="LocalCitizens_Node/LC1/lc1_show_d2/lc1_d2_interaction"]
-script = ExtResource("13_u3uel")
-text = "Ohh, Is that really true?"
-npc_info = ExtResource("33_lkt2a")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
 [node name="2AkiText" type="Node" parent="LocalCitizens_Node/LC1/lc1_show_d2/lc1_d2_interaction"]
 script = ExtResource("13_u3uel")
 text = "Earthquakes are getting frequent and [color=aqua]Fr. Agustin [/color] told me to advice all of the citizens here to evacauate."
 npc_info = ExtResource("15_vncit")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3LCText" type="Node" parent="LocalCitizens_Node/LC1/lc1_show_d2/lc1_d2_interaction"]
+script = ExtResource("13_u3uel")
+text = "Ohh, Is that really true?"
+npc_info = ExtResource("33_lkt2a")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="4AkiText" type="Node" parent="LocalCitizens_Node/LC1/lc1_show_d2/lc1_d2_interaction"]
@@ -1204,16 +1309,16 @@ text = "Hello, I'am [color=blue]Aki[/color]"
 npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="3LCText" type="Node" parent="LocalCitizens_Node/LC2/lc2_show_d2/lc2_d2_interaction"]
-script = ExtResource("13_u3uel")
-text = "Ohh, Is that really true?"
-npc_info = ExtResource("34_4qpoy")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
 [node name="2AkiText" type="Node" parent="LocalCitizens_Node/LC2/lc2_show_d2/lc2_d2_interaction"]
 script = ExtResource("13_u3uel")
 text = "Earthquakes are getting frequent and [color=aqua]Fr. Agustin [/color] told me to advice all of the citizens here to evacauate."
 npc_info = ExtResource("15_vncit")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3LCText" type="Node" parent="LocalCitizens_Node/LC2/lc2_show_d2/lc2_d2_interaction"]
+script = ExtResource("13_u3uel")
+text = "Ohh, Is that really true?"
+npc_info = ExtResource("34_4qpoy")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="4AkiText" type="Node" parent="LocalCitizens_Node/LC2/lc2_show_d2/lc2_d2_interaction"]
@@ -1296,16 +1401,16 @@ text = "Hello, I'am [color=blue]Aki[/color]"
 npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="3LCText" type="Node" parent="LocalCitizens_Node/LC3/lc3_show_d2/lc3_d2_interaction"]
-script = ExtResource("13_u3uel")
-text = "Ohh, Is that really true?"
-npc_info = ExtResource("34_4qpoy")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
 [node name="2AkiText" type="Node" parent="LocalCitizens_Node/LC3/lc3_show_d2/lc3_d2_interaction"]
 script = ExtResource("13_u3uel")
 text = "Earthquakes are getting frequent and [color=aqua]Fr. Agustin [/color] told me to advice all of the citizens here to evacauate."
 npc_info = ExtResource("15_vncit")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3LCText" type="Node" parent="LocalCitizens_Node/LC3/lc3_show_d2/lc3_d2_interaction"]
+script = ExtResource("13_u3uel")
+text = "Ohh, Is that really true?"
+npc_info = ExtResource("34_4qpoy")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="4AkiText" type="Node" parent="LocalCitizens_Node/LC3/lc3_show_d2/lc3_d2_interaction"]
@@ -1396,16 +1501,16 @@ text = "Hello, I'am [color=blue]Aki[/color]"
 npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="3LCText" type="Node" parent="LocalCitizens_Node/LC4/lc4_show_d2/lc4_d2_interaction"]
-script = ExtResource("13_u3uel")
-text = "Ohh, Is that really true?"
-npc_info = ExtResource("33_lkt2a")
-metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
-
 [node name="2AkiText" type="Node" parent="LocalCitizens_Node/LC4/lc4_show_d2/lc4_d2_interaction"]
 script = ExtResource("13_u3uel")
 text = "Earthquakes are getting frequent and [color=aqua]Fr. Agustin [/color] told me to advice all of the citizens here to evacauate."
 npc_info = ExtResource("15_vncit")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3LCText" type="Node" parent="LocalCitizens_Node/LC4/lc4_show_d2/lc4_d2_interaction"]
+script = ExtResource("13_u3uel")
+text = "Ohh, Is that really true?"
+npc_info = ExtResource("33_lkt2a")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="4AkiText" type="Node" parent="LocalCitizens_Node/LC4/lc4_show_d2/lc4_d2_interaction"]
@@ -1452,6 +1557,7 @@ wait_time = 1.0
 unique_name_in_owner = true
 
 [node name="Taal_Quest_2" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("35_mhv76")
 
 [node name="taal_q2_show_advance2" parent="Taal_Quest_2" instance=ExtResource("19_6w16s")]
@@ -1471,235 +1577,322 @@ settings_summary = "UPDATE QUEST:
 Step: 1 - tell all the citizens to evacuate
 Complete: false"
 
-[node name="LocalCitizensAtPansipit" type="Node2D" parent="."]
+[node name="Show_LC_at_Pansipit" type="Node2D" parent="Taal_Quest_2"]
+y_sort_enabled = true
+script = ExtResource("27_qr25l")
+check_type = 1
+react_to_global_signal = true
+linked_quest = ExtResource("38_1s36y")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Gathering Before the Ash
+Checking if player has completed step: tell all the citizens to evacuate"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="LocalCitizensAtPansipit" type="Node2D" parent="Taal_Quest_2/Show_LC_at_Pansipit"]
 y_sort_enabled = true
 
-[node name="LC1" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC1" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(892, -570)
 npc_resource = ExtResource("34_4qpoy")
 
-[node name="NPCBehaviourPatrol" parent="LocalCitizensAtPansipit/LC1" instance=ExtResource("37_76eg8")]
+[node name="NPCBehaviourPatrol" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC1" instance=ExtResource("37_76eg8")]
 
-[node name="PatrolLocation" parent="LocalCitizensAtPansipit/LC1/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
+[node name="PatrolLocation" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC1/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
 modulate = Color(1, 0, 0, 1)
 wait_time = 1.0
 
-[node name="PatrolLocation2" parent="LocalCitizensAtPansipit/LC1/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
+[node name="PatrolLocation2" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC1/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(30, 0)
 wait_time = 1.0
 
-[node name="LC2" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC2" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(961, -569)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCBehaviourPatrol" parent="LocalCitizensAtPansipit/LC2" instance=ExtResource("37_76eg8")]
+[node name="NPCBehaviourPatrol" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC2" instance=ExtResource("37_76eg8")]
 
-[node name="PatrolLocation" parent="LocalCitizensAtPansipit/LC2/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
+[node name="PatrolLocation" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC2/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
 modulate = Color(1, 0, 0, 1)
 wait_time = 1.0
 
-[node name="PatrolLocation2" parent="LocalCitizensAtPansipit/LC2/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
+[node name="PatrolLocation2" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC2/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(30, 0)
 wait_time = 1.0
 
-[node name="LC3" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC3" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(902, -500)
 npc_resource = ExtResource("34_4qpoy")
 
-[node name="NPCBehaviourPatrol" parent="LocalCitizensAtPansipit/LC3" instance=ExtResource("37_76eg8")]
+[node name="NPCBehaviourPatrol" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC3" instance=ExtResource("37_76eg8")]
 
-[node name="PatrolLocation" parent="LocalCitizensAtPansipit/LC3/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
+[node name="PatrolLocation" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC3/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
 modulate = Color(1, 0, 0, 1)
 wait_time = 1.0
 
-[node name="PatrolLocation2" parent="LocalCitizensAtPansipit/LC3/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
+[node name="PatrolLocation2" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC3/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(30, 0)
 wait_time = 1.0
 
-[node name="LC4" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC4" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(967, -507)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCBehaviourPatrol" parent="LocalCitizensAtPansipit/LC4" instance=ExtResource("37_76eg8")]
+[node name="NPCBehaviourPatrol" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC4" instance=ExtResource("37_76eg8")]
 
-[node name="PatrolLocation" parent="LocalCitizensAtPansipit/LC4/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
+[node name="PatrolLocation" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC4/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
 modulate = Color(1, 0, 0, 1)
 wait_time = 1.0
 
-[node name="PatrolLocation2" parent="LocalCitizensAtPansipit/LC4/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
+[node name="PatrolLocation2" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC4/NPCBehaviourPatrol" instance=ExtResource("38_lqjim")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(30, 0)
 wait_time = 1.0
 
-[node name="LC5" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC5" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(1104, -515)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC5" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC5" instance=ExtResource("11_c74rc")]
 
-[node name="LC6" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC6" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(1104, -515)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC6" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC6" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC7" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC7" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(1041, -529)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC7" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC7" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC8" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC8" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(1000, -531)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC8" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC8" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="npc_man2" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1044, -578)
-npc_resource = ExtResource("28_6mh7h")
-
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/npc_man2" instance=ExtResource("11_c74rc")]
-wander_range = 1
-
-[node name="npc_man3" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1110, -558)
-npc_resource = ExtResource("28_6mh7h")
-
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/npc_man3" instance=ExtResource("11_c74rc")]
-wander_range = 1
-
-[node name="npc_man4" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1102, -642)
-npc_resource = ExtResource("28_6mh7h")
-
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/npc_man4" instance=ExtResource("11_c74rc")]
-wander_range = 1
-
-[node name="LC9" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC9" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(985, -501)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC9" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC9" instance=ExtResource("11_c74rc")]
 
-[node name="LC10" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC10" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(985, -501)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC10" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC10" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC11" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC11" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(922, -515)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC11" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC11" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC12" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC12" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(881, -517)
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC12" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC12" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="npc_man5" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="npc_man5" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(925, -564)
 npc_resource = ExtResource("28_6mh7h")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/npc_man5" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/npc_man5" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="npc_man6" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="npc_man6" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(991, -544)
 npc_resource = ExtResource("28_6mh7h")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/npc_man6" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/npc_man6" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="npc_man7" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="npc_man7" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(983, -628)
 npc_resource = ExtResource("28_6mh7h")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/npc_man7" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/npc_man7" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC13" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC13" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(946, -532)
 npc_resource = ExtResource("34_4qpoy")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC13" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC13" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC14" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC14" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(899, -532)
 npc_resource = ExtResource("34_4qpoy")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC14" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC14" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC15" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC15" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(1066, -478)
 npc_resource = ExtResource("34_4qpoy")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC15" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC15" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC16" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC16" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(1069, -529)
 npc_resource = ExtResource("34_4qpoy")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC16" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC16" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC17" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC17" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(947, -594)
 npc_resource = ExtResource("34_4qpoy")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC17" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC17" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC18" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC18" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(863, -574)
 npc_resource = ExtResource("34_4qpoy")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC18" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC18" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[node name="LC19" parent="LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
+[node name="LC19" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
 position = Vector2(1028, -560)
 npc_resource = ExtResource("34_4qpoy")
 
-[node name="NPCWanderBehaviour" parent="LocalCitizensAtPansipit/LC19" instance=ExtResource("11_c74rc")]
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC19" instance=ExtResource("11_c74rc")]
 wander_range = 1
 
-[connection signal="finished" from="Ermitanyo1/ermitanyo1_interaction" to="Taal_Quest_1" method="_on_ermitanyo_1_interaction_finished"]
-[connection signal="finished" from="Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" to="Taal_Quest_1" method="_on_cutscene_move_spaniard_finished"]
-[connection signal="player_entered" from="npc_man1/npc_man1_trigger" to="Taal_Quest_1" method="_on_npc_man_1_trigger_player_entered"]
-[connection signal="finished" from="npc_man1/npc_man1_trigger/npc_man1_interaction" to="Taal_Quest_1" method="_on_npc_man_1_interaction_finished"]
-[connection signal="enemy_destroyed" from="Spaniard_enemy_Q2/SpanishSoldier1" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Spaniard_enemy_Q2/SpanishSoldier2" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Spaniard_enemy_Q2/SpanishSoldier3" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Spaniard_enemy_Q2/SpanishSoldier4" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Spaniard_enemy_Q2/SpanishSoldier5" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Spaniard_enemy_Q2/SpanishSoldier6" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Spaniard_enemy_Q2/SpanishSoldier7" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Spaniard_enemy_Q2/SpanishSoldier8" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Spaniard_enemy_Q2/SpanishSoldier9" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[node name="Hide_Fr_Agustin2" type="Node2D" parent="Taal_Quest_2"]
+script = ExtResource("27_qr25l")
+check_type = 1
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("38_1s36y")
+quest_step = 4
+settings_summary = "UPDATE QUEST:
+ Quest: Gathering Before the Ash
+Checking if player has completed step: talk to fr. agustin de albuquerque"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Show_Fr_Agustin2" type="Node2D" parent="Taal_Quest_2/Hide_Fr_Agustin2"]
+script = ExtResource("27_qr25l")
+check_type = 1
+react_to_global_signal = true
+linked_quest = ExtResource("38_1s36y")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Gathering Before the Ash
+Checking if player has completed step: tell all the citizens to evacuate"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="fr_agustin2" parent="Taal_Quest_2/Hide_Fr_Agustin2/Show_Fr_Agustin2" instance=ExtResource("9_usta1")]
+position = Vector2(1097, -552)
+npc_resource = ExtResource("30_1w611")
+
+[node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_Fr_Agustin2/Show_Fr_Agustin2/fr_agustin2" instance=ExtResource("11_c74rc")]
+wander_range = 1
+
+[node name="Hide_EQ_Node2" type="Node2D" parent="."]
+script = ExtResource("27_qr25l")
+check_type = 1
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("38_1s36y")
+quest_step = 2
+settings_summary = "UPDATE QUEST:
+ Quest: Gathering Before the Ash
+Checking if player has completed step: go to pansipit bridge"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Show_EQ_Node2" type="Node2D" parent="Hide_EQ_Node2"]
+script = ExtResource("27_qr25l")
+check_type = 1
+react_to_global_signal = true
+linked_quest = ExtResource("38_1s36y")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Gathering Before the Ash
+Checking if player has completed step: tell all the citizens to evacuate"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Earthquake_Node2" type="Node2D" parent="Hide_EQ_Node2/Show_EQ_Node2"]
+script = ExtResource("41_76eg8")
+
+[node name="Earthquake7" type="Area2D" parent="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2"]
+position = Vector2(1074, -355)
+rotation = 3.1415882
+script = ExtResource("24_am0y2")
+metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake7"]
+shape = SubResource("WorldBoundaryShape2D_i2wv7")
+
+[node name="Earthquake8" type="Area2D" parent="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2"]
+position = Vector2(1074, -414)
+rotation = 3.1415882
+script = ExtResource("24_am0y2")
+metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake8"]
+shape = SubResource("WorldBoundaryShape2D_i2wv7")
+
+[node name="Earthquake9" type="Area2D" parent="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2"]
+position = Vector2(1074, -471)
+rotation = 3.1415882
+script = ExtResource("24_am0y2")
+metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake9"]
+shape = SubResource("WorldBoundaryShape2D_i2wv7")
+
+[node name="Earthquake10" type="Area2D" parent="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2"]
+position = Vector2(1074, -522)
+rotation = 3.1415882
+script = ExtResource("24_am0y2")
+metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake10"]
+shape = SubResource("WorldBoundaryShape2D_i2wv7")
+
+[connection signal="finished" from="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction" to="Taal_Quest_1" method="_on_ermitanyo_1_interaction_finished"]
+[connection signal="finished" from="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/6Cutscene_Move_Spaniard" to="Taal_Quest_1" method="_on_cutscene_move_spaniard_finished"]
+[connection signal="player_entered" from="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger" to="Taal_Quest_1" method="_on_npc_man_1_trigger_player_entered"]
+[connection signal="finished" from="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction" to="Taal_Quest_1" method="_on_npc_man_1_interaction_finished"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier1" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier2" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier3" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier4" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier5" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier6" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier7" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier8" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier9" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
 [connection signal="selected" from="Hide_Fr_Agustin/Show_Fr_Agustin/Fr_Agustin/fr_agustin_dialog1_hide/fr_agustin_interaction/DialogChoice1/Yes" to="Taal_Quest_1" method="_on_yes_selected"]
-[connection signal="player_entered" from="Earthquake_Node/Earthquake1" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
-[connection signal="player_entered" from="Earthquake_Node/Earthquake2" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
-[connection signal="player_entered" from="Earthquake_Node/Earthquake3" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
-[connection signal="player_entered" from="Earthquake_Node/Earthquake4" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
-[connection signal="player_entered" from="Earthquake_Node/Earthquake5" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
-[connection signal="player_entered" from="Earthquake_Node/Earthquake6" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
+[connection signal="player_entered" from="Earthquake_Node1/Earthquake1" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
+[connection signal="player_entered" from="Earthquake_Node1/Earthquake2" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
+[connection signal="player_entered" from="Earthquake_Node1/Earthquake3" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
+[connection signal="player_entered" from="Earthquake_Node1/Earthquake4" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
+[connection signal="player_entered" from="Earthquake_Node1/Earthquake5" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
+[connection signal="player_entered" from="Earthquake_Node1/Earthquake6" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
 [connection signal="finished" from="LocalCitizens_Node/LC1/lc1_show_d2/lc1_d2_interaction" to="LocalCitizens_Node" method="_on_lc_1_d_2_interaction_finished"]
 [connection signal="finished" from="LocalCitizens_Node/LC2/lc2_show_d2/lc2_d2_interaction" to="LocalCitizens_Node" method="_on_lc_2_d_2_interaction_finished"]
 [connection signal="finished" from="LocalCitizens_Node/LC3/lc3_show_d2/lc3_d2_interaction" to="LocalCitizens_Node" method="_on_lc_3_d_2_interaction_finished"]
 [connection signal="finished" from="LocalCitizens_Node/LC4/lc4_show_d2/lc4_d2_interaction" to="LocalCitizens_Node" method="_on_lc_4_d_2_interaction_finished"]
+[connection signal="player_entered" from="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake7" to="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2" method="_on_earthquake_7_player_entered"]
+[connection signal="player_entered" from="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake8" to="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2" method="_on_earthquake_7_player_entered"]
+[connection signal="player_entered" from="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake9" to="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2" method="_on_earthquake_7_player_entered"]
+[connection signal="player_entered" from="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake10" to="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2" method="_on_earthquake_7_player_entered"]
