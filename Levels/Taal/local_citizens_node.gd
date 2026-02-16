@@ -36,7 +36,7 @@ func check_lc_status() -> void:
 	if lc1_talked == true and lc2_talked == true and lc3_talked == true and lc4_talked == true:
 		all_lc_talked = true
 		is_talked_to_all_citizens.set_value()
-		%taal_q2_qs1_advance
+		%taal_q2_qs1_advance.advance_quest()
 		print("All Local Citizens Talked")
 	else:
 		print("There are Local Citizens you need to talk to")
