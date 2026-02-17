@@ -144,7 +144,7 @@ size_flags_horizontal = 4
 
 [node name="Notification" type="Control" parent="Control"]
 process_mode = 3
-z_index = 20
+z_index = 5
 anchors_preset = 0
 offset_left = 79.0
 offset_right = 119.0

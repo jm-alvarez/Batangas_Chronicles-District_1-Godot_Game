@@ -25,3 +25,8 @@ func _on_trigger_strong_eq_player_entered() -> void:
 func _on_lc_cutscene_3_finished() -> void:
 	%taal_q2_qs2_advance.advance_quest()
 	pass # Replace with function body.
+
+
+func _on_area_trigger_3_player_entered() -> void:
+	#%bolder_than_boulder_advance.advance_quest()
+	pass # Replace with function body.

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://gt5snf3ue5rs"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_qnge4"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="2_i0oll"]
+
+[resource]
+script = ExtResource("2_i0oll")
+title = "Caught by the Ashes"
+description = "Survive the ashes"
+steps = Array[String](["The Raining of Ashes."])
+metadata/_custom_type_script = "uid://cbl1ai8wnqqui"

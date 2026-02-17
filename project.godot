@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 LevelManager="*res://00_Globals/global_level_manager.gd"
+PlayerHud="*res://GUI/Player_HUD/PlayerHUD.tscn"
 PlayerManager="*res://00_Globals/global_player_manager.gd"
 SceneTransition="*res://GUI/SceneTransition/scene_transition.tscn"
 SaveManager="*res://00_Globals/global_save_manager.gd"
@@ -25,7 +26,6 @@ PauseMenu="*res://GUI/PauseMenu/PauseMenu.tscn"
 Dialog_System="*res://Interactables/Dialog/dialog_system.tscn"
 QuestManager="*res://Quests/Scripts/global_quest_manager.gd"
 TouchControl="*res://GUI/ControlHUD/touch_control.tscn"
-PlayerHud="*res://GUI/Player_HUD/PlayerHUD.tscn"
 
 [dialogue_manager]
 
