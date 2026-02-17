@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dox5s5vhjvbqw" path="res://Tilemaps/house_tm.tscn" id="6_87iqk"]
 [ext_resource type="PackedScene" uid="uid://olxulnvfro0q" path="res://Levels/Houses/house_1.tscn" id="7_87iqk"]
 [ext_resource type="PackedScene" uid="uid://8e1y45h1x22j" path="res://Tilemaps/tree.tscn" id="7_t5ltn"]
+[ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="9_t5ltn"]
 [ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="9_dtwso"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="9_t5ltn"]
 [ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="10_npxw3"]
@@ -162,6 +163,8 @@ tile_map_data = PackedByteArray("AABy/+D/BQAAAA0AAAB2/+z/BQAJAAgAAACF/+j/BQACAAc
 [node name="House1" parent="House" instance=ExtResource("7_87iqk")]
 position = Vector2(-2024, -170)
 
+[node name="tree" parent="." instance=ExtResource("7_t5ltn")]
+
 [node name="ShowFirstTextAnim" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_77srf")
@@ -169,6 +172,7 @@ libraries = {
 autoplay = "anim1"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstTextAnim"]
+energy = 0.0
 visible = false
 blend_mode = 1
 
@@ -250,7 +254,7 @@ text = "Yes"
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="DialogText" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes"]
+[node name="6" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes"]
 script = ExtResource("12_npxw3")
 text = "Great so you don't mind me quizzing you then?"
 npc_info = ExtResource("10_npxw3")
@@ -281,7 +285,7 @@ metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="Q1B" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
 script = ExtResource("15_lepok")
-text = "He misunderstood and thought the Spaniard was asking about the tree."
+text = "He thought the Spaniard was asking about the tree."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
