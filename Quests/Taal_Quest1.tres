@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Quest" load_steps=4 format=3 uid="uid://d03nq2i3e6q7n"]
 
 [ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_11dwi"]
-[ext_resource type="Resource" uid="uid://cwm64dqbmrc4x" path="res://Quests/Reward_Items/Health_Potion.tres" id="2_d2fym"]
+[ext_resource type="Resource" uid="uid://cqrseg7kmu2ua" path="res://Quests/Reward_Items/Health_Potion.tres" id="2_d2fym"]
 [ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="2_uybes"]
 
 [resource]

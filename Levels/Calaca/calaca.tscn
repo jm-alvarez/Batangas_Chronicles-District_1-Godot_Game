@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://olxulnvfro0q" path="res://Levels/Houses/house_1.tscn" id="8_654fa"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="9_sjurg"]
 [ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="10_2vla5"]
-[ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/local1.tres" id="11_wrgut"]
+[ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/NPC_Man1.tres" id="11_wrgut"]
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="12_tiixw"]
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="13_15q6w"]
 [ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="14_dijal"]
