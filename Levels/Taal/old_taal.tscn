@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="19_6w16s"]
 [ext_resource type="Resource" uid="uid://d03nq2i3e6q7n" path="res://Quests/Taal_Quest1.tres" id="20_qr25l"]
 [ext_resource type="Resource" uid="uid://c1spdc48twm0m" path="res://NPC/00-NPC/Spanish_Guard.tres" id="21_0sqdf"]
-[ext_resource type="Script" uid="uid://1o176nkw2ujr" path="res://Levels/Taal/taal_quest1.gd" id="22_5g75g"]
+[ext_resource type="Script" path="res://Levels/Taal/taal_quest1.gd" id="22_5g75g"]
 [ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/NPC_Man1.tres" id="23_7tu5y"]
 [ext_resource type="Script" uid="uid://sxl1ls4sbmjw" path="res://GeneralNodes/AreaTrigger/area_trigger.gd" id="24_am0y2"]
 [ext_resource type="Script" uid="uid://6im7on6coqur" path="res://Quests/UtilityNode/quest_activated_switch.gd" id="27_qr25l"]
@@ -35,13 +35,13 @@
 [ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="32_lkt2a"]
 [ext_resource type="Resource" uid="uid://di7kde0e0ca01" path="res://NPC/00-NPC/Local_Citizen_Woman.tres" id="33_lkt2a"]
 [ext_resource type="Resource" uid="uid://gv8ddhm2m1h7" path="res://NPC/00-NPC/Local_Citizen_Man.tres" id="34_4qpoy"]
-[ext_resource type="Script" uid="uid://ddqu4iyptorml" path="res://Levels/Taal/local_citizens_node.gd" id="34_vcrcp"]
-[ext_resource type="Script" uid="uid://dlxvpiu1fo6oj" path="res://Levels/Taal/taal_quest_2.gd" id="35_mhv76"]
+[ext_resource type="Script" path="res://Levels/Taal/local_citizens_node.gd" id="34_vcrcp"]
+[ext_resource type="Script" path="res://Levels/Taal/taal_quest_2.gd" id="35_mhv76"]
 [ext_resource type="PackedScene" uid="uid://b5kfyppua07p4" path="res://NPC/NPCBehaviourPatrol.tscn" id="37_76eg8"]
 [ext_resource type="Resource" uid="uid://ch765k2xs4m31" path="res://Quests/Taal_Quest2.tres" id="38_1s36y"]
 [ext_resource type="PackedScene" uid="uid://crnk5hqebaqnu" path="res://GeneralNodes/PersistentDataHelper/persistent_data_handler.tscn" id="38_cvk2j"]
 [ext_resource type="PackedScene" uid="uid://ndua5p2o8wgx" path="res://NPC/PatrolLocation.tscn" id="38_lqjim"]
-[ext_resource type="Script" uid="uid://dpmu0ihaasw4l" path="res://Levels/Taal/earthquake_node_2.gd" id="41_76eg8"]
+[ext_resource type="Script" path="res://Levels/Taal/earthquake_node_2.gd" id="41_76eg8"]
 [ext_resource type="PackedScene" uid="uid://cnqkqeyxokar0" path="res://GeneralNodes/AreaTrigger/area_trigger.tscn" id="41_lqjim"]
 [ext_resource type="Texture2D" uid="uid://m66vvh65r3kt" path="res://Levels/Taal/Explosion-spritesheet-export.png" id="42_3ilbn"]
 [ext_resource type="Texture2D" uid="uid://dblmuc81ubcq3" path="res://Levels/Taal/Rain.png" id="43_1y5ii"]
@@ -54,9 +54,9 @@
 [ext_resource type="Resource" uid="uid://c7jeuv4sr1gq3" path="res://Quests/illusion_quest.tres" id="49_q8qqb"]
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="49_raicg"]
 [ext_resource type="PackedScene" uid="uid://cma2td3lvgelc" path="res://Quests/UtilityNode/quest_activated_switch.tscn" id="50_4twfl"]
-[ext_resource type="Resource" uid="uid://ictqp1efrk8p" path="res://Items/Health_Potion.tres" id="50_osl5o"]
+[ext_resource type="Resource" uid="uid://d2k7wbl61xxre" path="res://Items/Health_Potion.tres" id="50_osl5o"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_usta1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4twfl"]
 texture = ExtResource("6_1eoai")
 0:0/0 = 0
 1:0/0 = 0
@@ -100,7 +100,7 @@ texture = ExtResource("6_1eoai")
 [sub_resource type="TileSet" id="TileSet_70a0n"]
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 16
-sources/0 = SubResource("TileSetAtlasSource_usta1")
+sources/0 = SubResource("TileSetAtlasSource_4twfl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usta1"]
 size = Vector2(117.714, 66.2857)
@@ -3080,7 +3080,7 @@ _data = {
 &"show_ashes": SubResource("Animation_no7eh")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkjio"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bv2w"]
 texture = ExtResource("43_m48g5")
 0:0/0 = 0
 1:0/0 = 0
@@ -3112,7 +3112,7 @@ texture = ExtResource("43_m48g5")
 4:4/0 = 0
 5:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ilbn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptco3"]
 texture = ExtResource("44_vkjio")
 0:0/animation_frame_0/duration = 1.0
 0:0/animation_frame_1/duration = 1.0
@@ -3123,8 +3123,8 @@ texture = ExtResource("44_vkjio")
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3ilbn"]
-sources/0 = SubResource("TileSetAtlasSource_vkjio")
-sources/1 = SubResource("TileSetAtlasSource_3ilbn")
+sources/0 = SubResource("TileSetAtlasSource_4bv2w")
+sources/1 = SubResource("TileSetAtlasSource_ptco3")
 
 [node name="OldTaal" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_a4a4w")
@@ -3266,6 +3266,7 @@ tile_set = SubResource("TileSet_70a0n")
 position = Vector2(320, 0)
 scale = Vector2(1, 0.24)
 level = "uid://dafnhgj0rysap"
+center_player = null
 size = 3
 side = 2
 
@@ -3273,6 +3274,7 @@ side = 2
 position = Vector2(1504.89, 0)
 scale = Vector2(1, 0.0800011)
 level = "uid://c0m8kk7se0tuh"
+center_player = null
 side = 2
 
 [node name="Hide_Taal_Church" type="Node2D" parent="."]
@@ -4688,7 +4690,7 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="LC9" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit" instance=ExtResource("9_usta1")]
 unique_name_in_owner = true
-position = Vector2(985, -501)
+position = Vector2(985, -507.07428)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LC9" instance=ExtResource("11_c74rc")]
@@ -4737,13 +4739,13 @@ position = Vector2(967, -507)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="LC5" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1104, -515)
+position = Vector2(1105.5173, -521.05865)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC5" instance=ExtResource("11_c74rc")]
 
 [node name="LC6" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1104, -515)
+position = Vector2(1105.5173, -521.05865)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC6" instance=ExtResource("11_c74rc")]
@@ -4764,7 +4766,7 @@ npc_resource = ExtResource("33_lkt2a")
 wander_range = 1
 
 [node name="LC10" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(985, -501)
+position = Vector2(985, -507.07428)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC10" instance=ExtResource("11_c74rc")]
@@ -6156,7 +6158,7 @@ npc_resource = ExtResource("23_7tu5y")
 
 [node name="TM_NPC6" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_NPC_To_Move1/NPC_To_Move1" instance=ExtResource("9_usta1")]
 unique_name_in_owner = true
-position = Vector2(1505, -380.07428)
+position = Vector2(1505, -379.9265)
 collision_layer = 0
 npc_resource = ExtResource("34_4qpoy")
 

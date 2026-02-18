@@ -1,7 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt8el8mxdl5la"]
+[gd_scene load_steps=9 format=3 uid="uid://bt8el8mxdl5la"]
 
 [ext_resource type="Texture2D" uid="uid://c76m7l1cdakjf" path="res://Items/Sprite/Fish.png" id="1_0omb5"]
 [ext_resource type="Script" uid="uid://c6jnfd78wr1dv" path="res://GUI/PauseMenu/Inventory/Script/inventory_slot_ui.gd" id="1_f77hs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75g76"]
+bg_color = Color(0, 0, 0, 0.39215687)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_segxe"]
+bg_color = Color(1, 1, 1, 0.49019608)
+border_width_left = 1
+border_width_top = 3
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.84313726, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6js7"]
+bg_color = Color(0, 0, 0, 0.39215687)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jctm0"]
+bg_color = Color(0, 0, 0, 0.39215687)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.84313726, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwmw4"]
 atlas = ExtResource("1_0omb5")
@@ -16,6 +64,10 @@ anti_aliasing = false
 custom_minimum_size = Vector2(32, 32)
 offset_right = 33.0
 offset_bottom = 32.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_75g76")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_segxe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g6js7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jctm0")
 action_mode = 0
 script = ExtResource("1_f77hs")
 

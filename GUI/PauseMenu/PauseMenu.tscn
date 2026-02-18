@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://sqku4b7g28r1"]
+[gd_scene load_steps=16 format=3 uid="uid://sqku4b7g28r1"]
 
 [ext_resource type="Script" uid="uid://dtoai0te680kn" path="res://GUI/PauseMenu/pause_menu.gd" id="1_36scs"]
 [ext_resource type="Script" uid="uid://hcrnise4oity" path="res://GUI/PauseMenu/Inventory/Script/inventory_ui.gd" id="3_8cd0a"]
@@ -7,9 +7,58 @@
 [ext_resource type="PackedScene" uid="uid://dimnprx15bko4" path="res://GUI/PauseMenu/Quests/quest_item.tscn" id="5_c57jk"]
 [ext_resource type="Script" uid="uid://b6yw6ggiphait" path="res://GUI/PauseMenu/quest_ui.gd" id="5_d2x1f"]
 [ext_resource type="PackedScene" uid="uid://d2bl800r6qnx4" path="res://GUI/PauseMenu/Quests/quest_step_item.tscn" id="7_sf286"]
+[ext_resource type="StyleBox" uid="uid://b5vy82qqx4uds" path="res://GUI/PauseMenu/menu_btn_normal.tres" id="8_3qs17"]
+[ext_resource type="StyleBox" uid="uid://xy2fcqr0huo8" path="res://GUI/PauseMenu/menu_btn_pressed.tres" id="9_c75hv"]
+[ext_resource type="StyleBox" uid="uid://dicsssclx8ayy" path="res://GUI/PauseMenu/menu_btn_hover.tres" id="10_88irb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66pjh"]
-bg_color = Color(0, 0, 0, 0.423529)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnbxo"]
+bg_color = Color(0, 0, 0, 0.23529412)
+border_width_left = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c75hv"]
+bg_color = Color(1, 1, 1, 0.09803922)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88irb"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0, 0, 0, 0.49019608)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.9955804, 0.99558026, 0.99558026, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_884dw"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0, 0, 0, 0.23529412)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qs17"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.39215687)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -56,11 +105,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
 theme_override_font_sizes/font_size = 48
+theme_override_styles/panel = SubResource("StyleBoxFlat_xnbxo")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_c75hv")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_88irb")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_884dw")
+theme_override_styles/tab_focus = SubResource("StyleBoxFlat_88irb")
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -105,13 +158,13 @@ offset_bottom = -255.0
 grow_vertical = 2
 scale = Vector2(2, 2)
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_66pjh")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3qs17")
 
 [node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-columns = 5
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 6
 script = ExtResource("3_8cd0a")
 data = ExtResource("3_uvc3b")
 
@@ -155,6 +208,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Quests" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("5_d2x1f")
 metadata/_tab_index = 1
@@ -249,25 +303,45 @@ theme_override_constants/separation = 16
 [node name="Button_Resume" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 0.84313726, 0, 1)
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("8_3qs17")
+theme_override_styles/pressed = ExtResource("9_c75hv")
+theme_override_styles/hover = ExtResource("10_88irb")
+theme_override_styles/focus = ExtResource("9_c75hv")
 text = "Resume"
 
 [node name="Button_Save" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(1, 0.84313726, 0, 1)
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("8_3qs17")
+theme_override_styles/pressed = ExtResource("9_c75hv")
+theme_override_styles/hover = ExtResource("10_88irb")
+theme_override_styles/focus = ExtResource("10_88irb")
 text = "Save"
 
 [node name="Button_Load" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 0.84313726, 0, 1)
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("8_3qs17")
+theme_override_styles/pressed = ExtResource("9_c75hv")
+theme_override_styles/hover = ExtResource("10_88irb")
+theme_override_styles/focus = ExtResource("10_88irb")
 text = "Load"
 
 [node name="Button_Quit" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 0.84313726, 0, 1)
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("8_3qs17")
+theme_override_styles/pressed = ExtResource("9_c75hv")
+theme_override_styles/hover = ExtResource("10_88irb")
+theme_override_styles/focus = ExtResource("10_88irb")
 text = "Quit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
