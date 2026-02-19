@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c26lvbtv0b86b"]
+[gd_scene load_steps=27 format=4 uid="uid://c26lvbtv0b86b"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ai7r3"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_uc1vf"]
@@ -9,6 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://olxulnvfro0q" path="res://Levels/Houses/house_1.tscn" id="7_nwh20"]
 [ext_resource type="PackedScene" uid="uid://8e1y45h1x22j" path="res://Tilemaps/tree.tscn" id="8_78ubu"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="9_nwh20"]
+[ext_resource type="Texture2D" uid="uid://cl1j817c8fy6b" path="res://Levels/Nasugbu/rice-pot.png" id="10_oaqpr"]
+[ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="11_lili4"]
+[ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="12_syx5p"]
+[ext_resource type="Resource" uid="uid://cycqv7a2tpuuq" path="res://Levels/Nasugbu/rice.tres" id="13_6wra0"]
+[ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="14_syx5p"]
+[ext_resource type="Resource" uid="uid://b464146w44vex" path="res://NPC/00-NPC/local5.tres" id="15_oaqpr"]
+[ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="16_1p8gh"]
+[ext_resource type="Resource" uid="uid://c3vtgyep8ipyt" path="res://NPC/00-NPC/00_Narrator.tres" id="17_1p8gh"]
+[ext_resource type="Resource" uid="uid://c1spdc48twm0m" path="res://NPC/00-NPC/Spanish_Guard.tres" id="18_gagag"]
+[ext_resource type="Resource" uid="uid://chq0yq6ippcrg" path="res://NPC/00-NPC/Ermitanyo_Green.tres" id="19_hie6x"]
+[ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="20_2k718"]
+[ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="21_5suy5"]
 
 [sub_resource type="Animation" id="Animation_rorml"]
 length = 0.001
@@ -31,7 +43,7 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -46,7 +58,7 @@ tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.4901161e-08, 0.8, 1),
+"times": PackedFloat32Array(1.49012e-08, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.0]
@@ -58,7 +70,7 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -72,6 +84,9 @@ _data = {
 
 [sub_resource type="FontVariation" id="FontVariation_78ubu"]
 base_font = ExtResource("9_nwh20")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtmw8"]
+size = Vector2(21, 10)
 
 [node name="Nasugbu" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_ai7r3")
@@ -116,6 +131,7 @@ libraries = {
 autoplay = "anim1"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="ShowFirstTextAnim"]
+visible = false
 blend_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ShowFirstTextAnim"]
@@ -149,3 +165,245 @@ theme_override_font_sizes/font_size = 64
 text = "Nasugbu"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Rice" type="Node2D" parent="."]
+position = Vector2(-2769, -155)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rice"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Rice/StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_oaqpr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rice/StaticBody2D"]
+position = Vector2(-0.5, 9)
+shape = SubResource("RectangleShape2D_jtmw8")
+
+[node name="dialog_interaction" parent="Rice" instance=ExtResource("11_lili4")]
+
+[node name="DialogText" type="Node" parent="Rice/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "we are cooked"
+npc_info = ExtResource("13_6wra0")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Local" parent="." instance=ExtResource("14_syx5p")]
+position = Vector2(-2726, -142)
+npc_resource = ExtResource("15_oaqpr")
+
+[node name="dialog_interaction" parent="Local" instance=ExtResource("11_lili4")]
+scale = Vector2(0.995965, 1)
+
+[node name="1aki" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "That smells delicious!"
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="2loc" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Thank you I have been practicing."
+npc_info = ExtResource("15_oaqpr")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3aki" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "How can you even cook well with a palayok?"
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4loc" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "If you want, you can help so that you will know."
+npc_info = ExtResource("15_oaqpr")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="5nar" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Aki gathers the sack of rice and hands it to the man."
+npc_info = ExtResource("17_1p8gh")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6nar" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Then Aki handed him a rug so that the local would not burn his hand."
+npc_info = ExtResource("17_1p8gh")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="7loc" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Perfect. Now we can start cooking more rice."
+npc_info = ExtResource("15_oaqpr")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="8nar" type="Node" parent="Local/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "As the were cooking, spaniards walked around looking lost. Upon seeing the local cook rice, they approached."
+npc_info = ExtResource("17_1p8gh")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Spanish" parent="." instance=ExtResource("14_syx5p")]
+position = Vector2(-2732, -89)
+
+[node name="dialog_interaction" parent="Spanish" instance=ExtResource("11_lili4")]
+
+[node name="1spa" type="Node" parent="Spanish/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "¿Cómo se llama este pueblo? (What is this place called?)"
+npc_info = ExtResource("18_gagag")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="2loc" type="Node" parent="Spanish/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Nasubo na po iyan, eh, kaya ganyan.
+(The rice has started to boil; that is why it is like that)"
+npc_info = ExtResource("15_oaqpr")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3spa" type="Node" parent="Spanish/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Nasubo? "
+npc_info = ExtResource("18_gagag")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4spa" type="Node" parent="Spanish/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Interesante. ¡Gracias!"
+npc_info = ExtResource("18_gagag")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="5aki" type="Node" parent="Spanish/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Nasubo? Sounds familiar…."
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6loc" type="Node" parent="Spanish/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Rice is done! Aki come eat with us."
+npc_info = ExtResource("15_oaqpr")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Ermitanyo" parent="." instance=ExtResource("14_syx5p")]
+position = Vector2(-2830, -329)
+npc_resource = ExtResource("19_hie6x")
+
+[node name="dialog_interaction" parent="Ermitanyo" instance=ExtResource("11_lili4")]
+
+[node name="1erm" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Our journey is nearing the end young man."
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="2aki" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "I still have not seen my mother."
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="3erm" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "Indeed. So let us pass the time with a quiz shall we?"
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4Q1" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("12_syx5p")
+text = "What is a palayok?"
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4Q1choice" type="Node" parent="Ermitanyo/dialog_interaction"]
+script = ExtResource("20_2k718")
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
+
+[node name="4Q1A" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice"]
+script = ExtResource("21_5suy5")
+text = "A piñata"
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q1wrong" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1A"]
+script = ExtResource("12_syx5p")
+text = "A palayok is indeed used for a piñata...but not in this context."
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4Q1B" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice"]
+script = ExtResource("21_5suy5")
+text = "A kitchenware made out of clay."
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q1correct" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B"]
+script = ExtResource("12_syx5p")
+text = "Nicely done my boy, now for the next one."
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="5Q2" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B"]
+script = ExtResource("12_syx5p")
+text = "Why did the Spaniards think that Nasugbu was the name of the barrio?"
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="5Q2choice" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B"]
+script = ExtResource("20_2k718")
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
+
+[node name="Q2A" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice"]
+script = ExtResource("21_5suy5")
+text = "The man thought that the Spaniards were hungry"
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q2worng" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice/Q2A"]
+script = ExtResource("12_syx5p")
+text = "The local is indeed nice bit that is not correct."
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2B" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice"]
+script = ExtResource("21_5suy5")
+text = "The man thought that the Spaniards were flirting."
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q2worng1" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice/Q2B"]
+script = ExtResource("12_syx5p")
+text = "Assuming is never a good thing, Aki"
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Q2C" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice"]
+script = ExtResource("21_5suy5")
+text = "The man thought that they were asking about the rice."
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice/Q2C"]
+script = ExtResource("12_syx5p")
+text = "Correct. You are becoming acquainted with place."
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="6erm" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice/Q2C"]
+script = ExtResource("12_syx5p")
+text = "I must take my leave. Best of luck in your adventure!"
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="4Q1C" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice"]
+script = ExtResource("21_5suy5")
+text = "A paddle."
+npc_info = ExtResource("16_1p8gh")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1C"]
+script = ExtResource("12_syx5p")
+text = "Where even is the paddle so I can hit you."
+npc_info = ExtResource("19_hie6x")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
