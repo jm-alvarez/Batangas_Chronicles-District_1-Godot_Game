@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://4l0wsaear8kf" path="res://NPC/Scripts/npc.gd" id="1_78afm"]
 [ext_resource type="Resource" uid="uid://c1spdc48twm0m" path="res://NPC/00-NPC/Spanish_Guard.tres" id="2_3etx6"]
 [ext_resource type="Texture2D" uid="uid://4taje474lx4e" path="res://NPC/Sprites/Spanish_Guard/Spanish_SoldierWalk_Tilesheet.png" id="3_k1h6f"]
+[ext_resource type="Texture2D" uid="uid://0h8uv0vdflaa" path="res://NPC/Sprites/Aki_Mother/Aki_mother_3x3_TS.png" id="2_1iff1"]
+[ext_resource type="Texture2D" uid="uid://w7gixafxtdse" path="res://NPC/Sprites/shadow.png" id="3_3etx6"]
 
 [sub_resource type="Animation" id="Animation_je4mp"]
 length = 0.001
@@ -154,3 +156,9 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cswkf")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.49019608)
+z_as_relative = false
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_3etx6")

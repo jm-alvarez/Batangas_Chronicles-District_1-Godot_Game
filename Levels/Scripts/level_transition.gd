@@ -1,10 +1,13 @@
 @tool
 class_name LevelTransition extends Area2D
 
+signal entered_from_here
+
 enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 
 @export_file( "*.tscn" ) var level
 @export var target_transition_area : String = "LevelTransition"
+@export var center_player : bool = false
 
 @export_category("Collision Area Settings")
 
@@ -35,13 +38,14 @@ func _ready() -> void:
 		return
 		
 	monitoring = false
-	
 	_place_player()
 	
 	await LevelManager.level_loaded
 	
-	monitoring = true
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	
+	monitoring = true
 	body_entered.connect( _player_entered )
 	
 	pass
@@ -55,25 +59,44 @@ func _place_player() -> void:
 	if name != LevelManager.target_transition:
 		return
 	PlayerManager.set_player_position( global_position + LevelManager.position_offset )
+	entered_from_here.emit()
 
 func get_offset() -> Vector2:
 	var offset : Vector2 = Vector2.ZERO
 	var player_pos = PlayerManager.player.global_position
 	
+	#if side == SIDE.LEFT or side == SIDE.RIGHT:
+		#offset.y = player_pos.y - global_position.y
+		#offset.x = 16
+		#
+		#if side == SIDE.LEFT:
+			#offset.x *= -1
+	#
+	#else:
+		#offset.x = player_pos.x - global_position.x
+		#offset.y = 16
+		#
+		#if side == SIDE.TOP:
+			#offset.y *= -1
+	
+	#return offset
 	if side == SIDE.LEFT or side == SIDE.RIGHT:
-		offset.y = player_pos.y - global_position.y
-		offset.x = 16
-		
+		if center_player == true:
+			offset.y = 0
+		else:
+			offset.y = player_pos.y - global_position.y
+		offset.x = 8
 		if side == SIDE.LEFT:
 			offset.x *= -1
-	
 	else:
-		offset.x = player_pos.x - global_position.x
-		offset.y = 16
-		
+		if center_player == true:
+			offset.x = 0
+		else:
+			offset.x = player_pos.x - global_position.x
+		offset.y = 8
 		if side == SIDE.TOP:
 			offset.y *= -1
-	
+
 	return offset
 
 func _update_area() -> void:
@@ -102,7 +125,3 @@ func _update_area() -> void:
 func _snap_to_grid() -> void:
 	position.x = round( position.x / 16 ) * 16
 	position.y = round( position.y / 16 ) * 16
-
-
-func _on_body_entered(body: Player) -> void:
-	pass # Replace with function body.

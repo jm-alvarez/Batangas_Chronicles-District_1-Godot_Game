@@ -2388,7 +2388,6 @@ collision_mask = 17
 shape = SubResource("RectangleShape2D_pnk27")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("26_44ckl")]
-visible = false
 position = Vector2(47, 60)
 
 [node name="quest_activated_switch" parent="." instance=ExtResource("5_23vf8")]

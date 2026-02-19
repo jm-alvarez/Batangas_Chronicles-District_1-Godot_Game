@@ -648,6 +648,8 @@ debug_color = Color(1, 0.72549, 0.964706, 0.411765)
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 script = ExtResource("13_g84tq")
+shake_power = 0.5
+shake_max_offset = 7.0
 
 [node name="hit_box" parent="." instance=ExtResource("11_3uas0")]
 collision_layer = 2

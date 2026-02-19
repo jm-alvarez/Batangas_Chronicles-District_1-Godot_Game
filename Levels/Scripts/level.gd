@@ -16,9 +16,9 @@ func _free_level()-> void:
 	queue_free()
 
 
-func _on_static_body_2d_body_entered(body : NPC):
-
-		body.queue_free()
+#func _on_static_body_2d_body_entered(body : NPC):
+#
+		#body.queue_free()
 
 func setFirstText():
 	%FirstTextLabel.text = FirstTextString

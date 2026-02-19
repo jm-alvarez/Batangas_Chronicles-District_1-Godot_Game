@@ -25,6 +25,8 @@ func Enter() -> void:
 	player.UpdateAnimation("stun")
 	player.make_invulnerable( invulnerable_duration )
 	player.effect_animation_player.play( "damaged" )
+	
+	PlayerManager.shake_camera( hurt_box.damage )
 	pass
 
 func Exit() -> void:
@@ -52,7 +54,3 @@ func _player_damaged( _hurt_box : HurtBox ) -> void:
 
 func _animation_finished( _a: String ) -> void:
 	next_state = idle
-
-
-
-

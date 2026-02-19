@@ -4,7 +4,7 @@ const PLAYER = preload("res://Player/player_1.tscn")
 const INVENTORY_DATA : InventoryData = preload("res://GUI/PauseMenu/Inventory/player_inventory.tres")
 
 
-
+signal camera_shook( trauma : float )
 signal interact_pressed
 
 var player : Player
@@ -46,6 +46,9 @@ func set_as_parent(_p : Node2D) -> void:
 
 func unparent_player(_p : Node2D) -> void:
 	_p.remove_child(player)
+
+func shake_camera( trauma : float = 1 ) -> void:
+	camera_shook.emit( trauma )
 
 func reset_camera_on_player() -> void:
 	var camera : Camera2D = get_viewport().get_camera_2d()

@@ -14,6 +14,8 @@ signal hidden
 
 var is_paused : bool = false
 
+const MAIN_MENU : String = "res://GUI/MainMenu/title_screen.tscn"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide_pause_menu()
@@ -62,6 +64,7 @@ func _on_button_resume_pressed():
 
 func _on_button_quit_pressed():
 	get_tree().quit()
+	pass
 
 
 func _on_save_pressed() -> void:

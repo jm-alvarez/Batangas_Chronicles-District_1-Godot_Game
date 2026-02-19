@@ -400,6 +400,7 @@ one_shot = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DialogUI"]
 position = Vector2(0, 50)
 stream = ExtResource("6_soewt")
+max_distance = 10000.0
 max_polyphony = 6
 bus = &"SFX"
 

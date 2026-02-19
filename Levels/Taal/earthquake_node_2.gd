@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_cutscene_move_spaniard_finished() -> void:
-	%Spaniard_Move.queue_free()
+func _on_earthquake_7_player_entered() -> void:
+	PlayerManager.shake_camera(1.5
+	)
 	pass # Replace with function body.

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://gv8ddhm2m1h7"]
+
+[ext_resource type="Texture2D" uid="uid://liidokir651q" path="res://NPC/Sprites/Locals/NPC_Man7-Portrait.png" id="1_a5bso"]
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="2_4kra4"]
+[ext_resource type="Texture2D" uid="uid://cxbmlqmuyuf1a" path="res://NPC/Sprites/Locals/NPC_Man7-Sheet.png" id="3_4kra4"]
+
+[resource]
+script = ExtResource("2_4kra4")
+npc_name = "Local Citizen"
+sprite = ExtResource("3_4kra4")
+portrait = ExtResource("1_a5bso")
+metadata/_custom_type_script = "uid://c5ouqrd8mm7fj"

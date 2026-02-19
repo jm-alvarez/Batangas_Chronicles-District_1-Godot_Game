@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://de2pqx6ee41rb"]
+[gd_scene load_steps=11 format=3 uid="uid://de2pqx6ee41rb"]
 
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="1_6xlt4"]
 [ext_resource type="PackedScene" uid="uid://pb152kmqfih2" path="res://Levels/PlayerSpawn.tscn" id="2_gkkhu"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="5_dobpw"]
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="6_287by"]
 [ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="7_egfel"]
-[ext_resource type="Script" uid="uid://cbq7cpt06m6ym" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="8_5ltuf"]
+[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="8_5ltuf"]
+[ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="9_gkkhu"]
+[ext_resource type="PackedScene" uid="uid://bbyt5atvbxtlm" path="res://Props/Rocks/rock.tscn" id="10_lijq5"]
 
 [node name="TestScene1" type="Node2D"]
 
@@ -41,7 +43,6 @@ timing_method = 1
 easing_method = 1
 move_duration = 5.0
 move_speed = 50.0
-metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
 
 [node name="CutsceneActionCamera2" type="Node2D" parent="npc/dialog_interaction/DialogCutscene"]
 position = Vector2(32, -16)
@@ -50,4 +51,10 @@ timing_method = 1
 easing_method = 0
 move_duration = 5.0
 move_speed = 50.0
-metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="SpanishSoldier" parent="." instance=ExtResource("9_gkkhu")]
+position = Vector2(184, 288)
+
+[node name="rock" parent="." instance=ExtResource("10_lijq5")]
+z_index = 0
+position = Vector2(216, 206)
