@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgykhe5ptxdeg"]
+[gd_scene load_steps=13 format=3 uid="uid://dgykhe5ptxdeg"]
 
 [ext_resource type="Script" uid="uid://4l0wsaear8kf" path="res://NPC/Scripts/npc.gd" id="1_78afm"]
-[ext_resource type="Texture2D" uid="uid://0h8uv0vdflaa" path="res://NPC/Sprites/Aki_Mother/Aki_mother_3x3_TS.png" id="2_1iff1"]
+[ext_resource type="Resource" uid="uid://c1spdc48twm0m" path="res://NPC/00-NPC/Spanish_Guard.tres" id="2_3etx6"]
+[ext_resource type="Texture2D" uid="uid://4taje474lx4e" path="res://NPC/Sprites/Spanish_Guard/Spanish_SoldierWalk_Tilesheet.png" id="3_k1h6f"]
 
 [sub_resource type="Animation" id="Animation_je4mp"]
 length = 0.001
@@ -135,10 +136,11 @@ y_sort_enabled = true
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_78afm")
+npc_resource = ExtResource("2_3etx6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -9)
-texture = ExtResource("2_1iff1")
+texture = ExtResource("3_k1h6f")
 hframes = 3
 vframes = 3
 frame = 1
