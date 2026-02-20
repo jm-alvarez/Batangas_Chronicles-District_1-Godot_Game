@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://bp188h7v47c7w"]
+
+[ext_resource type="Texture2D" uid="uid://bd370yqdfwak5" path="res://NPC/Sprites/Portraits/NPC4(Portrait)-Sheet.png" id="1_3qtjb"]
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="1_65mci"]
+[ext_resource type="Texture2D" uid="uid://2gjm0hd5hn8q" path="res://NPC/Sprites/Locals/NPC_Man4-Sheet.png" id="3_dnmkl"]
+
+[resource]
+script = ExtResource("1_65mci")
+npc_name = "Mahintay"
+sprite = ExtResource("3_dnmkl")
+portrait = ExtResource("1_3qtjb")
+dialog_audio_pitch = 1.0
+metadata/_custom_type_script = "uid://c5ouqrd8mm7fj"

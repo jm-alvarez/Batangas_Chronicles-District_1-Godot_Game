@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://cqw6wpkg7aagb"]
+
+[ext_resource type="Texture2D" uid="uid://di0sjnglrcpyo" path="res://NPC/Sprites/Ermitanyo/Ermitanyo_Gray(Portrait)-Sheet.png" id="1_3r5df"]
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="1_63bmt"]
+[ext_resource type="Texture2D" uid="uid://4cewdb5l3p6o" path="res://NPC/Sprites/Ermitanyo/Ermitanyo_Gray_Layout-Sheet.png" id="3_qw0kr"]
+
+[resource]
+script = ExtResource("1_63bmt")
+npc_name = ""
+sprite = ExtResource("3_qw0kr")
+portrait = ExtResource("1_3r5df")
+dialog_audio_pitch = 1.0
+metadata/_custom_type_script = "uid://c5ouqrd8mm7fj"
