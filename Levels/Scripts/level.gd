@@ -2,12 +2,14 @@ class_name Level extends Node2D
 
 @export var FirstTextString : String 
 @export var FirstTextAnim : AnimationPlayer
+@export var music : AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.y_sort_enabled = true
 	PlayerManager.set_as_parent( self )
 	LevelManager.level_load_started.connect( _free_level )
+	AudioManager.play_music( music )
 	setFirstText()
 	FirstTextAnim.play()
 
