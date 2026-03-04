@@ -1,7 +1,8 @@
-[gd_scene load_steps=90 format=3 uid="uid://bfqqhq3bxuh0l"]
+[gd_scene load_steps=91 format=3 uid="uid://bfqqhq3bxuh0l"]
 
 [ext_resource type="PackedScene" uid="uid://bqu1q2bhv0qmb" path="res://Tilemaps/house_tilemap.tscn" id="1_rdc6o"]
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_skfnf"]
+[ext_resource type="AudioStream" uid="uid://brr7lox01jfjx" path="res://Assets/Sounds/BGM/Aki_House.mp3" id="2_p06ko"]
 [ext_resource type="Script" uid="uid://6im7on6coqur" path="res://Quests/UtilityNode/quest_activated_switch.gd" id="2_skfnf"]
 [ext_resource type="Texture2D" uid="uid://dswcki5ogh0x0" path="res://Levels/sample/Scene1/Sprites/window.png" id="3_7v4d6"]
 [ext_resource type="PackedScene" uid="uid://cma2td3lvgelc" path="res://Quests/UtilityNode/quest_activated_switch.tscn" id="5_23vf8"]
@@ -1841,6 +1842,7 @@ base_font = ExtResource("35_rr66o")
 [node name="Aki_Room" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_skfnf")
 FirstTextAnim = NodePath("FirstTextAnim")
+music = ExtResource("2_p06ko")
 
 [node name="quest_activated_switch3" parent="." instance=ExtResource("5_23vf8")]
 position = Vector2(71, 58)

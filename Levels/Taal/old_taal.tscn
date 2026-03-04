@@ -55,7 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="49_raicg"]
 [ext_resource type="PackedScene" uid="uid://cma2td3lvgelc" path="res://Quests/UtilityNode/quest_activated_switch.tscn" id="50_4twfl"]
 [ext_resource type="Resource" uid="uid://d2k7wbl61xxre" path="res://Items/Health_Potion.tres" id="50_osl5o"]
-[ext_resource type="AudioStream" uid="uid://b61jbbuxlsdb6" path="res://Levels/Taal/oldtaal_bgm.mp3" id="56_4bv2w"]
+[ext_resource type="AudioStream" uid="uid://b61jbbuxlsdb6" path="res://Assets/Sounds/BGM/oldtaal_bgm.mp3" id="56_4bv2w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4twfl"]
 texture = ExtResource("6_1eoai")
