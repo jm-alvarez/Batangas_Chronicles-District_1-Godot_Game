@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://c26lvbtv0b86b"]
+[gd_scene load_steps=15 format=4 uid="uid://c26lvbtv0b86b"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ai7r3"]
+[ext_resource type="AudioStream" uid="uid://3vm118ni2ncg" path="res://Assets/Sounds/BGM/nasugbu_bgm.mp3" id="2_78ubu"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_uc1vf"]
 [ext_resource type="PackedScene" uid="uid://pb152kmqfih2" path="res://Levels/PlayerSpawn.tscn" id="3_xfy7l"]
 [ext_resource type="PackedScene" uid="uid://kbou30pi4scj" path="res://Levels/LevelTransition.tscn" id="4_u1mf8"]
@@ -31,7 +32,7 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -46,7 +47,7 @@ tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.4901161e-08, 0.8, 1),
+"times": PackedFloat32Array(1.49012e-08, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.0]
@@ -58,7 +59,7 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -77,6 +78,7 @@ base_font = ExtResource("9_nwh20")
 script = ExtResource("1_ai7r3")
 FirstTextString = "Nasugbu"
 FirstTextAnim = NodePath("ShowFirstTextAnim")
+music = ExtResource("2_78ubu")
 
 [node name="grass_1" parent="." instance=ExtResource("2_uc1vf")]
 position = Vector2(0, -1)

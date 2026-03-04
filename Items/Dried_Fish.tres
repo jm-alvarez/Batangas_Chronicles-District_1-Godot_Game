@@ -14,3 +14,4 @@ name = "Dried_Fish"
 description = "Dried FIsh
 "
 texture = SubResource("AtlasTexture_w05ol")
+effects = Array[ExtResource("1_p30br")]([])
