@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://chvpb6vdfuom6"]
+[gd_scene load_steps=45 format=3 uid="uid://chvpb6vdfuom6"]
 
 [ext_resource type="Texture2D" uid="uid://cbub8wukwphxx" path="res://Player/Sprites/Aki_Complete-tilesheet.png" id="1_lne5h"]
 [ext_resource type="Script" uid="uid://bskxof3v3f53c" path="res://Player/Scripts/player1.gd" id="1_n8xh3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bkxw0vjf52f30" path="res://Player/Scripts/player_interactions_host.gd" id="9_2f50e"]
 [ext_resource type="PackedScene" uid="uid://dynjwoyp3oeqy" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="9_jhdxl"]
 [ext_resource type="Script" uid="uid://cfais350iasuw" path="res://Player/Scripts/state_stun.gd" id="10_cn17j"]
+[ext_resource type="AudioStream" uid="uid://d0378mxfhr585" path="res://Player/audio/aki_attack.wav" id="10_u5i1f"]
 [ext_resource type="PackedScene" uid="uid://b0qj7uk087no6" path="res://GeneralNodes/HitBox/hit_box.tscn" id="11_3uas0"]
 [ext_resource type="AudioStream" uid="uid://cmkxxwkt3ioet" path="res://Player/audio/hit_player.wav" id="12_mybtt"]
 [ext_resource type="Script" uid="uid://bnunlv2fhy6ly" path="res://Player/Scripts/push_area.gd" id="12_o7yf2"]
@@ -513,7 +514,7 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node/AudioStreamPlayer2D")
+tracks/1/path = NodePath("Audio/AudioStreamPlayer2D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -611,15 +612,16 @@ move_speed = 70.0
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_433o1")
+attack_sound = ExtResource("10_u5i1f")
 decelerate_speed = 6.0
 
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("10_cn17j")
 decelerate_speed = 4.0
 
-[node name="Node" type="Node" parent="."]
+[node name="Audio" type="Node2D" parent="."]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
 max_polyphony = 4
 
 [node name="Interactions" type="Node2D" parent="."]
