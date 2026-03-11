@@ -10,6 +10,7 @@ func _ready() -> void:
 	PlayerManager.set_as_parent( self )
 	LevelManager.level_load_started.connect( _free_level )
 	AudioManager.play_music( music )
+	PlayerHud.hide_game_over_screen()
 	setFirstText()
 	FirstTextAnim.play()
 

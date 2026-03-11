@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://d2q3oa8rkteby"]
+[gd_scene load_steps=48 format=3 uid="uid://d2q3oa8rkteby"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_8mcd8"]
 [ext_resource type="AudioStream" uid="uid://dldbvqh6ffrwv" path="res://Assets/Sounds/BGM/void.mp3" id="2_i76nf"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="16_0ntiv"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="17_0ntiv"]
 [ext_resource type="Resource" uid="uid://b0ayxhcvxqy6y" path="res://Quests/Scene1_2.tres" id="17_i76nf"]
+[ext_resource type="Script" uid="uid://cui2fu58h05uq" path="res://Levels/sample/Scene1/free_npc.gd" id="19_4yyug"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_guc7x"]
 size = Vector2(187, 74)
@@ -641,14 +642,14 @@ script = ExtResource("13_f3ert")
 position = Vector2(59, 212)
 script = ExtResource("10_y10rl")
 timing_method = 1
-object_to_move = NodePath("../../../../npc")
+object_to_move = NodePath("../../../../Aki_Mother")
 move_speed = 70.0
 
 [node name="CutsceneActionMove2" type="Node2D" parent="area_trigger/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(57, 285)
 script = ExtResource("10_y10rl")
 timing_method = 1
-object_to_move = NodePath("../../../../npc")
+object_to_move = NodePath("../../../../Aki_Mother")
 move_speed = 70.0
 
 [node name="area_trigger2" parent="." instance=ExtResource("6_jo53q")]
@@ -681,14 +682,14 @@ script = ExtResource("13_f3ert")
 position = Vector2(59, 346)
 script = ExtResource("10_y10rl")
 timing_method = 1
-object_to_move = NodePath("../../../../npc")
+object_to_move = NodePath("../../../../Aki_Mother")
 move_speed = 70.0
 
 [node name="CutsceneActionMove2" type="Node2D" parent="area_trigger2/dialog_interaction/DialogCutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(57, 419)
 script = ExtResource("10_y10rl")
 timing_method = 1
-object_to_move = NodePath("../../../../npc")
+object_to_move = NodePath("../../../../Aki_Mother")
 move_speed = 70.0
 
 [node name="DialogText8" type="Node" parent="area_trigger2/dialog_interaction"]
@@ -728,12 +729,14 @@ libraries = {
 energy = 0.0
 blend_mode = 1
 
-[node name="npc" parent="." instance=ExtResource("4_yjrj4")]
+[node name="Aki_Mother" parent="." instance=ExtResource("4_yjrj4")]
+unique_name_in_owner = true
 position = Vector2(57, -3.03095)
 collision_mask = 1
 npc_resource = ExtResource("11_i8j10")
 
 [node name="queue_npc" type="Area2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(55, 409)
 script = ExtResource("11_o6c14")
 
@@ -910,8 +913,12 @@ text = "Out of nowhere, just go downward"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Free_NPC" type="Node2D" parent="."]
+script = ExtResource("19_4yyug")
+
 [connection signal="body_entered" from="queue_npc" to="." method="_on_queue_npc_body_entered"]
 [connection signal="body_entered" from="queue_npc" to="queue_npc" method="_on_body_entered"]
+[connection signal="body_entered" from="queue_npc" to="Free_NPC" method="_on_queue_npc_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="area_trigger/dialog_interaction"]
