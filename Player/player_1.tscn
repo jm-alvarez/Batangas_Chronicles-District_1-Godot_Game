@@ -1,19 +1,19 @@
-[gd_scene load_steps=48 format=3 uid="uid://chvpb6vdfuom6"]
+[gd_scene load_steps=50 format=3 uid="uid://chvpb6vdfuom6"]
 
 [ext_resource type="Script" uid="uid://bskxof3v3f53c" path="res://Player/Scripts/player1.gd" id="1_n8xh3"]
 [ext_resource type="Texture2D" uid="uid://ba5owjwqj3y62" path="res://Player/Sprites/Aki_Complete-tilesheet_2.png" id="2_u5i1f"]
 [ext_resource type="Script" uid="uid://cupdaanmjwm4b" path="res://Player/Scripts/player_state_machine.gd" id="3_hskrr"]
 [ext_resource type="Texture2D" uid="uid://dll11rueoy1mj" path="res://Player/Sprites/Aki_Attack_Effect.png" id="3_uckrd"]
 [ext_resource type="Texture2D" uid="uid://dtdwyd74wka8y" path="res://Player/Sprites/shadow.png" id="4_falc8"]
-[ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="4_v1k0i"]
-[ext_resource type="Script" path="res://Player/Scripts/state_walk.gd" id="5_viru1"]
-[ext_resource type="Script" path="res://Player/Scripts/state_attack.gd" id="6_433o1"]
+[ext_resource type="Script" uid="uid://bvs8kf7bjo6f3" path="res://Player/Scripts/state_idle.gd" id="4_v1k0i"]
+[ext_resource type="Script" uid="uid://bj44mbb02frel" path="res://Player/Scripts/state_walk.gd" id="5_viru1"]
+[ext_resource type="Script" uid="uid://c633mp4ehwthp" path="res://Player/Scripts/state_attack.gd" id="6_433o1"]
 [ext_resource type="Script" uid="uid://bkxw0vjf52f30" path="res://Player/Scripts/player_interactions_host.gd" id="9_2f50e"]
 [ext_resource type="PackedScene" uid="uid://dynjwoyp3oeqy" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="9_jhdxl"]
 [ext_resource type="Script" uid="uid://cfais350iasuw" path="res://Player/Scripts/state_stun.gd" id="10_cn17j"]
 [ext_resource type="AudioStream" uid="uid://d0378mxfhr585" path="res://Player/audio/aki_attack.wav" id="10_u5i1f"]
 [ext_resource type="PackedScene" uid="uid://b0qj7uk087no6" path="res://GeneralNodes/HitBox/hit_box.tscn" id="11_3uas0"]
-[ext_resource type="Script" path="res://Player/Scripts/state_death.gd" id="12_go3if"]
+[ext_resource type="Script" uid="uid://b1i54ot40fleb" path="res://Player/Scripts/state_death.gd" id="12_go3if"]
 [ext_resource type="AudioStream" uid="uid://cmkxxwkt3ioet" path="res://Player/audio/hit_player.wav" id="12_mybtt"]
 [ext_resource type="Script" uid="uid://bnunlv2fhy6ly" path="res://Player/Scripts/push_area.gd" id="12_o7yf2"]
 [ext_resource type="Script" uid="uid://8tor0bsew6rn" path="res://Player/Scripts/player_camera.gd" id="13_g84tq"]
@@ -332,6 +332,54 @@ tracks/1/keys = {
 "values": [Vector2(0, 9), Vector2(0, 2.38419e-07), Vector2(0, -7.66667)]
 }
 
+[sub_resource type="Animation" id="Animation_u5i1f"]
+resource_name = "death_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_xslrp"]
+resource_name = "death_side"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_go3if"]
+resource_name = "death_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6]
+}
+
 [sub_resource type="Animation" id="Animation_o3xpl"]
 resource_name = "idle_down"
 tracks/0/type = "value"
@@ -473,29 +521,15 @@ tracks/0/keys = {
 "values": [30, 31, 32, 31]
 }
 
-[sub_resource type="Animation" id="Animation_u5i1f"]
-resource_name = "death"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.433333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [3, 4, 5, 6]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wn6j4"]
 _data = {
 &"RESET": SubResource("Animation_3bg1b"),
 &"attack_down": SubResource("Animation_ploch"),
 &"attack_side": SubResource("Animation_f2m4m"),
 &"attack_up": SubResource("Animation_3ebhs"),
-&"death": SubResource("Animation_u5i1f"),
+&"death_down": SubResource("Animation_u5i1f"),
+&"death_side": SubResource("Animation_xslrp"),
+&"death_up": SubResource("Animation_go3if"),
 &"idle_down": SubResource("Animation_o3xpl"),
 &"idle_side": SubResource("Animation_j343u"),
 &"idle_up": SubResource("Animation_bwp8v"),

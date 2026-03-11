@@ -11,8 +11,10 @@ func init() -> void:
 
 
 ## What happens when the player enters this State?
-func enter() -> void:
-	player.animation_player.play( "death" )
+func Enter() -> void:
+	print("State_Death")
+	player.UpdateAnimation( "death" )
+	await get_tree().process_frame
 	audio.stream = exhaust_audio
 	audio.play()
 	PlayerHud.show_game_over_screen()
@@ -21,7 +23,7 @@ func enter() -> void:
 
 
 ## What happens when the player exits this State?
-func exit() -> void:
+func Exit() -> void:
 	pass
 
 

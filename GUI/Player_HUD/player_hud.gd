@@ -90,3 +90,13 @@ func hide_game_over_screen() -> void:
 func play_audio( _a : AudioStream ) -> void:
 	audio.stream = _a
 	audio.play()
+
+
+func _on_continue_button_pressed() -> void:
+	SaveManager.load_game()
+	pass # Replace with function body.
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()
+	pass # Replace with function body.
