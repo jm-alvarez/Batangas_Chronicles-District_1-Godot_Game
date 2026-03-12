@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c8e7b77f0wg0o"]
+[gd_scene load_steps=0 format=3 uid="uid://c8e7b77f0wg0o"]
 
 [node name="MusicController" type="Node2D"]
 

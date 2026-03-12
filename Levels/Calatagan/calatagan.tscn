@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cv5ohib7susts"]
+[gd_scene load_steps=25 format=4 uid="uid://cv5ohib7susts"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_yfxrw"]
 [ext_resource type="AudioStream" uid="uid://dadww474f0v0c" path="res://Assets/Sounds/BGM/calatagan_bgm.mp3" id="2_awb3o"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://bkrrofc1685d2" path="res://NPC/00-NPC/aki_mother.tres" id="16_7e8wd"]
 [ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="16_gy7yk"]
 [ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="17_igrld"]
+[ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="20_nbqvm"]
 
 [sub_resource type="Animation" id="Animation_rorml"]
 length = 0.001
@@ -473,3 +474,9 @@ position = Vector2(-3282, 984)
 npc_resource = ExtResource("16_7e8wd")
 
 [node name="dialog_interaction" parent="AkiMother" instance=ExtResource("12_ajdfj")]
+
+[node name="SpanishSoldier" parent="." instance=ExtResource("20_nbqvm")]
+position = Vector2(-2877, 710)
+
+[node name="SpanishSoldier2" parent="." instance=ExtResource("20_nbqvm")]
+position = Vector2(-2785, 726)
