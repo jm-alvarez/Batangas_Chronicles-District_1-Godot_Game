@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0f1n67vn4d0"
-path="res://.godot/imported/Taal_Basilica-With_Side-Building.png-f1d3760c631a902549e9a0a4d2baec8a.ctex"
+uid="uid://cxj348pkwipu8"
+path="res://.godot/imported/Taal_Side_Wall.png-19148f03743bfc16a080ff4e8178063c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/Taal/Taal_Basilica-With_Side-Building.png"
-dest_files=["res://.godot/imported/Taal_Basilica-With_Side-Building.png-f1d3760c631a902549e9a0a4d2baec8a.ctex"]
+source_file="res://Levels/Taal/Taal_Side_Wall.png"
+dest_files=["res://.godot/imported/Taal_Side_Wall.png-19148f03743bfc16a080ff4e8178063c.ctex"]
 
 [params]
 
