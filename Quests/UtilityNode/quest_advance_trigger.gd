@@ -35,7 +35,7 @@ func advance_quest() -> void:
 	print( "Advance Quest : " + _title)
 	
 	QuestManager.update_quest( _title, _step, quest_complete )
-	
+	SaveManager.save_game()
 	pass
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://c0m8kk7se0tuh"]
+[gd_scene load_steps=51 format=4 uid="uid://c0m8kk7se0tuh"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_00e5h"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="1_ky7m4"]
@@ -16,12 +16,20 @@
 [ext_resource type="PackedScene" uid="uid://dox5s5vhjvbqw" path="res://Tilemaps/house_tm.tscn" id="13_d7076"]
 [ext_resource type="PackedScene" uid="uid://co4h25mdm1uc6" path="res://Levels/sample/house.tscn" id="14_hdvmk"]
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="16_dukvq"]
+[ext_resource type="Script" uid="uid://6im7on6coqur" path="res://Quests/UtilityNode/quest_activated_switch.gd" id="16_gijep"]
 [ext_resource type="PackedScene" uid="uid://cma2td3lvgelc" path="res://Quests/UtilityNode/quest_activated_switch.tscn" id="17_2j76k"]
 [ext_resource type="PackedScene" uid="uid://cnqkqeyxokar0" path="res://GeneralNodes/AreaTrigger/area_trigger.tscn" id="18_fikwq"]
 [ext_resource type="Resource" uid="uid://ch765k2xs4m31" path="res://Quests/Taal_Quest2.tres" id="18_gti4o"]
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="19_73170"]
 [ext_resource type="Script" uid="uid://d1mgcxi62fxvx" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="20_73170"]
 [ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="20_odb4l"]
+[ext_resource type="Script" uid="uid://2vlsm1584vq7" path="res://Levels/Taal/new_taal_final_cutscene.gd" id="22_sgxlm"]
+[ext_resource type="Resource" path="res://Quests/calaca_town_unlocked.tres" id="23_j6ok4"]
+[ext_resource type="Texture2D" uid="uid://r07o2iboijh7" path="res://Levels/RockFormation1.png" id="26_34pjn"]
+[ext_resource type="Script" uid="uid://bsglisl288k4l" path="res://Interactables/Dialog/Scripts/dialog_interaction.gd" id="26_ecjtn"]
+[ext_resource type="Texture2D" uid="uid://bqhokb3lcnmtq" path="res://Interactables/Dialog/Sprites/interaction.png" id="27_mc8sp"]
+[ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="28_eh82t"]
+[ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="29_07end"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8uui"]
 texture = ExtResource("3_q401f")
@@ -220,6 +228,57 @@ size = Vector2(6, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odb4l"]
 size = Vector2(32, 32)
 
+[sub_resource type="Animation" id="Animation_dukvq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CS_Light:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Final_CS_CL/Control/FC_Text:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CS_Light:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ShowFirstTextAnim/CanvasLayer/Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_hdvmk"]
 resource_name = "final_cutscene"
 length = 30.0
@@ -274,62 +333,69 @@ tracks/3/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_dukvq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CS_Light:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Final_CS_CL/Control/FC_Text:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [""]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CS_Light:energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../ShowFirstTextAnim/CanvasLayer/Control:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lbvmb"]
 _data = {
 &"RESET": SubResource("Animation_dukvq"),
 &"final_cutscene": SubResource("Animation_hdvmk")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0qwj"]
+size = Vector2(24, 38)
+
+[sub_resource type="Animation" id="Animation_evnrb"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_crptm"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rxcv5"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pem66"]
+_data = {
+&"default": SubResource("Animation_evnrb"),
+&"hide": SubResource("Animation_crptm"),
+&"show": SubResource("Animation_rxcv5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyy6s"]
+size = Vector2(28, 24)
 
 [node name="Taal" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_00e5h")
@@ -490,7 +556,20 @@ position = Vector2(1536, 208)
 [node name="House9" parent="Houses" instance=ExtResource("14_hdvmk")]
 position = Vector2(1520, 696)
 
-[node name="Show_Final_Cutscene" parent="." instance=ExtResource("17_2j76k")]
+[node name="Hide_Final_Cutscene" type="Node2D" parent="."]
+script = ExtResource("16_gijep")
+check_type = 3
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("23_j6ok4")
+quest_step = 1
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+ Quest: Calaca Unlocked
+Checking if quest is complete"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Show_Final_Cutscene" parent="Hide_Final_Cutscene" instance=ExtResource("17_2j76k")]
 position = Vector2(1504, -16)
 check_type = 1
 react_to_global_signal = true
@@ -500,43 +579,59 @@ settings_summary = "UPDATE QUEST:
  Quest: Gathering Before the Ash
 Checking if player has completed step: talk to fr. agustin de albuquerque"
 
-[node name="final_cutscene_trigger" parent="Show_Final_Cutscene" instance=ExtResource("18_fikwq")]
+[node name="final_cutscene_trigger" parent="Hide_Final_Cutscene/Show_Final_Cutscene" instance=ExtResource("18_fikwq")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Show_Final_Cutscene/final_cutscene_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hide_Final_Cutscene/Show_Final_Cutscene/final_cutscene_trigger"]
 shape = SubResource("RectangleShape2D_odb4l")
 debug_color = Color(0.6240858, 0.5329675, 0, 0.41960785)
 
-[node name="dialog_interaction" parent="Show_Final_Cutscene/final_cutscene_trigger" instance=ExtResource("19_73170")]
+[node name="dialog_interaction" parent="Hide_Final_Cutscene/Show_Final_Cutscene/final_cutscene_trigger" instance=ExtResource("19_73170")]
 scale = Vector2(1e-05, 1e-05)
 monitoring = false
 
-[node name="DialogCutscene" type="Node" parent="Show_Final_Cutscene/final_cutscene_trigger/dialog_interaction"]
+[node name="DialogCutscene" type="Node" parent="Hide_Final_Cutscene/Show_Final_Cutscene/final_cutscene_trigger/dialog_interaction"]
 script = ExtResource("20_odb4l")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="CutsceneActionAnimation" type="Node2D" parent="Show_Final_Cutscene/final_cutscene_trigger/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+[node name="NTFC_CS_Anim" type="Node2D" parent="Hide_Final_Cutscene/Show_Final_Cutscene/final_cutscene_trigger/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+unique_name_in_owner = true
 position = Vector2(1504, -16)
 scale = Vector2(1e-05, 1e-05)
 script = ExtResource("20_73170")
-animation_player = NodePath("../../../../../Final_Cutscene/final_cutscene_animation")
+animation_player = NodePath("../../../../../../New_Taal_Final_Cutscene/final_cutscene_animation")
 animation_name = "final_cutscene"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="Final_Cutscene" type="Node2D" parent="."]
+[node name="calaca_unlock" parent="Hide_Final_Cutscene/Show_Final_Cutscene/final_cutscene_trigger/dialog_interaction/DialogCutscene/NTFC_CS_Anim" instance=ExtResource("16_dukvq")]
+unique_name_in_owner = true
+position = Vector2(-150400020, 1600000.1)
+scale = Vector2(100000.01, 100000.01)
+signal_name = "finished"
+linked_quest = ExtResource("23_j6ok4")
+quest_step = 1
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+ Quest: Calaca Unlocked
+Step: 1 - you unlocked calaca, you can now discover how good this town was.
+Complete: true"
 
-[node name="final_cutscene_animation" type="AnimationPlayer" parent="Final_Cutscene"]
+[node name="New_Taal_Final_Cutscene" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("22_sgxlm")
+
+[node name="final_cutscene_animation" type="AnimationPlayer" parent="New_Taal_Final_Cutscene"]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_lbvmb")
 }
 
-[node name="CS_Light" type="DirectionalLight2D" parent="Final_Cutscene"]
+[node name="CS_Light" type="DirectionalLight2D" parent="New_Taal_Final_Cutscene"]
 visible = false
 blend_mode = 1
 
-[node name="Final_CS_CL" type="CanvasLayer" parent="Final_Cutscene"]
+[node name="Final_CS_CL" type="CanvasLayer" parent="New_Taal_Final_Cutscene"]
 
-[node name="Control" type="Control" parent="Final_Cutscene/Final_CS_CL"]
+[node name="Control" type="Control" parent="New_Taal_Final_Cutscene/Final_CS_CL"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -544,7 +639,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FC_Text" type="Label" parent="Final_Cutscene/Final_CS_CL/Control"]
+[node name="FC_Text" type="Label" parent="New_Taal_Final_Cutscene/Final_CS_CL/Control"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -564,5 +659,56 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="calaca_unlock" parent="Final_Cutscene" instance=ExtResource("16_dukvq")]
-unique_name_in_owner = true
+[node name="bridge_locked_interaction" type="Area2D" parent="."]
+process_mode = 3
+position = Vector2(1479, 544)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("26_ecjtn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bridge_locked_interaction"]
+shape = SubResource("RectangleShape2D_p0qwj")
+debug_color = Color(0, 0.623529, 0.521569, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="bridge_locked_interaction"]
+position = Vector2(0, -29)
+texture = ExtResource("27_mc8sp")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bridge_locked_interaction"]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_pem66")
+}
+autoplay = "default"
+
+[node name="DialogText" type="Node" parent="bridge_locked_interaction"]
+script = ExtResource("28_eh82t")
+text = "The Pansipit bridge is blocked."
+npc_info = ExtResource("29_07end")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogText2" type="Node" parent="bridge_locked_interaction"]
+script = ExtResource("28_eh82t")
+text = "Try to unlock it from the other town."
+npc_info = ExtResource("29_07end")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="Rock1" type="StaticBody2D" parent="."]
+position = Vector2(1463, 536)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rock1"]
+texture = ExtResource("26_34pjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock1"]
+shape = SubResource("RectangleShape2D_gyy6s")
+
+[node name="Rock2" type="StaticBody2D" parent="."]
+position = Vector2(1463, 552)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rock2"]
+texture = ExtResource("26_34pjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock2"]
+shape = SubResource("RectangleShape2D_gyy6s")

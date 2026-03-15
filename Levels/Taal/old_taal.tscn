@@ -4690,7 +4690,7 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="LC9" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit" instance=ExtResource("9_usta1")]
 unique_name_in_owner = true
-position = Vector2(985, -537.4453)
+position = Vector2(980.9712, -543.5189)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LC9" instance=ExtResource("11_c74rc")]
@@ -4739,13 +4739,13 @@ position = Vector2(967, -507)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="LC5" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1106.68, -551.4363)
+position = Vector2(1106.68, -556.033)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC5" instance=ExtResource("11_c74rc")]
 
 [node name="LC6" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1106.68, -551.4363)
+position = Vector2(1106.68, -556.033)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC6" instance=ExtResource("11_c74rc")]
@@ -4766,7 +4766,7 @@ npc_resource = ExtResource("33_lkt2a")
 wander_range = 1
 
 [node name="LC10" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(985, -537.4453)
+position = Vector2(980.9712, -543.5189)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC10" instance=ExtResource("11_c74rc")]
@@ -5913,21 +5913,21 @@ metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 script = ExtResource("16_0lfsm")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="QS2_Step2_advance" parent="Taal_Quest_2/Hide_Last_Scene/Show_Last_Scene/SLS_trigger1/SLS_interaction1/SLS_Interaction_Cutscene2" instance=ExtResource("19_6w16s")]
-signal_name = "finished"
-linked_quest = ExtResource("38_1s36y")
-quest_step = 3
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Gathering Before the Ash
-Step: 3 - help the citizens to go in the evacuation place safely.
-Complete: true"
-
 [node name="CutsceneActionCamera" type="Node2D" parent="Taal_Quest_2/Hide_Last_Scene/Show_Last_Scene/SLS_trigger1/SLS_interaction1/SLS_Interaction_Cutscene2"]
 position = Vector2(1953, -478)
 script = ExtResource("17_jttn0")
 move_duration = 3.0
 move_speed = 10.0
+
+[node name="QS2_Step3_advance" parent="Taal_Quest_2/Hide_Last_Scene/Show_Last_Scene/SLS_trigger1/SLS_interaction1/SLS_Interaction_Cutscene2/CutsceneActionCamera" instance=ExtResource("19_6w16s")]
+position = Vector2(-1953, 478)
+signal_name = "finished"
+linked_quest = ExtResource("38_1s36y")
+quest_step = 3
+settings_summary = "UPDATE QUEST:
+ Quest: Gathering Before the Ash
+Step: 3 - help the citizens to go in the evacuation place safely.
+Complete: false"
 
 [node name="CutsceneActionCamera2" type="Node2D" parent="Taal_Quest_2/Hide_Last_Scene/Show_Last_Scene/SLS_trigger1/SLS_interaction1/SLS_Interaction_Cutscene2"]
 position = Vector2(1519, -595)
@@ -5981,7 +5981,8 @@ script = ExtResource("17_jttn0")
 move_duration = 3.0
 move_speed = 10.0
 
-[node name="QS2_Step3_advance" parent="Taal_Quest_2/Hide_Last_Scene/Show_Last_Scene/SLS_trigger1/SLS_interaction1/SLS_Interaction_Cutscene3" instance=ExtResource("19_6w16s")]
+[node name="QS2_Step4_advance" parent="Taal_Quest_2/Hide_Last_Scene/Show_Last_Scene/SLS_trigger1/SLS_interaction1/SLS_Interaction_Cutscene3/CutsceneActionCamera2" instance=ExtResource("19_6w16s")]
+position = Vector2(-1508, 86)
 signal_name = "finished"
 linked_quest = ExtResource("38_1s36y")
 quest_step = 4
