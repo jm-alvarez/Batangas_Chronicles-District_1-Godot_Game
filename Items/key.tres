@@ -13,4 +13,3 @@ script = ExtResource("1_p1x3v")
 name = "Key"
 description = "A rusty looking key.. might belong to the priest."
 texture = SubResource("AtlasTexture_qo35h")
-effects = Array[ExtResource("1_sl8vj")]([])

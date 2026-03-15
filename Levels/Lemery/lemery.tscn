@@ -38,8 +38,8 @@
 [ext_resource type="Script" uid="uid://sxl1ls4sbmjw" path="res://GeneralNodes/AreaTrigger/area_trigger.gd" id="25_ut4jf"]
 [ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="26_tjb2u"]
 [ext_resource type="Script" uid="uid://b4kpico5bhvbj" path="res://Levels/Lemery/spaniards_quest.gd" id="27_fgswx"]
-[ext_resource type="Resource" uid="uid://xd4f3ioi20kv" path="res://Quests/Heritage Town Awaits.tres" id="28_dea30"]
-[ext_resource type="Resource" uid="uid://dyh10307ejwhr" path="res://Quests/calaca_town_unlocked.tres" id="29_tjb2u"]
+[ext_resource type="Resource" path="res://Quests/Heritage Town Awaits.tres" id="28_dea30"]
+[ext_resource type="Resource" path="res://Quests/calaca_town_unlocked.tres" id="29_tjb2u"]
 [ext_resource type="Script" path="res://Levels/Lemery/lemery_new_town_trigger.gd" id="30_0tbao"]
 [ext_resource type="Texture2D" uid="uid://c888q2smdbv2c" path="res://Interactables/Dungeon/Old_bridge.png" id="31_uffix"]
 [ext_resource type="Texture2D" uid="uid://cppm6ptkd0tom" path="res://Interactables/Dungeon/Old_bridge_wall.png" id="32_2337n"]
@@ -57,7 +57,7 @@
 [ext_resource type="Script" uid="uid://bo8y4n00rglpj" path="res://Levels/Lemery/fish_grill.gd" id="52_yvwjy"]
 [ext_resource type="Resource" uid="uid://dswwab4dd483j" path="res://Items/Fish.tres" id="53_cvuho"]
 [ext_resource type="Resource" uid="uid://x4vrgf2lry1t" path="res://Items/Dried_Fish.tres" id="54_4e6h7"]
-[ext_resource type="PackedScene" uid="uid://4tajkbc314hl" path="res://Levels/boulder.tscn" id="55_id2cg"]
+[ext_resource type="PackedScene" path="res://Levels/boulder.tscn" id="55_id2cg"]
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="57_id2cg"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="57_t8c6j"]
 [ext_resource type="Resource" uid="uid://d2k7wbl61xxre" path="res://Items/Health_Potion.tres" id="58_id2cg"]
@@ -1842,18 +1842,6 @@ Step: 1 - you can now go to the heritage town
 Complete: true"
 metadata/_custom_type_script = "uid://gwjswj6shnoe"
 
-[node name="CalacaAdvanceTrigger2" type="Node2D" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
-unique_name_in_owner = true
-script = ExtResource("16_0xvix")
-linked_quest = ExtResource("29_tjb2u")
-quest_step = 1
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Calaca Unlocked
-Step: 1 - you unlocked calaca, you can now discover how good this town was.
-Complete: true"
-metadata/_custom_type_script = "uid://gwjswj6shnoe"
-
 [node name="Lemery_New_Town_Trigger" type="Node2D" parent="ErmitanyoShow/ErmitanyoHide/Ermitanyo/dialog_interaction/1DialogChoice/Yes/1DialogChoice/Punta"]
 script = ExtResource("30_0tbao")
 
@@ -2834,12 +2822,12 @@ script = ExtResource("20_nqhjt")
 check_type = 1
 remove_when_activated = true
 react_to_global_signal = true
-linked_quest = ExtResource("49_x3ndx")
-quest_step = 5
+linked_quest = ExtResource("29_tjb2u")
+quest_step = 1
 quest_complete = true
 settings_summary = "UPDATE QUEST:
- Quest: Fresh from the Celador
-Checking if player has completed step: go, talk to capt. lemery"
+ Quest: Calaca Unlocked
+Checking if player has completed step: you unlocked calaca, you can now discover how good this town was."
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="Boulder" parent="ToCalacaBoulderSwitch2" instance=ExtResource("55_id2cg")]

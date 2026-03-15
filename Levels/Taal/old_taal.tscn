@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dox5s5vhjvbqw" path="res://Tilemaps/house_tm.tscn" id="4_mxngc"]
 [ext_resource type="PackedScene" uid="uid://8e1y45h1x22j" path="res://Tilemaps/tree.tscn" id="5_1eoai"]
 [ext_resource type="Texture2D" uid="uid://cvkgs2112dhp6" path="res://Tilemaps/Bridge/Bridge_Tileset1.png" id="6_1eoai"]
-[ext_resource type="Resource" path="res://Quests/the_ash.tres" id="7_l11gx"]
+[ext_resource type="Resource" uid="uid://gt5snf3ue5rs" path="res://Quests/the_ash.tres" id="7_l11gx"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="7_u3uel"]
 [ext_resource type="Texture2D" uid="uid://c5if7yan8lsh1" path="res://Levels/Taal/Taal_Basilica-New.png" id="8_1eoai"]
 [ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="9_usta1"]
@@ -18,11 +18,11 @@
 [ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="15_vncit"]
 [ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="16_0lfsm"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="16_3tq5r"]
-[ext_resource type="PackedScene" uid="uid://4tajkbc314hl" path="res://Levels/boulder.tscn" id="16_vncit"]
-[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="17_jttn0"]
+[ext_resource type="PackedScene" path="res://Levels/boulder.tscn" id="16_vncit"]
+[ext_resource type="Script" uid="uid://cbq7cpt06m6ym" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="17_jttn0"]
 [ext_resource type="Script" uid="uid://ck4rgwvkxniu8" path="res://Interactables/Dialog/Scripts/cutscene_action_move.gd" id="18_ovovr"]
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="19_6w16s"]
-[ext_resource type="Resource" path="res://Quests/Taal_Quest1.tres" id="20_qr25l"]
+[ext_resource type="Resource" uid="uid://d03nq2i3e6q7n" path="res://Quests/Taal_Quest1.tres" id="20_qr25l"]
 [ext_resource type="Resource" uid="uid://c1spdc48twm0m" path="res://NPC/00-NPC/Spanish_Guard.tres" id="21_0sqdf"]
 [ext_resource type="Script" path="res://Levels/Taal/taal_quest1.gd" id="22_5g75g"]
 [ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/NPC_Man1.tres" id="23_7tu5y"]
@@ -30,15 +30,15 @@
 [ext_resource type="Script" uid="uid://6im7on6coqur" path="res://Quests/UtilityNode/quest_activated_switch.gd" id="27_qr25l"]
 [ext_resource type="Resource" uid="uid://b6owp4xyxahyw" path="res://NPC/00-NPC/NPC_Man2.tres" id="28_6mh7h"]
 [ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="29_ev3np"]
-[ext_resource type="Resource" path="res://NPC/00-NPC/local_priest_2.tres" id="30_1w611"]
+[ext_resource type="Resource" uid="uid://cljs0jnmtecnh" path="res://NPC/00-NPC/local_priest_2.tres" id="30_1w611"]
 [ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="31_i2wv7"]
 [ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="32_lkt2a"]
-[ext_resource type="Resource" path="res://NPC/00-NPC/Local_Citizen_Woman.tres" id="33_lkt2a"]
-[ext_resource type="Resource" path="res://NPC/00-NPC/Local_Citizen_Man.tres" id="34_4qpoy"]
+[ext_resource type="Resource" uid="uid://di7kde0e0ca01" path="res://NPC/00-NPC/Local_Citizen_Woman.tres" id="33_lkt2a"]
+[ext_resource type="Resource" uid="uid://gv8ddhm2m1h7" path="res://NPC/00-NPC/Local_Citizen_Man.tres" id="34_4qpoy"]
 [ext_resource type="Script" path="res://Levels/Taal/local_citizens_node.gd" id="34_vcrcp"]
 [ext_resource type="Script" path="res://Levels/Taal/taal_quest_2.gd" id="35_mhv76"]
 [ext_resource type="PackedScene" uid="uid://b5kfyppua07p4" path="res://NPC/NPCBehaviourPatrol.tscn" id="37_76eg8"]
-[ext_resource type="Resource" path="res://Quests/Taal_Quest2.tres" id="38_1s36y"]
+[ext_resource type="Resource" uid="uid://ch765k2xs4m31" path="res://Quests/Taal_Quest2.tres" id="38_1s36y"]
 [ext_resource type="PackedScene" uid="uid://crnk5hqebaqnu" path="res://GeneralNodes/PersistentDataHelper/persistent_data_handler.tscn" id="38_cvk2j"]
 [ext_resource type="PackedScene" uid="uid://ndua5p2o8wgx" path="res://NPC/PatrolLocation.tscn" id="38_lqjim"]
 [ext_resource type="Script" path="res://Levels/Taal/earthquake_node_2.gd" id="41_76eg8"]
@@ -49,9 +49,9 @@
 [ext_resource type="Texture2D" uid="uid://x62dnt4g8mvv" path="res://Tilemaps/Lava-Sheet-Sheet.png" id="44_vkjio"]
 [ext_resource type="Script" uid="uid://d1mgcxi62fxvx" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="44_vwlj0"]
 [ext_resource type="PackedScene" uid="uid://bbyt5atvbxtlm" path="res://Props/Rocks/rock.tscn" id="45_ayfmc"]
-[ext_resource type="Resource" path="res://Quests/bolder_than_boulder.tres" id="45_osl5o"]
+[ext_resource type="Resource" uid="uid://d1al5t6vidrfu" path="res://Quests/bolder_than_boulder.tres" id="45_osl5o"]
 [ext_resource type="Resource" uid="uid://bkrrofc1685d2" path="res://NPC/00-NPC/aki_mother.tres" id="48_2ab1x"]
-[ext_resource type="Resource" path="res://Quests/illusion_quest.tres" id="49_q8qqb"]
+[ext_resource type="Resource" uid="uid://c7jeuv4sr1gq3" path="res://Quests/illusion_quest.tres" id="49_q8qqb"]
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="49_raicg"]
 [ext_resource type="PackedScene" uid="uid://cma2td3lvgelc" path="res://Quests/UtilityNode/quest_activated_switch.tscn" id="50_4twfl"]
 [ext_resource type="Resource" uid="uid://d2k7wbl61xxre" path="res://Items/Health_Potion.tres" id="50_osl5o"]
@@ -170,7 +170,7 @@ _data = {
 base_font = ExtResource("16_3tq5r")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gorfp"]
-radius = 36.0555
+radius = 22.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i2wv7"]
 
@@ -4690,7 +4690,7 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="LC9" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit" instance=ExtResource("9_usta1")]
 unique_name_in_owner = true
-position = Vector2(985, -531.371)
+position = Vector2(985, -537.4453)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LC9" instance=ExtResource("11_c74rc")]
@@ -4739,13 +4739,13 @@ position = Vector2(967, -507)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="LC5" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1106.68, -545.362)
+position = Vector2(1106.68, -551.4363)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC5" instance=ExtResource("11_c74rc")]
 
 [node name="LC6" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1106.68, -545.362)
+position = Vector2(1106.68, -551.4363)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC6" instance=ExtResource("11_c74rc")]
@@ -4766,7 +4766,7 @@ npc_resource = ExtResource("33_lkt2a")
 wander_range = 1
 
 [node name="LC10" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(985, -531.371)
+position = Vector2(985, -537.4453)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC10" instance=ExtResource("11_c74rc")]
