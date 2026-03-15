@@ -117,3 +117,8 @@ func make_invulnerable( _duration : float = 1.0 ) -> void:
 	invulnerable = false
 	hit_box.monitoring = true
 	pass
+
+func revive_player() -> void:
+	#get_tree().paused = false
+	update_hp( 99 )
+	state_machine.ChangeState( $StateMachine/Idle )

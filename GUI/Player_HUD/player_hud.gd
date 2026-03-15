@@ -72,7 +72,7 @@ func show_game_over_screen() -> void:
 	
 	animation_player.play("show_game_over")
 	await animation_player.animation_finished
-	
+	#PlayerManager.player.revive_player()
 	#if can_continue == true:
 		#continue_button.grab_focus()
 	#else:
@@ -94,6 +94,7 @@ func play_audio( _a : AudioStream ) -> void:
 
 func _on_continue_button_pressed() -> void:
 	SaveManager.load_game()
+	PlayerManager.player.revive_player()
 	pass # Replace with function body.
 
 
