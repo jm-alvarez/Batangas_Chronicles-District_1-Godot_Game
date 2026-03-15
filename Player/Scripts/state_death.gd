@@ -2,6 +2,7 @@ class_name State_Death extends State
 
 @export var exhaust_audio : AudioStream
 @onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
+@onready var player_animation: AnimationPlayer = $"../../AnimationPlayer"
 
 
 
@@ -19,6 +20,8 @@ func Enter() -> void:
 	audio.play()
 	PlayerHud.show_game_over_screen()
 	AudioManager.play_music( null )
+	await player_animation.animation_finished
+	#get_tree().paused = true
 	pass
 
 
