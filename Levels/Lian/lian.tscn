@@ -265,96 +265,96 @@ script = ExtResource("17_v64pp")
 npc_info = ExtResource("13_atmgo")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Q1A" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice"]
+[node name="LQ1A" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice"]
 script = ExtResource("18_myyrv")
 text = "LIAN thought the Spaniards were asking for his name."
 npc_info = ExtResource("13_atmgo")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1correct" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A"]
+[node name="LQ1correct" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A"]
 script = ExtResource("11_kdgqb")
 text = "Correct. Lost in Translation am I right?"
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="6Q2" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A"]
+[node name="6Q2" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A"]
 script = ExtResource("11_kdgqb")
 text = "Okay next question. What is a raft made out of bamboo called?"
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="6Q2choice" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A"]
+[node name="6Q2choice" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A"]
 script = ExtResource("17_v64pp")
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Q2A" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A/6Q2choice"]
+[node name="LQ2A" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice"]
 script = ExtResource("18_myyrv")
 text = "Balso"
 npc_info = ExtResource("13_atmgo")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2wrong1" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A/6Q2choice/Q2A"]
+[node name="Q2wrong1" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice/LQ2A"]
 script = ExtResource("11_kdgqb")
 text = "That word does not exist Aki."
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2B" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A/6Q2choice"]
+[node name="LQ2B" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice"]
 script = ExtResource("18_myyrv")
 text = "Balsog"
 npc_info = ExtResource("13_atmgo")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2wrong2" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A/6Q2choice/Q2B"]
+[node name="Q2wrong2" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice/LQ2B"]
 script = ExtResource("11_kdgqb")
 text = "Stop making up words Aki."
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2C" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A/6Q2choice"]
+[node name="LQ2C" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice"]
 script = ExtResource("18_myyrv")
 text = "Balsa"
 npc_info = ExtResource("13_atmgo")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A/6Q2choice/Q2C"]
+[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice/LQ2C"]
 script = ExtResource("11_kdgqb")
 text = "Nicely done Aki. A true gossiper indeed."
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="7erm" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A/6Q2choice/Q2C"]
+[node name="7erm" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice/LQ2C"]
 script = ExtResource("11_kdgqb")
 text = "Speaking of gossip. I have heard that a woman was spotted in the next town."
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="8erm" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1A/6Q2choice/Q2C"]
+[node name="8erm" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice/LQ2C"]
 script = ExtResource("11_kdgqb")
 text = "Best of luck finding your mom."
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1B" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice"]
+[node name="LQ1B" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice"]
 script = ExtResource("18_myyrv")
 text = "LIAN were messing with them."
 npc_info = ExtResource("13_atmgo")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1B"]
+[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1B"]
 script = ExtResource("11_kdgqb")
 text = "Poor LIAN, getting blamed on being mischievous."
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1C" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice"]
+[node name="LQ1C" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice"]
 script = ExtResource("18_myyrv")
 text = "The town was indeed named LIAN."
 npc_info = ExtResource("13_atmgo")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1wrong2" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/Q1C"]
+[node name="Q1wrong2" type="Node" parent="Ermitanyo/dialog_interaction/5Q1choice/LQ1C"]
 script = ExtResource("11_kdgqb")
 text = "You are already eavesdropping. Why are your gossip inaccurate?"
 npc_info = ExtResource("16_h3avh")
@@ -453,3 +453,8 @@ shape = SubResource("RectangleShape2D_e8awy")
 [node name="barrier" parent="." instance=ExtResource("21_e8awy")]
 visible = false
 tile_map_data = PackedByteArray("AAAs/x0AAAAAAAAAAAAt/x0AAAAAAAAAAAAu/x0AAAAAAAAAAAAv/x0AAAAAAAAAAAAw/x0AAAAAAAAAAAAx/x0AAAAAAAAAAAAy/x0AAAAAAAAAAAAz/x0AAAAAAAAAAAA0/x0AAAAAAAAAAAA1/x0AAAAAAAAAAAA2/x0AAAAAAAAAAAA3/x0AAAAAAAAAAAA4/x0AAAAAAAAAAAA5/x0AAAAAAAAAAAA6/x0AAAAAAAAAAAA7/x0AAAAAAAAAAAA8/x0AAAAAAAAAAAA9/x0AAAAAAAAAAAA+/x0AAAAAAAAAAAA//x0AAAAAAAAAAABA/x0AAAAAAAAAAABB/x0AAAAAAAAAAABC/x0AAAAAAAAAAABD/x0AAAAAAAAAAABE/x0AAAAAAAAAAABF/x0AAAAAAAAAAABG/x0AAAAAAAAAAABH/x0AAAAAAAAAAABI/x0AAAAAAAAAAABJ/x0AAAAAAAAAAABK/x0AAAAAAAAAAABL/x0AAAAAAAAAAABM/x0AAAAAAAAAAABN/x0AAAAAAAAAAABO/x0AAAAAAAAAAABP/x0AAAAAAAAAAABQ/x0AAAAAAAAAAABR/x0AAAAAAAAAAABS/x0AAAAAAAAAAABT/x0AAAAAAAAAAABU/x0AAAAAAAAAAABV/x0AAAAAAAAAAABW/x0AAAAAAAAAAABX/x0AAAAAAAAAAABY/x0AAAAAAAAAAABZ/x0AAAAAAAAAAABa/x0AAAAAAAAAAABb/x0AAAAAAAAAAABc/x0AAAAAAAAAAABd/x0AAAAAAAAAAABe/x0AAAAAAAAAAABf/x0AAAAAAAAAAABg/x0AAAAAAAAAAABh/x0AAAAAAAAAAABi/x0AAAAAAAAAAABi/xwAAAAAAAAAAABi/xsAAAAAAAAAAABi/xoAAAAAAAAAAABi/xkAAAAAAAAAAABi/xgAAAAAAAAAAABi/xcAAAAAAAAAAABi/xYAAAAAAAAAAABi/xUAAAAAAAAAAABi/xQAAAAAAAAAAABi/xMAAAAAAAAAAABi/xIAAAAAAAAAAABi/xEAAAAAAAAAAABi/xAAAAAAAAAAAABi/w8AAAAAAAAAAABi/w4AAAAAAAAAAABi/w0AAAAAAAAAAABi/wwAAAAAAAAAAABi/wsAAAAAAAAAAABi/woAAAAAAAAAAABi/wkAAAAAAAAAAABi/wgAAAAAAAAAAAAs/wgAAAAAAAAAAAAt/wgAAAAAAAAAAAAu/wgAAAAAAAAAAAAv/wgAAAAAAAAAAAAw/wgAAAAAAAAAAAAx/wgAAAAAAAAAAAAy/wgAAAAAAAAAAAAz/wgAAAAAAAAAAAA0/wgAAAAAAAAAAAA1/wgAAAAAAAAAAAA2/wgAAAAAAAAAAAA3/wgAAAAAAAAAAAA4/wgAAAAAAAAAAAA5/wgAAAAAAAAAAAA6/wgAAAAAAAAAAAA7/wgAAAAAAAAAAAA8/wgAAAAAAAAAAAA9/wgAAAAAAAAAAAA+/wgAAAAAAAAAAAA//wgAAAAAAAAAAABA/wgAAAAAAAAAAABB/wgAAAAAAAAAAABC/wgAAAAAAAAAAABD/wgAAAAAAAAAAABE/wgAAAAAAAAAAABF/wgAAAAAAAAAAABG/wgAAAAAAAAAAABH/wgAAAAAAAAAAABI/wgAAAAAAAAAAABJ/wgAAAAAAAAAAABK/wgAAAAAAAAAAABL/wgAAAAAAAAAAABM/wgAAAAAAAAAAABN/wgAAAAAAAAAAABO/wgAAAAAAAAAAABP/wgAAAAAAAAAAABQ/wgAAAAAAAAAAABR/wgAAAAAAAAAAABS/wgAAAAAAAAAAABT/wgAAAAAAAAAAABU/wgAAAAAAAAAAABV/wgAAAAAAAAAAABW/wgAAAAAAAAAAABX/wgAAAAAAAAAAABY/wgAAAAAAAAAAABZ/wgAAAAAAAAAAABa/wgAAAAAAAAAAABb/wgAAAAAAAAAAABc/wgAAAAAAAAAAABd/wgAAAAAAAAAAABe/wgAAAAAAAAAAABf/wgAAAAAAAAAAABg/wgAAAAAAAAAAABh/wgAAAAAAAAAAAAs/wkAAAAAAAAAAAAs/woAAAAAAAAAAAAs/wsAAAAAAAAAAAAs/wwAAAAAAAAAAAAs/w0AAAAAAAAAAAAs/w4AAAAAAAAAAAAs/w8AAAAAAAAAAAAs/xAAAAAAAAAAAAAs/xEAAAAAAAAAAAAs/xIAAAAAAAAAAAAs/xMAAAAAAAAAAAAs/xQAAAAAAAAAAAAs/xUAAAAAAAAAAAAs/xYAAAAAAAAAAAAs/xcAAAAAAAAAAAAs/xgAAAAAAAAAAAAs/xkAAAAAAAAAAAAs/xoAAAAAAAAAAAAs/xsAAAAAAAAAAAAs/xwAAAAAAAAAAAA=")
+
+[connection signal="selected" from="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice/LQ2A" to="." method="_on_lq_2a_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/5Q1choice/LQ1A/6Q2choice/LQ2B" to="." method="_on_lq_2b_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/5Q1choice/LQ1B" to="." method="_on_lq_1b_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/5Q1choice/LQ1C" to="." method="_on_lq_1c_selected"]

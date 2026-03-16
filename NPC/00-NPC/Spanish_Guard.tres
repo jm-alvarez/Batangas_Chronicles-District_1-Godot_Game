@@ -9,3 +9,4 @@ script = ExtResource("1_ng547")
 npc_name = "Spanish Guard"
 sprite = ExtResource("2_lg7gd")
 portrait = ExtResource("1_fkccq")
+dialog_audio_pitch = 1.0

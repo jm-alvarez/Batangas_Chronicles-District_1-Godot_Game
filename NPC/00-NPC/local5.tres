@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://b464146w44vex"]
+
+[ext_resource type="Texture2D" uid="uid://bm67g4maicglg" path="res://NPC/Sprites/Portraits/NPC5(Portrait)-Sheet.png" id="1_cd8a6"]
+[ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="1_ujb3u"]
+[ext_resource type="Texture2D" uid="uid://b0c04wkgtfgbm" path="res://NPC/Sprites/Locals/NPC_Man5-Sheet.png" id="3_48ay6"]
+
+[resource]
+script = ExtResource("1_ujb3u")
+npc_name = "Em"
+sprite = ExtResource("3_48ay6")
+portrait = ExtResource("1_cd8a6")
+dialog_audio_pitch = 1.0
+metadata/_custom_type_script = "uid://c5ouqrd8mm7fj"

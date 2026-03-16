@@ -8,4 +8,6 @@ script = ExtResource("2_i0oll")
 title = "Caught by the Ashes"
 description = "Survive the ashes"
 steps = Array[String](["The Raining of Ashes."])
+reward_exp = 0
+reward_items = Array[ExtResource("1_qnge4")]([])
 metadata/_custom_type_script = "uid://cbl1ai8wnqqui"

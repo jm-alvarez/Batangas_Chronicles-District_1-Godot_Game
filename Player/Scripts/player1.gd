@@ -12,6 +12,8 @@ var invulnerable : bool = false
 var hp: int = 6
 var max_hp: int = 6
 
+var is_game_over : bool = false
+
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player : AnimationPlayer = $EffectAnimationPlayer
 @onready var hit_box : HitBox = $hit_box
@@ -42,7 +44,11 @@ func _process( delta : float) -> void:
 	
 	pass
 
-func _physics_process(delta : float) -> void:
+func _physics_process(delta: float) -> void:
+	if is_game_over:
+		velocity = Vector2.ZERO
+		return
+	
 	move_and_slide()
 
 
@@ -50,7 +56,10 @@ func SetDirection() -> bool:
 	var new_dir : Vector2 = cardinal_direction
 	if direction == Vector2.ZERO:
 		return false
-
+	
+	if is_game_over:
+		return false
+	
 	if direction.y == 0:
 		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
 	elif direction.x == 0:
@@ -122,3 +131,19 @@ func revive_player() -> void:
 	#get_tree().paused = false
 	update_hp( 99 )
 	state_machine.ChangeState( $StateMachine/Idle )
+
+func kill_player():
+	state_machine.ChangeState($StateMachine/Death)
+
+func end_game():
+	is_game_over = true
+	state_machine.ChangeState($StateMachine/Death)  # switch to death state
+
+func reset_player():
+	is_game_over = false                  # allow input again
+	update_hp(max_hp)                     # restore full health
+	direction = Vector2.ZERO
+	velocity = Vector2.ZERO
+	state_machine.ChangeState($StateMachine/Idle)  # back to idle state
+	sprite.visible = true                  # ensure sprite is visible
+	hit_box.monitoring = true              # re-enable hitbox
