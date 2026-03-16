@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://csy3g11hwdx73"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_53pev"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="2_gkg0n"]
+
+[resource]
+script = ExtResource("2_gkg0n")
+title = "Pansipit Bridge Unlocked"
+description = "You can now travel faster between Lemery and  Lemery "
+metadata/_custom_type_script = "uid://cbl1ai8wnqqui"

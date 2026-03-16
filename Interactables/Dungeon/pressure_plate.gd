@@ -51,7 +51,5 @@ func check_is_activated() -> void:
 func play_audio( _stream : AudioStream ) -> void:
 	audio.stream = _stream
 	audio.play()
-
-
-func _on_pressure_plate_deactivated():
-	pass # Replace with function body.
+	
+	

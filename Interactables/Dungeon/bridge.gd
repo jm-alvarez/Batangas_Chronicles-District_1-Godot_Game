@@ -34,6 +34,7 @@ func _on_pressure_plate_deactivated():
 
 func _on_pressure_plate_2_activated():
 	animation_player.play("opened")
+	%pansipit_bridge_advance.advance_quest()
 	pass # Replace with function body.
 
 

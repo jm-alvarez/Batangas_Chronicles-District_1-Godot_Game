@@ -3851,7 +3851,7 @@ npc_resource = ExtResource("28_6mh7h")
 wander_range = 1
 
 [node name="npc_man3" parent="Hide_NPC_Man1/Show_NPC_Man1" instance=ExtResource("9_usta1")]
-position = Vector2(1110, -558)
+position = Vector2(1110, -562.10785)
 npc_resource = ExtResource("28_6mh7h")
 
 [node name="NPCWanderBehaviour" parent="Hide_NPC_Man1/Show_NPC_Man1/npc_man3" instance=ExtResource("11_c74rc")]
@@ -4690,7 +4690,7 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="LC9" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit" instance=ExtResource("9_usta1")]
 unique_name_in_owner = true
-position = Vector2(980.9712, -543.5189)
+position = Vector2(980.96, -549.5932)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LC9" instance=ExtResource("11_c74rc")]
@@ -4739,13 +4739,13 @@ position = Vector2(967, -507)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="LC5" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1106.68, -556.033)
+position = Vector2(1106.68, -564.072)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC5" instance=ExtResource("11_c74rc")]
 
 [node name="LC6" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1106.68, -556.033)
+position = Vector2(1106.68, -564.072)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC6" instance=ExtResource("11_c74rc")]
@@ -4766,7 +4766,7 @@ npc_resource = ExtResource("33_lkt2a")
 wander_range = 1
 
 [node name="LC10" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(980.9712, -543.5189)
+position = Vector2(980.96, -549.5932)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC10" instance=ExtResource("11_c74rc")]
@@ -6040,65 +6040,78 @@ metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Trigger_Strong_EQ"]
 shape = SubResource("RectangleShape2D_1y5ii")
 
-[node name="AreaTrigger1" type="Area2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers"]
+[node name="Hide_AT1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers"]
+script = ExtResource("27_qr25l")
+check_type = 3
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("45_osl5o")
+quest_step = 1
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+ Quest: Bolder than Boulder
+Checking if quest is complete"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="AreaTrigger1" type="Area2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1"]
 position = Vector2(1156, -601)
 script = ExtResource("24_am0y2")
 metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_vwlj0")
 
-[node name="dialog_interaction" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1" instance=ExtResource("12_x7iw4")]
+[node name="dialog_interaction" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1" instance=ExtResource("12_x7iw4")]
 scale = Vector2(1e-05, 1e-05)
 monitoring = false
 
-[node name="1Aki_text" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1/dialog_interaction"]
+[node name="1Aki_text" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1/dialog_interaction"]
 script = ExtResource("13_u3uel")
 text = "[shake]Woah!!!, that's a strong earthquake[/shake]"
 npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="2Aki_text" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1/dialog_interaction"]
+[node name="2Aki_text" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1/dialog_interaction"]
 script = ExtResource("13_u3uel")
 text = "Why does it becomes so dark, and it's raining."
 npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="EruptionCutscene1" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1/dialog_interaction"]
+[node name="EruptionCutscene1" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1/dialog_interaction"]
 script = ExtResource("16_0lfsm")
 playback_mode = 0
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="ActionCamera1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1/dialog_interaction/EruptionCutscene1"]
+[node name="ActionCamera1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1/dialog_interaction/EruptionCutscene1"]
 position = Vector2(231, -1771)
 script = ExtResource("17_jttn0")
 move_duration = 10.0
 move_speed = 10.0
 
-[node name="EruptionCutscene2" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1/dialog_interaction"]
+[node name="EruptionCutscene2" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1/dialog_interaction"]
 script = ExtResource("16_0lfsm")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="ExplosionAnimation2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1/dialog_interaction/EruptionCutscene2" node_paths=PackedStringArray("animation_player")]
+[node name="ExplosionAnimation2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1/dialog_interaction/EruptionCutscene2" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("44_vwlj0")
-animation_player = NodePath("../../../../../../Taal_Explotion_Anim")
+animation_player = NodePath("../../../../../../../Taal_Explotion_Anim")
 animation_name = "explosion"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="ExplosionAnimation3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1/dialog_interaction/EruptionCutscene2" node_paths=PackedStringArray("animation_player")]
+[node name="ExplosionAnimation3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1/dialog_interaction/EruptionCutscene2" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("44_vwlj0")
-animation_player = NodePath("../../../../../../Taal_Explotion_Anim")
+animation_player = NodePath("../../../../../../../Taal_Explotion_Anim")
 animation_name = "explosion"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="3Aki_text" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1/dialog_interaction"]
+[node name="3Aki_text" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1/dialog_interaction"]
 script = ExtResource("13_u3uel")
 text = "Everyoneeee!!!! Runnnnnn....But don't panic."
 npc_info = ExtResource("15_vncit")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="4Aki_text" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger1/dialog_interaction"]
+[node name="4Aki_text" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT1/AreaTrigger1/dialog_interaction"]
 script = ExtResource("13_u3uel")
 text = "The Taal Volcano is erupting!!!!"
 npc_info = ExtResource("15_vncit")
@@ -6217,41 +6230,54 @@ position = Vector2(1505, -575)
 collision_layer = 0
 npc_resource = ExtResource("33_lkt2a")
 
-[node name="AreaTrigger2" type="Area2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers"]
+[node name="Hide_AT2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers"]
+script = ExtResource("27_qr25l")
+check_type = 3
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("45_osl5o")
+quest_step = 1
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+ Quest: Bolder than Boulder
+Checking if quest is complete"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="AreaTrigger2" type="Area2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT2"]
 position = Vector2(1553, -389)
 script = ExtResource("24_am0y2")
 metadata/_custom_type_script = "uid://sxl1ls4sbmjw"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT2/AreaTrigger2"]
 position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_raicg")
 
-[node name="dialog_interaction" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger2" instance=ExtResource("12_x7iw4")]
+[node name="dialog_interaction" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT2/AreaTrigger2" instance=ExtResource("12_x7iw4")]
 monitoring = false
 
-[node name="Cutscene1" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger2/dialog_interaction"]
+[node name="Cutscene1" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT2/AreaTrigger2/dialog_interaction"]
 script = ExtResource("16_0lfsm")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="ActionCamera1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger2/dialog_interaction/Cutscene1"]
+[node name="ActionCamera1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT2/AreaTrigger2/dialog_interaction/Cutscene1"]
 position = Vector2(1656, -381)
 script = ExtResource("17_jttn0")
 move_duration = 2.0
 move_speed = 50.0
 
-[node name="fr_agustin_text1" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger2/dialog_interaction"]
+[node name="fr_agustin_text1" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT2/AreaTrigger2/dialog_interaction"]
 script = ExtResource("13_u3uel")
 text = "Ohh there's a obstacle in the road"
 npc_info = ExtResource("30_1w611")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="fr_agustin_text2" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger2/dialog_interaction"]
+[node name="fr_agustin_text2" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT2/AreaTrigger2/dialog_interaction"]
 script = ExtResource("13_u3uel")
 text = "We can't go through, we are stucked"
 npc_info = ExtResource("30_1w611")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="fr_agustin_text3" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger2/dialog_interaction"]
+[node name="fr_agustin_text3" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT2/AreaTrigger2/dialog_interaction"]
 script = ExtResource("13_u3uel")
 text = "We need to destroy this boulders in order to get through evacuation area."
 npc_info = ExtResource("30_1w611")
@@ -6259,15 +6285,15 @@ metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="Hide_Area_trigger3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers"]
 script = ExtResource("27_qr25l")
-check_type = 1
+check_type = 3
 remove_when_activated = true
 react_to_global_signal = true
 linked_quest = ExtResource("45_osl5o")
 quest_step = 1
 quest_complete = true
 settings_summary = "UPDATE QUEST:
- Quest: Bolder tha Boulder
-Checking if player has completed step: destroy a boulder or rock"
+ Quest: Bolder than Boulder
+Checking if quest is complete"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="AreaTrigger3" type="Area2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_Area_trigger3"]
@@ -6635,566 +6661,579 @@ script = ExtResource("17_jttn0")
 move_duration = 3.0
 move_speed = 70.0
 
-[node name="AreaTrigger4" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers" instance=ExtResource("41_lqjim")]
+[node name="Hide_AT4" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers"]
+script = ExtResource("27_qr25l")
+check_type = 3
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("49_q8qqb")
+quest_step = 1
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+ Quest: Is that just an Illusion?
+Checking if quest is complete"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="AreaTrigger4" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4" instance=ExtResource("41_lqjim")]
 position = Vector2(1769, -475)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4"]
 shape = SubResource("RectangleShape2D_l11gx")
 
-[node name="AT4_interaction1" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4" instance=ExtResource("12_x7iw4")]
+[node name="AT4_interaction1" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4" instance=ExtResource("12_x7iw4")]
 monitoring = false
 
-[node name="AT4_Cutscene1" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1"]
+[node name="AT4_Cutscene1" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1"]
 script = ExtResource("16_0lfsm")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="AT4_CS1_ActionCamera1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene1"]
+[node name="AT4_CS1_ActionCamera1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene1"]
 position = Vector2(2047, -554)
 script = ExtResource("17_jttn0")
 move_speed = 50.0
 
-[node name="AT4_Cutscene2" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1"]
+[node name="AT4_Cutscene2" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1"]
 script = ExtResource("16_0lfsm")
 playback_mode = 0
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="CS1_ActionMove1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove4" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove4" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove5" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove5" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -554)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC4")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC4")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove6" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove6" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove7" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove7" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC6")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC6")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove8" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove8" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -380)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC7")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC7")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove9" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove9" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -380)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC8")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC8")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove10" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove10" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -380)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC9")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC9")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove11" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove11" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -380)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC10")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC10")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove12" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove12" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1775, -380)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC11")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC11")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove13" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove13" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -380)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC12")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC12")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove14" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove14" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -380)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC13")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC13")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove15" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove15" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -379)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC14")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC14")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove16" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove16" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene2" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -380)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC15")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC15")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="AT4_Cutscene3" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1"]
+[node name="AT4_Cutscene3" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1"]
 script = ExtResource("16_0lfsm")
 playback_mode = 0
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="CS1_ActionMove1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove4" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove4" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove5" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove5" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC4")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC4")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove6" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove6" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove7" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove7" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC6")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC6")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove8" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove8" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC7")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC7")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove9" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove9" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC8")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC8")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove10" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove10" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC9")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC9")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove11" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove11" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1777, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC10")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC10")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove12" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove12" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1775, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC11")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC11")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove13" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove13" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC12")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC12")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove14" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove14" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC13")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC13")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove15" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove15" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC14")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC14")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove16" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove16" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC15")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC15")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="AT4_Cutscene4" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1"]
+[node name="AT4_Cutscene4" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1"]
 script = ExtResource("16_0lfsm")
 playback_mode = 0
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="CS1_ActionMove1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2047, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2026, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2005, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove4" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove4" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1983, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove5" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove5" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1962, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC4")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC4")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove6" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove6" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1940, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove7" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove7" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1918, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC6")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC6")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove8" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove8" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1896, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC7")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC7")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove9" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove9" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1875, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC8")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC8")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove10" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove10" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1853, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC9")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC9")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove11" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove11" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1832, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC10")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC10")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove12" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove12" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1811, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC11")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC11")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove13" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove13" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1790, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC12")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC12")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove14" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove14" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC13")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC13")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove15" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove15" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC14")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC14")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove16" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove16" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene4" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC15")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC15")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="AT4_Cutscene6" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1"]
+[node name="AT4_Cutscene6" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1"]
 script = ExtResource("16_0lfsm")
 playback_mode = 0
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="CS1_ActionMove1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2058, -694)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2047, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2047, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove4" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove4" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2005, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove5" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove5" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1983, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC4")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC4")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove6" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove6" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1962, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove7" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove7" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1939, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC6")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC6")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove8" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove8" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1917, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC7")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC7")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove9" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove9" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1896, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC8")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC8")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove10" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove10" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1875, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC9")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC9")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove11" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove11" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1854, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC10")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC10")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove12" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove12" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1831, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC11")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC11")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove13" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove13" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1811, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC12")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC12")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove14" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove14" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1790, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC13")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC13")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove15" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove15" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC14")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC14")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove16" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove16" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1776, -552)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC15")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC15")
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove17" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove17" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2047, -675)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC1")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove18" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove18" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2047, -653)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC2")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="ActionCamera1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6"]
+[node name="ActionCamera1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6"]
 position = Vector2(2186, -694)
 script = ExtResource("17_jttn0")
 move_speed = 75.0
 
-[node name="CS1_ActionMove20" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove20" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2068, -694)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/fr_agustin3")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove21" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove21" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2047, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove23" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove23" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2047, -631)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove19" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove19" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2047, -553)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC3")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="CS1_ActionMove22" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
+[node name="CS1_ActionMove22" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene6" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(2047, -551)
 script = ExtResource("18_ovovr")
-object_to_move = NodePath("../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
+object_to_move = NodePath("../../../../../Hide_NPC_To_Move1/NPC_To_Move1/TM_NPC5")
 move_duration = 3.0
 move_speed = 50.0
 metadata/_custom_type_script = "uid://ck4rgwvkxniu8"
 
-[node name="AT4_Cutscene5" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1"]
+[node name="AT4_Cutscene5" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1"]
 script = ExtResource("16_0lfsm")
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
-[node name="AT4_CS5_ActionAnimation1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene5" node_paths=PackedStringArray("animation_player")]
+[node name="AT4_CS5_ActionAnimation1" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene5" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("44_vwlj0")
-animation_player = NodePath("../../../../../../Fade")
+animation_player = NodePath("../../../../../../../Fade")
 animation_name = "fade_to_black"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="AT4_CS5_ActionAnimation2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene5" node_paths=PackedStringArray("animation_player")]
+[node name="AT4_CS5_ActionAnimation2" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene5" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("44_vwlj0")
-animation_player = NodePath("../../../../../../Show_Text_Q2")
+animation_player = NodePath("../../../../../../../Show_Text_Q2")
 animation_name = "show_text"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 
-[node name="the_ashes_advance" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene5/AT4_CS5_ActionAnimation2" instance=ExtResource("19_6w16s")]
+[node name="the_ashes_advance" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene5/AT4_CS5_ActionAnimation2" instance=ExtResource("19_6w16s")]
 signal_name = "finished"
 linked_quest = ExtResource("7_l11gx")
 quest_step = 1
@@ -7204,9 +7243,9 @@ settings_summary = "UPDATE QUEST:
 Step: 1 - the raining of ashes.
 Complete: true"
 
-[node name="AT4_CS5_ActionAnimation3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/AreaTrigger4/AT4_interaction1/AT4_Cutscene5" node_paths=PackedStringArray("animation_player")]
+[node name="AT4_CS5_ActionAnimation3" type="Node2D" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_AT4/AreaTrigger4/AT4_interaction1/AT4_Cutscene5" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("44_vwlj0")
-animation_player = NodePath("../../../../../../Fade")
+animation_player = NodePath("../../../../../../../Fade")
 animation_name = "fade_to_normal"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
 

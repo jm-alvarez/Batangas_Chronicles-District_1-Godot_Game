@@ -23,7 +23,7 @@ func _physics_process( _delta : float ) -> void:
 		var x_is_on : bool = abs( position.x - persistent_location.x ) < 8 + target_location_size.x
 		var y_is_on : bool = abs( position.y - persistent_location.y ) < 4 + target_location_size.y
 		if x_is_on and y_is_on and on_target == false:
-			print("On the btn")
+			print("On the pressure plate")
 			on_target = true
 			persistent_data_handler.set_value()
 		elif ( x_is_on == false or y_is_on == false ) and on_target == true:
