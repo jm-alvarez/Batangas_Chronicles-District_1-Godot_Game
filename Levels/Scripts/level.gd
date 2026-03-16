@@ -36,18 +36,15 @@ func setFirstText():
 func _on_q_1a_selected() -> void:
 	pass # Replace with function body.
 
-
 func _on_q_1b_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
 	PlayerManager.player.end_game()
 	pass # Replace with function body.
 
-
 func _on_q_1c_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
 	PlayerManager.player.end_game()
 	pass # Replace with function body.
-
 
 func _on_q_1d_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
@@ -55,18 +52,15 @@ func _on_q_1d_selected() -> void:
 	pass # Replace with function body.
 
 #Q2
-
 func _on_q_2a_selected() -> void:
 	await get_tree().create_timer(1.5).timeout
 	PlayerManager.player.end_game()
 	pass # Replace with function body.
 
-
 func _on_q_2b_selected() -> void:
 	await get_tree().create_timer(4.0).timeout
 	PlayerManager.player.end_game()
 	pass # Replace with function body.
-
 
 func _on_q_2d_selected() -> void:
 	await get_tree().create_timer(2.6).timeout
@@ -74,7 +68,7 @@ func _on_q_2d_selected() -> void:
 	pass # Replace with function body.
 
 #LIAN
-
+#Q1
 func _on_lq_1b_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
 	PlayerManager.player.end_game()
@@ -86,7 +80,7 @@ func _on_lq_1c_selected() -> void:
 	PlayerManager.player.end_game()
 	pass # Replace with function body.
 
-
+#Q2
 func _on_lq_2a_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
 	PlayerManager.player.end_game()
@@ -96,3 +90,6 @@ func _on_lq_2b_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
 	PlayerManager.player.end_game()
 	pass # Replace with function body.
+
+#NASUGBU
+#Q1
