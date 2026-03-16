@@ -475,4 +475,9 @@ npc_resource = ExtResource("16_7e8wd")
 [node name="dialog_interaction" parent="AkiMother" instance=ExtResource("12_ajdfj")]
 
 [connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/Q1A" to="." method="_on_q_1a_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2A" to="." method="_on_q_2a_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2B" to="." method="_on_q_2b_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2D" to="." method="_on_q_2d_selected"]
 [connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/Q1B" to="." method="_on_q_1b_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/Q1C" to="." method="_on_q_1c_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/Q1D" to="." method="_on_q_1d_selected"]
