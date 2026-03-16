@@ -304,112 +304,112 @@ script = ExtResource("17_dijal")
 npc_info = ExtResource("16_tiixw")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Q1A" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
+[node name="CQ1A" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
 script = ExtResource("18_dbvr0")
 text = "A type of nipa leaf used for walls."
 npc_info = ExtResource("14_dijal")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1A"]
+[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1A"]
 script = ExtResource("13_15q6w")
 text = "Good guess but no."
 npc_info = ExtResource("16_tiixw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1B" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
+[node name="CQ1B" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
 script = ExtResource("18_dbvr0")
 text = "A half bamboo used to build the roof."
 npc_info = ExtResource("14_dijal")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1correct" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B"]
+[node name="Q1correct" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B"]
 script = ExtResource("13_15q6w")
 text = "Great! glad you paid attention now answer the next one."
 npc_info = ExtResource("16_tiixw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="7Q2" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B"]
+[node name="7Q2" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B"]
 script = ExtResource("13_15q6w")
 text = "Why did the Spaniards call the place [color=green]Calaca[/color]?"
 npc_info = ExtResource("16_tiixw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="7choice" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B"]
+[node name="7choice" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B"]
 script = ExtResource("17_dijal")
 npc_info = ExtResource("16_tiixw")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Q2A" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B/7choice"]
+[node name="CQ2A" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice"]
 script = ExtResource("18_dbvr0")
 text = "It was the original name of the village."
 npc_info = ExtResource("14_dijal")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2wrong1" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B/7choice/Q2A"]
+[node name="Q2wrong1" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice/CQ2A"]
 script = ExtResource("13_15q6w")
 text = "Tuy was changed to Tuy. Does that even make sense to you?"
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2B" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B/7choice"]
+[node name="CQ2B" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice"]
 script = ExtResource("18_dbvr0")
 text = "Aki told them that was the name."
 npc_info = ExtResource("14_dijal")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2wrong2" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B/7choice/Q2B"]
+[node name="Q2wrong2" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice/CQ2B"]
 script = ExtResource("13_15q6w")
 text = "You did not even talk to the colonizer."
 npc_info = ExtResource("16_tiixw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2wrongaki" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B/7choice/Q2B"]
+[node name="Q2wrongaki" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice/CQ2B"]
 script = ExtResource("13_15q6w")
-text = "Helooks ugly."
+text = "He looks ugly."
 npc_info = ExtResource("14_dijal")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2C" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B/7choice"]
+[node name="CQ2C" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice"]
 script = ExtResource("18_dbvr0")
 text = "The villagers formally declared it."
 npc_info = ExtResource("14_dijal")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2wrong3" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B/7choice/Q2C"]
+[node name="Q2wrong3" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice/CQ2C"]
 script = ExtResource("13_15q6w")
 text = "Wrong but it is very likely."
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2D" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B/7choice"]
+[node name="CQ2D" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice"]
 script = ExtResource("18_dbvr0")
 text = "They misunderstood ka laka, which is the roof."
 npc_info = ExtResource("14_dijal")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1B/7choice/Q2D"]
+[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice/CQ2D"]
 script = ExtResource("13_15q6w")
 text = "The attention to detail on tis young man. Now you may proceed. Best of Luck."
 npc_info = ExtResource("16_tiixw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1C" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
+[node name="CQ1C" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
 script = ExtResource("18_dbvr0")
 text = "A tool used for cutting wood"
 npc_info = ExtResource("14_dijal")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1wrong2" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1C"]
+[node name="Q1wrong2" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1C"]
 script = ExtResource("13_15q6w")
 text = "I do not think that wood can cut wood...."
 npc_info = ExtResource("16_tiixw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1D" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
+[node name="CQ1D" type="Node" parent="Ermitanyo/dialog_interaction/6choice"]
 script = ExtResource("18_dbvr0")
 text = "The name of the town"
 npc_info = ExtResource("14_dijal")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1wrong3" type="Node" parent="Ermitanyo/dialog_interaction/6choice/Q1D"]
+[node name="Q1wrong3" type="Node" parent="Ermitanyo/dialog_interaction/6choice/CQ1D"]
 script = ExtResource("13_15q6w")
 text = "Did you even listen to Pedro?"
 npc_info = ExtResource("16_tiixw")
@@ -417,7 +417,6 @@ metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="Spaniard" parent="." instance=ExtResource("10_2vla5")]
 position = Vector2(-552, 497)
-npc_resource = ExtResource("17_15q6w")
 
 [node name="dialog_interaction" parent="Spaniard" instance=ExtResource("12_tiixw")]
 
@@ -440,3 +439,10 @@ script = ExtResource("13_15q6w")
 text = "¡Gracias!"
 npc_info = ExtResource("17_15q6w")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/CQ1A" to="." method="_on_cq_1a_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice/CQ2A" to="." method="_on_cq_2a_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice/CQ2B" to="." method="_on_cq_2b_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/CQ1B/7choice/CQ2C" to="." method="_on_cq_2c_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/CQ1C" to="." method="_on_cq_1c_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/6choice/CQ1D" to="." method="_on_cq_1d_selected"]

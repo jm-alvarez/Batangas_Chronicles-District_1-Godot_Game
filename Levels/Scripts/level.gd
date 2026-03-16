@@ -169,3 +169,36 @@ func _on_bq_2b_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
 	PlayerManager.player.end_game()
 	pass # Replace with function body.
+
+#CALACA
+#Q1
+func _on_cq_1a_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+func _on_cq_1c_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+func _on_cq_1d_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+#Q2
+func _on_cq_2a_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+func _on_cq_2b_selected() -> void:
+	await get_tree().create_timer(2.8).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+func _on_cq_2c_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
