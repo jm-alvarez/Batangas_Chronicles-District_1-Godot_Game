@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://cfais350iasuw" path="res://Player/Scripts/state_stun.gd" id="10_cn17j"]
 [ext_resource type="AudioStream" uid="uid://d0378mxfhr585" path="res://Player/audio/aki_attack.wav" id="10_u5i1f"]
 [ext_resource type="PackedScene" uid="uid://b0qj7uk087no6" path="res://GeneralNodes/HitBox/hit_box.tscn" id="11_3uas0"]
-[ext_resource type="Script" path="res://Player/Scripts/state_death.gd" id="12_go3if"]
+[ext_resource type="Script" uid="uid://b1i54ot40fleb" path="res://Player/Scripts/state_death.gd" id="12_go3if"]
 [ext_resource type="AudioStream" uid="uid://cmkxxwkt3ioet" path="res://Player/audio/hit_player.wav" id="12_mybtt"]
 [ext_resource type="Script" uid="uid://bnunlv2fhy6ly" path="res://Player/Scripts/push_area.gd" id="12_o7yf2"]
 [ext_resource type="Script" uid="uid://8tor0bsew6rn" path="res://Player/Scripts/player_camera.gd" id="13_g84tq"]

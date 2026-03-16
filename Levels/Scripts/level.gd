@@ -1,8 +1,11 @@
 class_name Level extends Node2D
 
+
+
 @export var FirstTextString : String 
 @export var FirstTextAnim : AnimationPlayer
 @export var music : AudioStream
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,3 +28,15 @@ func _free_level()-> void:
 
 func setFirstText():
 	%FirstTextLabel.text = FirstTextString
+
+
+#CALATAGAN
+#Q1
+
+func _on_q_1a_selected() -> void:
+	pass # Replace with function body.
+
+
+func _on_q_1b_selected() -> void:
+	PlayerManager.player.end_game()
+	pass # Replace with function body.

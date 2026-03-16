@@ -8,4 +8,6 @@ script = ExtResource("2_qou0v")
 title = "Is that just an Illusion?"
 description = "Is she true or just an illusion? She looks like Aki's Mom."
 steps = Array[String](["Chase that girl"])
+reward_exp = 0
+reward_items = Array[ExtResource("1_iwljf")]([])
 metadata/_custom_type_script = "uid://cbl1ai8wnqqui"
