@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://c0m8kk7se0tuh"]
+[gd_scene load_steps=67 format=4 uid="uid://c0m8kk7se0tuh"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_00e5h"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="1_ky7m4"]
@@ -34,6 +34,14 @@
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="28_eh82t"]
 [ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="29_07end"]
 [ext_resource type="Resource" uid="uid://csy3g11hwdx73" path="res://Quests/pansipit_bridge.tres" id="33_p0qwj"]
+[ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="35_xnejp"]
+[ext_resource type="Resource" uid="uid://cljs0jnmtecnh" path="res://NPC/00-NPC/local_priest_2.tres" id="36_4pd24"]
+[ext_resource type="PackedScene" uid="uid://5dgm3qr306fi" path="res://NPC/npc_behaviour_wander.tscn" id="37_x8lkv"]
+[ext_resource type="Resource" uid="uid://di7kde0e0ca01" path="res://NPC/00-NPC/Local_Citizen_Woman.tres" id="38_sydyc"]
+[ext_resource type="PackedScene" uid="uid://b5kfyppua07p4" path="res://NPC/NPCBehaviourPatrol.tscn" id="39_4qmpy"]
+[ext_resource type="PackedScene" uid="uid://ndua5p2o8wgx" path="res://NPC/PatrolLocation.tscn" id="40_52jo4"]
+[ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/NPC_Man1.tres" id="41_4qmpy"]
+[ext_resource type="Resource" uid="uid://b6owp4xyxahyw" path="res://NPC/00-NPC/NPC_Man2.tres" id="42_52jo4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnejp"]
 texture = ExtResource("5_07end")
@@ -824,3 +832,318 @@ script = ExtResource("28_eh82t")
 text = "Try to unlock it from the other town."
 npc_info = ExtResource("29_07end")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="NPC" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1479, 544)
+
+[node name="Priest1" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(577, -310)
+npc_resource = ExtResource("36_4pd24")
+
+[node name="NPCWanderBehaviour" parent="NPC/Priest1" instance=ExtResource("37_x8lkv")]
+wander_range = 1
+
+[node name="npc1" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(247, -265.07428)
+npc_resource = ExtResource("38_sydyc")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc1" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc1/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc1/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc1/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc1/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc2" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(11, -295.07428)
+npc_resource = ExtResource("38_sydyc")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc2" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc2/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc2/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc2/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc2/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc3" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(1201, -274.92545)
+npc_resource = ExtResource("41_4qmpy")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc3" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc3/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc3/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc3/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc3/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc4" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(1021, -82.99246)
+npc_resource = ExtResource("41_4qmpy")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc4" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc4/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc4/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc4/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc4/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc5" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(1203, -35.942078)
+npc_resource = ExtResource("38_sydyc")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc5" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc5/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc5/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc5/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc5/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc6" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(841.979, -106.65283)
+npc_resource = ExtResource("38_sydyc")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc6" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc6/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc6/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc6/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc6/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc7" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(768, -83.97565)
+npc_resource = ExtResource("42_52jo4")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc7" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc7/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc7/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc7/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc7/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc8" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(817, 53)
+npc_resource = ExtResource("42_52jo4")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc8" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc8/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc8/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc8/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc8/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc9" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(801, 240.92572)
+npc_resource = ExtResource("41_4qmpy")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc9" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc9/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc9/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc9/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc9/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc10" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(377, -5.9924316)
+npc_resource = ExtResource("41_4qmpy")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc10" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc10/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc10/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc10/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc10/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc11" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(81, 160.92566)
+npc_resource = ExtResource("38_sydyc")
+
+[node name="NPCBehaviourPatrol" parent="NPC/npc11" instance=ExtResource("39_4qmpy")]
+
+[node name="PatrolLocation" parent="NPC/npc11/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -7)
+
+[node name="PatrolLocation2" parent="NPC/npc11/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(0, 16)
+
+[node name="PatrolLocation3" parent="NPC/npc11/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(36, 16)
+
+[node name="PatrolLocation4" parent="NPC/npc11/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(36, -7)
+
+[node name="npc12" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(730, -316.07428)
+npc_resource = ExtResource("38_sydyc")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc12" instance=ExtResource("37_x8lkv")]
+
+[node name="npc13" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(792, -315.07428)
+npc_resource = ExtResource("41_4qmpy")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc13" instance=ExtResource("37_x8lkv")]
+wander_range = 1
+
+[node name="npc14" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(688, -312.07428)
+npc_resource = ExtResource("41_4qmpy")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc14" instance=ExtResource("37_x8lkv")]
+wander_range = 1
+
+[node name="npc15" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(713, -278.07428)
+npc_resource = ExtResource("41_4qmpy")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc15" instance=ExtResource("37_x8lkv")]
+wander_range = 1
+
+[node name="npc16" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(761, -274.07428)
+npc_resource = ExtResource("38_sydyc")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc16" instance=ExtResource("37_x8lkv")]
+wander_range = 1
+
+[node name="npc17" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(653, -277.07428)
+npc_resource = ExtResource("42_52jo4")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc17" instance=ExtResource("37_x8lkv")]
+wander_range = 1
+
+[node name="npc18" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(865, -308.07428)
+npc_resource = ExtResource("42_52jo4")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc18" instance=ExtResource("37_x8lkv")]
+wander_range = 1
+
+[node name="npc19" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(425, -323.07428)
+npc_resource = ExtResource("41_4qmpy")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc19" instance=ExtResource("37_x8lkv")]
+wander_range = 1
+
+[node name="npc20" parent="NPC" instance=ExtResource("35_xnejp")]
+position = Vector2(442, -317)
+npc_resource = ExtResource("38_sydyc")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc20" instance=ExtResource("37_x8lkv")]
+wander_range = 1
