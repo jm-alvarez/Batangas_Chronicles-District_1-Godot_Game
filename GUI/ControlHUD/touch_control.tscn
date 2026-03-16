@@ -27,6 +27,7 @@ region = Rect2(42, 26, 17, 14)
 [node name="TouchControl" type="CanvasLayer"]
 
 [node name="r_btn" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -55,6 +56,7 @@ texture_pressed = ExtResource("4_4cn2f")
 action = "interact"
 
 [node name="pause_node" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 80.0
@@ -68,6 +70,7 @@ texture_pressed = ExtResource("6_3pbex")
 action = "pause"
 
 [node name="d-pad_node" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0

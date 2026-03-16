@@ -8,7 +8,7 @@ var hearts : Array[ HeartGUI ] = []
 
 @onready var game_over: Control = $GameOver
 @onready var continue_button: Button = $GameOver/VBoxContainer/ContinueButton
-@onready var menu_button: Button = $GameOver/VBoxContainer/MenuButton
+@onready var menu_button: Button = $GameOver/VBoxContainer/ExitButton
 @onready var animation_player: AnimationPlayer = $GameOver/AnimationPlayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer2D
 
