@@ -1,6 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://oqkqf8k3tlc5"]
+[gd_scene load_steps=40 format=3 uid="uid://oqkqf8k3tlc5"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ikgjj"]
+[ext_resource type="AudioStream" uid="uid://brr7lox01jfjx" path="res://Assets/Sounds/BGM/Aki_House.mp3" id="2_pevmy"]
 [ext_resource type="PackedScene" uid="uid://bqu1q2bhv0qmb" path="res://Tilemaps/house_tilemap.tscn" id="2_vhdkk"]
 [ext_resource type="Texture2D" uid="uid://b0c41s0ghc8or" path="res://Levels/sample/Scene1/Sprites/Aki_Room_Door16x32-Sheet-export.png" id="3_6mnu1"]
 [ext_resource type="PackedScene" uid="uid://pb152kmqfih2" path="res://Levels/PlayerSpawn.tscn" id="3_52m6w"]
@@ -128,7 +129,7 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -143,7 +144,7 @@ tracks/0/path = NodePath("ShowFirstTextAnim/DirectionalLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.4901161e-08, 0.8, 1),
+"times": PackedFloat32Array(1.49012e-08, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [1.0, 1.0, 0.0]
@@ -155,7 +156,7 @@ tracks/1/path = NodePath("ShowFirstTextAnim/CanvasLayer/Control/FirstTextLabel:s
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -174,6 +175,7 @@ base_font = ExtResource("25_th03b")
 script = ExtResource("1_ikgjj")
 FirstTextString = "Living Room"
 FirstTextAnim = NodePath("ShowFirstTextAnim")
+music = ExtResource("2_pevmy")
 
 [node name="aki_house" parent="." instance=ExtResource("2_vhdkk")]
 position = Vector2(0, -13)
