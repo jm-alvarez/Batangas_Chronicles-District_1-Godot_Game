@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://c0m8kk7se0tuh"]
+[gd_scene load_steps=73 format=4 uid="uid://c0m8kk7se0tuh"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_00e5h"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="1_ky7m4"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="19_73170"]
 [ext_resource type="Script" uid="uid://d1mgcxi62fxvx" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="20_73170"]
 [ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="20_odb4l"]
+[ext_resource type="Script" uid="uid://cbq7cpt06m6ym" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="22_52jo4"]
 [ext_resource type="Script" uid="uid://2vlsm1584vq7" path="res://Levels/Taal/new_taal_final_cutscene.gd" id="22_sgxlm"]
 [ext_resource type="Resource" path="res://Quests/calaca_town_unlocked.tres" id="23_j6ok4"]
 [ext_resource type="Texture2D" uid="uid://r07o2iboijh7" path="res://Levels/RockFormation1.png" id="26_34pjn"]
@@ -322,6 +323,61 @@ base_font = ExtResource("9_t8uui")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a35yg"]
 size = Vector2(6, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1r34g"]
+size = Vector2(240, 94)
+
+[sub_resource type="Animation" id="Animation_evnrb"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_crptm"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rxcv5"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pem66"]
+_data = {
+&"default": SubResource("Animation_evnrb"),
+&"hide": SubResource("Animation_crptm"),
+&"show": SubResource("Animation_rxcv5")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odb4l"]
 size = Vector2(32, 32)
 
@@ -442,7 +498,7 @@ size = Vector2(28, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0qwj"]
 size = Vector2(24, 38)
 
-[sub_resource type="Animation" id="Animation_evnrb"]
+[sub_resource type="Animation" id="Animation_4qmpy"]
 resource_name = "default"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -457,7 +513,7 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_crptm"]
+[sub_resource type="Animation" id="Animation_52jo4"]
 resource_name = "hide"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -472,7 +528,7 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_rxcv5"]
+[sub_resource type="Animation" id="Animation_hs5dp"]
 resource_name = "show"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -487,11 +543,11 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pem66"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1mfij"]
 _data = {
-&"default": SubResource("Animation_evnrb"),
-&"hide": SubResource("Animation_crptm"),
-&"show": SubResource("Animation_rxcv5")
+&"default": SubResource("Animation_4qmpy"),
+&"hide": SubResource("Animation_52jo4"),
+&"show": SubResource("Animation_hs5dp")
 }
 
 [node name="Taal" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
@@ -629,6 +685,104 @@ shape = SubResource("RectangleShape2D_a35yg")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Church/Side_Walls"]
 position = Vector2(-72, 31)
 shape = SubResource("RectangleShape2D_a35yg")
+
+[node name="church_interaction" type="Area2D" parent="Church"]
+process_mode = 3
+z_index = 1
+position = Vector2(1959, 305)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("26_ecjtn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Church/church_interaction"]
+shape = SubResource("RectangleShape2D_1r34g")
+debug_color = Color(0, 0.623529, 0.521569, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Church/church_interaction"]
+position = Vector2(0, -71)
+scale = Vector2(2.125, 2.125)
+texture = ExtResource("27_mc8sp")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Church/church_interaction"]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_pem66")
+}
+autoplay = "default"
+
+[node name="DialogText" type="Node" parent="Church/church_interaction"]
+script = ExtResource("28_eh82t")
+text = "This is the Basilica of St. Martin de Tours"
+npc_info = ExtResource("36_4pd24")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogText2" type="Node" parent="Church/church_interaction"]
+script = ExtResource("28_eh82t")
+text = "We can see a stunning view from here."
+npc_info = ExtResource("36_4pd24")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogCutscene" type="Node" parent="Church/church_interaction"]
+script = ExtResource("20_odb4l")
+metadata/_custom_type_script = "uid://g5ppu787f5fj"
+
+[node name="CutsceneActionCamera" type="Node2D" parent="Church/church_interaction/DialogCutscene"]
+z_index = 1
+position = Vector2(2174, 200)
+script = ExtResource("22_52jo4")
+move_duration = 3.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="CutsceneActionCamera2" type="Node2D" parent="Church/church_interaction/DialogCutscene"]
+z_index = 1
+position = Vector2(2174, 38)
+script = ExtResource("22_52jo4")
+move_duration = 3.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="CutsceneActionCamera3" type="Node2D" parent="Church/church_interaction/DialogCutscene"]
+z_index = 1
+position = Vector2(2494, 138)
+script = ExtResource("22_52jo4")
+move_duration = 5.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="CutsceneActionCamera4" type="Node2D" parent="Church/church_interaction/DialogCutscene"]
+z_index = 1
+position = Vector2(1946, 138)
+script = ExtResource("22_52jo4")
+move_duration = 5.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="CutsceneActionCamera5" type="Node2D" parent="Church/church_interaction/DialogCutscene"]
+z_index = 1
+position = Vector2(1502, 541)
+script = ExtResource("22_52jo4")
+move_duration = 5.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="CutsceneActionCamera6" type="Node2D" parent="Church/church_interaction/DialogCutscene"]
+z_index = 1
+position = Vector2(2607, 823)
+script = ExtResource("22_52jo4")
+move_duration = 5.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
+
+[node name="CutsceneActionCamera7" type="Node2D" parent="Church/church_interaction/DialogCutscene"]
+z_index = 1
+position = Vector2(2322, 480)
+script = ExtResource("22_52jo4")
+move_duration = 5.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
 
 [node name="House" parent="." instance=ExtResource("13_d7076")]
 tile_map_data = PackedByteArray("AACNABkABQAJAAgAAACQACEABQACAAcAAACAADAABQACAAcAAACgADEABQAJAAgAAACoABwABQAJAAgAAACoAA0ABQAJAAgAAABsAA4ABQAJAAgAAAA=")
@@ -817,7 +971,7 @@ hframes = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hide_Bride_Rocks/bridge_locked_interaction"]
 process_mode = 3
 libraries = {
-&"": SubResource("AnimationLibrary_pem66")
+&"": SubResource("AnimationLibrary_1mfij")
 }
 autoplay = "default"
 
@@ -838,83 +992,117 @@ y_sort_enabled = true
 position = Vector2(1479, 544)
 
 [node name="Priest1" parent="NPC" instance=ExtResource("35_xnejp")]
-position = Vector2(577, -310)
+position = Vector2(515, -310)
 npc_resource = ExtResource("36_4pd24")
 
 [node name="NPCWanderBehaviour" parent="NPC/Priest1" instance=ExtResource("37_x8lkv")]
 wander_range = 1
+
+[node name="dialog_interaction" parent="NPC/Priest1" instance=ExtResource("19_73170")]
+
+[node name="DialogText" type="Node" parent="NPC/Priest1/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = "Do you know that this Basilica of Saint Martin de Tours is the tallest Church in Southeast Asia?"
+npc_info = ExtResource("36_4pd24")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogText2" type="Node" parent="NPC/Priest1/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = "It is made up of Coral Stones and Adobe Masonry."
+npc_info = ExtResource("36_4pd24")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="npc1" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(247, -265.07428)
 npc_resource = ExtResource("38_sydyc")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc1" instance=ExtResource("39_4qmpy")]
+walk_speed = 20.0
 
 [node name="PatrolLocation" parent="NPC/npc1/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
+wait_time = 1.0
 
 [node name="PatrolLocation2" parent="NPC/npc1/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 16)
+wait_time = 1.0
 
 [node name="PatrolLocation3" parent="NPC/npc1/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(36, 16)
+wait_time = 1.0
 
 [node name="PatrolLocation4" parent="NPC/npc1/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
+wait_time = 1.0
+
+[node name="dialog_interaction" parent="NPC/npc1" instance=ExtResource("19_73170")]
+
+[node name="DialogText" type="Node" parent="NPC/npc1/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = "Do you know in 1754, Taal Volcano erupted for 6 moths?"
+npc_info = ExtResource("38_sydyc")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogText2" type="Node" parent="NPC/npc1/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = "Ohhhh...... Now I know"
+npc_info = ExtResource("29_07end")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="npc2" parent="NPC" instance=ExtResource("35_xnejp")]
-position = Vector2(11, -295.07428)
+position = Vector2(11, -285)
 npc_resource = ExtResource("38_sydyc")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc2" instance=ExtResource("39_4qmpy")]
+walk_speed = 20.0
 
 [node name="PatrolLocation" parent="NPC/npc2/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
-
-[node name="PatrolLocation2" parent="NPC/npc2/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(0, 16)
-
-[node name="PatrolLocation3" parent="NPC/npc2/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
-modulate = Color(0, 1, 0, 1)
-position = Vector2(36, 16)
+wait_time = 1.0
 
 [node name="PatrolLocation4" parent="NPC/npc2/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(36, -7)
+modulate = Color(1, 1, 0, 1)
+position = Vector2(70, -7)
+wait_time = 1.0
 
 [node name="npc3" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(1201, -274.92545)
 npc_resource = ExtResource("41_4qmpy")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc3" instance=ExtResource("39_4qmpy")]
+walk_speed = 20.0
 
 [node name="PatrolLocation" parent="NPC/npc3/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
+wait_time = 1.0
 
 [node name="PatrolLocation2" parent="NPC/npc3/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 16)
+wait_time = 1.0
 
 [node name="PatrolLocation3" parent="NPC/npc3/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(36, 16)
+wait_time = 1.0
 
 [node name="PatrolLocation4" parent="NPC/npc3/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
+wait_time = 1.0
 
 [node name="npc4" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(1021, -82.99246)
 npc_resource = ExtResource("41_4qmpy")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc4" instance=ExtResource("39_4qmpy")]
+walk_speed = 10.0
 
 [node name="PatrolLocation" parent="NPC/npc4/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
@@ -933,158 +1121,237 @@ modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
 
 [node name="npc5" parent="NPC" instance=ExtResource("35_xnejp")]
-position = Vector2(1203, -35.942078)
+position = Vector2(1203, -37.942078)
 npc_resource = ExtResource("38_sydyc")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc5" instance=ExtResource("39_4qmpy")]
+walk_speed = 20.0
 
 [node name="PatrolLocation" parent="NPC/npc5/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
+wait_time = 2.0
 
 [node name="PatrolLocation2" parent="NPC/npc5/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 16)
+wait_time = 2.0
 
 [node name="PatrolLocation3" parent="NPC/npc5/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(36, 16)
+wait_time = 2.0
 
 [node name="PatrolLocation4" parent="NPC/npc5/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
+wait_time = 2.0
 
 [node name="npc6" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(841.979, -106.65283)
 npc_resource = ExtResource("38_sydyc")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc6" instance=ExtResource("39_4qmpy")]
+walk_speed = 20.0
 
 [node name="PatrolLocation" parent="NPC/npc6/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
+wait_time = 1.0
 
 [node name="PatrolLocation2" parent="NPC/npc6/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 16)
+wait_time = 1.0
 
 [node name="PatrolLocation3" parent="NPC/npc6/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(36, 16)
+wait_time = 1.0
 
 [node name="PatrolLocation4" parent="NPC/npc6/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
+wait_time = 1.0
 
 [node name="npc7" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(768, -83.97565)
 npc_resource = ExtResource("42_52jo4")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc7" instance=ExtResource("39_4qmpy")]
+walk_speed = 20.0
 
 [node name="PatrolLocation" parent="NPC/npc7/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
+wait_time = 3.0
 
 [node name="PatrolLocation2" parent="NPC/npc7/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 16)
+wait_time = 3.0
 
 [node name="PatrolLocation3" parent="NPC/npc7/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(36, 16)
+wait_time = 3.0
 
 [node name="PatrolLocation4" parent="NPC/npc7/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
+wait_time = 3.0
 
 [node name="npc8" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(817, 53)
 npc_resource = ExtResource("42_52jo4")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc8" instance=ExtResource("39_4qmpy")]
+walk_speed = 10.0
 
 [node name="PatrolLocation" parent="NPC/npc8/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
+wait_time = 2.0
 
 [node name="PatrolLocation2" parent="NPC/npc8/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 16)
+wait_time = 2.0
 
 [node name="PatrolLocation3" parent="NPC/npc8/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(36, 16)
+wait_time = 2.0
 
 [node name="PatrolLocation4" parent="NPC/npc8/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
+wait_time = 2.0
+
+[node name="dialog_interaction" parent="NPC/npc8" instance=ExtResource("19_73170")]
+
+[node name="DialogText" type="Node" parent="NPC/npc8/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = "Did you know that the original Town of Taal is called Balangon?"
+npc_info = ExtResource("42_52jo4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogText2" type="Node" parent="NPC/npc8/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = "Balangon was destroyed by the Moro Pirates and transferred to Lumang Taal before."
+npc_info = ExtResource("42_52jo4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogText3" type="Node" parent="NPC/npc8/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = " Then moved here after the destructive eruption of Taal Volcano."
+npc_info = ExtResource("42_52jo4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="npc9" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(801, 240.92572)
 npc_resource = ExtResource("41_4qmpy")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc9" instance=ExtResource("39_4qmpy")]
+walk_speed = 10.0
 
 [node name="PatrolLocation" parent="NPC/npc9/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
+wait_time = 1.0
 
 [node name="PatrolLocation2" parent="NPC/npc9/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 16)
+wait_time = 1.0
 
 [node name="PatrolLocation3" parent="NPC/npc9/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(36, 16)
+wait_time = 1.0
 
 [node name="PatrolLocation4" parent="NPC/npc9/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
+wait_time = 1.0
+
+[node name="dialog_interaction" parent="NPC/npc9" instance=ExtResource("19_73170")]
+
+[node name="DialogText" type="Node" parent="NPC/npc9/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = "Do you know? That, Lumang Taal is now the Town of San Nicolas"
+npc_info = ExtResource("41_4qmpy")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="npc10" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(377, -5.9924316)
 npc_resource = ExtResource("41_4qmpy")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc10" instance=ExtResource("39_4qmpy")]
+walk_speed = 20.0
 
 [node name="PatrolLocation" parent="NPC/npc10/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
+wait_time = 4.0
 
 [node name="PatrolLocation2" parent="NPC/npc10/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 16)
+wait_time = 4.0
 
 [node name="PatrolLocation3" parent="NPC/npc10/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(36, 16)
+wait_time = 4.0
 
 [node name="PatrolLocation4" parent="NPC/npc10/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
+wait_time = 4.0
+
+[node name="dialog_interaction" parent="NPC/npc10" instance=ExtResource("19_73170")]
+
+[node name="DialogText" type="Node" parent="NPC/npc10/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = "You can travel faster between Taal and Lemery using Pansipit bridge."
+npc_info = ExtResource("41_4qmpy")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="npc11" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(81, 160.92566)
 npc_resource = ExtResource("38_sydyc")
 
 [node name="NPCBehaviourPatrol" parent="NPC/npc11" instance=ExtResource("39_4qmpy")]
+walk_speed = 20.0
 
 [node name="PatrolLocation" parent="NPC/npc11/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -7)
+wait_time = 5.0
 
 [node name="PatrolLocation2" parent="NPC/npc11/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, 16)
+wait_time = 5.0
 
 [node name="PatrolLocation3" parent="NPC/npc11/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(36, 16)
+wait_time = 5.0
 
 [node name="PatrolLocation4" parent="NPC/npc11/NPCBehaviourPatrol" instance=ExtResource("40_52jo4")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(36, -7)
+wait_time = 5.0
+
+[node name="dialog_interaction" parent="NPC/npc11" instance=ExtResource("19_73170")]
+
+[node name="DialogText" type="Node" parent="NPC/npc11/dialog_interaction"]
+script = ExtResource("28_eh82t")
+text = "A statue is needed to place in pressure plate to unlock pansipit bridge."
+npc_info = ExtResource("38_sydyc")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="npc12" parent="NPC" instance=ExtResource("35_xnejp")]
 position = Vector2(730, -316.07428)
