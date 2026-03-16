@@ -74,7 +74,6 @@ func _on_lq_1b_selected() -> void:
 	PlayerManager.player.end_game()
 	pass # Replace with function body.
 
-
 func _on_lq_1c_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
 	PlayerManager.player.end_game()
@@ -92,4 +91,28 @@ func _on_lq_2b_selected() -> void:
 	pass # Replace with function body.
 
 #NASUGBU
+#Q1
+
+func _on_nq_1a_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+func _on_nq_1c_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+#Q2
+func _on_nq_2a_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+func _on_nq_2b_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+#TUY
 #Q1

@@ -1,5 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c26lvbtv0b86b"]
-[gd_scene load_steps=15 format=4 uid="uid://c26lvbtv0b86b"]
+[gd_scene load_steps=28 format=4 uid="uid://c26lvbtv0b86b"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ai7r3"]
 [ext_resource type="AudioStream" uid="uid://3vm118ni2ncg" path="res://Assets/Sounds/BGM/nasugbu_bgm.mp3" id="2_78ubu"]
@@ -322,91 +321,96 @@ script = ExtResource("20_2k718")
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="4Q1A" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice"]
+[node name="NQ1A" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice"]
 script = ExtResource("21_5suy5")
 text = "A piñata"
 npc_info = ExtResource("16_1p8gh")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1wrong" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1A"]
+[node name="Q1wrong" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1A"]
 script = ExtResource("12_syx5p")
 text = "A palayok is indeed used for a piñata...but not in this context."
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="4Q1B" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice"]
+[node name="NQ1B" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice"]
 script = ExtResource("21_5suy5")
 text = "A kitchenware made out of clay."
 npc_info = ExtResource("16_1p8gh")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1correct" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B"]
+[node name="Q1correct" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B"]
 script = ExtResource("12_syx5p")
 text = "Nicely done my boy, now for the next one."
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="5Q2" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B"]
+[node name="5Q2" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B"]
 script = ExtResource("12_syx5p")
 text = "Why did the Spaniards think that Nasugbu was the name of the barrio?"
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="5Q2choice" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B"]
+[node name="5Q2choice" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B"]
 script = ExtResource("20_2k718")
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Q2A" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice"]
+[node name="NQ2A" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice"]
 script = ExtResource("21_5suy5")
 text = "The man thought that the Spaniards were hungry"
 npc_info = ExtResource("16_1p8gh")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2worng" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice/Q2A"]
+[node name="Q2worng" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice/NQ2A"]
 script = ExtResource("12_syx5p")
 text = "The local is indeed nice bit that is not correct."
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2B" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice"]
+[node name="NQ2B" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice"]
 script = ExtResource("21_5suy5")
 text = "The man thought that the Spaniards were flirting."
 npc_info = ExtResource("16_1p8gh")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2worng1" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice/Q2B"]
+[node name="Q2worng1" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice/NQ2B"]
 script = ExtResource("12_syx5p")
 text = "Assuming is never a good thing, Aki"
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2C" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice"]
+[node name="NQ2C" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice"]
 script = ExtResource("21_5suy5")
 text = "The man thought that they were asking about the rice."
 npc_info = ExtResource("16_1p8gh")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice/Q2C"]
+[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice/NQ2C"]
 script = ExtResource("12_syx5p")
 text = "Correct. You are becoming acquainted with place."
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="6erm" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1B/5Q2choice/Q2C"]
+[node name="6erm" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice/NQ2C"]
 script = ExtResource("12_syx5p")
 text = "I must take my leave. Best of luck in your adventure!"
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="4Q1C" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice"]
+[node name="NQ1C" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice"]
 script = ExtResource("21_5suy5")
 text = "A paddle."
 npc_info = ExtResource("16_1p8gh")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/4Q1C"]
+[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/4Q1choice/NQ1C"]
 script = ExtResource("12_syx5p")
 text = "Where even is the paddle so I can hit you."
 npc_info = ExtResource("19_hie6x")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[connection signal="selected" from="Ermitanyo/dialog_interaction/4Q1choice/NQ1A" to="." method="_on_nq_1a_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice/NQ2A" to="." method="_on_nq_2a_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice/NQ2B" to="." method="_on_nq_2b_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/4Q1choice/NQ1C" to="." method="_on_nq_1c_selected"]
