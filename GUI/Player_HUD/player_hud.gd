@@ -66,7 +66,7 @@ pass
 func show_game_over_screen() -> void:
 	game_over.visible = true
 	game_over.mouse_filter = Control.MOUSE_FILTER_STOP
-	
+	%ContinueButton.grab_focus()
 	#var can_continue : bool = SaveManager.get_save_file() != null
 	#continue_button.visible = can_continue
 	

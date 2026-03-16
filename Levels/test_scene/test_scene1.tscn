@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="5_dobpw"]
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="6_287by"]
 [ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="7_egfel"]
-[ext_resource type="Script" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="8_5ltuf"]
+[ext_resource type="Script" uid="uid://cbq7cpt06m6ym" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="8_5ltuf"]
 [ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="9_gkkhu"]
 [ext_resource type="PackedScene" uid="uid://bbyt5atvbxtlm" path="res://Props/Rocks/rock.tscn" id="10_lijq5"]
 
