@@ -150,3 +150,22 @@ func _on_tq_2d_selected() -> void:
 
 #BALAYAN
 #Q1
+func _on_bq_1b_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+func _on_bq_1c_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+#Q2
+func _on_bq_2a_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+func _on_bq_2b_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.

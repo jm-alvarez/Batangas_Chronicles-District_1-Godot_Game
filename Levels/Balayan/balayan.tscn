@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cowgrmonxifds"]
+[gd_scene load_steps=24 format=4 uid="uid://cowgrmonxifds"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_vunib"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_lloj5"]
@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://8e1y45h1x22j" path="res://Tilemaps/tree.tscn" id="7_61853"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="8_61853"]
 [ext_resource type="PackedScene" uid="uid://dgykhe5ptxdeg" path="res://NPC/npc.tscn" id="9_42sh1"]
-[ext_resource type="Resource" uid="uid://bp188h7v47c7w" path="res://NPC/00-NPC/local6.tres" id="10_6l1nv"]
+[ext_resource type="Resource" path="res://NPC/00-NPC/local6.tres" id="10_6l1nv"]
 [ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="11_yid8x"]
 [ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="12_b21gq"]
 [ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="13_b21gq"]
-[ext_resource type="Resource" uid="uid://cqw6wpkg7aagb" path="res://NPC/00-NPC/Ermitanyo_Gray.tres" id="14_256rx"]
+[ext_resource type="Resource" path="res://NPC/00-NPC/Ermitanyo_Gray.tres" id="14_256rx"]
 [ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="15_o4021"]
 [ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="16_7bq0p"]
 [ext_resource type="Script" uid="uid://c5ouqrd8mm7fj" path="res://NPC/Scripts/npc_resource.gd" id="17_tf6x8"]
@@ -318,91 +318,96 @@ script = ExtResource("15_o4021")
 npc_info = ExtResource("13_b21gq")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Q1A" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice"]
+[node name="BQ1A" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice"]
 script = ExtResource("16_7bq0p")
 text = "A piece of bamboo used for catching fishes."
 npc_info = ExtResource("13_b21gq")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1Correct" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A"]
+[node name="Q1Correct" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A"]
 script = ExtResource("12_b21gq")
 text = "I see that you have been listening. Very Good, next."
 npc_info = ExtResource("14_256rx")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="8Q2" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A"]
+[node name="8Q2" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A"]
 script = ExtResource("12_b21gq")
 text = "What is a balay?"
 npc_info = ExtResource("14_256rx")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="8Q2choice" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A"]
+[node name="8Q2choice" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A"]
 script = ExtResource("15_o4021")
 npc_info = ExtResource("14_256rx")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Q2A" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A/8Q2choice"]
+[node name="BQ2A" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice"]
 script = ExtResource("16_7bq0p")
 text = "A Knife"
 npc_info = ExtResource("13_b21gq")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2wrong1" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A/8Q2choice/Q2A"]
+[node name="Q2wrong1" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice/BQ2A"]
 script = ExtResource("12_b21gq")
 text = "Give me a knife and I will show you why that answer is wrong."
 npc_info = ExtResource("14_256rx")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2B" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A/8Q2choice"]
+[node name="BQ2B" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice"]
 script = ExtResource("16_7bq0p")
 text = "A Male Malay"
 npc_info = ExtResource("13_b21gq")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2wrong2" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A/8Q2choice/Q2B"]
+[node name="Q2wrong2" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice/BQ2B"]
 script = ExtResource("12_b21gq")
 text = "It rhymes but it does not mean that it is correct."
 npc_info = ExtResource("14_256rx")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2C" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A/8Q2choice"]
+[node name="BQ2C" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice"]
 script = ExtResource("16_7bq0p")
 text = "A House"
 npc_info = ExtResource("13_b21gq")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A/8Q2choice/Q2C"]
+[node name="Q2correct" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice/BQ2C"]
 script = ExtResource("12_b21gq")
 text = "Correct. You learn more and more everyday Aki."
 npc_info = ExtResource("14_256rx")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="9erm" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1A/8Q2choice/Q2C"]
+[node name="9erm" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice/BQ2C"]
 script = ExtResource("12_b21gq")
 text = "I smell the presence of your mother nearing"
 npc_info = ExtResource("14_256rx")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1B" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice"]
+[node name="BQ1B" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice"]
 script = ExtResource("16_7bq0p")
 text = "Marcos"
 npc_info = SubResource("Resource_jip5e")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1B"]
+[node name="Q1wrong1" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1B"]
 script = ExtResource("12_b21gq")
 text = "Who is that?"
 npc_info = ExtResource("14_256rx")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1C" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice"]
+[node name="BQ1C" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice"]
 script = ExtResource("16_7bq0p")
 text = "Putobongbong"
 npc_info = ExtResource("13_b21gq")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="Q1wrong2" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/Q1C"]
+[node name="Q1wrong2" type="Node" parent="Ermitanyo/dialog_interaction/7Q1choice/BQ1C"]
 script = ExtResource("12_b21gq")
 text = "Are you hungry Aki?"
 npc_info = ExtResource("14_256rx")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[connection signal="selected" from="Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice/BQ2A" to="." method="_on_bq_2a_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice/BQ2B" to="." method="_on_bq_2b_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/7Q1choice/BQ1B" to="." method="_on_bq_1b_selected"]
+[connection signal="selected" from="Ermitanyo/dialog_interaction/7Q1choice/BQ1C" to="." method="_on_bq_1c_selected"]
