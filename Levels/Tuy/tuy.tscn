@@ -272,115 +272,115 @@ script = ExtResource("17_dquh3")
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Q1A" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
+[node name="TQ1A" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
 script = ExtResource("15_lepok")
 text = "He wanted to trick the Spaniard."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="6Q1wrong1" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1A"]
+[node name="6Q1wrong1" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1A"]
 script = ExtResource("12_npxw3")
 text = "Nope. Good guess though."
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1B" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
+[node name="TQ1B" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
 script = ExtResource("15_lepok")
 text = "He thought the Spaniard was asking about the tree."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="6Q1correct" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B"]
+[node name="6Q1correct" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B"]
 script = ExtResource("12_npxw3")
 text = "Nice one isekai victim!"
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="7Q02" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B"]
+[node name="7Q02" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B"]
 script = ExtResource("12_npxw3")
 text = "Onto the next question now."
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="7Q2" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B"]
+[node name="7Q2" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B"]
 script = ExtResource("12_npxw3")
 text = "What was the tuy tree commonly used for?"
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="7Q2choice" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B"]
+[node name="7Q2choice" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B"]
 script = ExtResource("17_dquh3")
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Q2A" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice"]
+[node name="TQ2A" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice"]
 script = ExtResource("15_lepok")
 text = "Building houses"
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="7Q2wrong1" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice/Q2A"]
+[node name="7Q2wrong1" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice/TQ2A"]
 script = ExtResource("12_npxw3")
 text = "Valid but no. wah wah"
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2B" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice"]
+[node name="TQ2B" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice"]
 script = ExtResource("15_lepok")
 text = "Making boats"
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="7Q2wrong2" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice/Q2B"]
+[node name="7Q2wrong2" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice/TQ2B"]
 script = ExtResource("12_npxw3")
 text = "Can you point to any boat nearby?"
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2C" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice"]
+[node name="TQ2C" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice"]
 script = ExtResource("15_lepok")
 text = "Making wooden shoes"
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="7Q2correct" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice/Q2C"]
+[node name="7Q2correct" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice/TQ2C"]
 script = ExtResource("12_npxw3")
 text = "Nice! You are now ready to proceed to the next town.
 "
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q2D" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice"]
+[node name="TQ2D" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice"]
 script = ExtResource("15_lepok")
 text = "Producing fruit"
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="7Q2wrong3" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1B/7Q2choice/Q2D"]
+[node name="7Q2wrong3" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice/TQ2D"]
 script = ExtResource("12_npxw3")
 text = "Do you see any fruit on that tree?"
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1C" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
+[node name="TQ1C" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
 script = ExtResource("15_lepok")
 text = "Tuy was already the official name of the town."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="6Q1wrong2" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1C"]
+[node name="6Q1wrong2" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1C"]
 script = ExtResource("12_npxw3")
 text = "Did you even listen to Juan tsk tsk"
 npc_info = ExtResource("10_npxw3")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Q1D" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
+[node name="TQ1D" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice"]
 script = ExtResource("15_lepok")
 text = "The Spaniard pointed at the mountains."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="6Q1wrong3" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/Q1D"]
+[node name="6Q1wrong3" type="Node" parent="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1D"]
 script = ExtResource("12_npxw3")
 text = "How does that even relate to the tree? "
 npc_info = ExtResource("10_npxw3")
@@ -480,3 +480,10 @@ script = ExtResource("12_npxw3")
 text = "Sometimes history is written by confusion, not intention."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[connection signal="selected" from="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1A" to="." method="_on_tq_1a_selected"]
+[connection signal="selected" from="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice/TQ2A" to="." method="_on_tq_2a_selected"]
+[connection signal="selected" from="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice/TQ2B" to="." method="_on_tq_2b_selected"]
+[connection signal="selected" from="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1B/7Q2choice/TQ2D" to="." method="_on_tq_2d_selected"]
+[connection signal="selected" from="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1C" to="." method="_on_tq_1c_selected"]
+[connection signal="selected" from="Ermitanyo/ermitanyo/dialog_interaction/5AkiChoice/Yes/6Q1choice/TQ1D" to="." method="_on_tq_1d_selected"]
