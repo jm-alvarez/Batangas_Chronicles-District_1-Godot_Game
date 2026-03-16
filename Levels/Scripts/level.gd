@@ -74,3 +74,25 @@ func _on_q_2d_selected() -> void:
 	pass # Replace with function body.
 
 #LIAN
+
+func _on_lq_1b_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+
+func _on_lq_1c_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+
+func _on_lq_2a_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
+
+func _on_lq_2b_selected() -> void:
+	await get_tree().create_timer(2.0).timeout
+	PlayerManager.player.end_game()
+	pass # Replace with function body.
