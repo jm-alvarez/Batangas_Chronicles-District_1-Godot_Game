@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Batangas_Chronicles_District_1"
+config/description="Batangas Chronicles: A Mobile E-Adventure Godot Game of the History of the First District of Batangas province for the Computer Science students in Lemery Colleges"
+config/version="1.0"
 run/main_scene="uid://dr3ggb3ln8fsk"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.23392558, 0.23392543, 0.2339254, 1)
+boot_splash/image="uid://cqbqgu6fj4pk3"
+config/icon="uid://g57oag5f1pam"
+boot_splash/minimum_display_time=100
 
 [autoload]
 

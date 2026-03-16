@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cr5l60jvfobgk"]
+[gd_scene load_steps=13 format=3 uid="uid://cr5l60jvfobgk"]
 
 [ext_resource type="Texture2D" uid="uid://btq4gtk1mi1jj" path="res://Assets/UI/Controls/A button.png" id="1_55yhx"]
+[ext_resource type="Script" uid="uid://cxc3cwegnijfw" path="res://GUI/ControlHUD/touch_control.gd" id="1_u1pmd"]
 [ext_resource type="Texture2D" uid="uid://dxfwxxg7yqe1w" path="res://Assets/UI/Controls/A button_pressed.png" id="2_7rypk"]
 [ext_resource type="Texture2D" uid="uid://bkcep5xwqmlvh" path="res://Assets/UI/Controls/B button.png" id="2_paoiu"]
 [ext_resource type="Texture2D" uid="uid://d2gcw1x3xt5vg" path="res://Assets/UI/Controls/B button_pressedt.png" id="4_4cn2f"]
@@ -25,9 +26,10 @@ atlas = ExtResource("8_op58x")
 region = Rect2(42, 26, 17, 14)
 
 [node name="TouchControl" type="CanvasLayer"]
+script = ExtResource("1_u1pmd")
 
 [node name="r_btn" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -56,7 +58,7 @@ texture_pressed = ExtResource("4_4cn2f")
 action = "interact"
 
 [node name="pause_node" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 80.0
@@ -70,7 +72,7 @@ texture_pressed = ExtResource("6_3pbex")
 action = "pause"
 
 [node name="d-pad_node" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
