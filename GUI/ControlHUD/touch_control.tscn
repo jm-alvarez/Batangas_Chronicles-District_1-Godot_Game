@@ -73,7 +73,7 @@ action = "pause"
 
 [node name="d-pad_node" type="Control" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
+visible = false
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
