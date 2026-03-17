@@ -45,7 +45,7 @@ func _on_fade_to_black_finished() -> void:
 	pass # Replace with function body.
 
 func _on_yes_selected() -> void:
-	%LQ2_Quest1_Advance.advance_quest()
+	#%LQ2_Quest1_Advance.advance_quest()
 	pass # Replace with function body.
 
 

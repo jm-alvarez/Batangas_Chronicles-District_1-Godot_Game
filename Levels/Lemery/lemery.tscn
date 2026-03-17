@@ -41,7 +41,7 @@
 [ext_resource type="Resource" uid="uid://bxfwu33vn1x66" path="res://NPC/00-NPC/Ermitanyo_Violet.tres" id="26_tjb2u"]
 [ext_resource type="Script" uid="uid://b4kpico5bhvbj" path="res://Levels/Lemery/spaniards_quest.gd" id="27_fgswx"]
 [ext_resource type="Resource" path="res://Quests/Heritage Town Awaits.tres" id="28_dea30"]
-[ext_resource type="Resource" path="res://Quests/calaca_town_unlocked.tres" id="29_tjb2u"]
+[ext_resource type="Resource" uid="uid://cor34vw2b7qta" path="res://Quests/calaca_town_unlocked.tres" id="29_tjb2u"]
 [ext_resource type="Script" uid="uid://km0bq2bi6o3o" path="res://Levels/Lemery/lemery_new_town_trigger.gd" id="30_0tbao"]
 [ext_resource type="Resource" uid="uid://csy3g11hwdx73" path="res://Quests/pansipit_bridge.tres" id="42_0tbao"]
 [ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="43_onhyf"]
@@ -1747,38 +1747,38 @@ Complete: false"
 
 [node name="Enemy_Activated_Switch" type="Node2D" parent="Spaniards_Quest"]
 script = ExtResource("20_nqhjt")
+check_type = 1
 react_to_global_signal = true
 linked_quest = ExtResource("49_x3ndx")
+quest_step = 1
 settings_summary = "UPDATE QUEST:
  Quest: Fresh from the Celador
-Checking if player has quest"
+Checking if player has completed step: find captain lemery"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="SpanishSoldier" parent="Spaniards_Quest/Enemy_Activated_Switch" instance=ExtResource("12_img18")]
-position = Vector2(276, 925)
+position = Vector2(208, 1101)
 
 [node name="SpanishSoldier2" parent="Spaniards_Quest/Enemy_Activated_Switch" instance=ExtResource("12_img18")]
-position = Vector2(85, 1044)
+position = Vector2(101, 1104)
 
 [node name="SpanishSoldier3" parent="Spaniards_Quest/Enemy_Activated_Switch" instance=ExtResource("12_img18")]
-position = Vector2(416, 1158)
+position = Vector2(368, 1134)
 
 [node name="SpanishSoldier4" parent="Spaniards_Quest/Enemy_Activated_Switch" instance=ExtResource("12_img18")]
-position = Vector2(183, 1228)
+position = Vector2(293, 1128)
 
 [node name="SpanishSoldier5" parent="Spaniards_Quest/Enemy_Activated_Switch" instance=ExtResource("12_img18")]
-position = Vector2(829, 1225)
+position = Vector2(314, 1045)
 
 [node name="SpanishSoldier6" parent="Spaniards_Quest/Enemy_Activated_Switch" instance=ExtResource("12_img18")]
-position = Vector2(820, 1087)
+position = Vector2(418, 1095)
 
 [node name="SpanishSoldier7" parent="Spaniards_Quest/Enemy_Activated_Switch" instance=ExtResource("12_img18")]
-position = Vector2(-116, 1061)
+position = Vector2(154, 1117)
 
-[node name="Plants" type="Node2D" parent="."]
-position = Vector2(2, 557)
-
-[node name="QuestActivatedSwitch2" type="Node2D" parent="Plants"]
+[node name="show_plants" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("20_nqhjt")
 react_to_global_signal = true
 linked_quest = ExtResource("17_uw18i")
@@ -1787,7 +1787,20 @@ settings_summary = "UPDATE QUEST:
 Checking if player has quest"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="QuestActivatedSwitch" type="Node2D" parent="Plants/QuestActivatedSwitch2"]
+[node name="Plants" type="Node2D" parent="show_plants"]
+y_sort_enabled = true
+position = Vector2(2, 557)
+
+[node name="QuestActivatedSwitch2" type="Node2D" parent="show_plants/Plants"]
+script = ExtResource("20_nqhjt")
+react_to_global_signal = true
+linked_quest = ExtResource("17_uw18i")
+settings_summary = "UPDATE QUEST:
+ Quest: Key to Devotion
+Checking if player has quest"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="QuestActivatedSwitch" type="Node2D" parent="show_plants/Plants/QuestActivatedSwitch2"]
 script = ExtResource("20_nqhjt")
 check_type = 1
 remove_when_activated = true
@@ -1799,14 +1812,14 @@ settings_summary = "UPDATE QUEST:
 Checking if player has completed step: find and destroy the bushes."
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="area_trigger" parent="Plants/QuestActivatedSwitch2/QuestActivatedSwitch" instance=ExtResource("20_lw8gp")]
+[node name="area_trigger" parent="show_plants/Plants/QuestActivatedSwitch2/QuestActivatedSwitch" instance=ExtResource("20_lw8gp")]
 position = Vector2(934, -149)
 scale = Vector2(25.8877, 17.3362)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/QuestActivatedSwitch2/QuestActivatedSwitch/area_trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="show_plants/Plants/QuestActivatedSwitch2/QuestActivatedSwitch/area_trigger"]
 shape = SubResource("RectangleShape2D_4rbpu")
 
-[node name="QuestAdvanceTrigger" type="Node2D" parent="Plants/QuestActivatedSwitch2/QuestActivatedSwitch/area_trigger"]
+[node name="QuestAdvanceTrigger" type="Node2D" parent="show_plants/Plants/QuestActivatedSwitch2/QuestActivatedSwitch/area_trigger"]
 position = Vector2(-36.0789, 8.59475)
 scale = Vector2(0.0386283, 0.0576829)
 script = ExtResource("16_0xvix")
@@ -1818,9 +1831,9 @@ settings_summary = "UPDATE QUEST:
 Step: 1 - find and destroy the bushes.
 Complete: false"
 
-[node name="Collectibles" type="Node2D" parent="Plants"]
+[node name="Collectibles" type="Node2D" parent="show_plants/Plants"]
 
-[node name="QuestActivatedSwitch2" type="Node2D" parent="Plants/Collectibles"]
+[node name="QuestActivatedSwitch2" type="Node2D" parent="show_plants/Plants/Collectibles"]
 script = ExtResource("20_nqhjt")
 check_type = 1
 remove_when_activated = true
@@ -1833,7 +1846,7 @@ settings_summary = "UPDATE QUEST:
 Checking if player has completed step: return the key to father."
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="QuestActivatedSwitch" type="Node2D" parent="Plants/Collectibles/QuestActivatedSwitch2"]
+[node name="QuestActivatedSwitch" type="Node2D" parent="show_plants/Plants/Collectibles/QuestActivatedSwitch2"]
 script = ExtResource("20_nqhjt")
 check_type = 1
 react_to_global_signal = true
@@ -1844,19 +1857,20 @@ settings_summary = "UPDATE QUEST:
 Checking if player has completed step: find and destroy the bushes."
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="Key" parent="Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch" instance=ExtResource("19_d64ox")]
+[node name="Key" parent="show_plants/Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch" instance=ExtResource("19_d64ox")]
+z_index = 0
 position = Vector2(1124, -182)
 scale = Vector2(0.47999, 0.47999)
 item_data = ExtResource("20_qq8iu")
 
-[node name="AreaTrigger" type="Area2D" parent="Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key"]
+[node name="AreaTrigger" type="Area2D" parent="show_plants/Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key"]
 script = ExtResource("25_ut4jf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="show_plants/Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger"]
 position = Vector2(-0.0090332, 0)
 shape = SubResource("CircleShape2D_x3ndx")
 
-[node name="quest_activated_switch" parent="Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger" instance=ExtResource("11_mrchx")]
+[node name="quest_activated_switch" parent="show_plants/Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger" instance=ExtResource("11_mrchx")]
 check_type = 1
 remove_when_activated = true
 linked_quest = ExtResource("17_uw18i")
@@ -1865,7 +1879,7 @@ settings_summary = "UPDATE QUEST:
  Quest: Help Unlock the Church
 Checking if player has completed step: find the key."
 
-[node name="quest_advance_trigger" parent="Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger/quest_activated_switch" instance=ExtResource("24_yxncn")]
+[node name="quest_advance_trigger" parent="show_plants/Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger/quest_activated_switch" instance=ExtResource("24_yxncn")]
 signal_name = "player_entered"
 linked_quest = ExtResource("17_uw18i")
 quest_step = 2
@@ -1874,86 +1888,91 @@ settings_summary = "UPDATE QUEST:
 Step: 2 - find the key.
 Complete: false"
 
-[node name="plant" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1024, 301)
 
-[node name="plant2" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant2" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1020, 180)
 
-[node name="plant3" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant3" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1045, 180)
 
-[node name="plant4" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant4" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1072, 180)
 
-[node name="plant5" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant5" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1111, -160)
 
-[node name="plant6" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant6" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1134, -161)
 
-[node name="plant7" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant7" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1122, -177)
 
-[node name="plant8" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant8" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(743, -64)
 
-[node name="plant9" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant9" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(764, -64)
 
-[node name="plant10" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant10" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(764, -52)
 
-[node name="plant11" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant11" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(742, -52)
 
-[node name="plant12" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant12" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(742, -38)
 
-[node name="plant13" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant13" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(766, -38)
 
-[node name="plant14" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant14" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(895, -40)
 
-[node name="plant15" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant15" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1005, -39)
 
-[node name="plant16" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant16" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(204, -74)
 
-[node name="plant17" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant17" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(283, -74)
 
-[node name="plant18" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant18" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1025, 318)
 
-[node name="plant19" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant19" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1000, -369)
 
-[node name="plant20" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant20" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1024, -369)
 
-[node name="plant21" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant21" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1046, -370)
 
-[node name="plant22" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant22" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1000, -353)
 
-[node name="plant23" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant23" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1025, -354)
 
-[node name="plant24" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant24" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1048, -351)
 
-[node name="plant25" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant25" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1000, -336)
 
-[node name="plant26" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant26" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1025, -337)
 
-[node name="plant27" parent="Plants" instance=ExtResource("18_qakm2")]
+[node name="plant27" parent="show_plants/Plants" instance=ExtResource("18_qakm2")]
 position = Vector2(1049, -335)
+
+[node name="HPTreasureChest2" parent="show_plants" instance=ExtResource("57_id2cg")]
+position = Vector2(1024, 203)
+item_data = ExtResource("58_id2cg")
+quantity = 1
 
 [node name="Bridge" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -2203,124 +2222,135 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="area_trigger" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1" instance=ExtResource("20_lw8gp")]
 
-[node name="CaptainLemeryDialog" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger" instance=ExtResource("11_c6aga")]
-monitoring = false
-enabled = false
+[node name="hide_interaction1" type="Node2D" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger"]
+script = ExtResource("20_nqhjt")
+check_type = 1
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("49_x3ndx")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+ Quest: Fresh from the Celador
+Checking if player has completed step: find and accept captain lemery's favor"
+metadata/_custom_type_script = "uid://6im7on6coqur"
 
-[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CaptainLemeryDialog" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1" instance=ExtResource("11_c6aga")]
+monitorable = true
+
+[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Hello [color=blue]AKi[/color]!"
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Did you find your mother?"
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Not yet Captain Roberto"
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Do not worry, I am still getting in touch with the other barrios if they find something. "
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "I also have some terrible news."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="Aki2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Thank you, captain, I really do need to find mother soon. What is that news Captain?"
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL5" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL5" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Father Geronimo has passed away and we were thinking …"
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL6" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL6" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "We should change the barrio’s name on his honor."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="Aki3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "Father would have loved that."
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="Aki4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "I can’t believe he’s gone."
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL7" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL7" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "I can’t believe it either."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL8" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="CL8" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("12_purwf")
 text = "May I ask you for something?"
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="DialogChoice" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog"]
+[node name="DialogChoice" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog"]
 script = ExtResource("14_u7lnm")
 metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
 
-[node name="Yes" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice"]
+[node name="Yes" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog/DialogChoice"]
 script = ExtResource("15_7gwaw")
 text = "Sure"
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = "You see, I need to prepare a fiesta for some guests and I lack the ingredients needed for the dish. "
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="CL2" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = "You see, I need to prepare a fiesta for some guests and I lack the ingredients needed for the dish. "
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="CL3" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = "Please help me gather some fishes and put it on the grill that I will set up somewhere outside."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="CL4" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = " When the fish dries, come and talk to me."
 npc_info = ExtResource("47_lkjpg")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes"]
+[node name="Aki" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog/DialogChoice/Yes"]
 script = ExtResource("12_purwf")
 text = "Will do."
 npc_info = ExtResource("13_lvoha")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="LQ2_Quest1_Advance" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes" instance=ExtResource("24_yxncn")]
+[node name="LQ2_Quest1_Advance" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog/DialogChoice/Yes" instance=ExtResource("24_yxncn")]
 unique_name_in_owner = true
-signal_name = "yes_selected"
+signal_name = "selected"
 linked_quest = ExtResource("49_x3ndx")
 quest_step = 1
 settings_summary = "UPDATE QUEST:
@@ -2328,12 +2358,12 @@ settings_summary = "UPDATE QUEST:
 Step: 1 - find captain lemery
 Complete: false"
 
-[node name="No" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice"]
+[node name="No" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog/DialogChoice"]
 script = ExtResource("15_7gwaw")
 text = "I still have things to do, sorry."
 metadata/_custom_type_script = "uid://bkqy61h7wypgw"
 
-[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/No"]
+[node name="CL" type="Node" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/hide_interaction1/CaptainLemeryDialog/DialogChoice/No"]
 script = ExtResource("12_purwf")
 text = "That’s all good, take care."
 npc_info = ExtResource("47_lkjpg")
@@ -2343,8 +2373,6 @@ metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_4e6h7")
 debug_color = Color(0, 0, 0.67451, 0.486275)
-
-[node name="NPCWanderBehaviour" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery" instance=ExtResource("10_ja4en")]
 
 [node name="CL_Dialog_2" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery" instance=ExtResource("11_mrchx")]
 check_type = 1
@@ -2396,6 +2424,8 @@ settings_summary = "UPDATE QUEST:
  Quest: Fresh from the Celador
 Step: 5 - go, talk to capt. lemery
 Complete: true"
+
+[node name="NPCWanderBehaviour" parent="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery" instance=ExtResource("10_ja4en")]
 
 [node name="Quest_1_Cutscene_Finished" parent="QuestActivatedSwitch/Quest1_Cutscene" instance=ExtResource("51_86yos")]
 
@@ -2727,11 +2757,6 @@ position = Vector2(663, 720)
 item_data = ExtResource("58_id2cg")
 quantity = 1
 
-[node name="HPTreasureChest2" parent="." instance=ExtResource("57_id2cg")]
-position = Vector2(1024, 203)
-item_data = ExtResource("58_id2cg")
-quantity = 1
-
 [node name="HPTreasureChest3" parent="." instance=ExtResource("57_id2cg")]
 position = Vector2(-220, 986)
 item_data = ExtResource("58_id2cg")
@@ -2975,14 +3000,13 @@ bus = &"Music"
 [connection signal="enemy_destroyed" from="Spaniards_Quest/Enemy_Activated_Switch/SpanishSoldier5" to="Spaniards_Quest" method="_on_spanish_soldier_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="Spaniards_Quest/Enemy_Activated_Switch/SpanishSoldier6" to="Spaniards_Quest" method="_on_spanish_soldier_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="Spaniards_Quest/Enemy_Activated_Switch/SpanishSoldier7" to="Spaniards_Quest" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="player_entered" from="Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger" to="Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger/quest_activated_switch/quest_advance_trigger" method="advance_quest"]
+[connection signal="player_entered" from="show_plants/Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger" to="show_plants/Plants/Collectibles/QuestActivatedSwitch2/QuestActivatedSwitch/Key/AreaTrigger/quest_activated_switch/quest_advance_trigger" method="advance_quest"]
 [connection signal="activated" from="Bridge/Show_Statues/PressurePlate2" to="Bridge/bridge" method="_on_pressure_plate_2_activated"]
 [connection signal="deactivated" from="Bridge/Show_Statues/PressurePlate2" to="Bridge/bridge" method="_on_pressure_plate_2_deactivated"]
 [connection signal="player_entered" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_area_trigger_player_entered"]
 [connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_black" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_black_finished"]
 [connection signal="finished" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene/fade_to_normal" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_fade_to_normal_finished"]
 [connection signal="advanced" from="QuestActivatedSwitch/Quest1_Cutscene/Hide_Quest1_Cutscene/area_trigger/DialogCutscene/lemery_quest2-show_quest" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_lemery_quest_2_show_quest_advanced"]
-[connection signal="selected" from="QuestActivatedSwitch/Quest1_Cutscene/CL_Hide/CaptainLemery/CL_Dialog_1/area_trigger/CaptainLemeryDialog/DialogChoice/Yes" to="QuestActivatedSwitch/Quest1_Cutscene" method="_on_yes_selected"]
 [connection signal="finished" from="ShowFirstText/DialogCutscene/CutsceneActionAnimation3" to="ShowFirstText" method="_on_cutscene_action_animation_3_finished"]
 [connection signal="body_entered" from="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/DryFishDialog" to="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill" method="_on_dry_fish_dialog_body_entered"]
 [connection signal="selected" from="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill/DryFishDialog/1Choice/Yes" to="QuestActivatedSwitch3/QuestActivatedSwitch2/Fish_Grill" method="_on_yes_selected"]
