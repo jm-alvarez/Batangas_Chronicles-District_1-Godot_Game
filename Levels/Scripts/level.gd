@@ -16,6 +16,8 @@ func _ready() -> void:
 	PlayerHud.hide_game_over_screen()
 	setFirstText()
 	FirstTextAnim.play()
+	await get_tree().process_frame
+	SaveManager.save_game()
 
 func _free_level()-> void:
 	PlayerManager.unparent_player( self )

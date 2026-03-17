@@ -1,0 +1,611 @@
+[gd_scene load_steps=51 format=3 uid="uid://d2m21n3hruv23"]
+
+[ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_8vgv5"]
+[ext_resource type="AudioStream" uid="uid://brr7lox01jfjx" path="res://Assets/Sounds/BGM/Aki_House.mp3" id="2_835xc"]
+[ext_resource type="Script" uid="uid://crh3mumpmhl2j" path="res://Levels/sample/Scene1/bed.gd" id="7_eahxn"]
+[ext_resource type="PackedScene" uid="uid://bqu1q2bhv0qmb" path="res://Tilemaps/house_tilemap.tscn" id="14_d6ail"]
+[ext_resource type="PackedScene" uid="uid://cnqkqeyxokar0" path="res://GeneralNodes/AreaTrigger/area_trigger.tscn" id="15_dnuil"]
+[ext_resource type="Texture2D" uid="uid://dswcki5ogh0x0" path="res://Levels/sample/Scene1/Sprites/window.png" id="15_p7pbr"]
+[ext_resource type="Script" uid="uid://dlcfo6j0qip1p" path="res://Levels/sample/Scene1/Bookshelf.gd" id="16_euhw0"]
+[ext_resource type="PackedScene" uid="uid://ct3mcjes3foau" path="res://Interactables/Dialog/dialog_interaction.tscn" id="16_oty82"]
+[ext_resource type="Script" uid="uid://6rr3xn6vbfwp" path="res://Interactables/Dialog/Scripts/dialog_text.gd" id="17_h0gke"]
+[ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="17_il3hh"]
+[ext_resource type="Texture2D" uid="uid://dotsn6l7v42di" path="res://Levels/sample/Scene1/Sprites/bookshelf-Sheet.png" id="17_nkfs0"]
+[ext_resource type="Resource" uid="uid://bm5kxl4uu4v23" path="res://NPC/00-NPC/npc_001.tres" id="18_dwkh4"]
+[ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="18_xueaf"]
+[ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="19_sj22y"]
+[ext_resource type="Script" uid="uid://d1mgcxi62fxvx" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="20_il3hh"]
+[ext_resource type="FontFile" uid="uid://dsoxwkihclwvt" path="res://Assets/Fonts/CS_Arthemis.otf" id="21_oty82"]
+[ext_resource type="Texture2D" uid="uid://cqbqgu6fj4pk3" path="res://GUI/MainMenu/Game_Title.png" id="22_dwkh4"]
+[ext_resource type="FontFile" uid="uid://bqa2mf60v3s6x" path="res://Assets/Fonts/m5x7.ttf" id="23_sj22y"]
+[ext_resource type="Texture2D" uid="uid://vjtp5f7opf4t" path="res://Levels/sample/Scene1/Sprites/Aki_Sleeping-Sheet-export.png" id="24_rub52"]
+[ext_resource type="Texture2D" uid="uid://rm7hnpvnr7a3" path="res://Levels/sample/Scene1/Sprites/small_drawer.png" id="25_0j38l"]
+[ext_resource type="Texture2D" uid="uid://bvbr725bi0gbj" path="res://Levels/sample/Scene1/Sprites/aki_room_doormat.png" id="26_vp3gu"]
+[ext_resource type="PackedScene" uid="uid://pb152kmqfih2" path="res://Levels/PlayerSpawn.tscn" id="31_iw031"]
+[ext_resource type="Script" uid="uid://b813olwkbql2w" path="res://Levels/sample/Scene1/cabinet.gd" id="32_lsd5n"]
+[ext_resource type="Texture2D" uid="uid://dfvtstvr7mr66" path="res://Levels/sample/Scene1/Sprites/Cabinet-Sheet.png" id="33_s1gl6"]
+[ext_resource type="FontFile" uid="uid://yk7a32y8la0r" path="res://Assets/Fonts/Pixelwarden-E4Yzj.ttf" id="36_j1wii"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no8fg"]
+size = Vector2(14, 7)
+
+[sub_resource type="Animation" id="Animation_lotpu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bookshelf/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_r6yoe"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bookshelf/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p8abc"]
+resource_name = "triggered"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bookshelf/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nv78n"]
+_data = {
+&"RESET": SubResource("Animation_lotpu"),
+&"default": SubResource("Animation_r6yoe"),
+&"triggered": SubResource("Animation_p8abc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1bey"]
+size = Vector2(28, 35)
+
+[sub_resource type="Animation" id="Animation_y5si0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qtpts"]
+resource_name = "aki_sleep"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 4, 6]
+}
+
+[sub_resource type="Animation" id="Animation_no7xn"]
+resource_name = "aki_wakeup"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_r8q3p"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pm6cj"]
+_data = {
+&"RESET": SubResource("Animation_y5si0"),
+&"aki_sleep": SubResource("Animation_qtpts"),
+&"aki_wakeup": SubResource("Animation_no7xn"),
+&"default": SubResource("Animation_r8q3p")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tku2l"]
+size = Vector2(10, 5)
+
+[sub_resource type="Animation" id="Animation_472rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pcr5w"]
+resource_name = "black"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_6a0ax"]
+resource_name = "black_2s"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_c1odp"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_d36yp"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqmxs"]
+_data = {
+&"RESET": SubResource("Animation_472rl"),
+&"black": SubResource("Animation_pcr5w"),
+&"black_2s": SubResource("Animation_6a0ax"),
+&"fade_to_black": SubResource("Animation_c1odp"),
+&"fade_to_normal": SubResource("Animation_d36yp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnk27"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vohmb"]
+size = Vector2(20, 7)
+
+[sub_resource type="FontVariation" id="FontVariation_p06ko"]
+base_font = ExtResource("36_j1wii")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xueaf"]
+size = Vector2(72, 59)
+
+[sub_resource type="Animation" id="Animation_h0gke"]
+resource_name = "show_texts"
+length = 20.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ending/CanvasLayer/Control/VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(216, 669), Vector2(216, -960)]
+}
+
+[sub_resource type="Animation" id="Animation_dwkh4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ending/CanvasLayer/Control/VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 669)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwkh4"]
+_data = {
+&"RESET": SubResource("Animation_dwkh4"),
+&"show_texts": SubResource("Animation_h0gke")
+}
+
+[node name="Aki_Room" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
+script = ExtResource("1_8vgv5")
+FirstTextAnim = NodePath("FirstTextAnim")
+music = ExtResource("2_835xc")
+
+[node name="aki_house" parent="." instance=ExtResource("14_d6ail")]
+layer_0/tile_data = PackedInt32Array(0, 196611, 0, 65536, 393219, 1, 131072, 393219, 2, 196608, 2, 1, 262144, 196610, 1, 327680, 196610, 1, 393216, 196610, 1, 458752, 196611, 2, 1, 262147, 0, 65537, 458755, 1, 131073, 458755, 2, 196609, 65539, 1, 262145, 458754, 1, 327681, 458754, 1, 393217, 458754, 1, 458753, 262147, 2, 2, 262147, 0, 65538, 458755, 1, 131074, 458755, 2, 196610, 65539, 1, 262146, 458754, 1, 327682, 458754, 1, 393218, 458754, 1, 458754, 262147, 2, 3, 262147, 0, 65539, 458755, 1, 131075, 458755, 2, 196611, 65539, 1, 262147, 458754, 1, 327683, 458754, 1, 393219, 458754, 1, 458755, 262147, 2, 4, 262147, 0, 65540, 458755, 1, 131076, 458755, 2, 196612, 65539, 1, 262148, 458754, 1, 327684, 458754, 1, 393220, 458754, 1, 458756, 393219, 0, 5, 262147, 0, 65541, 458755, 1, 131077, 458755, 2, 196613, 65539, 1, 262149, 458754, 1, 327685, 458754, 1, 393221, 458754, 1, 458757, 458755, 0, 6, 262147, 0, 65542, 458755, 1, 131078, 458755, 2, 196614, 65539, 1, 262150, 458754, 1, 327686, 458754, 1, 393222, 458754, 1, 458758, 524291, 0, 7, 262147, 0, 65543, 458755, 1, 131079, 458755, 2, 196615, 65539, 1, 262151, 458754, 1, 327687, 458754, 1, 393223, 458754, 1, 458759, 262147, 2, 8, 262147, 0, 65544, 458755, 1, 131080, 458755, 2, 196616, 65539, 1, 262152, 458754, 1, 327688, 458754, 1, 393224, 458754, 1, 458760, 262147, 2, 9, 262147, 0, 65545, 458755, 1, 131081, 458755, 2, 196617, 65539, 1, 262153, 458754, 1, 327689, 458754, 1, 393225, 458754, 1, 458761, 262147, 2, 10, 327683, 0, 65546, 524291, 1, 131082, 524291, 2, 196618, 131075, 1, 262154, 327683, 1, 327690, 327683, 1, 393226, 327683, 1, 458762, 327683, 2)
+
+[node name="Window" type="Sprite2D" parent="aki_house"]
+position = Vector2(81, 27)
+scale = Vector2(2, 2)
+texture = ExtResource("15_p7pbr")
+
+[node name="Bookshelf" type="Node2D" parent="."]
+position = Vector2(130, 42)
+script = ExtResource("16_euhw0")
+
+[node name="Bookshelf" type="StaticBody2D" parent="Bookshelf"]
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Bookshelf/Bookshelf"]
+texture = ExtResource("17_nkfs0")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookshelf/Bookshelf"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_no8fg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bookshelf"]
+libraries = {
+&"": SubResource("AnimationLibrary_nv78n")
+}
+
+[node name="Bed" type="StaticBody2D" parent="."]
+position = Vector2(22, 59)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("7_eahxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bed"]
+texture = ExtResource("24_rub52")
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_u1bey")
+debug_color = Color(1, 0, 0, 0.498039)
+
+[node name="aki_bed_anim" type="AnimationPlayer" parent="Bed"]
+libraries = {
+&"": SubResource("AnimationLibrary_pm6cj")
+}
+
+[node name="Drawer" type="StaticBody2D" parent="."]
+position = Vector2(46, 46)
+scale = Vector2(1.5, 1.5)
+collision_layer = 17
+
+[node name="Sprite2D" type="Sprite2D" parent="Drawer"]
+texture = ExtResource("25_0j38l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drawer"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_tku2l")
+
+[node name="Door_mat" type="Node2D" parent="."]
+
+[node name="AkiRoomDoormat" type="Sprite2D" parent="Door_mat"]
+light_mask = 0
+z_index = -1
+position = Vector2(88, 123)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_vp3gu")
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qqmxs")
+}
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Fade"]
+energy = 0.0
+blend_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(95, 64)
+zoom = Vector2(3, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(88, 138)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_pnk27")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("31_iw031")]
+position = Vector2(47, 60)
+
+[node name="Cabinet" type="Area2D" parent="."]
+position = Vector2(71, 40)
+scale = Vector2(1.5, 1.5)
+collision_layer = 17
+collision_mask = 17
+script = ExtResource("32_lsd5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cabinet"]
+texture = ExtResource("33_s1gl6")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_vohmb")
+
+[node name="dialog_interaction" parent="Cabinet" instance=ExtResource("16_oty82")]
+visible = false
+position = Vector2(0, 9.333334)
+scale = Vector2(0.5, 0.5)
+
+[node name="DialogText" type="Node" parent="Cabinet/dialog_interaction"]
+script = ExtResource("17_h0gke")
+text = "Enter the Cabinet?"
+npc_info = ExtResource("18_dwkh4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogChoice" type="Node" parent="Cabinet/dialog_interaction"]
+script = ExtResource("17_il3hh")
+metadata/_custom_type_script = "uid://cnh1xdf0wjyx3"
+
+[node name="Yes" type="Node" parent="Cabinet/dialog_interaction/DialogChoice"]
+script = ExtResource("18_xueaf")
+text = "Yes"
+npc_info = ExtResource("18_dwkh4")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="DialogText" type="Node" parent="Cabinet/dialog_interaction/DialogChoice/Yes"]
+script = ExtResource("17_h0gke")
+text = "Take care..."
+npc_info = ExtResource("18_dwkh4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="No" type="Node" parent="Cabinet/dialog_interaction/DialogChoice"]
+script = ExtResource("18_xueaf")
+text = "No"
+npc_info = ExtResource("18_dwkh4")
+metadata/_custom_type_script = "uid://bkqy61h7wypgw"
+
+[node name="DialogText" type="Node" parent="Cabinet/dialog_interaction/DialogChoice/No"]
+script = ExtResource("17_h0gke")
+text = "Ok"
+npc_info = ExtResource("18_dwkh4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="FirstTextAnim" type="AnimationPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="FirstTextAnim"]
+visible = false
+
+[node name="Control" type="Control" parent="FirstTextAnim/CanvasLayer"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstTextLabel" type="Label" parent="FirstTextAnim/CanvasLayer/Control"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -32.0
+offset_right = 342.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_p06ko")
+theme_override_font_sizes/font_size = 64
+text = "Lian"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ending_trigger" parent="." instance=ExtResource("15_dnuil")]
+unique_name_in_owner = true
+position = Vector2(69, 76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ending_trigger"]
+position = Vector2(6, 11.5)
+shape = SubResource("RectangleShape2D_xueaf")
+
+[node name="dialog_interaction" parent="ending_trigger" instance=ExtResource("16_oty82")]
+scale = Vector2(1e-05, 1e-05)
+monitoring = false
+
+[node name="DialogText" type="Node" parent="ending_trigger/dialog_interaction"]
+script = ExtResource("17_h0gke")
+text = "Woahhh!!!!"
+npc_info = ExtResource("18_dwkh4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogText2" type="Node" parent="ending_trigger/dialog_interaction"]
+script = ExtResource("17_h0gke")
+text = "I woke up in my room..."
+npc_info = ExtResource("18_dwkh4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogText3" type="Node" parent="ending_trigger/dialog_interaction"]
+script = ExtResource("17_h0gke")
+text = "Am I really in my home???"
+npc_info = ExtResource("18_dwkh4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogText4" type="Node" parent="ending_trigger/dialog_interaction"]
+script = ExtResource("17_h0gke")
+text = "Was it all just a dream???
+"
+npc_info = ExtResource("18_dwkh4")
+metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="DialogCutscene" type="Node" parent="ending_trigger/dialog_interaction"]
+script = ExtResource("19_sj22y")
+metadata/_custom_type_script = "uid://g5ppu787f5fj"
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="ending_trigger/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("20_il3hh")
+animation_player = NodePath("../../../../Fade")
+animation_name = "fade_to_black"
+metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
+
+[node name="CutsceneActionAnimation2" type="Node2D" parent="ending_trigger/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("20_il3hh")
+animation_player = NodePath("../../../../Ending")
+animation_name = "show_texts"
+metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
+
+[node name="CutsceneActionAnimation3" type="Node2D" parent="ending_trigger/dialog_interaction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("20_il3hh")
+animation_player = NodePath("../../../../Fade")
+animation_name = "fade_to_normal"
+metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
+
+[node name="Ending" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dwkh4")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Ending"]
+
+[node name="Control" type="Control" parent="Ending/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ending/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = 345.0
+offset_right = 360.0
+offset_bottom = 1250.0066
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="Ending/CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("21_oty82")
+theme_override_font_sizes/font_size = 48
+text = "Thank You For Playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Ending/CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("22_dwkh4")
+
+[node name="Label2" type="Label" parent="Ending/CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("21_oty82")
+theme_override_font_sizes/font_size = 48
+text = "BS Computer Science"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Ending/CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("23_sj22y")
+theme_override_font_sizes/font_size = 48
+text = "
+Leader: John Mark P. Alvarez
+
+Member: Ashley Judd Libao
+Member: Christian Ezekiel L. Mantos
+
+
+
+© 2026"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_started" from="Bed/aki_bed_anim" to="." method="_on_animation_player_animation_started"]

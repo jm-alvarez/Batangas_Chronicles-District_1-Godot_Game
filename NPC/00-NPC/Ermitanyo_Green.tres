@@ -6,8 +6,6 @@
 
 [resource]
 script = ExtResource("1_bfc03")
-npc_name = ""
 sprite = ExtResource("3_fff15")
 portrait = ExtResource("1_0ors2")
-dialog_audio_pitch = 1.0
 metadata/_custom_type_script = "uid://c5ouqrd8mm7fj"

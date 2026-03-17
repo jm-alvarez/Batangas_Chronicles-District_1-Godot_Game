@@ -27,7 +27,7 @@
 [ext_resource type="Script" uid="uid://d1mgcxi62fxvx" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="20_73170"]
 [ext_resource type="Script" uid="uid://g5ppu787f5fj" path="res://Interactables/Dialog/Scripts/dialog_cutscene.gd" id="20_odb4l"]
 [ext_resource type="Script" uid="uid://cbq7cpt06m6ym" path="res://Interactables/Dialog/Scripts/cutscene_action_camera.gd" id="22_52jo4"]
-[ext_resource type="Script" uid="uid://2vlsm1584vq7" path="res://Levels/Taal/new_taal_final_cutscene.gd" id="22_sgxlm"]
+[ext_resource type="Script" path="res://Levels/Taal/new_taal_final_cutscene.gd" id="22_sgxlm"]
 [ext_resource type="Resource" path="res://Quests/calaca_town_unlocked.tres" id="23_j6ok4"]
 [ext_resource type="Texture2D" uid="uid://r07o2iboijh7" path="res://Levels/RockFormation1.png" id="26_34pjn"]
 [ext_resource type="Script" uid="uid://bsglisl288k4l" path="res://Interactables/Dialog/Scripts/dialog_interaction.gd" id="26_ecjtn"]
@@ -933,6 +933,8 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 z_index = 1
 y_sort_enabled = true
 position = Vector2(1463, 536)
+collision_layer = 17
+collision_mask = 17
 
 [node name="Sprite2D" type="Sprite2D" parent="Hide_Bride_Rocks/Rock1"]
 texture = ExtResource("26_34pjn")
@@ -944,6 +946,8 @@ shape = SubResource("RectangleShape2D_gyy6s")
 z_index = 1
 y_sort_enabled = true
 position = Vector2(1463, 552)
+collision_layer = 17
+collision_mask = 17
 
 [node name="Sprite2D" type="Sprite2D" parent="Hide_Bride_Rocks/Rock2"]
 texture = ExtResource("26_34pjn")

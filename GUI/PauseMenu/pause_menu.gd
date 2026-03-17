@@ -63,7 +63,11 @@ func _on_button_resume_pressed():
 
 
 func _on_button_quit_pressed():
-	get_tree().quit()
+	#get_tree().quit()
+	PlayerManager.player.global_position = Vector2(47, 60)
+	#self.queue_free()
+	AudioManager.play_music(null)
+	LevelManager.load_new_level("res://GUI/MainMenu/title_screen.tscn", "", Vector2.ZERO)
 	pass
 
 

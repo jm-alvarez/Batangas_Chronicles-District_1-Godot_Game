@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://cdt35lmbul0oe"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_5yf8r"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="2_eodyr"]
+
+[resource]
+script = ExtResource("2_eodyr")
+title = "Calaca"
+description = "Calaca Quest"
+steps = Array[String](["Make the Ermitanyo let you pass."])
+metadata/_custom_type_script = "uid://cbl1ai8wnqqui"

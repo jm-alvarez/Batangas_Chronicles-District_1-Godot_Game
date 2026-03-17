@@ -99,5 +99,14 @@ func _on_continue_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
+	#get_tree().quit()
+	PlayerManager.player.global_position = Vector2(47, 60)
+	#self.queue_free()
+	AudioManager.play_music(null)
+	LevelManager.load_new_level("res://GUI/MainMenu/title_screen.tscn", "", Vector2.ZERO)
+	pass # Replace with function body.
+
+
+func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 	pass # Replace with function body.

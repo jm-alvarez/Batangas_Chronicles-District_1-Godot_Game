@@ -419,7 +419,7 @@ anchor_bottom = 0.5
 offset_left = -250.75
 offset_top = -19.0
 offset_right = 308.25
-offset_bottom = 175.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
@@ -444,7 +444,17 @@ theme_override_styles/normal = ExtResource("5_q7viu")
 theme_override_styles/pressed = ExtResource("6_jp33l")
 theme_override_styles/hover = ExtResource("7_sxe7q")
 theme_override_styles/focus = ExtResource("7_sxe7q")
-text = "Exit"
+text = "Main Menu"
+
+[node name="QuitButton" type="Button" parent="GameOver/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = ExtResource("5_q7viu")
+theme_override_styles/pressed = ExtResource("6_jp33l")
+theme_override_styles/hover = ExtResource("7_sxe7q")
+theme_override_styles/focus = ExtResource("7_sxe7q")
+text = "Quit"
 
 [node name="FadeToBlack" type="ColorRect" parent="GameOver"]
 layout_mode = 1
@@ -466,3 +476,4 @@ bus = &"SFX"
 
 [connection signal="pressed" from="GameOver/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
