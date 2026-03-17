@@ -3358,9 +3358,10 @@ playback_mode = 0
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
 
 [node name="CutsceneActionCamera" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard"]
+process_mode = 3
 position = Vector2(1449, -602)
 script = ExtResource("17_jttn0")
-easing_method = 1
+timing_method = 1
 move_duration = 6.0
 metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
 
