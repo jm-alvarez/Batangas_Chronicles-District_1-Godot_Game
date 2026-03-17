@@ -3352,18 +3352,22 @@ text = "There are some [color=red][wave]Spaniards[/wave][/color] our town throug
 npc_info = ExtResource("10_uh6mw")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
+[node name="4Cutscene_Move_Camera" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
+script = ExtResource("16_0lfsm")
+npc_info = ExtResource("30_1w611")
+metadata/_custom_type_script = "uid://g5ppu787f5fj"
+
+[node name="1ActionCamera" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/4Cutscene_Move_Camera"]
+position = Vector2(1449, -602)
+script = ExtResource("17_jttn0")
+easing_method = 0
+move_duration = 6.0
+move_speed = 10.0
+
 [node name="5Cutscene_Move_Spaniard" type="Node" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction"]
 script = ExtResource("16_0lfsm")
 playback_mode = 0
 metadata/_custom_type_script = "uid://g5ppu787f5fj"
-
-[node name="CutsceneActionCamera" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard"]
-process_mode = 3
-position = Vector2(1449, -602)
-script = ExtResource("17_jttn0")
-timing_method = 1
-move_duration = 6.0
-metadata/_custom_type_script = "uid://cbq7cpt06m6ym"
 
 [node name="2MoveSpaniard1" type="Node2D" parent="Hide_Ermitanyo/Ermitanyo1/ermitanyo1_interaction/5Cutscene_Move_Spaniard" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(1505, -597)

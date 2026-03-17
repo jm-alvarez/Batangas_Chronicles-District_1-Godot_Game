@@ -2310,10 +2310,6 @@ libraries = {
 energy = 0.0
 blend_mode = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(95, 64)
-zoom = Vector2(3, 3)
-
 [node name="controls" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_88gat")
