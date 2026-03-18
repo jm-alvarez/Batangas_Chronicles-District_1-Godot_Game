@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://c26lvbtv0b86b"]
+[gd_scene load_steps=39 format=4 uid="uid://c26lvbtv0b86b"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_ai7r3"]
 [ext_resource type="AudioStream" uid="uid://3vm118ni2ncg" path="res://Assets/Sounds/BGM/nasugbu_bgm.mp3" id="2_78ubu"]
@@ -28,6 +28,11 @@
 [ext_resource type="PackedScene" path="res://Levels/boulder.tscn" id="26_fvlln"]
 [ext_resource type="PackedScene" uid="uid://b5kfyppua07p4" path="res://NPC/NPCBehaviourPatrol.tscn" id="26_vfggc"]
 [ext_resource type="PackedScene" uid="uid://ndua5p2o8wgx" path="res://NPC/PatrolLocation.tscn" id="27_b2tdg"]
+[ext_resource type="Resource" uid="uid://di7kde0e0ca01" path="res://NPC/00-NPC/Local_Citizen_Woman.tres" id="29_2nhgx"]
+[ext_resource type="PackedScene" uid="uid://5dgm3qr306fi" path="res://NPC/npc_behaviour_wander.tscn" id="30_mykjr"]
+[ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/NPC_Man1.tres" id="31_sfuy3"]
+[ext_resource type="Resource" uid="uid://gv8ddhm2m1h7" path="res://NPC/00-NPC/Local_Citizen_Man.tres" id="32_vjseu"]
+[ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="33_mykjr"]
 
 [sub_resource type="Animation" id="Animation_rorml"]
 length = 0.001
@@ -485,6 +490,45 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="Boulder" parent="hide_boulder" instance=ExtResource("26_fvlln")]
 position = Vector2(-2833, 167)
+
+[node name="NPC" type="Node2D" parent="."]
+
+[node name="npc" parent="NPC" instance=ExtResource("14_syx5p")]
+position = Vector2(-2588, -202)
+npc_resource = ExtResource("29_2nhgx")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc" instance=ExtResource("30_mykjr")]
+
+[node name="npc2" parent="NPC" instance=ExtResource("14_syx5p")]
+position = Vector2(-2676, 88.92571)
+npc_resource = ExtResource("31_sfuy3")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc2" instance=ExtResource("30_mykjr")]
+wander_range = 1
+
+[node name="npc3" parent="NPC" instance=ExtResource("14_syx5p")]
+position = Vector2(-3013, 88)
+npc_resource = ExtResource("32_vjseu")
+
+[node name="NPCWanderBehaviour" parent="NPC/npc3" instance=ExtResource("30_mykjr")]
+wander_range = 1
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="SpanishSoldier" parent="Enemies" instance=ExtResource("33_mykjr")]
+position = Vector2(-2651, -216)
+
+[node name="SpanishSoldier2" parent="Enemies" instance=ExtResource("33_mykjr")]
+position = Vector2(-2882, -39)
+
+[node name="SpanishSoldier3" parent="Enemies" instance=ExtResource("33_mykjr")]
+position = Vector2(-2794, 76)
+
+[node name="SpanishSoldier4" parent="Enemies" instance=ExtResource("33_mykjr")]
+position = Vector2(-2576, -80)
+
+[node name="SpanishSoldier5" parent="Enemies" instance=ExtResource("33_mykjr")]
+position = Vector2(-2517, -332)
 
 [connection signal="selected" from="hide_ermitanyo/show_ermitanyo/Ermitanyo/dialog_interaction/4Q1choice/NQ1A" to="." method="_on_nq_1a_selected"]
 [connection signal="selected" from="hide_ermitanyo/show_ermitanyo/Ermitanyo/dialog_interaction/4Q1choice/NQ1B/5Q2choice/NQ2A" to="." method="_on_nq_2a_selected"]

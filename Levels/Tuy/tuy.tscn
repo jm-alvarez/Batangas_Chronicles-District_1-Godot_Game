@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="27_ebb71"]
 [ext_resource type="Resource" uid="uid://di7kde0e0ca01" path="res://NPC/00-NPC/Local_Citizen_Woman.tres" id="27_w5utb"]
 [ext_resource type="Resource" uid="uid://b6owp4xyxahyw" path="res://NPC/00-NPC/NPC_Man2.tres" id="28_33q6u"]
-[ext_resource type="Resource" uid="uid://x4vrgf2lry1t" path="res://Items/Dried_Fish.tres" id="31_msstk"]
+[ext_resource type="Resource" uid="uid://ckvcue26nyv20" path="res://Items/Lomi.tres" id="31_msstk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36boi"]
 texture = ExtResource("3_3agq8")

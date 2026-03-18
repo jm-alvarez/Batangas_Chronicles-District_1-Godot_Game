@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_qiffc"]
 script = ExtResource("1_7iudb")
-heal_amount = 10
+heal_amount = 2
 use_description = "Increase Amount health by 10"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ggev1"]
@@ -17,6 +17,6 @@ region = Rect2(0, 0, 48, 48)
 [resource]
 script = ExtResource("2_6vjvg")
 name = "Atchara"
-description = "PUTAhe na nagsasangkap ng "
+description = "From Calaca, can be eaten to restore a heath."
 texture = SubResource("AtlasTexture_ggev1")
 effects = Array[ExtResource("1_mqkw1")]([SubResource("Resource_qiffc")])

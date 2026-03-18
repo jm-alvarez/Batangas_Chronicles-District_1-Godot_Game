@@ -909,7 +909,7 @@ collision_layer = 272
 collision_mask = 16
 
 [node name="SpanishSoldier7" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-3093, 756)
+position = Vector2(-2816, 796)
 collision_layer = 272
 collision_mask = 16
 
@@ -964,7 +964,7 @@ collision_layer = 272
 collision_mask = 16
 
 [node name="SpanishSoldier18" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-2773, 509)
+position = Vector2(-2798, 815)
 collision_layer = 272
 collision_mask = 16
 
@@ -974,7 +974,7 @@ collision_layer = 272
 collision_mask = 16
 
 [node name="SpanishSoldier20" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-2497, 557)
+position = Vector2(-2540, 591)
 collision_layer = 272
 collision_mask = 16
 
@@ -984,7 +984,7 @@ collision_layer = 272
 collision_mask = 16
 
 [node name="SpanishSoldier22" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-3114, 544)
+position = Vector2(-2840, 820)
 collision_layer = 272
 collision_mask = 16
 
@@ -1016,6 +1016,7 @@ collision_mask = 16
 [node name="TreasureChest" parent="." instance=ExtResource("27_8hu2k")]
 position = Vector2(-2548, 808)
 item_data = ExtResource("31_clhn6")
+quantity = 1
 
 [node name="Bushes" type="Node2D" parent="."]
 top_level = true
