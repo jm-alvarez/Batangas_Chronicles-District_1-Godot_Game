@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cowgrmonxifds"]
+[gd_scene load_steps=39 format=4 uid="uid://cowgrmonxifds"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_vunib"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_lloj5"]
@@ -31,7 +31,8 @@
 [ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/NPC_Man1.tres" id="28_hqojb"]
 [ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="29_c7fr7"]
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="30_hqojb"]
-[ext_resource type="Resource" uid="uid://d2k7wbl61xxre" path="res://Items/Health_Potion.tres" id="31_21kc4"]
+[ext_resource type="Resource" uid="uid://ckvcue26nyv20" path="res://Items/Lomi.tres" id="32_dr3gr"]
+[ext_resource type="Resource" uid="uid://x4vrgf2lry1t" path="res://Items/Dried_Fish.tres" id="33_k3q7s"]
 
 [sub_resource type="Animation" id="Animation_rorml"]
 length = 0.001
@@ -592,17 +593,17 @@ y_sort_enabled = true
 
 [node name="TreasureChest" parent="Chests" instance=ExtResource("30_hqojb")]
 position = Vector2(-1531, 464)
-item_data = ExtResource("31_21kc4")
+item_data = ExtResource("32_dr3gr")
 quantity = 1
 
 [node name="TreasureChest2" parent="Chests" instance=ExtResource("30_hqojb")]
 position = Vector2(-1973, 125)
-item_data = ExtResource("31_21kc4")
+item_data = ExtResource("33_k3q7s")
 quantity = 1
 
 [node name="TreasureChest3" parent="Chests" instance=ExtResource("30_hqojb")]
 position = Vector2(-2396, 234)
-item_data = ExtResource("31_21kc4")
+item_data = ExtResource("33_k3q7s")
 quantity = 1
 
 [connection signal="selected" from="hide_ermitanyo/show_ermitanyo/Ermitanyo/dialog_interaction/7Q1choice/BQ1A/8Q2choice/BQ2A" to="." method="_on_bq_2a_selected"]

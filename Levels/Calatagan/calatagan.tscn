@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://cv5ohib7susts"]
+[gd_scene load_steps=49 format=4 uid="uid://cv5ohib7susts"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_yfxrw"]
 [ext_resource type="AudioStream" uid="uid://dadww474f0v0c" path="res://Assets/Sounds/BGM/calatagan_bgm.mp3" id="2_awb3o"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://cv5c0318h312h" path="res://Props/Plants/plant.tscn" id="28_2kibc"]
 [ext_resource type="PackedScene" uid="uid://bbyt5atvbxtlm" path="res://Props/Rocks/rock.tscn" id="28_8hu2k"]
 [ext_resource type="Script" uid="uid://d1mgcxi62fxvx" path="res://Interactables/Dialog/Scripts/cutscene_action_animation.gd" id="28_n48t0"]
+[ext_resource type="Resource" uid="uid://d2k7wbl61xxre" path="res://Items/Health_Potion.tres" id="31_clhn6"]
 [ext_resource type="FontFile" uid="uid://dsoxwkihclwvt" path="res://Assets/Fonts/CS_Arthemis.otf" id="33_fjko5"]
 [ext_resource type="Script" uid="uid://dcd3hqsswgxx1" path="res://Levels/Calatagan/finale.gd" id="34_pu77q"]
 
@@ -311,19 +312,19 @@ side = 2
 [node name="barrier" parent="." instance=ExtResource("2_xu56y")]
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_law7t")]
-position = Vector2(-3214, 888)
+position = Vector2(-3246, 907)
 
 [node name="tree" parent="." instance=ExtResource("8_cw46m")]
 tile_map_data = PackedByteArray("AAC9/xYACgAAAAIAAADA/xYACgAAAAIAAADG/xQACgAAAAIAAADB/wsACgAEAAIAAAC7/xAACgAEAAIAAACy/xQACgAEAAIAAADF/w0ACgAEAAIAAACz/xQACgAEAAIAAAC0/xQACgAEAAIAAAC1/xQACgAEAAIAAAC2/xQACgAEAAIAAAC2/xcACgAEAAIAAAC3/xcACgAEAAIAAAC1/xcACgAEAAIAAAC0/xcACgAEAAIAAACz/xcACgAEAAIAAACy/xcACgAEAAIAAACx/xcACgAEAAIAAACx/xQACgAEAAIAAAC3/xQACgAEAAIAAAC4/xcACgAEAAIAAAC5/xcACgAEAAIAAAC6/xcACgAEAAIAAAC7/xcACgAEAAIAAAC8/xcACgAEAAIAAAC9/xcACgAEAAIAAAC6/xYACgAEAAIAAAC7/xUACgAEAAIAAAC7/xYACgAEAAIAAAC8/xYACgAEAAIAAAC9/xUACgAEAAIAAAC+/xYACgAEAAIAAAC+/xcACgAEAAIAAAC//xcACgAEAAIAAADA/xcACgAEAAIAAADB/xcACgAEAAIAAADC/xcACgAEAAIAAADD/xcACgAEAAIAAADE/xcACgAEAAIAAADF/xcACgAEAAIAAADG/xcACgAEAAIAAADG/xYACgAEAAIAAADG/xUACgAEAAIAAADG/xMACgAEAAIAAADG/xIACgAEAAIAAADG/xEACgAEAAIAAADG/xAACgAEAAIAAADG/w8ACgAEAAIAAADG/w4ACgAEAAIAAADG/w0ACgAEAAIAAADG/wwACgAEAAIAAADG/wsACgAEAAIAAADF/wsACgAEAAIAAADE/wsACgAEAAIAAADD/wsACgAEAAIAAADC/wsACgAEAAIAAADF/wwACgAEAAIAAADF/xAACgAEAAIAAADF/xEACgAEAAIAAADF/xIACgAEAAIAAADE/w0ACgAEAAIAAADE/wwACgAEAAIAAADD/w0ACgAEAAIAAADD/wwACgAEAAIAAADC/w0ACgAEAAIAAADC/wwACgAEAAIAAADB/w0ACgAEAAIAAADB/wwACgAEAAIAAADA/wsACgAEAAIAAAA=")
 
-[node name="House" parent="." instance=ExtResource("6_ckoep")]
-tile_map_data = PackedByteArray("AAA0/yAABQACAAcAAAA2/zMABQAAAA0AAABh/yoABQAAAA0AAABr/yUABQAJAAgAAAA=")
-
-[node name="House1" parent="House" instance=ExtResource("7_cw46m")]
+[node name="House1" parent="." instance=ExtResource("7_cw46m")]
 position = Vector2(-2408, 816)
 
-[node name="House2" parent="House" instance=ExtResource("7_cw46m")]
+[node name="House2" parent="." instance=ExtResource("7_cw46m")]
 position = Vector2(-2631, 490)
+
+[node name="House" parent="." instance=ExtResource("6_ckoep")]
+tile_map_data = PackedByteArray("AAA0/yAABQACAAcAAAA2/zMABQAAAA0AAABh/yoABQAAAA0AAABr/yUABQAJAAgAAAA=")
 
 [node name="ShowFirstTextAnim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -764,7 +765,6 @@ wait_time = 4.0
 y_sort_enabled = true
 script = ExtResource("21_6uh5y")
 check_type = 3
-remove_when_activated = true
 react_to_global_signal = true
 linked_quest = ExtResource("20_6uh5y")
 quest_step = 1
@@ -880,89 +880,147 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="SpanishSoldier" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3028, 892)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier2" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-2975, 888)
+position = Vector2(-2992, 885)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier3" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2757, 747)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier4" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2809, 625)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier5" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3115, 892)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier6" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2706, 806)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier7" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-3093, 756)
+position = Vector2(-2816, 796)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier8" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2949, 686)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier9" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2997, 684)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier10" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2862, 732)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier11" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2700, 704)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier12" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-2926, 879)
+position = Vector2(-3096, 874)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier13" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3001, 787)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier14" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3069, 892)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier15" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3208, 902)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier16" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3146, 719)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier17" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3058, 665)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier18" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-2773, 509)
+position = Vector2(-2798, 815)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier19" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2770, 698)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier20" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-2497, 557)
+position = Vector2(-2540, 591)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier21" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2975, 490)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier22" parent="show_enemies" instance=ExtResource("26_53f33")]
-position = Vector2(-3114, 544)
+position = Vector2(-2840, 820)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier23" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3176, 635)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier24" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2914, 589)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier25" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2639, 698)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier26" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2647, 791)
+collision_layer = 272
+collision_mask = 16
 
 [node name="SpanishSoldier27" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3165, 897)
+collision_layer = 272
+collision_mask = 16
 
 [node name="TreasureChest" parent="." instance=ExtResource("27_8hu2k")]
 position = Vector2(-2548, 808)
+item_data = ExtResource("31_clhn6")
+quantity = 1
 
 [node name="Bushes" type="Node2D" parent="."]
+top_level = true
+y_sort_enabled = true
 
 [node name="plant" parent="Bushes" instance=ExtResource("28_2kibc")]
 position = Vector2(-2562, 779)

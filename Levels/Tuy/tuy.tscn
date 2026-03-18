@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dfcqbl8g1moby"]
+[gd_scene load_steps=39 format=4 uid="uid://dfcqbl8g1moby"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_k4c1w"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_bcebc"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="27_ebb71"]
 [ext_resource type="Resource" uid="uid://di7kde0e0ca01" path="res://NPC/00-NPC/Local_Citizen_Woman.tres" id="27_w5utb"]
 [ext_resource type="Resource" uid="uid://b6owp4xyxahyw" path="res://NPC/00-NPC/NPC_Man2.tres" id="28_33q6u"]
+[ext_resource type="Resource" uid="uid://ckvcue26nyv20" path="res://Items/Lomi.tres" id="31_msstk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36boi"]
 texture = ExtResource("3_3agq8")
@@ -455,97 +456,84 @@ position = Vector2(0, 20)
 position = Vector2(-2113, -403.07428)
 npc_resource = ExtResource("16_h48ys")
 
-[node name="hide_npc_interaction" type="Node2D" parent="npc"]
-script = ExtResource("20_dikx3")
-check_type = 3
-remove_when_activated = true
-react_to_global_signal = true
-linked_quest = ExtResource("21_dikx3")
-quest_step = 1
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Tuy
-Checking if quest is complete"
-metadata/_custom_type_script = "uid://6im7on6coqur"
+[node name="dialog_interaction" parent="npc" instance=ExtResource("12_d12pr")]
 
-[node name="dialog_interaction" parent="npc/hide_npc_interaction" instance=ExtResource("12_d12pr")]
-
-[node name="1loctxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="1loctxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "This tree looks ancient. Has it always been here?"
 npc_info = ExtResource("16_h48ys")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="2akitxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="2akitxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "Ah… not this exact one. 
 But trees like this once filled this land long ago."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="3loctxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="3loctxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "Really? 
 What kind of trees?"
 npc_info = ExtResource("16_h48ys")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="4akitxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="4akitxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "They were called [color=red]tuy[/color]. 
 A white, light wood tree. Strong, but easy to carve. People used it to make wooden shoes."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="5loctxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="5loctxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "So… is that how this town got its name?"
 npc_info = ExtResource("16_h48ys")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="6akitxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="6akitxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "[wave]Haha[/wave]That’s what many believe. When the Spaniards first came here, they asked a native man the name of this place."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="7loctxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="7loctxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = " And?"
 npc_info = ExtResource("16_h48ys")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="8akitxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="8akitxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "The Spaniard asked in Spanish. The native didn’t understand. He thought the foreigner was asking about the tree he was resting under."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="9loctxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="9loctxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "Let me guess… he answered “tuy”?"
 npc_info = ExtResource("16_h48ys")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="10akitxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="10akitxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "Exactly. The Spaniard believed that was the name of the place. From then on, they began calling it [shake]Tuy[/shake]."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="11loctxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="11loctxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "So the town was named because of a misunderstanding?"
 npc_info = ExtResource("16_h48ys")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="12akitxt" type="Node" parent="npc/hide_npc_interaction/dialog_interaction"]
+[node name="12akitxt" type="Node" parent="npc/dialog_interaction"]
 script = ExtResource("12_npxw3")
 text = "Sometimes history is written by confusion, not intention."
 npc_info = ExtResource("17_lepok")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="show_tuy_quest" parent="npc/hide_npc_interaction/dialog_interaction" instance=ExtResource("20_s1s7d")]
+[node name="show_tuy_quest" parent="npc/dialog_interaction" instance=ExtResource("20_s1s7d")]
 position = Vector2(2113, 397)
 signal_name = "finished"
 linked_quest = ExtResource("21_dikx3")
@@ -600,6 +588,8 @@ position = Vector2(-2329, -364)
 
 [node name="TreasureChest" parent="." instance=ExtResource("26_105iu")]
 position = Vector2(-2236, -449)
+item_data = ExtResource("31_msstk")
+quantity = 1
 
 [node name="Enemies" type="Node2D" parent="."]
 

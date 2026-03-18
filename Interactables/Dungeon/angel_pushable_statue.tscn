@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmhkdp2ssagan"]
+
+[ext_resource type="Script" uid="uid://8smdn6r6l8vv" path="res://Interactables/Dungeon/pushable_statue.gd" id="1_ja8ch"]
+[ext_resource type="Texture2D" uid="uid://dq2b01w35ybs0" path="res://Interactables/Dungeon/Statue_Angel.png" id="2_ja8ch"]
+[ext_resource type="AudioStream" uid="uid://dwm0r471xr3ve" path="res://Interactables/Dungeon/push_stone.wav" id="3_mgxxs"]
+[ext_resource type="PackedScene" uid="uid://crnk5hqebaqnu" path="res://GeneralNodes/PersistentDataHelper/persistent_data_handler.tscn" id="4_fe38e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii5d4"]
+size = Vector2(18, 8)
+
+[node name="angel_pushable_statue" type="RigidBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 16
+collision_mask = 16
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_ja8ch")
+persistent = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 16)
+scale = Vector2(1.8594, 2.48878)
+shape = SubResource("RectangleShape2D_ii5d4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.9999997)
+scale = Vector2(0.7222223, 0.7222222)
+texture = ExtResource("2_ja8ch")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mgxxs")
+
+[node name="persistent_data_handler" parent="." instance=ExtResource("4_fe38e")]

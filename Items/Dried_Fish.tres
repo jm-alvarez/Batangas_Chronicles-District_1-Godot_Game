@@ -16,7 +16,7 @@ region = Rect2(0, 0, 32, 32)
 [resource]
 script = ExtResource("2_d6hjs")
 name = "Dried_Fish"
-description = "Dried FIsh
+description = "It can be eat and restore a health.
 "
 texture = SubResource("AtlasTexture_w05ol")
 effects = Array[ExtResource("1_p30br")]([SubResource("Resource_mebi4")])

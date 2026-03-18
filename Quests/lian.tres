@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_q5p17")
-title = "Calatagan"
-description = "Calatagan Quest"
+title = "Lian"
+description = "Lian Quest"
 steps = Array[String](["Make the Ermitanyo let you pass."])
 metadata/_custom_type_script = "uid://cbl1ai8wnqqui"

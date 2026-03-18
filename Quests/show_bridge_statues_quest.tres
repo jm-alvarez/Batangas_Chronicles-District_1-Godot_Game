@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://ucak8prxmtuq"]
+
+[ext_resource type="Script" uid="uid://d0a1840lgbblo" path="res://Quests/Scripts/quest_reward_item.gd" id="1_7tgog"]
+[ext_resource type="Script" uid="uid://cbl1ai8wnqqui" path="res://Quests/Scripts/quest_resource.gd" id="2_fcuyd"]
+
+[resource]
+script = ExtResource("2_fcuyd")
+title = "Something activated..."
+description = "When the Angel Statue bring back to it's original place, something activated."
+metadata/_custom_type_script = "uid://cbl1ai8wnqqui"

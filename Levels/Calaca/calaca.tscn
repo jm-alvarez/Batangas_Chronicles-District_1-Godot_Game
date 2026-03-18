@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://b42q3fyiity6c"]
+[gd_scene load_steps=35 format=4 uid="uid://b42q3fyiity6c"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_nmgp8"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="1_vn3xi"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="25_4xy8x"]
 [ext_resource type="PackedScene" uid="uid://djvapt63h8sq5" path="res://Interactables/TreasureChest/TreasureChest.tscn" id="26_nofpa"]
 [ext_resource type="PackedScene" uid="uid://cv5c0318h312h" path="res://Props/Plants/plant.tscn" id="27_m6m88"]
+[ext_resource type="Resource" uid="uid://du5n3wjbwcbay" path="res://Items/Atchara.tres" id="29_kde3k"]
 
 [sub_resource type="Animation" id="Animation_rorml"]
 length = 0.001
@@ -558,6 +559,7 @@ y_sort_enabled = true
 
 [node name="TreasureChest" parent="Chests" instance=ExtResource("26_nofpa")]
 position = Vector2(-715, 430)
+item_data = ExtResource("29_kde3k")
 
 [node name="Bushes" type="Node2D" parent="."]
 z_index = 1

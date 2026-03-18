@@ -1,8 +1,14 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://ckvcue26nyv20"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://ckvcue26nyv20"]
 
 [ext_resource type="Script" uid="uid://cfkjdu5qrigpx" path="res://Items/ItemEffects/item_effect.gd" id="1_d1vkt"]
 [ext_resource type="Script" uid="uid://bo1cubssakxcg" path="res://Items/Script/item_data.gd" id="1_wq4hq"]
 [ext_resource type="Texture2D" uid="uid://r2fyvvb3j2n4" path="res://Items/Sprite/Lomi.png" id="2_83ah2"]
+[ext_resource type="Script" uid="uid://cuq2wxcdr3ol6" path="res://Items/ItemEffects/item_effect_heal.gd" id="2_681mx"]
+
+[sub_resource type="Resource" id="Resource_63td6"]
+script = ExtResource("2_681mx")
+heal_amount = 4
+metadata/_custom_type_script = "uid://cuq2wxcdr3ol6"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0xxqw"]
 atlas = ExtResource("2_83ah2")
@@ -11,5 +17,6 @@ region = Rect2(0, 0, 32, 32)
 [resource]
 script = ExtResource("1_wq4hq")
 name = "Lomi"
-description = "Ala Eh Lomi! A noodle based dish that is a saple in Batangas. Increases your XP."
+description = "Ala Eh Lomi! A noodle based dish that is a saple in Batangas. Restore your health."
 texture = SubResource("AtlasTexture_0xxqw")
+effects = Array[ExtResource("1_d1vkt")]([SubResource("Resource_63td6")])

@@ -11,7 +11,8 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(495, 258)
 scale = Vector2(1.5, 1.5)
-collision_layer = 16
+collision_layer = 17
+collision_mask = 17
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_odt7v")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cw2qviq5f1tie"]
+[gd_scene load_steps=36 format=4 uid="uid://cw2qviq5f1tie"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_r43up"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_2jh0s"]
@@ -21,7 +21,6 @@
 [ext_resource type="Resource" uid="uid://b3a1n0sitapdp" path="res://NPC/00-NPC/local4.tres" id="17_h3avh"]
 [ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="17_v64pp"]
 [ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="18_myyrv"]
-[ext_resource type="PackedScene" uid="uid://5dgm3qr306fi" path="res://NPC/npc_behaviour_wander.tscn" id="19_6cef1"]
 [ext_resource type="Texture2D" uid="uid://d3fnt25usf6o1" path="res://Levels/Tuy/Balsa3ito.png" id="20_myyrv"]
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="21_81u5t"]
 [ext_resource type="PackedScene" uid="uid://dhum4p6sfou1f" path="res://Assets/Terrain/barrier.tscn" id="21_e8awy"]
@@ -179,7 +178,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Chinese" parent="." instance=ExtResource("9_k3t6l")]
-position = Vector2(-2817, 325)
+position = Vector2(-2826, 337)
 npc_resource = ExtResource("10_kdgqb")
 
 [node name="hide_npc_interaction" type="Node2D" parent="Chinese"]
@@ -242,37 +241,8 @@ text = "After a few months Aki was able to attend the festival of Lian where mul
 npc_info = ExtResource("15_mta8j")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
-[node name="show_behaviour" type="Node2D" parent="Chinese"]
-script = ExtResource("17_87emc")
-check_type = 3
-react_to_global_signal = true
-linked_quest = ExtResource("22_5bdpl")
-quest_step = 1
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Lian
-Checking if quest is complete"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="NPCWanderBehaviour" parent="Chinese/show_behaviour" instance=ExtResource("19_6cef1")]
-wander_range = 1
-
 [node name="Spanish" parent="." instance=ExtResource("9_k3t6l")]
-position = Vector2(-2851, 328)
-
-[node name="show_behaviour" type="Node2D" parent="Spanish"]
-script = ExtResource("17_87emc")
-check_type = 3
-react_to_global_signal = true
-linked_quest = ExtResource("22_5bdpl")
-quest_step = 1
-quest_complete = true
-settings_summary = "UPDATE QUEST:
- Quest: Lian
-Checking if quest is complete"
-metadata/_custom_type_script = "uid://6im7on6coqur"
-
-[node name="NPCWanderBehaviour" parent="Spanish/show_behaviour" instance=ExtResource("19_6cef1")]
+position = Vector2(-2841, 336)
 
 [node name="hide_ermitanyo" type="Node2D" parent="."]
 script = ExtResource("17_87emc")
@@ -297,7 +267,7 @@ Checking if player has quest"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="Ermitanyo" parent="hide_ermitanyo/show_ermitanyo" instance=ExtResource("9_k3t6l")]
-position = Vector2(-2835, 309)
+position = Vector2(-2849, 441)
 npc_resource = ExtResource("16_h3avh")
 
 [node name="dialog_interaction" parent="hide_ermitanyo/show_ermitanyo/Ermitanyo" instance=ExtResource("10_w3ml1")]
@@ -441,6 +411,15 @@ script = ExtResource("11_kdgqb")
 text = "You are already eavesdropping. Why are your gossip inaccurate?"
 npc_info = ExtResource("16_h3avh")
 metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
+
+[node name="NPCBehaviourPatrol" parent="hide_ermitanyo/show_ermitanyo/Ermitanyo" instance=ExtResource("24_6cef1")]
+
+[node name="PatrolLocation" parent="hide_ermitanyo/show_ermitanyo/Ermitanyo/NPCBehaviourPatrol" instance=ExtResource("25_cwi8o")]
+modulate = Color(1, 0, 0, 1)
+
+[node name="PatrolLocation2" parent="hide_ermitanyo/show_ermitanyo/Ermitanyo/NPCBehaviourPatrol" instance=ExtResource("25_cwi8o")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(32, 0)
 
 [node name="Local" parent="." instance=ExtResource("9_k3t6l")]
 position = Vector2(-3350, 383)
