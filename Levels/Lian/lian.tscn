@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cw2qviq5f1tie"]
+[gd_scene load_steps=40 format=4 uid="uid://cw2qviq5f1tie"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_r43up"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="2_2jh0s"]
@@ -97,6 +97,117 @@ base_font = ExtResource("8_g6ynl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8awy"]
 
+[sub_resource type="Animation" id="Animation_hilto"]
+resource_name = "move_balsa"
+length = 10.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Balsa1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3434, -5), Vector2(-3434, 495)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Balsa2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3485, 71), Vector2(-3485, 521)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Balsa3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3423, 159), Vector2(-3423, 559)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Balsa4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3536, 108), Vector2(-3536, 508)]
+}
+
+[sub_resource type="Animation" id="Animation_lesdk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Balsa1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3434, 195)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Balsa2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3485, 271)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Balsa3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3423, 359)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Balsa4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3527, 108)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lesdk"]
+_data = {
+&"RESET": SubResource("Animation_lesdk"),
+&"move_balsa": SubResource("Animation_hilto")
+}
+
 [node name="Lian" type="Node2D" node_paths=PackedStringArray("FirstTextAnim")]
 script = ExtResource("1_r43up")
 FirstTextString = "Lian"
@@ -126,7 +237,7 @@ size = 1
 side = 3
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_fch8g")]
-position = Vector2(-2543, 323.412)
+position = Vector2(-3357, 292)
 
 [node name="House" parent="." instance=ExtResource("5_4fg6j")]
 tile_map_data = PackedByteArray("AAA4/xYABQACAAcAAAAw/woABQAIAAAAAABa/xcABQAAAA0AAAA=")
@@ -492,7 +603,7 @@ wait_time = 3.0
 [node name="Balsa" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Balsa1" type="TileMapLayer" parent="Balsa"]
+[node name="Balsa1" type="StaticBody2D" parent="Balsa"]
 position = Vector2(-3434, 195)
 
 [node name="Sprite2D" type="Sprite2D" parent="Balsa/Balsa1"]
@@ -502,7 +613,7 @@ texture = ExtResource("20_myyrv")
 scale = Vector2(2.5063, 2.5063)
 shape = SubResource("RectangleShape2D_e8awy")
 
-[node name="Balsa2" type="TileMapLayer" parent="Balsa"]
+[node name="Balsa2" type="StaticBody2D" parent="Balsa"]
 position = Vector2(-3485, 271)
 
 [node name="Sprite2D" type="Sprite2D" parent="Balsa/Balsa2"]
@@ -512,7 +623,7 @@ texture = ExtResource("20_myyrv")
 scale = Vector2(2.5063, 2.5063)
 shape = SubResource("RectangleShape2D_e8awy")
 
-[node name="Balsa3" type="TileMapLayer" parent="Balsa"]
+[node name="Balsa3" type="StaticBody2D" parent="Balsa"]
 position = Vector2(-3423, 359)
 
 [node name="Sprite2D" type="Sprite2D" parent="Balsa/Balsa3"]
@@ -522,8 +633,8 @@ texture = ExtResource("20_myyrv")
 scale = Vector2(2.5063, 2.5063)
 shape = SubResource("RectangleShape2D_e8awy")
 
-[node name="Balsa4" type="TileMapLayer" parent="Balsa"]
-position = Vector2(-3507, 416)
+[node name="Balsa4" type="StaticBody2D" parent="Balsa"]
+position = Vector2(-3527, 108)
 
 [node name="Sprite2D" type="Sprite2D" parent="Balsa/Balsa4"]
 texture = ExtResource("20_myyrv")
@@ -531,6 +642,13 @@ texture = ExtResource("20_myyrv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Balsa/Balsa4"]
 scale = Vector2(2.5063, 2.5063)
 shape = SubResource("RectangleShape2D_e8awy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Balsa"]
+libraries = {
+&"": SubResource("AnimationLibrary_lesdk")
+}
+autoplay = "move_balsa"
+speed_scale = 1.5
 
 [node name="barrier" parent="." instance=ExtResource("21_e8awy")]
 visible = false

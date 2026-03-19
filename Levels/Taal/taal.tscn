@@ -1163,6 +1163,7 @@ npc_resource = ExtResource("38_sydyc")
 wander_range = 1
 
 [node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="SpanishSoldier" parent="Enemies" instance=ExtResource("44_hs5dp")]
 position = Vector2(1937, 522)
@@ -1367,7 +1368,6 @@ persistent_location = Vector2(1170, 572)
 
 [node name="PressurePlate1" parent="BridgeNodes/Show_Statues" instance=ExtResource("44_egqje")]
 unique_name_in_owner = true
-z_index = 1
 position = Vector2(1168, 507)
 
 [node name="PressurePlate2" parent="BridgeNodes/Show_Statues" instance=ExtResource("44_egqje")]
