@@ -544,7 +544,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ya78p")
 theme_override_styles/focus = ExtResource("7_sxe7q")
 text = "Continue from Last Saved"
 
-[node name="ExitButton" type="Button" parent="GameOver/VBoxContainer"]
+[node name="Mainmenu_Button" type="Button" parent="GameOver/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
 size_flags_vertical = 6
@@ -585,5 +585,5 @@ libraries = {
 bus = &"SFX"
 
 [connection signal="pressed" from="GameOver/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="GameOver/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/Mainmenu_Button" to="." method="_on_mainmenu_button_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
