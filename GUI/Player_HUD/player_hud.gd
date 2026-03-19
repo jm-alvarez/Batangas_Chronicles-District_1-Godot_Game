@@ -8,7 +8,7 @@ var hearts : Array[ HeartGUI ] = []
 
 @onready var game_over: Control = $GameOver
 @onready var continue_button: Button = $GameOver/VBoxContainer/ContinueButton
-@onready var menu_button: Button = $GameOver/VBoxContainer/ExitButton
+@onready var mainmenu_button: Button = $GameOver/VBoxContainer/Mainmenu_Button
 @onready var animation_player: AnimationPlayer = $GameOver/AnimationPlayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer2D
 
@@ -99,8 +99,10 @@ func _on_continue_button_pressed() -> void:
 	pass # Replace with function body.
 
 
-func _on_exit_button_pressed() -> void:
+func _on_mainmenu_button_pressed() -> void:
 	#get_tree().quit()
+	PlayerManager.player.revive_player()
+	PlayerManager.player.cardinal_direction = Vector2.DOWN
 	PlayerManager.player.global_position = Vector2(47, 60)
 	#self.queue_free()
 	AudioManager.play_music(null)
