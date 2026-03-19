@@ -549,7 +549,7 @@ Checking if player has quest"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="Ermitanyo" parent="hide_ermitanyo/show_ermitanyo" instance=ExtResource("10_8yxd2")]
-position = Vector2(-3049, 548)
+position = Vector2(-3152, 547)
 npc_resource = ExtResource("11_st20l")
 
 [node name="dialog_interaction" parent="hide_ermitanyo/show_ermitanyo/Ermitanyo" instance=ExtResource("12_ajdfj")]
@@ -745,22 +745,22 @@ metadata/_custom_type_script = "uid://6rr3xn6vbfwp"
 
 [node name="PatrolLocation" parent="hide_ermitanyo/show_ermitanyo/Ermitanyo/NPCBehaviourPatrol" instance=ExtResource("19_sxc3o")]
 modulate = Color(1, 0, 0, 1)
-wait_time = 4.0
+wait_time = 2.0
 
 [node name="PatrolLocation2" parent="hide_ermitanyo/show_ermitanyo/Ermitanyo/NPCBehaviourPatrol" instance=ExtResource("19_sxc3o")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(350, 0)
-wait_time = 4.0
+position = Vector2(452, 0)
+wait_time = 2.0
 
 [node name="PatrolLocation3" parent="hide_ermitanyo/show_ermitanyo/Ermitanyo/NPCBehaviourPatrol" instance=ExtResource("19_sxc3o")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(350, 224)
-wait_time = 4.0
+position = Vector2(452, 224)
+wait_time = 2.0
 
 [node name="PatrolLocation4" parent="hide_ermitanyo/show_ermitanyo/Ermitanyo/NPCBehaviourPatrol" instance=ExtResource("19_sxc3o")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(-1, 224)
-wait_time = 4.0
+wait_time = 2.0
 
 [node name="show_aki_mother" type="Node2D" parent="."]
 y_sort_enabled = true
