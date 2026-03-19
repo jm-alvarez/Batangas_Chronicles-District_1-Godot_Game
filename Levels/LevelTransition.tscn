@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://kbou30pi4scj"]
 
-[ext_resource type="Script" path="res://Levels/Scripts/level_transition.gd" id="1_cndrn"]
+[ext_resource type="Script" uid="uid://0u7xjf28cul1" path="res://Levels/Scripts/level_transition.gd" id="1_cndrn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljhm1"]
 resource_local_to_scene = true

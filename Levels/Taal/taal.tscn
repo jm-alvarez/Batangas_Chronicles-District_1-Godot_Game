@@ -45,8 +45,8 @@
 [ext_resource type="Resource" uid="uid://ucak8prxmtuq" path="res://Quests/show_bridge_statues_quest.tres" id="43_egqje"]
 [ext_resource type="PackedScene" uid="uid://dolt6fgj212so" path="res://Interactables/Dungeon/pressure_plate.tscn" id="44_egqje"]
 [ext_resource type="PackedScene" uid="uid://d18w4nyqtp5c7" path="res://Enemies/SpanishSoldier/SpanishSoldier.tscn" id="44_hs5dp"]
-[ext_resource type="PackedScene" uid="uid://cmhkdp2ssagan" path="res://Interactables/Dungeon/angel_pushable_statue.tscn" id="45_1mfij"]
-[ext_resource type="Script" uid="uid://bxjegfmx5uge0" path="res://Levels/Taal/angel_statues.gd" id="46_as40j"]
+[ext_resource type="PackedScene" path="res://Interactables/Dungeon/angel_pushable_statue.tscn" id="45_1mfij"]
+[ext_resource type="Script" path="res://Levels/Taal/angel_statues.gd" id="46_as40j"]
 [ext_resource type="Script" uid="uid://db2yavlnesfcx" path="res://Interactables/Dungeon/pressure_plate.gd" id="47_ksbab"]
 [ext_resource type="Texture2D" uid="uid://damu4hk447oij" path="res://Interactables/Dungeon/Statue_Quest.png" id="48_as40j"]
 [ext_resource type="AudioStream" uid="uid://cdgpmbai4v1lu" path="res://Interactables/Dungeon/pressure_plate.wav" id="49_u53xp"]
@@ -1163,6 +1163,7 @@ npc_resource = ExtResource("38_sydyc")
 wander_range = 1
 
 [node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="SpanishSoldier" parent="Enemies" instance=ExtResource("44_hs5dp")]
 position = Vector2(1937, 522)
@@ -1367,7 +1368,6 @@ persistent_location = Vector2(1170, 572)
 
 [node name="PressurePlate1" parent="BridgeNodes/Show_Statues" instance=ExtResource("44_egqje")]
 unique_name_in_owner = true
-z_index = 1
 position = Vector2(1168, 507)
 
 [node name="PressurePlate2" parent="BridgeNodes/Show_Statues" instance=ExtResource("44_egqje")]

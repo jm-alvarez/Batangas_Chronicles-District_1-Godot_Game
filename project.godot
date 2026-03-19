@@ -24,8 +24,8 @@ boot_splash/minimum_display_time=100
 
 AudioManager="*res://00_Globals/global_audio_manager.gd"
 LevelManager="*res://00_Globals/global_level_manager.gd"
-PlayerHud="*res://GUI/Player_HUD/PlayerHUD.tscn"
 PlayerManager="*res://00_Globals/global_player_manager.gd"
+PlayerHud="*res://GUI/Player_HUD/PlayerHUD.tscn"
 SceneTransition="*res://GUI/SceneTransition/scene_transition.tscn"
 SaveManager="*res://00_Globals/global_save_manager.gd"
 PauseMenu="*res://GUI/PauseMenu/PauseMenu.tscn"
@@ -175,4 +175,4 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.7162962, 0.7162962, 0.7162962, 1)

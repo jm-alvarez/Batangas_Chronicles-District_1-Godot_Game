@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://cv5ohib7susts"]
+[gd_scene load_steps=50 format=4 uid="uid://cv5ohib7susts"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_yfxrw"]
 [ext_resource type="AudioStream" uid="uid://dadww474f0v0c" path="res://Assets/Sounds/BGM/calatagan_bgm.mp3" id="2_awb3o"]
@@ -35,6 +35,7 @@
 [ext_resource type="Resource" uid="uid://d2k7wbl61xxre" path="res://Items/Health_Potion.tres" id="31_clhn6"]
 [ext_resource type="FontFile" uid="uid://dsoxwkihclwvt" path="res://Assets/Fonts/CS_Arthemis.otf" id="33_fjko5"]
 [ext_resource type="Script" uid="uid://dcd3hqsswgxx1" path="res://Levels/Calatagan/finale.gd" id="34_pu77q"]
+[ext_resource type="PackedScene" path="res://Levels/boulder.tscn" id="36_3mvgg"]
 
 [sub_resource type="Animation" id="Animation_rorml"]
 length = 0.001
@@ -100,7 +101,7 @@ _data = {
 base_font = ExtResource("9_jfakv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6e1it"]
-size = Vector2(56, 50)
+size = Vector2(118, 70)
 
 [sub_resource type="Animation" id="Animation_pu77q"]
 length = 0.001
@@ -312,7 +313,7 @@ side = 2
 [node name="barrier" parent="." instance=ExtResource("2_xu56y")]
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_law7t")]
-position = Vector2(-3246, 907)
+position = Vector2(-2829, 602)
 
 [node name="tree" parent="." instance=ExtResource("8_cw46m")]
 tile_map_data = PackedByteArray("AAC9/xYACgAAAAIAAADA/xYACgAAAAIAAADG/xQACgAAAAIAAADB/wsACgAEAAIAAAC7/xAACgAEAAIAAACy/xQACgAEAAIAAADF/w0ACgAEAAIAAACz/xQACgAEAAIAAAC0/xQACgAEAAIAAAC1/xQACgAEAAIAAAC2/xQACgAEAAIAAAC2/xcACgAEAAIAAAC3/xcACgAEAAIAAAC1/xcACgAEAAIAAAC0/xcACgAEAAIAAACz/xcACgAEAAIAAACy/xcACgAEAAIAAACx/xcACgAEAAIAAACx/xQACgAEAAIAAAC3/xQACgAEAAIAAAC4/xcACgAEAAIAAAC5/xcACgAEAAIAAAC6/xcACgAEAAIAAAC7/xcACgAEAAIAAAC8/xcACgAEAAIAAAC9/xcACgAEAAIAAAC6/xYACgAEAAIAAAC7/xUACgAEAAIAAAC7/xYACgAEAAIAAAC8/xYACgAEAAIAAAC9/xUACgAEAAIAAAC+/xYACgAEAAIAAAC+/xcACgAEAAIAAAC//xcACgAEAAIAAADA/xcACgAEAAIAAADB/xcACgAEAAIAAADC/xcACgAEAAIAAADD/xcACgAEAAIAAADE/xcACgAEAAIAAADF/xcACgAEAAIAAADG/xcACgAEAAIAAADG/xYACgAEAAIAAADG/xUACgAEAAIAAADG/xMACgAEAAIAAADG/xIACgAEAAIAAADG/xEACgAEAAIAAADG/xAACgAEAAIAAADG/w8ACgAEAAIAAADG/w4ACgAEAAIAAADG/w0ACgAEAAIAAADG/wwACgAEAAIAAADG/wsACgAEAAIAAADF/wsACgAEAAIAAADE/wsACgAEAAIAAADD/wsACgAEAAIAAADC/wsACgAEAAIAAADF/wwACgAEAAIAAADF/xAACgAEAAIAAADF/xEACgAEAAIAAADF/xIACgAEAAIAAADE/w0ACgAEAAIAAADE/wwACgAEAAIAAADD/w0ACgAEAAIAAADD/wwACgAEAAIAAADC/w0ACgAEAAIAAADC/wwACgAEAAIAAADB/w0ACgAEAAIAAADB/wwACgAEAAIAAADA/wsACgAEAAIAAAA=")
@@ -781,11 +782,12 @@ npc_resource = ExtResource("16_7e8wd")
 [node name="area_trigger" parent="show_aki_mother/AkiMother" instance=ExtResource("25_2kibc")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="show_aki_mother/AkiMother/area_trigger"]
-position = Vector2(12, -15)
+position = Vector2(43, -25)
 shape = SubResource("RectangleShape2D_6e1it")
 debug_color = Color(0.8294085, 0.001481272, 0.94781655, 0.41960785)
 
 [node name="dialog_interaction" parent="show_aki_mother/AkiMother/area_trigger" instance=ExtResource("12_ajdfj")]
+monitoring = false
 
 [node name="1Text" type="Node" parent="show_aki_mother/AkiMother/area_trigger/dialog_interaction"]
 script = ExtResource("12_ycljk")
@@ -880,138 +882,84 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="SpanishSoldier" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3028, 892)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier2" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2992, 885)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier3" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2757, 747)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier4" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2809, 625)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier5" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3115, 892)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier6" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2706, 806)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier7" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2816, 796)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier8" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2949, 686)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier9" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2997, 684)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier10" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2862, 732)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier11" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2700, 704)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier12" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3096, 874)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier13" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3001, 787)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier14" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3069, 892)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier15" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3208, 902)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier16" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3146, 719)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier17" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3058, 665)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier18" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2798, 815)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier19" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2770, 698)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier20" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2540, 591)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier21" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2975, 490)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier22" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2840, 820)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier23" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3176, 635)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier24" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2914, 589)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier25" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2639, 698)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier26" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-2647, 791)
-collision_layer = 272
-collision_mask = 16
 
 [node name="SpanishSoldier27" parent="show_enemies" instance=ExtResource("26_53f33")]
 position = Vector2(-3165, 897)
-collision_layer = 272
-collision_mask = 16
 
 [node name="TreasureChest" parent="." instance=ExtResource("27_8hu2k")]
 position = Vector2(-2548, 808)
@@ -1206,6 +1154,119 @@ theme_override_font_sizes/font_size = 48
 
 [node name="finale" type="Node2D" parent="."]
 script = ExtResource("34_pu77q")
+
+[node name="Boulder6" parent="." instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-3285, 819)
+
+[node name="Boulder7" parent="." instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-3267, 819)
+
+[node name="Boulder8" parent="." instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-3248, 819)
+
+[node name="Boulder9" parent="." instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-3227, 819)
+
+[node name="Boulder10" parent="." instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-3204, 819)
+
+[node name="Boulder11" parent="." instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-3182, 819)
+
+[node name="show_boulder" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("21_6uh5y")
+check_type = 3
+remove_when_activated = true
+react_to_global_signal = true
+linked_quest = ExtResource("20_6uh5y")
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+ Quest: Calatagan
+Checking if quest is complete"
+metadata/_custom_type_script = "uid://6im7on6coqur"
+
+[node name="Boulder" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2864, 837)
+
+[node name="Boulder2" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2842, 837)
+
+[node name="Boulder3" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2820, 837)
+
+[node name="Boulder4" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2798, 837)
+
+[node name="Boulder5" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2776, 837)
+
+[node name="Boulder6" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2793, 856)
+
+[node name="Boulder7" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2818, 856)
+
+[node name="Boulder8" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2840, 856)
+
+[node name="Boulder9" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2866, 856)
+
+[node name="Boulder10" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2830, 872)
+
+[node name="Boulder11" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2862, 874)
+
+[node name="Boulder12" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2890, 865)
+
+[node name="Boulder13" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2890, 890)
+
+[node name="Boulder14" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2861, 890)
+
+[node name="Boulder15" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2835, 889)
+
+[node name="Boulder16" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2914, 869)
+
+[node name="Boulder17" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2915, 892)
+
+[node name="Boulder18" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2942, 871)
+
+[node name="Boulder19" parent="show_boulder" instance=ExtResource("36_3mvgg")]
+z_index = 1
+position = Vector2(-2942, 893)
 
 [connection signal="selected" from="hide_ermitanyo/show_ermitanyo/Ermitanyo/dialog_interaction/6choice/Q1A" to="." method="_on_q_1a_selected"]
 [connection signal="selected" from="hide_ermitanyo/show_ermitanyo/Ermitanyo/dialog_interaction/6choice/Q1A/7choice/Q2A" to="." method="_on_q_2a_selected"]

@@ -65,13 +65,14 @@ pass
 
 func show_game_over_screen() -> void:
 	game_over.visible = true
+	animation_player.play("show_game_over")
+	await animation_player.animation_finished
 	game_over.mouse_filter = Control.MOUSE_FILTER_STOP
-	%ContinueButton.grab_focus()
+	continue_button.grab_focus()
 	#var can_continue : bool = SaveManager.get_save_file() != null
 	#continue_button.visible = can_continue
 	
-	animation_player.play("show_game_over")
-	await animation_player.animation_finished
+
 	#PlayerManager.player.revive_player()
 	#if can_continue == true:
 		#continue_button.grab_focus()
