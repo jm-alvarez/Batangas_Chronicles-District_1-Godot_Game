@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://d2m21n3hruv23"]
+[gd_scene load_steps=53 format=3 uid="uid://d2m21n3hruv23"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_8vgv5"]
 [ext_resource type="AudioStream" uid="uid://brr7lox01jfjx" path="res://Assets/Sounds/BGM/Aki_House.mp3" id="2_835xc"]
@@ -18,7 +18,9 @@
 [ext_resource type="FontFile" uid="uid://dsoxwkihclwvt" path="res://Assets/Fonts/CS_Arthemis.otf" id="21_oty82"]
 [ext_resource type="Texture2D" uid="uid://cqbqgu6fj4pk3" path="res://GUI/MainMenu/Game_Title.png" id="22_dwkh4"]
 [ext_resource type="FontFile" uid="uid://bqa2mf60v3s6x" path="res://Assets/Fonts/m5x7.ttf" id="23_sj22y"]
+[ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="23_xueaf"]
 [ext_resource type="Texture2D" uid="uid://vjtp5f7opf4t" path="res://Levels/sample/Scene1/Sprites/Aki_Sleeping-Sheet-export.png" id="24_rub52"]
+[ext_resource type="Resource" uid="uid://cba6ijls044kr" path="res://Quests/true_legend.tres" id="24_w15i8"]
 [ext_resource type="Texture2D" uid="uid://rm7hnpvnr7a3" path="res://Levels/sample/Scene1/Sprites/small_drawer.png" id="25_0j38l"]
 [ext_resource type="Texture2D" uid="uid://bvbr725bi0gbj" path="res://Levels/sample/Scene1/Sprites/aki_room_doormat.png" id="26_vp3gu"]
 [ext_resource type="PackedScene" uid="uid://pb152kmqfih2" path="res://Levels/PlayerSpawn.tscn" id="31_iw031"]
@@ -254,6 +256,21 @@ base_font = ExtResource("36_j1wii")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xueaf"]
 size = Vector2(72, 59)
 
+[sub_resource type="Animation" id="Animation_dwkh4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ending/CanvasLayer/Control/VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 669)]
+}
+
 [sub_resource type="Animation" id="Animation_h0gke"]
 resource_name = "show_texts"
 length = 20.0
@@ -269,21 +286,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(216, 669), Vector2(216, -960)]
-}
-
-[sub_resource type="Animation" id="Animation_dwkh4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Ending/CanvasLayer/Control/VBoxContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(216, 669)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dwkh4"]
@@ -539,6 +541,15 @@ script = ExtResource("20_il3hh")
 animation_player = NodePath("../../../../Fade")
 animation_name = "fade_to_normal"
 metadata/_custom_type_script = "uid://d1mgcxi62fxvx"
+
+[node name="final_achievement_advance" parent="ending_trigger/dialog_interaction/DialogCutscene/CutsceneActionAnimation3" instance=ExtResource("23_xueaf")]
+signal_name = "finished"
+linked_quest = ExtResource("24_w15i8")
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+ Quest: A True Legend
+Step: 0 - N/A
+Complete: true"
 
 [node name="Ending" type="AnimationPlayer" parent="."]
 libraries = {
