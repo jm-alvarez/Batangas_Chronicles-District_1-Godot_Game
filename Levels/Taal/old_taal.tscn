@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=4 uid="uid://5l6jcbgahjac"]
+[gd_scene load_steps=100 format=4 uid="uid://5l6jcbgahjac"]
 
 [ext_resource type="Script" uid="uid://hleopof7wt6t" path="res://Levels/Scripts/level.gd" id="1_a4a4w"]
 [ext_resource type="PackedScene" uid="uid://ch6na1auu2tfb" path="res://Tilemaps/grass_1.tscn" id="1_xhrx5"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dd5pssvoqphnd" path="res://Quests/UtilityNode/quest_advance_trigger.tscn" id="19_6w16s"]
 [ext_resource type="Resource" uid="uid://d03nq2i3e6q7n" path="res://Quests/Taal_Quest1.tres" id="20_qr25l"]
 [ext_resource type="Resource" uid="uid://c1spdc48twm0m" path="res://NPC/00-NPC/Spanish_Guard.tres" id="21_0sqdf"]
-[ext_resource type="Script" path="res://Levels/Taal/taal_quest1.gd" id="22_5g75g"]
+[ext_resource type="Script" uid="uid://1o176nkw2ujr" path="res://Levels/Taal/taal_quest1.gd" id="22_5g75g"]
 [ext_resource type="Resource" uid="uid://cvddvbq3be7d4" path="res://NPC/00-NPC/NPC_Man1.tres" id="23_7tu5y"]
 [ext_resource type="Script" uid="uid://sxl1ls4sbmjw" path="res://GeneralNodes/AreaTrigger/area_trigger.gd" id="24_am0y2"]
 [ext_resource type="Script" uid="uid://6im7on6coqur" path="res://Quests/UtilityNode/quest_activated_switch.gd" id="27_qr25l"]
@@ -34,14 +34,15 @@
 [ext_resource type="Script" uid="uid://cnh1xdf0wjyx3" path="res://Interactables/Dialog/Scripts/dialog_choice.gd" id="31_i2wv7"]
 [ext_resource type="Script" uid="uid://bkqy61h7wypgw" path="res://Interactables/Dialog/Scripts/dialog_branch.gd" id="32_lkt2a"]
 [ext_resource type="Resource" uid="uid://di7kde0e0ca01" path="res://NPC/00-NPC/Local_Citizen_Woman.tres" id="33_lkt2a"]
+[ext_resource type="Script" uid="uid://dyht4twncfbe" path="res://Enemies/Scripts/drop_data.gd" id="33_ptco3"]
 [ext_resource type="Resource" uid="uid://gv8ddhm2m1h7" path="res://NPC/00-NPC/Local_Citizen_Man.tres" id="34_4qpoy"]
-[ext_resource type="Script" path="res://Levels/Taal/local_citizens_node.gd" id="34_vcrcp"]
-[ext_resource type="Script" path="res://Levels/Taal/taal_quest_2.gd" id="35_mhv76"]
+[ext_resource type="Script" uid="uid://ddqu4iyptorml" path="res://Levels/Taal/local_citizens_node.gd" id="34_vcrcp"]
+[ext_resource type="Script" uid="uid://dlxvpiu1fo6oj" path="res://Levels/Taal/taal_quest_2.gd" id="35_mhv76"]
 [ext_resource type="PackedScene" uid="uid://b5kfyppua07p4" path="res://NPC/NPCBehaviourPatrol.tscn" id="37_76eg8"]
 [ext_resource type="Resource" uid="uid://ch765k2xs4m31" path="res://Quests/Taal_Quest2.tres" id="38_1s36y"]
 [ext_resource type="PackedScene" uid="uid://crnk5hqebaqnu" path="res://GeneralNodes/PersistentDataHelper/persistent_data_handler.tscn" id="38_cvk2j"]
 [ext_resource type="PackedScene" uid="uid://ndua5p2o8wgx" path="res://NPC/PatrolLocation.tscn" id="38_lqjim"]
-[ext_resource type="Script" path="res://Levels/Taal/earthquake_node_2.gd" id="41_76eg8"]
+[ext_resource type="Script" uid="uid://dpmu0ihaasw4l" path="res://Levels/Taal/earthquake_node_2.gd" id="41_76eg8"]
 [ext_resource type="PackedScene" uid="uid://cnqkqeyxokar0" path="res://GeneralNodes/AreaTrigger/area_trigger.tscn" id="41_lqjim"]
 [ext_resource type="Texture2D" uid="uid://m66vvh65r3kt" path="res://Levels/Taal/Explosion-spritesheet-export.png" id="42_3ilbn"]
 [ext_resource type="Texture2D" uid="uid://dblmuc81ubcq3" path="res://Levels/Taal/Rain.png" id="43_1y5ii"]
@@ -3893,6 +3894,7 @@ position = Vector2(1344, -594)
 position = Vector2(1369, -594)
 
 [node name="Hide_SE_QS2" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("27_qr25l")
 check_type = 1
 remove_when_activated = true
@@ -3907,7 +3909,7 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 [node name="Spaniard_enemy_Q2" type="Node2D" parent="Hide_SE_QS2"]
 unique_name_in_owner = true
 process_mode = 4
-visible = false
+y_sort_enabled = true
 script = ExtResource("27_qr25l")
 check_type = 1
 react_to_global_signal = true
@@ -3921,29 +3923,56 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 [node name="SpanishSoldier1" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1168, -599)
 
+[node name="Destroy" parent="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier1/EnemyStateMachine" index="3"]
+drops = Array[ExtResource("33_ptco3")]([])
+
 [node name="SpanishSoldier2" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1195, -599)
+
+[node name="Destroy" parent="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier2/EnemyStateMachine" index="3"]
+drops = Array[ExtResource("33_ptco3")]([])
 
 [node name="SpanishSoldier3" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1220, -598)
 
+[node name="Destroy" parent="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier3/EnemyStateMachine" index="3"]
+drops = Array[ExtResource("33_ptco3")]([])
+
 [node name="SpanishSoldier4" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
 position = Vector2(1449, -622)
 
+[node name="Destroy" parent="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier4/EnemyStateMachine" index="3"]
+drops = Array[ExtResource("33_ptco3")]([])
+
 [node name="SpanishSoldier5" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
-position = Vector2(1441, -553)
+position = Vector2(1454, -553)
+
+[node name="Destroy" parent="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier5/EnemyStateMachine" index="3"]
+drops = Array[ExtResource("33_ptco3")]([])
 
 [node name="SpanishSoldier6" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
-position = Vector2(1505, -571)
+position = Vector2(1524, -536)
+
+[node name="Destroy" parent="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier6/EnemyStateMachine" index="3"]
+drops = Array[ExtResource("33_ptco3")]([])
 
 [node name="SpanishSoldier7" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
-position = Vector2(1500, -530)
+position = Vector2(1447, -447)
+
+[node name="Destroy" parent="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier7/EnemyStateMachine" index="3"]
+drops = Array[ExtResource("33_ptco3")]([])
 
 [node name="SpanishSoldier8" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
-position = Vector2(1500, -631)
+position = Vector2(1439, -694)
+
+[node name="Destroy" parent="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier8/EnemyStateMachine" index="3"]
+drops = Array[ExtResource("33_ptco3")]([])
 
 [node name="SpanishSoldier9" parent="Hide_SE_QS2/Spaniard_enemy_Q2" instance=ExtResource("29_ev3np")]
-position = Vector2(1439, -517)
+position = Vector2(1439, -504)
+
+[node name="Destroy" parent="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier9/EnemyStateMachine" index="3"]
+drops = Array[ExtResource("33_ptco3")]([])
 
 [node name="Taal_Quest_1" type="Node2D" parent="."]
 script = ExtResource("22_5g75g")
@@ -4683,7 +4712,7 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="LC9" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit" instance=ExtResource("9_usta1")]
 unique_name_in_owner = true
-position = Vector2(980.96, -579.9646)
+position = Vector2(980.96, -586.0389)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LC9" instance=ExtResource("11_c74rc")]
@@ -4732,13 +4761,13 @@ position = Vector2(967, -507)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="LC5" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1106.68, -594.3873)
+position = Vector2(1106.68, -600.4616)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC5" instance=ExtResource("11_c74rc")]
 
 [node name="LC6" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(1106.68, -594.3873)
+position = Vector2(1058, -628)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC6" instance=ExtResource("11_c74rc")]
@@ -4759,7 +4788,7 @@ npc_resource = ExtResource("33_lkt2a")
 wander_range = 1
 
 [node name="LC10" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(980.96, -579.9646)
+position = Vector2(980.96, -586.0389)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC10" instance=ExtResource("11_c74rc")]
@@ -7276,6 +7305,7 @@ position = Vector2(1895, -554)
 shape = SubResource("RectangleShape2D_2ab1x")
 
 [node name="aki_mom_interaction" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_Aki_mom/Show_Aki_Mom/aki_mom_trigger" instance=ExtResource("12_x7iw4")]
+monitoring = false
 
 [node name="AM_AkiText1" type="Node" parent="Taal_Quest_2/Hide_Q2_QS3/Show_Q2_QS3_Triggers/Hide_Aki_mom/Show_Aki_Mom/aki_mom_trigger/aki_mom_interaction"]
 script = ExtResource("13_u3uel")
@@ -7487,14 +7517,13 @@ bus = &"Music"
 [node name="hide_pansipit_boulder" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("27_qr25l")
-check_type = 3
+check_type = 1
 remove_when_activated = true
 react_to_global_signal = true
 linked_quest = ExtResource("38_1s36y")
-quest_complete = true
 settings_summary = "UPDATE QUEST:
  Quest: Gathering Before the Ash
-Checking if quest is complete"
+Checking if player has completed step: N/A"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="Boulder" parent="hide_pansipit_boulder" instance=ExtResource("16_vncit")]
@@ -7511,14 +7540,14 @@ position = Vector2(1669, -375)
 [connection signal="player_entered" from="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger" to="Taal_Quest_1" method="_on_npc_man_1_trigger_player_entered"]
 [connection signal="finished" from="Hide_NPC_Man1/Show_NPC_Man1/npc_man1/npc_man1_trigger/npc_man1_interaction" to="Taal_Quest_1" method="_on_npc_man_1_interaction_finished"]
 [connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier1" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier2" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier3" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier4" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier5" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier6" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier7" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier8" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
-[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier9" to="Taal_Quest_1" method="_on_spanish_soldier_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier2" to="Taal_Quest_1" method="_on_spanish_soldier_2_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier3" to="Taal_Quest_1" method="_on_spanish_soldier_3_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier4" to="Taal_Quest_1" method="_on_spanish_soldier_4_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier5" to="Taal_Quest_1" method="_on_spanish_soldier_5_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier6" to="Taal_Quest_1" method="_on_spanish_soldier_6_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier7" to="Taal_Quest_1" method="_on_spanish_soldier_7_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier8" to="Taal_Quest_1" method="_on_spanish_soldier_8_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier9" to="Taal_Quest_1" method="_on_spanish_soldier_9_enemy_destroyed"]
 [connection signal="selected" from="Hide_Fr_Agustin/Show_Fr_Agustin/Fr_Agustin/fr_agustin_dialog1_hide/fr_agustin_interaction/DialogChoice1/Yes" to="Taal_Quest_1" method="_on_yes_selected"]
 [connection signal="player_entered" from="Hide_EQ/Earthquake_Node1/Earthquake1" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
 [connection signal="player_entered" from="Hide_EQ/Earthquake_Node1/Earthquake2" to="Taal_Quest_1" method="_on_earthquake_1_player_entered"]
@@ -7538,3 +7567,13 @@ position = Vector2(1669, -375)
 [connection signal="player_entered" from="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake8" to="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2" method="_on_earthquake_7_player_entered"]
 [connection signal="player_entered" from="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake9" to="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2" method="_on_earthquake_7_player_entered"]
 [connection signal="player_entered" from="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2/Earthquake10" to="Hide_EQ_Node2/Show_EQ_Node2/Earthquake_Node2" method="_on_earthquake_7_player_entered"]
+
+[editable path="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier1"]
+[editable path="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier2"]
+[editable path="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier3"]
+[editable path="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier4"]
+[editable path="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier5"]
+[editable path="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier6"]
+[editable path="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier7"]
+[editable path="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier8"]
+[editable path="Hide_SE_QS2/Spaniard_enemy_Q2/SpanishSoldier9"]

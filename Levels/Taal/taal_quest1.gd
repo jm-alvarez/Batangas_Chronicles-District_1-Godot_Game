@@ -34,7 +34,7 @@ func count_spaniards() :
 	var cnt = %Spaniard_enemy_Q2.get_child_count()
 	if %Spaniard_enemy_Q2.get_child_count():
 		print("spaniard count on taal: ", cnt)
-		if cnt == 1:
+		if cnt <= 1:
 			print("All spaniards defeated.")
 			%taal_Q1_QS2_advance.advance_quest()
 			await get_tree().process_frame
@@ -45,6 +45,38 @@ func _on_spanish_soldier_enemy_destroyed(hurt_box: HurtBox) -> void:
 	count_spaniards()
 	pass # Replace with function body.
 
+func _on_spanish_soldier_2_enemy_destroyed(hurt_box: HurtBox) -> void:
+	count_spaniards()
+	pass # Replace with function body.
+
+func _on_spanish_soldier_3_enemy_destroyed(hurt_box: HurtBox) -> void:
+	count_spaniards()
+	pass # Replace with function body.
+
+func _on_spanish_soldier_4_enemy_destroyed(hurt_box: HurtBox) -> void:
+	count_spaniards()
+	pass # Replace with function body.
+
+func _on_spanish_soldier_5_enemy_destroyed(hurt_box: HurtBox) -> void:
+	count_spaniards()
+	pass # Replace with function body.
+
+func _on_spanish_soldier_6_enemy_destroyed(hurt_box: HurtBox) -> void:
+	count_spaniards()
+	pass # Replace with function body.
+
+func _on_spanish_soldier_7_enemy_destroyed(hurt_box: HurtBox) -> void:
+	count_spaniards()
+	pass # Replace with function body.
+
+func _on_spanish_soldier_8_enemy_destroyed(hurt_box: HurtBox) -> void:
+	count_spaniards()
+	pass # Replace with function body.
+
+func _on_spanish_soldier_9_enemy_destroyed(hurt_box: HurtBox) -> void:
+	count_spaniards()
+	pass # Replace with function body.
+	
 func _on_earthquake_1_player_entered() -> void:
 	PlayerManager.shake_camera()
 	pass # Replace with function body.
