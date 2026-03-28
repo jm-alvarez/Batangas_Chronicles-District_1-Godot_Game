@@ -7,7 +7,6 @@ class_name PushableStatue extends RigidBody2D
 
 @onready var persistent_data_handler: PersistentDataHandler = $persistent_data_handler
 
-
 var push_direction : Vector2 = Vector2.ZERO : set = _set_push
 var on_target : bool = false
 

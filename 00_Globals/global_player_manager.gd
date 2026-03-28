@@ -3,14 +3,12 @@ extends Node
 const PLAYER = preload("res://Player/player_1.tscn")
 const INVENTORY_DATA : InventoryData = preload("res://GUI/PauseMenu/Inventory/player_inventory.tres")
 
-
 signal camera_shook( trauma : float )
 signal interact_pressed
 
 var player : Player
 var player_spawned : bool = false
 var isTutorialCompleted : bool = false
-
 var xp : int = 0
 
 func _ready() -> void:
@@ -34,14 +32,12 @@ func reward_xp( _xp : int ) -> void:
 
 func set_player_position(_new_pos : Vector2) -> void:
 	player.global_position = _new_pos
-	
 	pass
-
 
 func set_as_parent(_p : Node2D) -> void:
 	if player.get_parent():
 		player.get_parent().remove_child(player)
-		
+
 	_p.add_child(player)
 
 func unparent_player(_p : Node2D) -> void:

@@ -3,32 +3,24 @@ class_name QuestUI extends Control
 const QUEST_ITEM : PackedScene = preload("res://GUI/PauseMenu/Quests/quest_item.tscn")
 const QUEST_STEP_ITEM : PackedScene = preload("res://GUI/PauseMenu/Quests/quest_step_item.tscn")
 
-
 @onready var quest_item_container = $ScrollContainer/MarginContainer/VBoxContainer
 @onready var details_container = $VBoxContainer
 @onready var title_label = $VBoxContainer/TitleLabel
 @onready var description_label = $VBoxContainer/DescriptionLabel
-
-
 
 func _ready() -> void:
 	clear_quest_details()
 	visibility_changed.connect( _on_visible_changed )
 	pass
 
-
 func _on_visible_changed() -> void:
-	
 	for i in quest_item_container.get_children():
 		i.queue_free()
-	
 	clear_quest_details()
 	
 	if visible == true:
 		#update the list
-		
 		QuestManager.sort_quests()
-		
 		for q in QuestManager.current_quests:
 			var quest_data : Quest = QuestManager.find_quest_by_title( q.title )
 			if quest_data == null:
@@ -42,12 +34,10 @@ func _on_visible_changed() -> void:
 
 func update_quest_details( q : Quest ) -> void:
 	clear_quest_details()
-	
 	title_label.text =q.title
 	description_label.text = q.description
 	
 	var quest_save = QuestManager.find_quest( q )
-	
 	for step in q.steps:
 		var new_step : QuestStepItem = QUEST_STEP_ITEM.instantiate()
 		var step_is_complete : bool = false

@@ -14,9 +14,7 @@ func _ready() -> void:
 	for c in get_children():
 		if c is DialogItem:
 			dialog_items.append(c)
-	
 	pass
 
-
 func _on_selected():
-	pass # Replace with function body.
+	pass

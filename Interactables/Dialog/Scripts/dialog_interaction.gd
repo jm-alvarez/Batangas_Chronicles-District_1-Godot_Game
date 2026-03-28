@@ -11,18 +11,14 @@ var dialog_items : Array[DialogItem]
 @onready var animation_player = $AnimationPlayer
 
 func _ready() -> void:
-
-	
 	if Engine.is_editor_hint():
 		return
 		
 	area_entered.connect( _on_area_enter )
 	area_exited.connect( _on_area_exit )
-	
 	for c in get_children():
 		if c is DialogItem:
 			dialog_items.append(c)
-	
 	pass
 
 func player_interact() -> void:
@@ -60,7 +56,6 @@ func _check_for_dialog_items() -> bool:
 		if c is DialogItem:
 			return true
 	return false
-
 
 func _on_player_interacted() -> void:
 	pass # Replace with function body.

@@ -7,7 +7,6 @@ var dialog_cutscene : DialogCutscene
 var cutscene_action_animation : CutsceneActionAnimation
 var triggered : bool = false
 
-
 func _ready() -> void:
 	body_entered.connect( _on_body_entered )
 	for c in get_children():
@@ -16,7 +15,6 @@ func _ready() -> void:
 			break
 	pass
 
-
 func _on_body_entered( _body : Player ) -> void:
 	if triggered == true:
 		return
@@ -24,5 +22,4 @@ func _on_body_entered( _body : Player ) -> void:
 	if dialog:
 		triggered = true
 		dialog.player_interact()
-		
 	pass

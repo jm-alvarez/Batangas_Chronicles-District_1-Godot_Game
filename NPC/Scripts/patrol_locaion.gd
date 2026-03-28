@@ -31,10 +31,7 @@ func update_label(_s : String) -> void:
 func update_line( next_location : Vector2) -> void:
 	var line : Line2D = $Sprite2D/Line2D
 	line.points[1] = next_location - position
-
-
+	
 func _update_wait_time_label() -> void:
 	if Engine.is_editor_hint():
 		$Sprite2D/Label2.text = "Wait: " + str( snappedf(wait_time, 0.1) ) + "s"
-
-

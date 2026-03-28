@@ -7,7 +7,6 @@ var notification_queue : Array
 @onready var title_label = $PanelContainer/VBoxContainer/Label
 @onready var message_label = $PanelContainer/VBoxContainer/Label2
 
-
 func _ready() ->void:
 	panel_container.visible = false
 	animation_player.animation_finished.connect( notification_animation_finished )

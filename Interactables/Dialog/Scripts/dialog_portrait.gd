@@ -7,14 +7,11 @@ var audio_pitch_base : float = 0
 
 @onready var audio_stream_player_2d = $"../../AudioStreamPlayer2D"
 
-
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-	
 	Dialog_System.letter_added.connect( check_mouth_open )
 	
-
 func check_mouth_open( l : String ) -> void:
 	if 'aeiouy1234567890'.contains( l ):
 		open_mouth = true
@@ -29,21 +26,16 @@ func check_mouth_open( l : String ) -> void:
 	if mouth_open_frames > 0:
 		mouth_open_frames -= 1
 	
-	
 	if mouth_open_frames == 0:
 		if open_mouth == true:
 			open_mouth = false
 			audio_stream_player_2d.pitch_scale = randf_range( audio_pitch_base - 0.08, audio_pitch_base + 0.02 )
 			audio_stream_player_2d.play()
-		
 	pass
-
-
 
 func update_portrait() -> void:
 	if open_mouth == true:
 		frame = 2
-	
 	else:
 		frame = 0
 	
@@ -58,7 +50,6 @@ func blinker() -> void:
 	
 	blink = not blink
 	blinker()
-	
 
 func _set_blink( _value : bool ) -> void:
 	if blink != _value:

@@ -12,19 +12,15 @@ func _ready() -> void:
 	if p is Enemy:
 		p.direction_changed.connect( _on_direction_change )
 
-
-
 func _on_body_enter( _b : Node2D ) -> void:
 	if _b is Player:
 		player_entered.emit()
 	pass
 
-
 func _on_body_exit( _b : Node2D ) -> void:
 	if _b is Player:
 		player_exited.emit()
 	pass
-
 
 func _on_direction_change( new_direction : Vector2 ) -> void:
 	match new_direction:

@@ -6,8 +6,6 @@ var focus_index : int = 0
 
 @export var data : InventoryData
 
-
-
 func _ready() -> void:
 	PauseMenu.shown.connect( update_inventory )
 	PauseMenu.hidden.connect( clear_inventory )
@@ -15,11 +13,9 @@ func _ready() -> void:
 	data.changed.connect( on_inventory_changed )
 	pass
 
-
 func clear_inventory() -> void:
 	for c in get_children():
 		c.queue_free()
-
 
 func update_inventory( i : int = 0 ) -> void:
 	clear_inventory()
@@ -43,8 +39,3 @@ func on_inventory_changed() -> void:
 	var i = focus_index
 	clear_inventory()
 	update_inventory( i )
-	
-	
-	
-	
-	

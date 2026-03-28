@@ -15,7 +15,6 @@ func _ready():
 	fade.play("fade_to_normal")
 	await fade.animation_finished
 	first_collision_shape.disabled = false
-	
 	bed_anim.play( "aki_wakeup")
 	await bed_anim.animation_finished
 	PlayerManager.player.visible = true
@@ -23,7 +22,6 @@ func _ready():
 func _on_fade_animation_finished(anim_name : String):
 	anim_name = "black_2s"
 	get_tree().change_scene_to_file("res://Levels/Scene1/void.tscn")
-
 
 func _on_animation_player_animation_started(anim_name):
 	pass # Replace with function body.

@@ -25,11 +25,9 @@ func _ready() -> void:
 		$CollectDriedFishDialog.monitoring = true
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
 
 func _on_yes_selected() -> void:
 	PlayerManager.INVENTORY_DATA.dry_all_fishes(raw_fish_item_data)
@@ -41,20 +39,15 @@ func _on_yes_selected() -> void:
 	$DryFishDialog/put_fishes_switch.is_activated = true
 	pass # Replace with function body.
 
-
 func _on_dry_fish_timer_timeout() -> void:
 	fish_grill_anim.play("dried_fish_9")
 	$DryFishDialog.enabled = false
 	$CollectDriedFishDialog.enabled = true
 	$CollectDriedFishDialog.monitoring = true
-	
 	pass # Replace with function body.
-
 
 func _on_dry_fish_dialog_body_entered(body: Player) -> void:
-		
 	pass # Replace with function body.
-
 
 func _on_yes_collect_selected() -> void:
 	PlayerManager.INVENTORY_DATA.collect_dried_fishes(dried_fish_item_data)

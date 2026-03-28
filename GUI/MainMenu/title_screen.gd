@@ -6,7 +6,6 @@ extends Node2D
 
 @export var music : AudioStream
 
-
 const START_LEVEL : String = "res://Levels/sample/Scene1/scene_1.tscn"
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +14,6 @@ func _ready() -> void:
 	%Settings.visible = false
 	set_fs_control_value()
 	$PlayerSpawn.position = Vector2(47, 60)
-	#get_tree().paused = true
 	PlayerManager.player.visible = false
 	PlayerManager.player.process_mode = Node.PROCESS_MODE_DISABLED
 	PlayerHud.visible = false
@@ -29,13 +27,8 @@ func _ready() -> void:
 		button_continue.visible = false
 		button_new.grab_focus()
 	setup_title_screen()
-	
 	LevelManager.level_load_started.connect( exit_title_screen )
-	
 	pass # Replace with function body.
-
-
-
 
 func setup_title_screen() -> void:
 	button_new.pressed.connect( start_game )
@@ -44,6 +37,8 @@ func setup_title_screen() -> void:
 	pass
 
 func start_game() -> void:
+	SaveManager.clear_save()
+	await get_tree().process_frame
 	LevelManager.load_new_level( START_LEVEL, "", Vector2.ZERO )
 	pass
 
@@ -65,17 +60,13 @@ func play_audio( _a : AudioStream) -> void:
 	audio_stream_player.stream = _a
 	audio_stream_player.play()
 
-
 func _on_button_quit_pressed() -> void:
 	get_tree().quit()
 	pass # Replace with function body.
 
-
 func _on_button_settings_pressed() -> void:
 	%Settings.visible = true
-	
 	pass # Replace with function body.
-
 
 func _on_button_continue_focus_entered() -> void:
 	close_settings()
@@ -84,8 +75,6 @@ func _on_button_continue_focus_entered() -> void:
 func close_settings() -> void:
 	%Settings.visible = false
 	pass
-	
-
 
 func _on_button_close_settings_pressed() -> void:
 	close_settings()

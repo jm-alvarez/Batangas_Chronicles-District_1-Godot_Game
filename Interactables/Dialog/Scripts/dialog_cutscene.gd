@@ -14,7 +14,6 @@ func _ready() -> void:
 	gather_actions()
 	pass
 
-
 func gather_actions() -> void:
 	for c in get_children():
 		if c is CutsceneAction:
@@ -37,15 +36,10 @@ func play() -> void:
 			a.play()
 	pass
 
-
 func _on_action_finished() -> void:
 	actions_finished_count += 1
 	if actions_finished_count >= actions.size():
 		finished.emit()
 	elif playback_mode == Mode.SEQUENTIAL:
 		actions[ actions_finished_count ].play()
-	#else:
-	#	for a in actions:
-	#		a.play()
-		
 	pass

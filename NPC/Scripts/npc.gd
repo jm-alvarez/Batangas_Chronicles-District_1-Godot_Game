@@ -20,7 +20,6 @@ func _ready() -> void:
 	gather_interactables()
 	do_behaviour_enabled.emit()
 	pass
-	
 
 func setup_npc() -> void:
 	if npc_resource:
@@ -30,13 +29,11 @@ func setup_npc() -> void:
 func _physics_process(_delta : float) -> void:
 	move_and_slide()
 
-
 func gather_interactables() -> void:
 	for c in get_children():
 		if c is DialogInteraction:
 			c.player_interacted.connect( _on_player_interacted )
 			c.finished.connect( _on_interaction_finished )
-
 
 func _on_player_interacted() -> void:
 	update_direction( PlayerManager.player.global_position )
@@ -44,7 +41,6 @@ func _on_player_interacted() -> void:
 	velocity = Vector2.ZERO
 	update_animation()
 	do_behaviour = false
-	
 	pass
 
 func _on_interaction_finished() -> void:
@@ -53,7 +49,6 @@ func _on_interaction_finished() -> void:
 	do_behaviour = true
 	do_behaviour_enabled.emit()
 	pass
-
 
 func update_animation() -> void:
 	animation.play( state + "_" + direction_name )
@@ -65,8 +60,6 @@ func update_direction(target_position : Vector2) -> void:
 		sprite_2d.flip_h = true
 	else:
 		sprite_2d.flip_h = false
-
-
 
 func update_direction_name() -> void:
 	var threshold : float = 0.45
@@ -80,3 +73,4 @@ func update_direction_name() -> void:
 func _set_npc_resource(_npc : NPCResource) -> void:
 	npc_resource = _npc
 	setup_npc()
+	

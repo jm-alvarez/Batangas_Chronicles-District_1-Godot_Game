@@ -15,11 +15,9 @@ func _ready() -> void:
 		$DialogCutscene.play()
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
 
 func _on_cutscene_action_animation_3_finished() -> void:
 	self.queue_free()

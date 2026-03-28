@@ -2,7 +2,7 @@ extends Node
 
 
 const SAVE_PATH ="user://"
-
+const SAVE_FILE = "user://save.sav"
 signal game_loaded
 signal game_saved
 
@@ -17,11 +17,8 @@ var current_save : Dictionary = {
 	items = [],
 	persistence = [],
 	quests = [
-		#{ title = "Not found", is_complete = false, completed_steps = [''] }
 	],
 }
-
-
 
 func save_game() -> void:
 	update_player_data()
@@ -62,7 +59,6 @@ func load_game() -> void:
 	print("load_game")
 	pass
 
-
 func update_player_data() -> void:
 	var p : Player = PlayerManager.player
 	current_save.player.hp = p.hp
@@ -76,7 +72,6 @@ func update_scene_path() -> void:
 	for c in get_tree().root.get_children():
 		if c is Level:
 			p = c.scene_file_path
-	
 	current_save.scene_path = p
 
 func update_item_data() -> void:
@@ -90,13 +85,18 @@ func add_persistent_value( value : String ) -> void:
 		current_save.persistence.append( value )
 	pass
 
-
 func remove_persistent_value( value : String ) -> void:
 	var p = current_save.persistence as Array
 	p.erase( value )
 	pass
 
-
 func check_persistent_value( value : String ) -> bool:
 	var p = current_save.persistence as Array
 	return p.has( value )
+
+func clear_save():
+	#var file = FileAccess.open( SAVE_PATH + "save.sav", FileAccess.WRITE )
+	#file.store_string("")
+	DirAccess.remove_absolute(SAVE_FILE)
+	print("save_data_cleared")
+	pass

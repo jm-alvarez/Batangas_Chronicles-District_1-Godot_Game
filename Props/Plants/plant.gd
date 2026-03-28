@@ -11,7 +11,6 @@ func _ready():
 		queue_free()
 	pass # Replace with function body.
 
-
 func TakeDamage ( _damage : HurtBox ) -> void:
 	queue_free()
 	isDestroyed = true

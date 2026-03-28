@@ -8,9 +8,6 @@ func _init() -> void:
 	connect_slots()
 	pass
 
-
-
-
 func add_item( item : ItemData, count : int = 1 ) -> bool:
 	for s in slots:
 		if s:
@@ -26,25 +23,14 @@ func add_item( item : ItemData, count : int = 1 ) -> bool:
 			slots[ i ] = new
 			new.changed.connect( slot_changed )
 			return true
-	
 	print("Inventory was full!")
 	
-	
 	return false
-
-#func remove_item( item : ItemData, count : int = 1 ) -> void:
-	#for s in slots:
-		#if s:
-			#if s.item_data == item:
-				#s.quantity += count
-				#if s.quantity == 0
-				#return
 
 func connect_slots() -> void:
 	for s in slots:
 		if s:
 			s.changed.connect( slot_changed )
-
 
 func slot_changed() -> void:
 	for s in slots:
@@ -54,9 +40,7 @@ func slot_changed() -> void:
 				var index = slots.find( s )
 				slots[ index ] = null
 				emit_changed()
-				
 	pass
-
 
 #Gather the inventory into an array
 func get_save_data() -> Array:
@@ -73,7 +57,6 @@ func item_to_save( slot : SlotData ) -> Dictionary:
 		result.quantity = slot.quantity
 		if slot.item_data != null:
 			result.item = slot.item_data.resource_path
-
 	return result
 
 func parse_save_data( save_data : Array ) -> void:
@@ -83,7 +66,6 @@ func parse_save_data( save_data : Array ) -> void:
 	for i in save_data.size():
 		slots[i] = item_from_save( save_data[ i ] )
 	connect_slots()
-
 
 func item_from_save( save_object : Dictionary ) -> SlotData:
 	if save_object.item == "":
@@ -130,8 +112,5 @@ func collect_dried_fishes(item : ItemData, count : int = fish_quantity):
 			new.changed.connect( slot_changed )
 			print("New Item: ", new.item_data.name, "QTY: ", new.quantity)
 			return true
-	
 	print("Dried fish collected")
-	
-	
 	return false

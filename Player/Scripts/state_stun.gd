@@ -6,7 +6,6 @@ class_name State_Stun extends State
 
 var hurt_box : HurtBox
 var direction : Vector2
-
 var next_state : State = null
 
 @onready var idle : State = $"../Idle"
@@ -17,15 +16,12 @@ func init() -> void:
 
 func Enter() -> void:
 	player.animation_player.animation_finished.connect( _animation_finished )
-	
 	direction = player.global_position.direction_to( hurt_box.global_position )
 	player.velocity = direction * -knockback_speed
 	player.SetDirection()
-	
 	player.UpdateAnimation("stun")
 	player.make_invulnerable( invulnerable_duration )
 	player.effect_animation_player.play( "damaged" )
-	
 	PlayerManager.shake_camera( hurt_box.damage )
 	pass
 
@@ -34,14 +30,12 @@ func Exit() -> void:
 	player.animation_player.animation_finished.disconnect( _animation_finished )
 	pass
 
-
 func Process(_delta : float) -> State:
 	player.velocity -= player.velocity * decelerate_speed * _delta
 	return next_state
 
 func Physics(_delta : float) -> State:
 	return null
-
 
 func HandleInput(_event : InputEvent) -> State:
 	return null
@@ -51,7 +45,6 @@ func _player_damaged( _hurt_box : HurtBox ) -> void:
 	if state_machine.current_state != death:
 		state_machine.ChangeState( self )
 	pass
-
 
 func _animation_finished( _a: String ) -> void:
 	next_state = idle

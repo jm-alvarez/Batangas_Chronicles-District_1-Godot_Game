@@ -61,14 +61,12 @@ func calculate_distance_to_target() -> float:
 func _on_tween_finished() -> void:
 	print("Finished")
 	object_to_move.process_mode = Node.PROCESS_MODE_INHERIT
-	
 	if object_to_move is NPC:
 		var npc : NPC = object_to_move
 		npc.do_behaviour = true
 		npc.state = "idle"
 		npc.animation.speed_scale = 1
 		npc.process_mode = Node.PROCESS_MODE_INHERIT
-		
 	finished.emit()
 	pass
 

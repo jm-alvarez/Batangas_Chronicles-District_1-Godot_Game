@@ -7,11 +7,9 @@ const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
-
 var invulnerable : bool = false
 var hp: int = 6
 var max_hp: int = 6
-
 var is_game_over : bool = false
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
@@ -19,7 +17,6 @@ var is_game_over : bool = false
 @onready var hit_box : HitBox = $hit_box
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine : PlayerStateMachine = $StateMachine
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,55 +26,38 @@ func _ready():
 	update_hp(99)
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process( delta : float) -> void:
-	
-	# direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	# direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
-	# direction = direction.normalized()
-	
 	direction = Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")
 	).normalized()
-	
 	pass
 
 func _physics_process(delta: float) -> void:
 	if is_game_over:
 		velocity = Vector2.ZERO
 		return
-	
 	move_and_slide()
-
 
 func SetDirection() -> bool:
 	var new_dir : Vector2 = cardinal_direction
 	if direction == Vector2.ZERO:
 		return false
-	
 	if is_game_over:
 		return false
-	
 	if direction.y == 0:
 		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
 	elif direction.x == 0:
 		new_dir = Vector2.UP if direction.y < 0 else Vector2.DOWN
-	
 	if new_dir == cardinal_direction:
 		return false
-	
-	
 	cardinal_direction = new_dir
 	DirectionChanged.emit( new_dir )
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
-	
 
 func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action_pressed("test"):
-		#PlayerManager.shake_camera()
 	pass
 
 func UpdateAnimation(state : String) -> void:
@@ -92,24 +72,14 @@ func AnimDirection ()-> String:
 	else:
 		return "side"
 		
-		
-		
 func _take_damage( hurt_box : HurtBox ) -> void:
 	if invulnerable == true:
 		return
 	
 	if hp > 0:
 		var dmg : int = hurt_box.damage
-		
-		# Simple damage calculation that subtracts defense value
-		# will keep damage to a minimum of 1, so we will do an if check
-		# to allow 0 to still be passed by a hurt_box if needed
-		#if dmg > 0:
-			#dmg = clampi( dmg - defense - defense_bonus, 1, dmg )
-		
 		update_hp( -dmg )
 		player_damaged.emit( hurt_box )
-	
 	pass
 
 func update_hp( delta : int ) -> void:
@@ -120,15 +90,12 @@ func update_hp( delta : int ) -> void:
 func make_invulnerable( _duration : float = 1.0 ) -> void:
 	invulnerable = true
 	hit_box.monitoring = false
-	
 	await get_tree().create_timer( _duration ).timeout
-	
 	invulnerable = false
 	hit_box.monitoring = true
 	pass
 
 func revive_player() -> void:
-	#get_tree().paused = false
 	update_hp( 99 )
 	state_machine.ChangeState( $StateMachine/Idle )
 

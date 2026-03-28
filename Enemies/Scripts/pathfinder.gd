@@ -21,7 +21,6 @@ var best_path : Vector2 = Vector2.ZERO
 
 @onready var timer: Timer = $Timer
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Gather all Raycast2D Nodes
@@ -41,7 +40,6 @@ func _ready() -> void:
 	timer.timeout.connect( set_path )
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Gradually update move_dir towards best_path.
@@ -50,7 +48,6 @@ func _process(delta: float) -> void:
 	# or directionally confused looking behaviors from enemies.
 	move_dir = lerp( move_dir, best_path, 10 * delta )
 	pass
-
 
 # Set the "best_path" vector by checking for desired direction and considering obstacles
 func set_path() -> void:
@@ -91,7 +88,6 @@ func set_path() -> void:
 	best_path = vectors[ outcomes.find( outcomes.max() ) ]
 	pass
 
-
 # Returns the next index value, wrapping at 8
 func get_next_i( i : int ) -> int:
 	var n_i : int = i + 1
@@ -99,7 +95,6 @@ func get_next_i( i : int ) -> int:
 		return 0
 	else:
 		return n_i
-
 
 # Returns the previous index value, wrapping at -1
 func get_prev_i( i : int ) -> int:

@@ -1,11 +1,8 @@
 class_name Level extends Node2D
 
-
-
 @export var FirstTextString : String 
 @export var FirstTextAnim : AnimationPlayer
 @export var music : AudioStream
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,18 +20,11 @@ func _free_level()-> void:
 	PlayerManager.unparent_player( self )
 	queue_free()
 
-
-#func _on_static_body_2d_body_entered(body : NPC):
-#
-		#body.queue_free()
-
 func setFirstText():
 	%FirstTextLabel.text = FirstTextString
 
-
 #CALATAGAN
 #Q1
-
 func _on_q_1a_selected() -> void:
 	pass # Replace with function body.
 
@@ -94,7 +84,6 @@ func _on_lq_2b_selected() -> void:
 
 #NASUGBU
 #Q1
-
 func _on_nq_1a_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
 	PlayerManager.player.end_game()
@@ -134,7 +123,6 @@ func _on_tq_1d_selected() -> void:
 	pass # Replace with function body.
 
 #Q2
-
 func _on_tq_2a_selected() -> void:
 	await get_tree().create_timer(2.0).timeout
 	PlayerManager.player.end_game()

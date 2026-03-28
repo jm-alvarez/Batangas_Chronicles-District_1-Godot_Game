@@ -1,7 +1,6 @@
 class_name Rock extends Node2D
 
 @onready var is_destroyed: PersistentDataHandler = $isDestroyed
-
 @export var hp : int = 5
 
 var isDestroyed : bool = false
@@ -13,7 +12,6 @@ func _ready():
 	if isDestroyed:
 		queue_free()
 	pass # Replace with function body.
-
 
 func TakeDamage ( _damage : HurtBox ) -> void:
 	if hp <= 0:

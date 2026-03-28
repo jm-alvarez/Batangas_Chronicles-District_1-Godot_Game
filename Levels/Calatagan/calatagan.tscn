@@ -881,84 +881,138 @@ Checking if quest is complete"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="SpanishSoldier" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3028, 892)
 
 [node name="SpanishSoldier2" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2992, 885)
 
 [node name="SpanishSoldier3" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2757, 747)
 
 [node name="SpanishSoldier4" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2809, 625)
 
 [node name="SpanishSoldier5" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3115, 892)
 
 [node name="SpanishSoldier6" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2706, 806)
 
 [node name="SpanishSoldier7" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2816, 796)
 
 [node name="SpanishSoldier8" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2949, 686)
 
 [node name="SpanishSoldier9" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2997, 684)
 
 [node name="SpanishSoldier10" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2862, 732)
 
 [node name="SpanishSoldier11" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2700, 704)
 
 [node name="SpanishSoldier12" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3096, 874)
 
 [node name="SpanishSoldier13" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3001, 787)
 
 [node name="SpanishSoldier14" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3069, 892)
 
 [node name="SpanishSoldier15" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3208, 902)
 
 [node name="SpanishSoldier16" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3146, 719)
 
 [node name="SpanishSoldier17" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3058, 665)
 
 [node name="SpanishSoldier18" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2798, 815)
 
 [node name="SpanishSoldier19" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2770, 698)
 
 [node name="SpanishSoldier20" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2540, 591)
 
 [node name="SpanishSoldier21" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2975, 490)
 
 [node name="SpanishSoldier22" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2840, 820)
 
 [node name="SpanishSoldier23" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3176, 635)
 
 [node name="SpanishSoldier24" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2914, 589)
 
 [node name="SpanishSoldier25" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2639, 698)
 
 [node name="SpanishSoldier26" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-2647, 791)
 
 [node name="SpanishSoldier27" parent="show_enemies" instance=ExtResource("26_53f33")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(-3165, 897)
 
 [node name="TreasureChest" parent="." instance=ExtResource("27_8hu2k")]

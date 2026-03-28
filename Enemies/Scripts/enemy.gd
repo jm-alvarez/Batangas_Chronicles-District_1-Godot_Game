@@ -23,7 +23,6 @@ var isKilled : bool = false
 @onready var hurt_box = $hurt_box
 @onready var is_killed: PersistentDataHandler = $isKilled
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_state()
@@ -33,44 +32,38 @@ func _ready():
 	if isKilled:
 		self.queue_free()
 		return
-	
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-
 func _physics_process(_delta):
 	move_and_slide()
 	pass 
-
 
 func set_direction( _new_direction : Vector2 ) -> bool:
 	direction = _new_direction
 	if direction == Vector2.ZERO:
 		return false
-	
+		
 	var direction_id : int = int( round(
 			( direction + cardinal_direction * 0.1 ).angle()
 			/ TAU * DIR_4.size()
 	))
-	var new_dir = DIR_4[ direction_id ]
 	
+	var new_dir = DIR_4[ direction_id ]
 	if new_dir == cardinal_direction:
 		return false
-	
+		
 	cardinal_direction = new_dir
 	direction_changed.emit( new_dir )
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
 
-
 func update_animation( state : String ) -> void:
 	animation_player.play( state + "_" + anim_direction() )
 	pass
-
 
 func anim_direction() -> String:
 	if cardinal_direction == Vector2.DOWN:
@@ -84,7 +77,7 @@ func _take_damage(  hurt_box : HurtBox ) -> void:
 	if invulnerable == true:
 		return
 	hp -= hurt_box.damage
-	#PlayerManager.shake_camera()
+	PlayerManager.shake_camera()
 	if hp > 0:
 		enemy_damaged.emit( hurt_box )
 	else:

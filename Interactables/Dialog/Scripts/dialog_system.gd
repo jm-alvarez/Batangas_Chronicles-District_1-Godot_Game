@@ -8,11 +8,9 @@ var is_active : bool = false
 var text_in_progress : bool = false
 var waiting_for_choice : bool = false
 var watching_cutscene : bool = false
-
 var text_speed : float = 0.04
 var text_length : int =  0
 var plain_text : String
-
 var dialog_items : Array[ DialogItem ]
 var dialog_item_index : int = 0
 
@@ -26,7 +24,6 @@ var dialog_item_index : int = 0
 @onready var audio_stream_player_2d = $DialogUI/AudioStreamPlayer2D
 @onready var choice_options = $DialogUI/VBoxContainer
 
-
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		if get_viewport() is Window:
@@ -37,7 +34,6 @@ func _ready() -> void:
 	timer.timeout.connect( _on_timer_timeout )
 	hide_dialog()
 	pass
-
 
 func _unhandled_input(event):
 	if is_active == false or watching_cutscene == true:
@@ -56,9 +52,7 @@ func _unhandled_input(event):
 			return
 		elif waiting_for_choice == true :
 			return
-		
 		advance_dialog()
-	
 	pass
 
 func advance_dialog() -> void:
@@ -70,7 +64,6 @@ func advance_dialog() -> void:
 	
 func show_dialog( _items : Array [DialogItem] ) -> void:
 	is_active = true
-	
 	if _items:
 		if _items[0] is DialogCutscene:
 			dialog_ui.visible = false
@@ -80,7 +73,6 @@ func show_dialog( _items : Array [DialogItem] ) -> void:
 		for i in _items:
 			if i is DialogCutscene:
 					$CutsceneUI/AnimationPlayer.play("start")
-					
 	dialog_ui.process_mode = Node.PROCESS_MODE_ALWAYS
 	dialog_items = _items
 	dialog_item_index = 0
@@ -89,7 +81,6 @@ func show_dialog( _items : Array [DialogItem] ) -> void:
 	await get_tree().process_frame
 	start_dialog()
 	pass
-	
 
 func hide_dialog() -> void:
 	is_active = false
@@ -103,12 +94,10 @@ func hide_dialog() -> void:
 	$CutsceneUI/AnimationPlayer.play("end")
 	pass
 
-
 func start_dialog() -> void:
 	waiting_for_choice = false
 	show_dialog_button_indicator( false )
 	var _d : DialogItem = dialog_items[ dialog_item_index ]
-	
 	if _d is DialogText:
 		set_dialog_text( _d as DialogText )
 	elif _d is DialogChoice:
@@ -128,14 +117,13 @@ func start_dialog_cutscene( _d : DialogCutscene ) -> void:
 	dialog_ui.visible = true
 	advance_dialog()
 	pass
-
+	
 #Once set, start text typing time
 func set_dialog_text( _d : DialogText ) -> void:
 	content.text = _d.text
 	name_label.text = _d.npc_info.npc_name
 	portrait_sprite.texture = _d.npc_info.portrait
 	portrait_sprite.audio_pitch_base = _d.npc_info.dialog_audio_pitch
-	
 	content.visible_characters = 0
 	text_length = content.get_total_character_count()
 	plain_text = content.get_parsed_text()
@@ -159,8 +147,6 @@ func set_dialog_choice( _d : DialogChoice ) -> void:
 	
 	await get_tree().process_frame
 	choice_options.get_child( 0 ).grab_focus()
-	
-	
 	pass
 
 func _dialog_choice_selected( _d : DialogBranch ) -> void:
@@ -174,14 +160,10 @@ func _on_timer_timeout() -> void:
 	if content.visible_characters <= text_length:
 		letter_added.emit( plain_text[ content.visible_characters - 1 ] )
 		start_timer()
-	
 	else:
 		show_dialog_button_indicator( true )
 		text_in_progress = false
-	
 	pass
-
-
 
 func show_dialog_button_indicator(_is_visible : bool) -> void:
 	dialog_progress_indicator.visible = _is_visible
@@ -189,7 +171,6 @@ func show_dialog_button_indicator(_is_visible : bool) -> void:
 		dialog_progress_indicator_label.text = "NEXT"
 	else:
 		dialog_progress_indicator_label.text = "END"	
-
 
 func start_timer() -> void:
 	timer.wait_time = text_speed
@@ -199,5 +180,4 @@ func start_timer() -> void:
 	elif ', '.contains( _char ):
 		timer.wait_time *= 2 
 	timer.start()
-	
 	pass

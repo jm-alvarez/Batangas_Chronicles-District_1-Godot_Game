@@ -4,9 +4,6 @@ class_name TreasureChest extends Node2D
 @export var item_data : ItemData : set = _set_item_data
 @export var quantity : int  =  1 : set = _set_quantity
 
-#@export var item_data : String = "Fish"
-#@export var quantity : int = 2
-
 var is_opened : bool = false
 
 @onready var item_sprite = $ItemSprite
@@ -15,14 +12,12 @@ var is_opened : bool = false
 @onready var interact_area = $Area2D
 @onready var is_open_data : PersistentDataHandler = $isOpen
 
-
 func _ready() -> void:
 	_update_texture()
 	_update_label()
 	
 	if Engine.is_editor_hint():
 		return
-	
 	interact_area.area_entered.connect( _on_area_enter )
 	interact_area.area_exited.connect( _on_area_exit )
 	is_open_data.data_loaded.connect( set_chest_state )
@@ -54,9 +49,7 @@ func player_interact() -> void:
 
 func _on_area_enter( _a : Area2D ) -> void:
 	PlayerManager.interact_pressed.connect( player_interact )
-	
 	pass
-
 
 func _on_area_exit( _a : Area2D ) -> void:
 	PlayerManager.interact_pressed.disconnect( player_interact )
@@ -76,7 +69,6 @@ func _update_texture() -> void:
 	if item_data and item_sprite: 
 		item_sprite.texture = item_data.texture
 		pass
-
 
 func _update_label() -> void:
 	if label:

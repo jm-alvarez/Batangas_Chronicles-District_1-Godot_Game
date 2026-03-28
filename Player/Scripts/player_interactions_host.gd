@@ -7,7 +7,6 @@ func _ready():
 	player.DirectionChanged.connect( UpdateDirection )
 	pass # Replace with function body.
 
-
 func UpdateDirection( new_direction : Vector2) -> void:
 	match new_direction:
 		Vector2.DOWN:

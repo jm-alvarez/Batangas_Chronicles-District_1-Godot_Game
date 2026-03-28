@@ -6,8 +6,6 @@ class_name DialogItem extends Node
 var editor_selection # : EditorSelection
 var example_dialog : DialogSystemNode
 
-
-
 func _ready():
 	if Engine.is_editor_hint():
 		return
@@ -25,4 +23,3 @@ func check_npc_data():
 					_checking = false
 				else:
 					_checking = false
-				

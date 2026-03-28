@@ -6,8 +6,6 @@ signal damaged(  hurt_box : HurtBox )
 func _ready():
 	pass # Replace with function body.
 
-
-
 func TakeDamage( hurt_box : HurtBox) -> void:
 	print( "TakeDamage: ", hurt_box )
 	damaged.emit( hurt_box )
