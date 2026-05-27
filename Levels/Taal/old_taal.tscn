@@ -4712,7 +4712,7 @@ metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="LC9" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit" instance=ExtResource("9_usta1")]
 unique_name_in_owner = true
-position = Vector2(980.96, -586.0389)
+position = Vector2(980.96, -592.11316)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LC9" instance=ExtResource("11_c74rc")]
@@ -4788,7 +4788,7 @@ npc_resource = ExtResource("33_lkt2a")
 wander_range = 1
 
 [node name="LC10" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit" instance=ExtResource("9_usta1")]
-position = Vector2(980.96, -586.0389)
+position = Vector2(980.96, -592.11316)
 npc_resource = ExtResource("33_lkt2a")
 
 [node name="NPCWanderBehaviour" parent="Taal_Quest_2/Hide_LC_at_Pansipit/Show_LC_at_Pansipit/LocalCitizensAtPansipit/LC10" instance=ExtResource("11_c74rc")]
@@ -7521,9 +7521,10 @@ check_type = 1
 remove_when_activated = true
 react_to_global_signal = true
 linked_quest = ExtResource("38_1s36y")
+quest_step = 1
 settings_summary = "UPDATE QUEST:
  Quest: Gathering Before the Ash
-Checking if player has completed step: N/A"
+Checking if player has completed step: tell all the citizens to evacuate"
 metadata/_custom_type_script = "uid://6im7on6coqur"
 
 [node name="Boulder" parent="hide_pansipit_boulder" instance=ExtResource("16_vncit")]
